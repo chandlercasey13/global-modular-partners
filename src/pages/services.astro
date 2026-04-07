@@ -1,0 +1,578 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    num: '01',
+    title: 'Feasibility Analysis',
+    description:
+      'Work with developers to complete feasibility analysis for volumetric construction to promote modular projects.',
+  },
+  {
+    num: '02',
+    title: 'Technical Support',
+    description:
+      'Provide technical support throughout the various stages of projects, from concept through completion.',
+  },
+  {
+    num: '03',
+    title: 'Entitlements & Permits',
+    description:
+      'Assist with obtaining entitlements and building permits from local jurisdictions and state agencies.',
+  },
+  {
+    num: '04',
+    title: 'Shop Drawings & Coordination',
+    description:
+      'Work with client architects, structural engineers, and MEP professionals on preparing detailed shop drawings.',
+  },
+  {
+    num: '05',
+    title: 'Production Management',
+    description:
+      'Manage and oversee full modular production processes at partnered manufacturing facilities.',
+  },
+  {
+    num: '06',
+    title: 'Logistics & Installation',
+    description:
+      'Coordinate with shipping, logistics, and expert installation companies to ensure efficient delivery and assembly of modular units.',
+  },
+  {
+    num: '07',
+    title: 'Inspections & Approvals',
+    description:
+      'Coordinate project inspections and approvals with permitting agencies including local jurisdictions and State HCD.',
+  },
+  {
+    num: '08',
+    title: 'Project Closeout',
+    description:
+      'Assist with project closeout including final documentation, certifications, and warranty handover.',
+  },
+];
+
+const values = [
+  {
+    title: '30–50% Faster',
+    body: 'Construction occurs simultaneously with site work, compressing schedules by 30–50% versus traditional methods.',
+  },
+  {
+    title: 'Superior Quality',
+    body: 'Factory-controlled manufacturing ensures exceptional construction quality with repeatable precision.',
+  },
+  {
+    title: 'Greener Building',
+    body: 'Less material waste, greater flexibility for reuse, and reduced carbon emissions from construction.',
+  },
+  {
+    title: 'Safer Construction',
+    body: 'Indoor factory environment reduces risks of accidents and related liabilities for workers.',
+  },
+  {
+    title: 'Cost Efficient',
+    body: 'Reduced material waste, less site overhead, and fewer weather delays lower overall project costs.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What types of modular buildings can you construct?',
+    a: 'We deliver healthcare, administrative, housing, training, and specialty facilities—configured for government, commercial, and institutional programs. Scope ranges from single modules to multi-building campuses.',
+  },
+  {
+    q: 'Do you handle government/DoD projects?',
+    a: 'Yes. We align with federal requirements, security considerations, and documentation expectations typical of DoD and agency work, working alongside your contracting officers and A/E teams.',
+  },
+  {
+    q: 'How long does a typical modular project take?',
+    a: 'Timelines depend on scope, site readiness, and approvals. Parallel factory production and site work often compress schedules significantly versus stick-built delivery; we provide a phased plan after discovery.',
+  },
+  {
+    q: 'Do you offer warranties on completed projects?',
+    a: 'We stand behind our work with structured warranty and support options. Specific terms are defined per contract and asset class.',
+  },
+  {
+    q: 'Can you work with existing architects and engineers?',
+    a: 'Absolutely. We integrate with your design partners—supporting BIM coordination, design-assist, and design-build models to keep a single thread from concept through turnover.',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Multipurpose modular construction services: consulting, design-build, procurement, installation, support, and emergency deployment."
+>
+  <Header slot="header" />
+
+  <!-- Hero Banner -->
+  <section class="hero-wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <nav class="breadcrumb fade-up" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>Services</span>
+        </nav>
+        <h1 class="hero-title fade-up">Our Multipurpose<br />Construction Solutions</h1>
+        <p class="hero-sub fade-up">
+          We craft customized, forward-thinking modular solutions that tackle challenges, inspire
+          innovation, and turn your vision into reality.
+        </p>
+        <div class="hero-actions fade-up">
+          <a href="/contact" class="mnc-btn mnc-btn--dark">
+            Start a Project
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+          </a>
+          <a href="/departments/modular" class="mnc-btn mnc-btn--stroke">
+            View Our Work
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Accordion -->
+  <section class="section-gap svc-list-section">
+    <div class="mnc-container">
+      <div class="svc-header fade-up">
+        <span class="section-tag">What We Deliver</span>
+        <h2 class="section-title">Services built for scale <span class="section-span">from concept to completion</span></h2>
+        <p class="svc-lead">
+          From first conversation through long-term operations, we align teams, suppliers, and site
+          execution around your outcomes.
+        </p>
+      </div>
+      <div class="svc-accordion">
+        {services.map((s) => (
+          <details class="svc-accordion__item fade-up" name="gmp-services">
+            <summary class="svc-accordion__summary">
+              <span class="svc-accordion__num">{s.num}</span>
+              <span class="svc-accordion__title">{s.title}</span>
+              <span class="svc-accordion__chevron" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="svc-accordion__body">
+              <p>{s.description}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Section -->
+  <section class="section-gap svc-value-section">
+    <div class="mnc-container">
+      <div class="val-header fade-up">
+        <span class="section-tag">Outcomes</span>
+        <h2 class="section-title">Value we create <span class="section-span">for every engagement</span></h2>
+        <p class="val-lead">Measurable advantages our clients expect from a modern modular program.</p>
+      </div>
+      <div class="val-grid">
+        {values.map((v) => (
+          <article class="val-card fade-up">
+            <h3 class="val-card__title">{v.title}</h3>
+            <p class="val-card__body">{v.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-gap svc-faq-section">
+    <div class="mnc-container">
+      <div class="faq-header fade-up">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Questions we hear often <span class="section-span">answered clearly</span></h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item fade-up" name="gmp-faq">
+            <summary class="faq-item__summary">
+              <span class="faq-item__q">{item.q}</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-item__answer">
+              <p>{item.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-gap svc-cta-section">
+    <div class="mnc-container">
+      <div class="cta-inner fade-up">
+        <h2 class="cta-title">Let's Discuss Your Project</h2>
+        <p class="cta-sub">
+          Tell us about your timeline, site, and stakeholders—we will map the right modular path forward.
+        </p>
+        <div class="cta-actions">
+          <a href="/contact" class="mnc-btn mnc-btn--dark" style="background: var(--amber); border-color: var(--amber); color: var(--navy);">
+            Contact Us
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+          </a>
+          <a href="/departments/modular" class="mnc-btn mnc-btn--stroke">
+            Explore Modular
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  /* ── Shared MNC tokens ── */
+  .mnc-container { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+  .section-gap { padding: 100px 0; }
+  .section-tag {
+    display: inline-block;
+    border: 1px solid var(--amber);
+    border-radius: 4px;
+    padding: 4px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+  }
+  .section-span { color: var(--amber); }
+  .mnc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid var(--navy);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .mnc-btn--dark { background: var(--amber); border-color: var(--amber); color: var(--navy); font-weight: 700; }
+  .mnc-btn--dark:hover { background: var(--amber-dark); border-color: var(--amber-dark); color: var(--white); box-shadow: 0 4px 16px rgba(224,161,53,.35); }
+  .mnc-btn--outline { background: transparent; color: var(--navy); }
+  .mnc-btn--outline:hover { background: var(--navy); color: var(--white); }
+  .mnc-btn--stroke { background: transparent; border-color: rgba(255,255,255,.4); color: var(--white); }
+  .mnc-btn--stroke:hover { border-color: var(--amber); color: var(--amber); background: rgba(224,161,53,.08); }
+  .mnc-btn__icon { display: flex; width: 20px; height: 20px; }
+  .mnc-btn__icon svg { width: 100%; height: 100%; }
+
+  /* ── Hero Banner ── */
+  .hero-wrap { padding: 16px; }
+  .hero-inner {
+    height: 560px;
+    border-radius: 8px;
+    background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 45%, var(--navy-light) 100%);
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 20%, rgba(224,161,53,.08), transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(0,0,0,.15), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; padding: 120px 1.5rem 60px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px)); width: 100%; }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 20px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,.5); }
+  .breadcrumb a:hover { color: var(--amber); }
+  .breadcrumb__sep { color: rgba(255,255,255,.25); }
+  .hero-wrap .section-tag { border-color: var(--amber); color: var(--amber); }
+  .hero-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--white);
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,.65);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ── Services Accordion ── */
+  .svc-list-section { background: var(--white); }
+  .svc-header { max-width: 720px; margin-bottom: 48px; }
+  .svc-lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-gray);
+    margin: 0;
+  }
+  .svc-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .svc-accordion__item {
+    background: var(--white);
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .svc-accordion__item:hover { border-color: var(--navy); }
+  .svc-accordion__item[open] {
+    border-color: var(--navy);
+    box-shadow: 0 4px 16px rgba(36,55,85,.08);
+  }
+  .svc-accordion__summary {
+    display: grid;
+    grid-template-columns: 48px 1fr 36px;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-secondary);
+    color: var(--dark-text);
+  }
+  .svc-accordion__summary::-webkit-details-marker { display: none; }
+  .svc-accordion__num {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+  }
+  .svc-accordion__title {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 600;
+  }
+  .svc-accordion__chevron {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    transition: transform 0.3s ease, background 0.25s ease;
+    flex-shrink: 0;
+  }
+  .svc-accordion__item[open] .svc-accordion__chevron {
+    transform: rotate(180deg);
+    background: rgba(224,161,53,.15);
+  }
+  .svc-accordion__body {
+    padding: 0 24px 20px 84px;
+    border-top: 1px solid #ececec;
+  }
+  .svc-accordion__body p {
+    margin: 0;
+    padding-top: 16px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-gray);
+    max-width: 52rem;
+  }
+
+  @media (max-width: 640px) {
+    .svc-accordion__body { padding-left: 24px; }
+    .svc-accordion__summary { grid-template-columns: 36px 1fr 32px; padding: 16px; }
+  }
+
+  /* ── Value Section ── */
+  .svc-value-section { background: var(--off-white); }
+  .val-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .val-lead {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-gray);
+    margin: 0;
+  }
+  .val-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+  .val-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 28px 20px;
+    border: 1px solid rgba(0,0,0,.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .val-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(36,55,85,.08);
+  }
+  .val-card__title {
+    font-family: var(--font-secondary);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .val-card__body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .val-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .val-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .val-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── FAQ Section ── */
+  .svc-faq-section { background: var(--white); }
+  .faq-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .faq-item {
+    background: var(--white);
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .faq-item:hover { border-color: var(--navy); }
+  .faq-item[open] {
+    border-color: var(--navy);
+    box-shadow: 0 4px 16px rgba(36,55,85,.08);
+  }
+  .faq-item__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-text);
+  }
+  .faq-item__summary::-webkit-details-marker { display: none; }
+  .faq-item__q { flex: 1; text-align: left; line-height: 1.4; }
+  .faq-item__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.25s ease;
+  }
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+    background: rgba(224,161,53,.15);
+  }
+  .faq-item__answer { padding: 0 24px 18px; }
+  .faq-item__answer p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-gray);
+  }
+
+  /* ── CTA Section ── */
+  .svc-cta-section {
+    background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 45%, var(--navy-light) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .svc-cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(224,161,53,.1), transparent),
+                radial-gradient(ellipse 60% 50% at 10% 90%, rgba(0,0,0,.12), transparent);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .cta-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .cta-sub {
+    color: rgba(255,255,255,.65);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .section-gap { padding: 60px 0; }
+    .hero-inner { height: 480px; }
+    .hero-content { padding: 80px 1.5rem 40px; }
+  }
+</style>

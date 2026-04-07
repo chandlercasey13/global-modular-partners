@@ -1,0 +1,1539 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const departments = [
+  {
+    num: '01',
+    title: 'Modular Construction',
+    href: '/departments/modular',
+    description: 'Innovative off-site building solutions for commercial, residential, and industrial applications.',
+    bullets: [
+      { title: 'Design-Build Capability', sub: 'End-to-end project delivery' },
+      { title: 'Prefabricated Modules', sub: 'Factory-built precision' },
+      { title: 'Sustainable Materials', sub: 'Eco-conscious construction' },
+    ],
+  },
+  {
+    num: '02',
+    title: 'Project Management',
+    href: '/departments/project-management',
+    description: 'Expert project delivery with DoD/Military compliance and proven methodology.',
+    bullets: [
+      { title: 'DoD Compliance', sub: 'Military-grade standards' },
+      { title: 'Risk Management', sub: 'Proactive mitigation' },
+      { title: 'Quality Assurance', sub: 'ISO-certified processes' },
+    ],
+  },
+  {
+    num: '03',
+    title: 'Healthcare Facilities',
+    href: '/departments/healthcare',
+    description: 'Modular medical facilities through our partnership with Hospitals Without Borders.',
+    bullets: [
+      { title: 'Telemedicine Centers', sub: 'Remote care infrastructure' },
+      { title: 'Modular Clinics', sub: 'Rapid deployment medical' },
+      { title: 'Emergency Response', sub: 'Disaster-ready facilities' },
+    ],
+  },
+  {
+    num: '04',
+    title: 'Civil Construction',
+    href: '/departments/civil',
+    description: 'Infrastructure and civil construction projects through Agbayani Construction.',
+    bullets: [
+      { title: 'Bridge Systems', sub: 'Engineered crossings' },
+      { title: 'Utility Installation', sub: 'Underground infrastructure' },
+      { title: 'Road & Highway', sub: 'Transportation networks' },
+    ],
+  },
+];
+
+const stats = [
+  { value: '30%–50%', label: 'Faster Than Traditional' },
+  { value: '28', label: 'Day ADU Delivery' },
+  { value: '2019', label: 'Year Founded' },
+  { value: '10+', label: 'Trade Partners' },
+];
+
+const reachStats = [
+  { value: '10+', label: 'Trade Partners', desc: 'Manufacturers, engineers & contractors', dark: true, span: 'col1' },
+  { value: '2', label: 'Offices', desc: 'Oakland headquarters & Irvine operations', dark: false, span: 'col3' },
+  { value: '50%', label: 'Time Savings', desc: 'Faster than traditional construction', dark: true, span: 'col6' },
+  { value: '28', label: 'Day ADU', desc: 'Accelerated dwelling unit delivery', dark: true, span: 'col7' },
+];
+
+const testimonials = [
+  {
+    quote: 'Global Modular Partners delivered our facility on time and under budget. Their modular approach reduced our construction timeline by 40%.',
+    author: 'James Mitchell',
+    title: 'Director of Operations',
+    company: 'DEF Logistics',
+    savings: '$2.5M+',
+    savingsLabel: 'Cost Savings',
+    years: '5+',
+    yearsLabel: 'Years of Collaboration',
+    service: 'Modular Construction',
+    serviceLabel: 'Service Type',
+  },
+  {
+    quote: 'The DoD compliance expertise was exactly what we needed. Professional, thorough, and the finished facility exceeded our specifications.',
+    author: 'Sarah Chen',
+    title: 'Project Manager',
+    company: 'Federal Construction Co.',
+    savings: '$1.8M+',
+    savingsLabel: 'Cost Savings',
+    years: '3+',
+    yearsLabel: 'Years of Collaboration',
+    service: 'DoD Compliance',
+    serviceLabel: 'Service Type',
+  },
+  {
+    quote: 'Working with GMP on our healthcare facility was seamless. Their partnership with HWB brought world-class expertise to our community.',
+    author: 'Dr. Michael Torres',
+    title: 'Chief Medical Officer',
+    company: 'Regional Health Systems',
+    savings: '$3.2M+',
+    savingsLabel: 'Cost Savings',
+    years: '4+',
+    yearsLabel: 'Years of Collaboration',
+    service: 'Healthcare',
+    serviceLabel: 'Service Type',
+  },
+];
+
+const blogPosts = [
+  {
+    category: 'Sustainability',
+    title: 'The Road to Net-Zero: Modular Sustainability',
+    excerpt: 'Explore how modular construction is reducing carbon footprint while maintaining quality and efficiency.',
+  },
+  {
+    category: 'Government',
+    title: 'DoD Procurement: What You Need to Know',
+    excerpt: 'Understanding the requirements for government modular construction contracts.',
+  },
+  {
+    category: 'Partnership',
+    title: 'HWB Partnership Expands Healthcare Reach',
+    excerpt: 'Our partnership with Hospitals Without Borders brings modular clinics to underserved regions.',
+  },
+];
+
+const partners = ['West Modular', 'PROSET Construction', 'TRUE NORTH Compliance', 'EnTech Engineering', 'Agbayani Construction', 'STREAM Logistics', 'ATCCO Construction', 'Petra Air Conditioning', 'Petra Aluminum', 'Abstract Architecture'];
+
+const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+---
+
+<Layout title="Home">
+  <Header slot="header" />
+
+  <!-- ════════ 1. BANNER SECTION ════════ -->
+  <section class="banner">
+    <div class="banner__pad">
+      <div class="banner__inner">
+        <div class="banner__overlay"></div>
+        <div class="banner__content">
+          <div class="banner__container">
+            <div class="banner__tag fade-up">
+              <span class="banner__dot"></span>
+              Trusted by government & industry leaders
+            </div>
+            <h1 class="banner__h1 fade-up">Building the Future with Modular Innovation</h1>
+            <p class="banner__sub fade-up">
+              Improving and perfecting modular building technologies by fostering long-lasting partnerships among developers, architects, engineers, contractors, and manufacturers worldwide.
+            </p>
+            <div class="banner__actions fade-up">
+              <a href="/departments/modular" class="mnc-btn mnc-btn--dark">
+                <span class="mnc-btn__wrap">
+                  <span>View Our Work</span>
+                  <span class="mnc-btn__icon">
+                    <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                      <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                    </svg>
+                  </span>
+                </span>
+              </a>
+              <a href="/contact" class="mnc-btn mnc-btn--stroke">
+                <span class="mnc-btn__wrap">
+                  <span>Get in Touch</span>
+                  <span class="mnc-btn__icon">
+                    <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                      <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                    </svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 2. DETAILS SECTION ════════ -->
+  <section class="details section-gap">
+    <div class="mnc-container">
+      <div class="details__head fade-up">
+        <span class="section-tag">who We are</span>
+      </div>
+      <h2 class="section-title details__title fade-up">
+        Founded in 2019 by Fuad Sweiss, GMP perfects modular building technologies <span class="section-span">by fostering partnerships that reduce costs, accelerate delivery, and minimize environmental impact.</span>
+      </h2>
+
+      <div class="details__stats fade-up">
+        {stats.map((s) => (
+          <div class="details__stat">
+            <span class="details__stat-val">{s.value}</span>
+            <span class="details__stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="details__partners fade-up">
+        <span class="details__partners-label">Trusted Partners</span>
+        <div class="details__marquee-track">
+          <div class="details__marquee">
+            {partners.map((p) => <span class="details__partner">{p}</span>)}
+            {partners.map((p) => <span class="details__partner">{p}</span>)}
+            {partners.map((p) => <span class="details__partner">{p}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 3. OFFER SECTION — Puzzle Grid ════════ -->
+  <section class="offer">
+    <div class="mnc-container">
+      <div class="offer__head section-gap">
+        <span class="section-tag section-tag--dark fade-up">What We Offer</span>
+        <h2 class="section-title offer__title fade-up">
+          Integrated capabilities spanning construction, compliance, <span class="section-span">and healthcare infrastructure delivery.</span>
+        </h2>
+      </div>
+
+      <div class="puzzle" id="puzzle-grid">
+        {departments.map((dept, i) => (
+          <div class={`puzzle__piece puzzle__piece--${i}`} data-puzzle={i}>
+            <div class="puzzle__tab-h"></div>
+            <div class="puzzle__tab-v"></div>
+            <div class="puzzle__inner">
+              <span class="puzzle__num">{dept.num}</span>
+              <h3 class="puzzle__title">{dept.title}</h3>
+              <p class="puzzle__desc">{dept.description}</p>
+              <div class="puzzle__bullets">
+                {dept.bullets.map((b) => (
+                  <div class="puzzle__bullet">
+                    <span class="puzzle__bullet-dot"></span>
+                    <span class="puzzle__bullet-text">{b.title}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={dept.href} class="mnc-btn mnc-btn--light">
+                <span class="mnc-btn__wrap">
+                  <span>Learn More</span>
+                  <span class="mnc-btn__icon">
+                    <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                      <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                    </svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 4. REACH SECTION ════════ -->
+  <section class="reach section-gap">
+    <div class="mnc-container">
+      <div class="reach__head fade-up">
+        <span class="section-tag">Global Reach</span>
+      </div>
+      <h2 class="section-title reach__title fade-up">
+        Operating nationwide, delivering reliable solutions <span class="section-span">across global markets with local expertise</span>
+      </h2>
+
+      <div class="reach__bento fade-up">
+        <!-- Row 1 -->
+        <div class="bento bento--dark bento--stat bento--r1c1">
+          <span class="bento__val">10+</span>
+          <span class="bento__label">Trade Partners</span>
+          <span class="bento__sub">Manufacturers, engineers & contractors</span>
+        </div>
+        <div class="bento bento--img bento--r1c2">
+          <div class="bento__gradient"></div>
+        </div>
+        <div class="bento bento--light bento--stat bento--r1c3">
+          <span class="bento__val bento__val--dark">2</span>
+          <span class="bento__label bento__label--dark">Offices</span>
+          <span class="bento__sub bento__sub--dark">Oakland headquarters & Irvine operations</span>
+        </div>
+        <div class="bento bento--img bento--r1c4">
+          <div class="bento__gradient bento__gradient--alt"></div>
+        </div>
+        <!-- Row 2 -->
+        <div class="bento bento--img bento--r2c1">
+          <div class="bento__gradient bento__gradient--wide"></div>
+        </div>
+        <div class="bento bento--dark bento--stat bento--r2c3">
+          <span class="bento__val">50%</span>
+          <span class="bento__label">Time Savings</span>
+          <span class="bento__sub">Faster than traditional construction</span>
+        </div>
+        <div class="bento bento--dark bento--stat bento--r2c4">
+          <span class="bento__val">28</span>
+          <span class="bento__label">Day ADU</span>
+          <span class="bento__sub">Accelerated dwelling unit delivery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 5. REVIEW SECTION ════════ -->
+  <section class="review section-gap">
+    <div class="mnc-container">
+      <div class="review__head fade-up">
+        <span class="section-tag">Testimonials</span>
+      </div>
+      <h2 class="section-title review__title fade-up">
+        What our clients say about working with us <span class="section-span">and achieving measurable business results.</span>
+      </h2>
+
+      <div class="review__carousel fade-up">
+        {testimonials.map((t, idx) => (
+          <div class={`review__card ${idx === 0 ? 'review__card--active' : ''}`} data-review-idx={idx}>
+            <div class="review__rating">
+              <span class="review__stars">★★★★★</span>
+              <span class="review__score">5.0</span>
+            </div>
+            <p class="review__quote">"{t.quote}"</p>
+            <div class="review__info-strip">
+              <div class="review__info-col">
+                <span class="review__info-val">{t.savings}</span>
+                <span class="review__info-label">{t.savingsLabel}</span>
+              </div>
+              <div class="review__info-col review__info-col--border">
+                <span class="review__info-val">{t.years}</span>
+                <span class="review__info-label">{t.yearsLabel}</span>
+              </div>
+              <div class="review__info-col">
+                <span class="review__info-val">{t.service}</span>
+                <span class="review__info-label">{t.serviceLabel}</span>
+              </div>
+            </div>
+            <div class="review__author">
+              <div class="review__avatar">{t.author.charAt(0)}</div>
+              <div>
+                <span class="review__name">{t.author}</span>
+                <span class="review__role">{t.title}, {t.company}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="review__tabs fade-up">
+        {testimonials.map((t, idx) => (
+          <button class={`review__tab ${idx === 0 ? 'review__tab--active' : ''}`} data-review-tab={idx} type="button">
+            {t.company}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 6. INSIGHTS SECTION ════════ -->
+  <section class="insights section-gap">
+    <div class="mnc-container">
+      <div class="insights__header fade-up">
+        <h2 class="section-title">Latest insights and trends</h2>
+        <a href="/news" class="mnc-btn mnc-btn--outline">
+          <span class="mnc-btn__wrap">
+            <span>Read All Articles</span>
+            <span class="mnc-btn__icon">
+              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+              </svg>
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <div class="insights__grid">
+        {blogPosts.map((post) => (
+          <article class="ins-card fade-up">
+            <div class="ins-card__img">
+              <div class="ins-card__gradient"></div>
+            </div>
+            <div class="ins-card__body">
+              <span class="ins-card__cat">{post.category}</span>
+              <div class="ins-card__divider"></div>
+              <h5 class="ins-card__title">{post.title}</h5>
+              <p class="ins-card__excerpt">{post.excerpt}</p>
+              <a href="/news" class="ins-card__link">Read more →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 7. CTA SECTION ════════ -->
+  <section class="home-cta section-gap">
+    <div class="mnc-container">
+      <div class="home-cta__inner fade-up">
+        <h2 class="section-title">Let's Start a Conversation</h2>
+        <p class="home-cta__sub">Have a project in mind? Let us know how we can help bring your vision to life with innovative modular solutions.</p>
+        <div class="home-cta__actions">
+          <a href="/contact" class="mnc-btn mnc-btn--dark">
+            <span class="mnc-btn__wrap">
+              <span>Contact Us</span>
+              <span class="mnc-btn__icon">
+                <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                  <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                </svg>
+              </span>
+            </span>
+          </a>
+          <a href="/services" class="mnc-btn mnc-btn--outline">
+            <span class="mnc-btn__wrap">
+              <span>View Services</span>
+              <span class="mnc-btn__icon">
+                <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                  <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                </svg>
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  // Testimonial tabs
+  const cards = document.querySelectorAll<HTMLElement>('[data-review-idx]');
+  const tabs = document.querySelectorAll<HTMLElement>('[data-review-tab]');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const idx = tab.dataset.reviewTab;
+      cards.forEach((c) => c.classList.toggle('review__card--active', c.dataset.reviewIdx === idx));
+      tabs.forEach((t) => t.classList.toggle('review__tab--active', t.dataset.reviewTab === idx));
+    });
+  });
+
+  // Puzzle animation
+  const puzzleGrid = document.getElementById('puzzle-grid');
+  const pieces = document.querySelectorAll<HTMLElement>('[data-puzzle]');
+
+  if (puzzleGrid && pieces.length) {
+    let placed = false;
+    const puzzleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !placed) {
+          placed = true;
+          pieces.forEach((piece, i) => {
+            setTimeout(() => {
+              piece.classList.add('is-placed');
+            }, i * 150);
+          });
+          setTimeout(() => {
+            puzzleGrid.classList.add('is-complete');
+          }, pieces.length * 150 + 600);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    puzzleObserver.observe(puzzleGrid);
+  }
+</script>
+
+<style>
+  /* ════════════════════════════════════════════
+     MNC-faithful Homepage — GMP color scheme
+     ════════════════════════════════════════════ */
+
+  /* ── Shared layout tokens ── */
+  .mnc-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-gap {
+    padding: 100px 0;
+  }
+
+  /* ── Section Tag (pill) ── */
+  .section-tag {
+    display: inline-block;
+    border: 1px solid var(--amber);
+    border-radius: 4px;
+    padding: 4px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    font-family: var(--font-primary);
+  }
+
+  .section-tag--dark {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ── Section Title ── */
+  .section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--dark-text);
+  }
+
+  .section-span {
+    color: var(--amber);
+  }
+
+  /* ── MNC Button style ── */
+  .mnc-btn {
+    display: inline-flex;
+    padding: 16px;
+    border: 1px solid var(--navy);
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }
+
+  .mnc-btn__wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mnc-btn__icon {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    display: flex;
+    align-items: center;
+  }
+  .mnc-btn__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mnc-btn--dark {
+    background-color: var(--amber);
+    border-color: var(--amber);
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .mnc-btn--dark:hover {
+    background-color: var(--amber-dark);
+    border-color: var(--amber-dark);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(224,161,53,.35);
+  }
+
+  .mnc-btn--stroke {
+    background-color: transparent;
+    border-color: rgba(255,255,255,.4);
+    color: var(--white);
+  }
+  .mnc-btn--stroke:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background-color: rgba(224,161,53,.08);
+  }
+
+  .mnc-btn--light {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--dark-text);
+  }
+  .mnc-btn--light:hover {
+    background-color: var(--off-white);
+    border-color: var(--off-white);
+    color: var(--dark-text);
+  }
+
+  .mnc-btn--outline {
+    background-color: transparent;
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .mnc-btn--outline:hover {
+    background-color: var(--navy);
+    color: var(--white);
+  }
+
+
+  /* ════════ 1. BANNER ════════ */
+  .banner {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--off-white);
+  }
+
+  .banner__pad {
+    padding: 16px;
+    height: 100vh;
+    min-height: 700px;
+  }
+
+  .banner__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
+  }
+
+  .banner__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,42,66,.85) 0%, rgba(26,42,66,.3) 40%, transparent 70%);
+    z-index: 1;
+  }
+
+  .banner__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .banner__container {
+    max-width: 850px;
+    padding-bottom: 64px;
+  }
+
+  .banner__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    background: rgba(224,161,53,.12);
+    border: 1px solid rgba(224,161,53,.3);
+    margin-bottom: 24px;
+  }
+
+  .banner__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(224,161,53,.6);
+  }
+
+  .banner__h1 {
+    font-family: var(--font-secondary);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .banner__sub {
+    color: var(--medium-gray);
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 620px;
+    margin-bottom: 32px;
+  }
+
+  .banner__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+
+  /* ════════ 2. DETAILS ════════ */
+  .details {
+    background-color: var(--white);
+  }
+
+  .details__head {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .details__title {
+    text-align: center;
+    max-width: 1010px;
+    margin: 0 auto 64px;
+  }
+
+  .details__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+
+  .details__stat {
+    background-color: var(--off-white);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    border-top: 3px solid var(--amber);
+  }
+
+  .details__stat-val {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--amber-dark);
+    margin-bottom: 4px;
+  }
+
+  .details__stat-label {
+    font-size: 16px;
+    color: var(--text-gray);
+  }
+
+  .details__partners {
+    text-align: center;
+  }
+
+  .details__partners-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+  }
+
+  .details__marquee-track {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .details__marquee {
+    display: flex;
+    gap: 64px;
+    animation: marquee 35s linear infinite;
+    width: max-content;
+  }
+
+  .details__partner {
+    flex-shrink: 0;
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-text);
+    opacity: 0.3;
+    white-space: nowrap;
+  }
+
+
+  /* ════════ 3. OFFER — Puzzle Grid ════════ */
+  .offer {
+    background-color: var(--navy);
+    padding-bottom: 100px;
+  }
+
+  .offer__head {
+    padding-bottom: 64px;
+  }
+
+  .offer__head .section-tag {
+    margin-bottom: 24px;
+  }
+
+  .offer__title {
+    color: var(--white);
+    max-width: 900px;
+  }
+
+  /* ── Puzzle grid ── */
+  .puzzle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+  }
+
+  .puzzle__piece {
+    position: relative;
+    overflow: visible;
+    opacity: 0;
+    transition: transform 0.9s cubic-bezier(.22,1,.36,1), opacity 0.7s ease;
+  }
+
+  .puzzle__piece--0 { transform: translate(-60px, -60px) rotate(-3deg); }
+  .puzzle__piece--1 { transform: translate(60px, -60px) rotate(3deg); }
+  .puzzle__piece--2 { transform: translate(-60px, 60px) rotate(3deg); }
+  .puzzle__piece--3 { transform: translate(60px, 60px) rotate(-3deg); }
+
+  .puzzle__piece.is-placed {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  /* Staggered delays */
+  .puzzle__piece--0 { transition-delay: 0s; }
+  .puzzle__piece--1 { transition-delay: 0.15s; }
+  .puzzle__piece--2 { transition-delay: 0.3s; }
+  .puzzle__piece--3 { transition-delay: 0.45s; }
+
+  /* ── Puzzle tab connectors (decorative interlocking nubs) ── */
+  .puzzle__tab-h,
+  .puzzle__tab-v {
+    position: absolute;
+    z-index: 3;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Horizontal tab: sits on the right edge of left-column pieces */
+  .puzzle__piece--0 .puzzle__tab-h,
+  .puzzle__piece--2 .puzzle__tab-h {
+    width: 28px;
+    height: 28px;
+    background: var(--amber);
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 4px var(--navy), 0 2px 8px rgba(0,0,0,.3);
+  }
+
+  /* Horizontal tab: sits on the left edge of right-column pieces (indent) */
+  .puzzle__piece--1 .puzzle__tab-h,
+  .puzzle__piece--3 .puzzle__tab-h {
+    width: 28px;
+    height: 28px;
+    background: var(--navy);
+    border: 3px solid var(--amber);
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  }
+
+  /* Vertical tab: sits on the bottom edge of top-row pieces */
+  .puzzle__piece--0 .puzzle__tab-v,
+  .puzzle__piece--1 .puzzle__tab-v {
+    width: 28px;
+    height: 28px;
+    background: var(--amber);
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px var(--navy), 0 2px 8px rgba(0,0,0,.3);
+  }
+
+  /* Vertical tab: sits on the top edge of bottom-row pieces (indent) */
+  .puzzle__piece--2 .puzzle__tab-v,
+  .puzzle__piece--3 .puzzle__tab-v {
+    width: 28px;
+    height: 28px;
+    background: var(--navy);
+    border: 3px solid var(--amber);
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  }
+
+  /* ── Card inner ── */
+  .puzzle__inner {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+    border: 1px solid rgba(255,255,255,.06);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .puzzle__piece:hover .puzzle__inner {
+    border-color: rgba(224,161,53,.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,.2);
+  }
+
+  .puzzle__piece--0 .puzzle__inner {
+    background: var(--off-white);
+    border-radius: 8px 0 0 0;
+  }
+  .puzzle__piece--1 .puzzle__inner {
+    background: var(--white);
+    border-radius: 0 8px 0 0;
+  }
+  .puzzle__piece--2 .puzzle__inner {
+    background: var(--white);
+    border-radius: 0 0 0 8px;
+  }
+  .puzzle__piece--3 .puzzle__inner {
+    background: var(--off-white);
+    border-radius: 0 0 8px 0;
+  }
+
+  .puzzle__num {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+
+  .puzzle__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .puzzle__desc {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .puzzle__bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .puzzle__bullet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .puzzle__bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .puzzle__bullet-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-text);
+    opacity: 0.7;
+  }
+
+  /* Landing "snap" pop */
+  @keyframes puzzle-snap {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.015); }
+    100% { transform: scale(1); }
+  }
+
+  .puzzle__piece.is-placed {
+    animation: puzzle-snap 0.4s ease forwards;
+    animation-delay: inherit;
+  }
+
+  /* Connector glow pulse after all pieces land */
+  @keyframes tab-glow {
+    0%   { box-shadow: 0 0 0 4px var(--navy), 0 0 0 rgba(224,161,53,0); }
+    50%  { box-shadow: 0 0 0 4px var(--navy), 0 0 16px rgba(224,161,53,.5); }
+    100% { box-shadow: 0 0 0 4px var(--navy), 0 0 0 rgba(224,161,53,0); }
+  }
+
+  .puzzle.is-complete .puzzle__piece--0 .puzzle__tab-h,
+  .puzzle.is-complete .puzzle__piece--2 .puzzle__tab-h,
+  .puzzle.is-complete .puzzle__piece--0 .puzzle__tab-v,
+  .puzzle.is-complete .puzzle__piece--1 .puzzle__tab-v {
+    animation: tab-glow 1.5s ease 0.6s 1;
+  }
+
+
+  /* ════════ 4. REACH ════════ */
+  .reach {
+    background-color: var(--white);
+  }
+
+  .reach__head {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .reach__title {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 64px;
+  }
+
+  .reach__bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px 250px;
+    gap: 20px;
+  }
+
+  .bento {
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bento--dark {
+    background: linear-gradient(145deg, var(--navy) 0%, var(--navy-dark) 100%);
+  }
+
+  .bento--light {
+    background-color: var(--white);
+    border: 1px solid var(--medium-gray);
+  }
+
+  .bento--img {
+    padding: 0;
+  }
+
+  .bento__gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 50%, var(--navy-dark) 100%);
+    border-radius: 8px;
+  }
+
+  .bento__gradient--alt {
+    background: linear-gradient(225deg, var(--navy-light) 0%, var(--navy-dark) 100%);
+  }
+
+  .bento__gradient--wide {
+    background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-light) 50%, var(--navy) 100%);
+  }
+
+  .bento__val {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .bento__val--dark {
+    color: var(--dark-text);
+  }
+
+  .bento__label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .bento__label--dark {
+    color: var(--dark-text);
+  }
+
+  .bento__sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.45);
+  }
+
+  .bento__sub--dark {
+    color: var(--text-gray);
+  }
+
+  /* Bento grid placement */
+  .bento--r1c1 { grid-column: 1; grid-row: 1; }
+  .bento--r1c2 { grid-column: 2; grid-row: 1; }
+  .bento--r1c3 { grid-column: 3; grid-row: 1; }
+  .bento--r1c4 { grid-column: 4; grid-row: 1; }
+  .bento--r2c1 { grid-column: 1 / span 2; grid-row: 2; }
+  .bento--r2c3 { grid-column: 3; grid-row: 2; }
+  .bento--r2c4 { grid-column: 4; grid-row: 2; }
+
+
+  /* ════════ 5. REVIEW ════════ */
+  .review {
+    background-color: var(--white);
+  }
+
+  .review__head {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .review__title {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 64px;
+  }
+
+  .review__carousel {
+    position: relative;
+    min-height: 400px;
+  }
+
+  .review__card {
+    display: none;
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    background-color: var(--off-white);
+    padding: 48px;
+    text-align: center;
+  }
+
+  .review__card--active {
+    display: block;
+  }
+
+  .review__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .review__stars {
+    color: var(--amber);
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .review__score {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+  }
+
+  .review__quote {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--dark-text);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+  }
+
+  .review__info-strip {
+    display: inline-flex;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    background-color: var(--white);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+
+  .review__info-col {
+    padding: 16px 32px;
+    text-align: center;
+  }
+
+  .review__info-col--border {
+    border-left: 1px solid var(--medium-gray);
+    border-right: 1px solid var(--medium-gray);
+  }
+
+  .review__info-val {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 2px;
+  }
+
+  .review__info-label {
+    font-size: 13px;
+    color: var(--text-gray);
+  }
+
+  .review__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .review__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .review__name {
+    display: block;
+    font-weight: 600;
+    color: var(--dark-text);
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .review__role {
+    display: block;
+    font-size: 14px;
+    color: var(--text-gray);
+    text-align: left;
+  }
+
+  .review__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .review__tab {
+    padding: 12px 24px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    background: var(--white);
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .review__tab--active,
+  .review__tab:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background-color: var(--off-white);
+  }
+
+
+  /* ════════ 6. INSIGHTS ════════ */
+  .insights {
+    background-color: var(--off-white);
+  }
+
+  .insights__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .insights__header .section-title {
+    margin: 0;
+  }
+
+  .insights__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ins-card {
+    border-radius: 8px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .ins-card__img {
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ins-card__gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 100%);
+  }
+
+  .ins-card__body {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 16px 24px 24px;
+    margin-top: -16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ins-card__cat {
+    display: inline-block;
+    background-color: var(--off-white);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-gray);
+    margin-bottom: 12px;
+  }
+
+  .ins-card__divider {
+    border-bottom: 1px dashed var(--medium-gray);
+    margin-bottom: 12px;
+  }
+
+  .ins-card__title {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-text);
+    line-height: 1.4;
+    margin-bottom: 8px;
+    transition: text-decoration-color 0.3s;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+  }
+
+  .ins-card:hover .ins-card__title {
+    text-decoration-color: var(--dark-text);
+  }
+
+  .ins-card__excerpt {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+  }
+
+  .ins-card__link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .ins-card__link:hover {
+    color: var(--amber);
+  }
+
+
+  /* ════════ 7. CTA ════════ */
+  .home-cta {
+    background-color: var(--white);
+    border-top: 1px solid var(--medium-gray);
+  }
+
+  .home-cta__inner {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .home-cta__inner .section-title {
+    margin-bottom: 16px;
+  }
+
+  .home-cta__sub {
+    font-size: 18px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .home-cta__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+
+  /* ════════ RESPONSIVE ════════ */
+  @media (max-width: 1024px) {
+    .details__stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .puzzle__inner {
+      padding: 32px;
+      min-height: 300px;
+    }
+
+    .reach__bento {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .bento--r1c1 { grid-column: 1; grid-row: 1; }
+    .bento--r1c2 { grid-column: 2; grid-row: 1; }
+    .bento--r1c3 { grid-column: 1; grid-row: 2; }
+    .bento--r1c4 { grid-column: 2; grid-row: 2; }
+    .bento--r2c1 { grid-column: 1 / span 2; grid-row: 3; }
+    .bento--r2c3 { grid-column: 1; grid-row: 4; }
+    .bento--r2c4 { grid-column: 2; grid-row: 4; }
+
+    .insights__grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-gap {
+      padding: 64px 0;
+    }
+
+    .banner__container {
+      padding-bottom: 40px;
+    }
+
+    .banner__h1 {
+      font-size: clamp(28px, 7vw, 42px);
+    }
+
+    .details__stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .puzzle {
+      grid-template-columns: 1fr;
+    }
+
+    .puzzle__piece--0 .puzzle__inner,
+    .puzzle__piece--1 .puzzle__inner,
+    .puzzle__piece--2 .puzzle__inner,
+    .puzzle__piece--3 .puzzle__inner {
+      border-radius: 8px;
+    }
+
+    .puzzle__piece--0 { transform: translate(0, -40px); }
+    .puzzle__piece--1 { transform: translate(0, -40px); }
+    .puzzle__piece--2 { transform: translate(0, 40px); }
+    .puzzle__piece--3 { transform: translate(0, 40px); }
+
+    .puzzle__tab-h { display: none; }
+
+    .puzzle__piece--0 .puzzle__tab-v,
+    .puzzle__piece--1 .puzzle__tab-v { bottom: -14px; }
+    .puzzle__piece--2 .puzzle__tab-v,
+    .puzzle__piece--3 .puzzle__tab-v { top: -14px; }
+
+    .puzzle__inner {
+      padding: 28px;
+      min-height: auto;
+    }
+
+    .reach__bento {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .bento--r1c1,
+    .bento--r1c2,
+    .bento--r1c3,
+    .bento--r1c4 { grid-column: 1; }
+    .bento--r1c1 { grid-row: 1; }
+    .bento--r1c2 { grid-row: 2; }
+    .bento--r1c3 { grid-row: 3; }
+    .bento--r1c4 { grid-row: 4; }
+    .bento--r2c1 { grid-column: 1; grid-row: 5; }
+    .bento--r2c3 { grid-column: 1; grid-row: 6; }
+    .bento--r2c4 { grid-column: 1; grid-row: 7; }
+
+    .bento--img {
+      min-height: 180px;
+    }
+
+    .review__card {
+      padding: 24px;
+    }
+
+    .review__info-strip {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .review__info-col--border {
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid var(--medium-gray);
+      border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .review__tabs {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .insights__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .details__stats {
+      grid-template-columns: 1fr;
+    }
+
+    .banner__actions {
+      flex-direction: column;
+    }
+
+    .banner__actions .mnc-btn {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>

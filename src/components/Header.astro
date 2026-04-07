@@ -1,0 +1,472 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/about', label: 'About Us' },
+  {
+    label: 'Departments',
+    children: [
+      { href: '/departments/modular', label: 'Modular Construction' },
+      { href: '/departments/project-management', label: 'Project Management' },
+      { href: '/departments/dod-military', label: 'DoD / Military' },
+      { href: '/departments/healthcare', label: 'Healthcare' },
+      { href: '/departments/civil', label: 'Civil Construction' },
+    ],
+  },
+  { href: '/services', label: 'Services' },
+  { href: '/news', label: 'News' },
+  { href: '/partners', label: 'Partners' },
+  { href: '/contact', label: 'Contact' },
+];
+
+function isActive(href?: string) {
+  if (!href) return false;
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath.startsWith(href + '/');
+}
+---
+
+<header class="hdr-section" id="site-header">
+  <div class="hdr-container">
+    <div class="hdr-block">
+      <!-- Brand -->
+      <div class="hdr-brand-block">
+        <a href="/" class="hdr-brand" aria-label="Global Modular Partners home">
+          <img src="/images/logo/gmp-logo-final.png" alt="Global Modular Partners" class="hdr-logo" />
+        </a>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hdr-menu-block">
+        <div class="hdr-menu">
+          <div class="hdr-menu-wrap">
+            {navItems.map((item) =>
+              item.children ? (
+                <div class="hdr-dropdown">
+                  <button class="hdr-toggle" type="button">
+                    <span class="hdr-dropdown-text">{item.label}</span>
+                    <svg class="hdr-dropdown-icon" fill="none" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.534 0.455C0.778 0.207 1.159 0.184 1.427 0.387L1.504 0.455L7 6.061L12.496 0.455C12.739 0.207 13.12 0.184 13.389 0.387L13.466 0.455C13.709 0.703 13.732 1.092 13.532 1.366L13.466 1.444L7.485 7.545C7.242 7.793 6.86 7.816 6.592 7.613L6.515 7.545L0.534 1.444C0.266 1.171 0.266 0.728 0.534 0.455Z" fill="currentColor"/>
+                    </svg>
+                  </button>
+                  <div class="hdr-megamenu">
+                    <div class="hdr-mega-wrap">
+                      {item.children.map((child) => (
+                        <a class={`hdr-menu-link ${isActive(child.href) ? 'active' : ''}`} href={child.href}>{child.label}</a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a class={`hdr-menu-link ${isActive(item.href) ? 'active' : ''}`} href={item.href}>{item.label}</a>
+              )
+            )}
+          </div>
+
+          <!-- CTA inside menu (desktop) -->
+          <div class="hdr-button-wrap-inner">
+            <a class="hdr-btn" href="/contact">
+              <div class="hdr-btn-wrap">
+                <span class="hdr-btn-text">Get in Touch</span>
+                <span class="hdr-btn-icon">
+                  <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                    <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA outside menu (desktop, visible at certain breakpoints) -->
+      <div class="hdr-button-block">
+        <a class="hdr-btn" href="/contact">
+          <div class="hdr-btn-wrap">
+            <span class="hdr-btn-text">Get in Touch</span>
+            <span class="hdr-btn-icon">
+              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+                <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="hdr-hamburger" id="hdr-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <div class="hdr-line-wrap">
+          <div class="hdr-line hdr-line--top"></div>
+          <div class="hdr-line hdr-line--mid"></div>
+          <div class="hdr-line hdr-line--bot"></div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="hdr-mobile" id="mobile-menu">
+    <nav class="hdr-mobile-nav">
+      {navItems.map((item) => (
+        <div class="hdr-mobile-group">
+          {item.href ? (
+            <a href={item.href} class="hdr-mobile-link">{item.label}</a>
+          ) : (
+            <span class="hdr-mobile-link">{item.label}</span>
+          )}
+          {item.children && (
+            <div class="hdr-mobile-sub">
+              {item.children.map((child) => (
+                <a href={child.href} class="hdr-mobile-sublink">{child.label}</a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+      <a href="/contact" class="hdr-mobile-cta">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* ── Section ── */
+  .hdr-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 16px;
+    margin-top: 16px;
+    background-color: transparent;
+    transition: padding var(--transition-base), margin var(--transition-base);
+  }
+
+  /* ── Container ── */
+  .hdr-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── Block (the white bar) ── */
+  .hdr-block {
+    padding: 12px 20px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    background-color: var(--white);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  /* ── Brand ── */
+  .hdr-brand-block {
+    flex: none;
+    width: 100%;
+    max-width: 210px;
+  }
+  .hdr-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .hdr-logo {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* ── Nav menu ── */
+  .hdr-menu-block {
+    display: none;
+    flex: 1;
+    justify-content: center;
+  }
+  @media (min-width: 992px) {
+    .hdr-menu-block {
+      display: flex;
+    }
+  }
+
+  .hdr-menu {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .hdr-menu-wrap {
+    grid-column-gap: 28px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  /* ── Nav links ── */
+  .hdr-menu-link {
+    font-family: var(--font-primary);
+    color: var(--navy);
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    padding: 0;
+    transition: text-decoration-color 0.4s;
+  }
+  .hdr-menu-link:hover,
+  .hdr-menu-link.active {
+    text-decoration-color: var(--navy);
+    color: var(--navy);
+  }
+
+  /* ── Dropdown ── */
+  .hdr-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hdr-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    color: var(--navy);
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    padding: 0;
+    transition: text-decoration-color 0.4s;
+  }
+  .hdr-toggle:hover {
+    text-decoration-color: var(--navy);
+  }
+
+  .hdr-dropdown-icon {
+    width: 13px;
+    transition: transform 0.3s ease;
+  }
+  .hdr-dropdown:hover .hdr-dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .hdr-megamenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 240px;
+    padding-top: 16px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 100;
+  }
+  .hdr-dropdown:hover .hdr-megamenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .hdr-mega-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    background-color: var(--white);
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  }
+
+  .hdr-mega-wrap .hdr-menu-link {
+    white-space: nowrap;
+  }
+
+  /* ── CTA Button (MNC style) ── */
+  .hdr-button-wrap-inner {
+    flex: none;
+    display: none;
+  }
+  .hdr-button-block {
+    flex: none;
+    display: none;
+    margin-left: 24px;
+  }
+  @media (min-width: 992px) {
+    .hdr-button-block {
+      display: block;
+    }
+  }
+
+  .hdr-btn {
+    display: inline-flex;
+    padding: 12px 16px;
+    border: 1px solid var(--amber);
+    border-radius: 4px;
+    background-color: var(--amber);
+    color: var(--navy);
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .hdr-btn:hover {
+    background-color: var(--amber-dark);
+    border-color: var(--amber-dark);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(224,161,53,.35);
+  }
+
+  .hdr-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hdr-btn-icon {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    display: flex;
+    align-items: center;
+  }
+  .hdr-btn-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Hamburger ── */
+  .hdr-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--navy);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  @media (min-width: 992px) {
+    .hdr-hamburger {
+      display: none;
+    }
+  }
+
+  .hdr-line-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 4px;
+  }
+
+  .hdr-line {
+    width: 20px;
+    height: 2px;
+    background-color: var(--white);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hdr-hamburger.open .hdr-line--top {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hdr-hamburger.open .hdr-line--mid {
+    opacity: 0;
+  }
+  .hdr-hamburger.open .hdr-line--bot {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* ── Mobile Menu ── */
+  .hdr-mobile {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 1.5rem;
+    right: 1.5rem;
+    background: var(--white);
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    padding: 1.25rem;
+    max-height: 75vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,.1);
+  }
+  .hdr-mobile.open {
+    display: block;
+  }
+  @media (min-width: 992px) {
+    .hdr-mobile { display: none !important; }
+  }
+
+  .hdr-mobile-group {
+    margin-bottom: 0.25rem;
+  }
+  .hdr-mobile-link {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .hdr-mobile-link:hover { color: var(--amber); }
+
+  .hdr-mobile-sub {
+    padding-left: 1rem;
+  }
+  .hdr-mobile-sublink {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .hdr-mobile-sublink:hover { color: var(--amber); }
+
+  .hdr-mobile-cta {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.85rem;
+    background-color: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('hdr-hamburger');
+  const mobile = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    mobile?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', toggle.classList.contains('open').toString());
+  });
+</script>

@@ -1,0 +1,489 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const certifications = [
+  {
+    badge: 'SDVOSB',
+    fullName: 'Service-Disabled Veteran-Owned Small Business',
+    description:
+      'Verified SDVOSB status supporting federal set-asides, sole-source pathways, and subcontracting goals for agencies and primes.',
+  },
+  {
+    badge: '8(a)',
+    fullName: 'SBA 8(a) Business Development Program',
+    description:
+      'Participation in the 8(a) program to accelerate capability reviews, mentor-protégé structures, and compliant teaming arrangements.',
+  },
+  {
+    badge: 'ISO 9001',
+    fullName: 'Quality Management System',
+    description:
+      'Certified QMS alignment for documented processes, audit readiness, and consistent quality across design, fabrication, and delivery.',
+  },
+  {
+    badge: 'CAGE',
+    fullName: 'Commercial and Government Entity Code',
+    description:
+      'Registered CAGE code for SAM.gov visibility, contract vehicle eligibility, and standardized government entity identification.',
+  },
+];
+
+const states = ['California', 'Nevada', 'Arizona', 'Texas', 'Oregon'];
+---
+
+<Layout
+  title="Certifications & Licenses"
+  description="SDVOSB, 8(a), ISO 9001, CAGE, and multi-state contractor licenses for procurement and compliance teams."
+>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <section class="cert-hero">
+    <div class="cert-hero__pad">
+      <div class="cert-hero__inner">
+        <div class="cert-hero__content">
+            <nav class="cert-hero__breadcrumb" aria-label="Breadcrumb">
+              <a href="/">Home</a>
+              <span class="cert-hero__sep">/</span>
+              <span>Certifications & Licenses</span>
+            </nav>
+            <h1 class="cert-hero__title">Certifications &<br />Professional Licenses</h1>
+            <p class="cert-hero__subtitle">Verified credentials, compliance standards, and industry certifications that back every project we deliver.</p>
+            <div class="cert-hero__actions">
+              <a href="#credentials" class="mnc-btn mnc-btn--dark">
+                <span class="mnc-btn__wrap">
+                  <span>View credentials</span>
+                  <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+                </span>
+              </a>
+              <a href="/contact" class="mnc-btn mnc-btn--stroke">
+                <span class="mnc-btn__wrap">
+                  <span>Request verification</span>
+                  <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="cert-intro section-gap">
+    <div class="mnc-container">
+      <div class="cert-intro__head">
+        <span class="section-tag">Commitment</span>
+        <h2 class="section-title">Excellence you <span class="section-span">can verify with confidence</span></h2>
+      </div>
+      <div class="cert-intro__copy">
+        <p>
+          Global Modular Partners invests in certifications, registrations, and state licensing so
+          procurement officers, compliance teams, and partners can move forward with confidence.
+          Our documentation is maintained for audits, RFP responses, and prime-subcontractor
+          workflows.
+        </p>
+        <p>
+          From federal small-business programs to ISO-backed quality systems and multi-state
+          contractor authority, we align operations with the standards your stakeholders expect.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Grid -->
+  <section id="credentials" class="cert-creds section-gap">
+    <div class="mnc-container">
+      <div class="cert-creds__head">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title">Certifications & <span class="section-span">registrations we maintain</span></h2>
+      </div>
+
+      <div class="cert-creds__grid">
+        {certifications.map((cert) => (
+          <article class="cc">
+            <span class="cc__badge">{cert.badge}</span>
+            <h3 class="cc__name">{cert.fullName}</h3>
+            <p class="cc__desc">{cert.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Licenses -->
+  <section class="cert-lic section-gap">
+    <div class="mnc-container">
+      <div class="cert-lic__head">
+        <h2 class="section-title">State contractor <span class="section-span">licenses across key markets</span></h2>
+        <p class="cert-lic__lede">
+          Active licensing across key Western markets supports regional programs, public works, and
+          cross-border logistics for modular deployment.
+        </p>
+      </div>
+      <div class="cert-lic__pills">
+        {states.map((state) => (
+          <span class="cert-lic__pill">{state}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cert-cta section-gap">
+    <div class="mnc-container">
+      <div class="cert-cta__inner">
+        <h2 class="cert-cta__title">Verify our credentials</h2>
+        <p class="cert-cta__desc">
+          Need certificate copies, license numbers, or a compliance packet for your vendor file?
+          Our team responds quickly with the artifacts your process requires.
+        </p>
+        <div class="cert-cta__actions">
+          <a href="/contact" class="mnc-btn mnc-btn--amber">
+            <span class="mnc-btn__wrap">
+              <span>Request documentation</span>
+              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+            </span>
+          </a>
+          <a href="/partners" class="mnc-btn mnc-btn--stroke">
+            <span class="mnc-btn__wrap">
+              <span>Partner network</span>
+              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .cert-hero {
+    padding: 16px;
+  }
+  .cert-hero__pad {
+    width: 100%;
+  }
+  .cert-hero__inner {
+    height: 560px;
+    border-radius: 8px;
+    background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cert-hero__inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 20%, rgba(224,161,53,.1) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .cert-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    padding-left: max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
+    padding-right: 1.5rem;
+    width: 100%;
+  }
+  .cert-hero__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 20px;
+  }
+  .cert-hero__breadcrumb a {
+    color: rgba(255,255,255,.5);
+  }
+  .cert-hero__breadcrumb a:hover {
+    color: var(--amber);
+  }
+  .cert-hero__sep {
+    color: rgba(255,255,255,.25);
+  }
+  .cert-hero__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .cert-hero__subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .cert-hero__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* ── MNC Buttons ── */
+  .mnc-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    font-family: var(--font-primary);
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 200ms ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    line-height: 1;
+  }
+  .mnc-btn__wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mnc-btn__icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    transition: transform 200ms ease;
+  }
+  .mnc-btn__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  .mnc-btn:hover .mnc-btn__icon {
+    transform: translateX(3px);
+  }
+  .mnc-btn--dark {
+    background: var(--amber);
+    color: var(--navy);
+    border-color: var(--amber);
+    font-weight: 700;
+  }
+  .mnc-btn--dark:hover {
+    background: var(--amber-dark);
+    border-color: var(--amber-dark);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(224,161,53,.35);
+  }
+  .mnc-btn--amber {
+    background: var(--amber);
+    color: var(--navy);
+  }
+  .mnc-btn--amber:hover {
+    background: var(--amber-dark);
+    color: #fff;
+  }
+  .mnc-btn--stroke {
+    background: transparent;
+    border-color: rgba(255,255,255,.3);
+    color: #fff;
+  }
+  .mnc-btn--stroke:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ── Container & Section ── */
+  .mnc-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .section-gap {
+    padding: 100px 0;
+  }
+  .section-tag {
+    display: inline-block;
+    border: 1px solid var(--amber);
+    border-radius: 4px;
+    padding: 4px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--dark-text);
+    margin-bottom: 0;
+  }
+  .section-span {
+    color: var(--amber);
+  }
+
+  /* ── Intro ── */
+  .cert-intro {
+    background: #fff;
+  }
+  .cert-intro__head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .cert-intro__copy {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .cert-intro__copy p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+  }
+  .cert-intro__copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Credentials ── */
+  .cert-creds {
+    background: var(--off-white);
+  }
+  .cert-creds__head {
+    margin-bottom: 56px;
+  }
+  .cert-creds__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .cert-hero__inner { height: 480px; }
+    .cert-creds__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cc {
+    background: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cc__badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 6px 16px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .03em;
+  }
+  .cc__name {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--dark-text);
+    margin: 0;
+  }
+  .cc__desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  /* ── Licenses ── */
+  .cert-lic {
+    background: #fff;
+  }
+  .cert-lic__head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .cert-lic__lede {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-gray);
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  .cert-lic__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .cert-lic__pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--dark-text);
+    background: #fff;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .cert-lic__pill:hover {
+    border-color: var(--amber);
+    box-shadow: 0 2px 8px rgba(224,161,53,.15);
+  }
+
+  /* ── CTA ── */
+  .cert-cta {
+    background: var(--navy);
+  }
+  .cert-cta__inner {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cert-cta__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .cert-cta__desc {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 36px;
+  }
+  .cert-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .section-gap {
+      padding: 64px 0;
+    }
+    .cert-creds__head,
+    .cert-intro__head {
+      text-align: left;
+    }
+    .cert-intro__copy {
+      text-align: left;
+    }
+  }
+</style>
