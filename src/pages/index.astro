@@ -14,6 +14,12 @@ const departments = [
       { title: 'Prefabricated Modules', sub: 'Factory-built precision' },
       { title: 'Sustainable Materials', sub: 'Eco-conscious construction' },
     ],
+    companies: [
+      { name: 'West Modular', logo: '/images/partners/west-og.png' },
+      { name: 'RI Group', logo: '/images/partners/ri-group.png' },
+      { name: 'PROSET', logo: '/images/partners/proset-footer.png' },
+      { name: 'EDIS', logo: '/images/partners/edis.png' },
+    ],
   },
   {
     num: '02',
@@ -23,7 +29,12 @@ const departments = [
     bullets: [
       { title: 'DoD Compliance', sub: 'Military-grade standards' },
       { title: 'Risk Management', sub: 'Proactive mitigation' },
-      { title: 'Quality Assurance', sub: 'ISO-certified processes' },
+      { title: 'Quality Assurance', sub: 'Certified processes' },
+    ],
+    companies: [
+      { name: 'STREAM', logo: '/images/partners/stream-dark.png' },
+      { name: 'TRUE NORTH', logo: '/images/partners/true-north.svg' },
+      { name: 'EnTech', logo: '/images/partners/entech.svg' },
     ],
   },
   {
@@ -36,6 +47,10 @@ const departments = [
       { title: 'Modular Clinics', sub: 'Rapid deployment medical' },
       { title: 'Emergency Response', sub: 'Disaster-ready facilities' },
     ],
+    companies: [
+      { name: 'Hospitals Without Borders', logo: '/images/partners/hwb.svg' },
+      { name: 'Petra Engineering', logo: '/images/partners/petra-eng.png' },
+    ],
   },
   {
     num: '04',
@@ -47,28 +62,14 @@ const departments = [
       { title: 'Utility Installation', sub: 'Underground infrastructure' },
       { title: 'Road & Highway', sub: 'Transportation networks' },
     ],
+    companies: [
+      { name: 'Agbayani', logo: '/images/partners/agbayani-real.png' },
+      { name: 'ATCCO', logo: '/images/partners/atcco-big.png' },
+    ],
   },
 ];
 
 
-
-const blogPosts = [
-  {
-    category: 'Sustainability',
-    title: 'The Road to Net-Zero: Modular Sustainability',
-    excerpt: 'Explore how modular construction is reducing carbon footprint while maintaining quality and efficiency.',
-  },
-  {
-    category: 'Government',
-    title: 'DoD Procurement: What You Need to Know',
-    excerpt: 'Understanding the requirements for government modular construction contracts.',
-  },
-  {
-    category: 'Partnership',
-    title: 'HWB Partnership Expands Healthcare Reach',
-    excerpt: 'Our partnership with Hospitals Without Borders brings modular clinics to underserved regions.',
-  },
-];
 
 const partners = [
   { name: 'West Modular', logo: '/images/partners/west-og.png' },
@@ -127,16 +128,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     </div>
   </section>
 
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-    }
-  }
-  </script>
-
-  <script type="module">
+  <script>
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
@@ -334,6 +326,16 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
                   </div>
                 ))}
               </div>
+              {dept.companies && dept.companies.length > 0 && (
+                <div class="puzzle__companies">
+                  <span class="puzzle__companies-label">Partners</span>
+                  <div class="puzzle__companies-logos">
+                    {dept.companies.map((c) => (
+                      <img src={c.logo} alt={c.name} title={c.name} class="puzzle__company-logo" loading="lazy" />
+                    ))}
+                  </div>
+                </div>
+              )}
               <a href={dept.href} class="mnc-btn mnc-btn--light">
                 <span class="mnc-btn__wrap">
                   <span>Learn More</span>
@@ -404,32 +406,24 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
       </h2>
       <div class="credentials__grid fade-up">
         <div class="credentials__card">
-          <span class="credentials__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 4l10 4v8c0 6-4 11-10 12-6-1-10-6-10-12V8l10-4z" /></svg>
-          </span>
-          <h3 class="credentials__card-title">State Contractor Licenses</h3>
-          <p class="credentials__card-desc">Licensed general contractor in California and multiple additional states, meeting all bonding and insurance requirements for public and private work.</p>
+          <span class="credentials__badge">CAGE</span>
+          <h3 class="credentials__card-title">Commercial & Government Entity Code</h3>
+          <p class="credentials__card-desc">Registered CAGE code (1CHJ1) for SAM.gov visibility, contract vehicle eligibility, and standardized government entity identification.</p>
         </div>
         <div class="credentials__card">
-          <span class="credentials__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 16l8 8 12-14" /></svg>
-          </span>
-          <h3 class="credentials__card-title">Federal Compliance</h3>
-          <p class="credentials__card-desc">Registered and compliant for federal contracting with DoD and government agencies, including required security clearances and documentation standards.</p>
+          <span class="credentials__badge">MBE</span>
+          <h3 class="credentials__card-title">Minority-Owned Small Business Enterprise</h3>
+          <p class="credentials__card-desc">Certified MBE status supporting diversity-focused procurement, set-aside contracting, and subcontracting goals for agencies and primes.</p>
         </div>
         <div class="credentials__card">
-          <span class="credentials__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 6l3.5 7.5L28 15l-6 5.5L24 30l-8-4.5L8 30l2-9.5L4 15l8.5-1.5L16 6z" /></svg>
-          </span>
-          <h3 class="credentials__card-title">Industry Certifications</h3>
-          <p class="credentials__card-desc">ISO-certified processes, modular building institute membership, and specialized trade certifications across our partner network.</p>
+          <span class="credentials__badge">$50M</span>
+          <h3 class="credentials__card-title">$25M Single / $50M Aggregate Bonding</h3>
+          <p class="credentials__card-desc">Bonding capacity of $25M per single project and $50M aggregate through Marsh USA Inc., ensuring financial assurance for large-scale programs.</p>
         </div>
         <div class="credentials__card">
-          <span class="credentials__icon">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="16" cy="16" r="12" /><path d="M4 16h24M16 4c3 4 3 20 0 24M16 4c-3 4-3 20 0 24" /></svg>
-          </span>
-          <h3 class="credentials__card-title">International Standards</h3>
-          <p class="credentials__card-desc">Manufacturing partnerships meeting European and international building standards through RI Group USA and global supply chain partners.</p>
+          <span class="credentials__badge">CLASS A</span>
+          <h3 class="credentials__card-title">General Engineering Contractor</h3>
+          <p class="credentials__card-desc">Class A General Engineering Contractor license with active contractor licenses in California, Hawaii, Louisiana, Nevada, and Guam.</p>
         </div>
       </div>
       <div class="credentials__cta fade-up">
@@ -441,67 +435,78 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     </div>
   </section>
 
-  <!-- ════════ 6. INSIGHTS SECTION ════════ -->
-  <section class="insights section-gap">
+
+  <!-- ════════ 7. OUR WORK SECTION ════════ -->
+  <section class="work section-gap">
     <div class="mnc-container">
-      <div class="insights__header fade-up">
-        <h2 class="section-title">Latest insights and trends</h2>
-        <a href="/news" class="mnc-btn mnc-btn--outline">
-          <span class="mnc-btn__wrap">
-            <span>Read All Articles</span>
-            <span class="mnc-btn__icon">
-              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-            </span>
-          </span>
+      <div class="work__head fade-up">
+        <span class="section-tag">Our Work</span>
+      </div>
+      <h2 class="section-title work__title fade-up">
+        Projects delivered across modular, healthcare, <span class="section-span">civil, and defense sectors.</span>
+      </h2>
+
+      <div class="work__grid fade-up">
+        <a href="/departments/modular" class="work__card work__card--wide">
+          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential project" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Modular Construction</span>
+            <h3 class="work__card-title">West Boulevard Residential</h3>
+            <p class="work__card-sub">Multi-story modular housing with West Modular — factory-built precision, site-assembled efficiency.</p>
+          </div>
+        </a>
+        <a href="/departments/healthcare" class="work__card">
+          <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Healthcare</span>
+            <h3 class="work__card-title">Pediatric Clinic</h3>
+            <p class="work__card-sub">Rapid-deploy modular medical facility with Hospitals Without Borders.</p>
+          </div>
+        </a>
+        <a href="/departments/civil" class="work__card">
+          <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Defense</span>
+            <h3 class="work__card-title">Military Compound</h3>
+            <p class="work__card-sub">Modular defense infrastructure through RI Group partnership.</p>
+          </div>
+        </a>
+        <a href="/departments/modular" class="work__card">
+          <img src="/images/showcase/west-factory.jpg" alt="West Modular factory floor" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Manufacturing</span>
+            <h3 class="work__card-title">Factory Production</h3>
+            <p class="work__card-sub">Off-site fabrication delivering consistent quality at scale.</p>
+          </div>
+        </a>
+        <a href="/departments/healthcare" class="work__card work__card--wide">
+          <img src="/images/showcase/hwb-surgery-cutaway.png" alt="HWB modular surgery suite cutaway" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Healthcare</span>
+            <h3 class="work__card-title">Modular Surgery Suite</h3>
+            <p class="work__card-sub">Self-contained surgical facilities deployable to disaster zones and underserved regions.</p>
+          </div>
+        </a>
+        <a href="/departments/civil" class="work__card">
+          <img src="/images/showcase/ri-commercial.jpg" alt="RI Group commercial building" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Commercial</span>
+            <h3 class="work__card-title">Commercial Facilities</h3>
+            <p class="work__card-sub">Permanent modular commercial buildings through RI Group USA.</p>
+          </div>
+        </a>
+        <a href="/departments/modular" class="work__card">
+          <img src="/images/showcase/west-crane.jpg" alt="Modular unit crane installation" class="work__img" loading="lazy" />
+          <div class="work__overlay">
+            <span class="work__tag">Installation</span>
+            <h3 class="work__card-title">Crane Set & Assembly</h3>
+            <p class="work__card-sub">Precision placement of factory-built modules on prepared foundations.</p>
+          </div>
         </a>
       </div>
-
-      <div class="insights__grid">
-        {blogPosts.map((post) => (
-          <article class="ins-card fade-up">
-            <div class="ins-card__img">
-              <div class="ins-card__gradient"></div>
-            </div>
-            <div class="ins-card__body">
-              <span class="ins-card__cat">{post.category}</span>
-              <div class="ins-card__divider"></div>
-              <h5 class="ins-card__title">{post.title}</h5>
-              <p class="ins-card__excerpt">{post.excerpt}</p>
-              <a href="/news" class="ins-card__link">Read more →</a>
-            </div>
-          </article>
-        ))}
-      </div>
     </div>
   </section>
 
-  <!-- ════════ 7. CTA SECTION ════════ -->
-  <section class="home-cta section-gap">
-    <div class="mnc-container">
-      <div class="home-cta__inner fade-up">
-        <h2 class="section-title">Let's Start a Conversation</h2>
-        <p class="home-cta__sub">Have a project in mind? Let us know how we can help bring your vision to life with innovative modular solutions.</p>
-        <div class="home-cta__actions">
-          <a href="/contact" class="mnc-btn mnc-btn--dark">
-            <span class="mnc-btn__wrap">
-              <span>Contact Us</span>
-              <span class="mnc-btn__icon">
-                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-              </span>
-            </span>
-          </a>
-          <a href="/services" class="mnc-btn mnc-btn--outline">
-            <span class="mnc-btn__wrap">
-              <span>View Services</span>
-              <span class="mnc-btn__icon">
-                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-              </span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <Footer slot="footer" />
 </Layout>
@@ -1101,6 +1106,42 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     opacity: 0.7;
   }
 
+  .puzzle__companies {
+    margin-bottom: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .puzzle__companies-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+
+  .puzzle__companies-logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .puzzle__company-logo {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.45);
+    transition: filter 0.25s ease;
+  }
+
+  .puzzle__piece:hover .puzzle__company-logo {
+    filter: grayscale(0) opacity(0.85);
+  }
+
   /* Landing "snap" pop */
   @keyframes puzzle-snap {
     0% { transform: scale(1); }
@@ -1160,8 +1201,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .credentials__title { max-width: 900px; margin-bottom: 48px; }
   .credentials__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
   .credentials__card { background: var(--off-white); border-radius: 8px; padding: 28px 24px; border-top: 3px solid var(--amber); }
-  .credentials__icon { width: 48px; height: 48px; border-radius: 8px; background: linear-gradient(145deg, rgba(224,161,53,.12), rgba(36,55,85,.06)); color: var(--amber); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-  .credentials__icon svg { width: 22px; height: 22px; }
+  .credentials__badge { display: inline-block; font-family: var(--font-secondary); font-size: 13px; font-weight: 800; letter-spacing: 1px; color: var(--navy); background: linear-gradient(145deg, rgba(224,161,53,.15), rgba(36,55,85,.06)); border: 1px solid rgba(224,161,53,.25); border-radius: 6px; padding: 6px 12px; margin-bottom: 14px; }
   .credentials__card-title { font-family: var(--font-secondary); font-size: 18px; font-weight: 600; color: var(--dark-text); margin-bottom: 8px; }
   .credentials__card-desc { font-size: 15px; line-height: 1.55; color: var(--text-gray); margin: 0; }
   .credentials__cta { text-align: center; }
@@ -1169,138 +1209,119 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   @media (max-width: 480px) { .credentials__grid { grid-template-columns: 1fr; } }
 
 
-  /* ════════ 6. INSIGHTS ════════ */
-  .insights {
-    background-color: var(--off-white);
+  /* ════════ 7. OUR WORK ════════ */
+  .work {
+    background: var(--off-white);
   }
 
-  .insights__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .insights__header .section-title {
-    margin: 0;
-  }
-
-  .insights__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .ins-card {
-    border-radius: 8px;
-    overflow: hidden;
-    background: transparent;
-  }
-
-  .ins-card__img {
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .ins-card__gradient {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(145deg, var(--navy) 0%, var(--navy-light) 100%);
-  }
-
-  .ins-card__body {
-    background-color: var(--white);
-    border-radius: 8px;
-    padding: 16px 24px 24px;
-    margin-top: -16px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .ins-card__cat {
-    display: inline-block;
-    background-color: var(--off-white);
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-gray);
-    margin-bottom: 12px;
-  }
-
-  .ins-card__divider {
-    border-bottom: 1px dashed var(--medium-gray);
-    margin-bottom: 12px;
-  }
-
-  .ins-card__title {
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--dark-text);
-    line-height: 1.4;
-    margin-bottom: 8px;
-    transition: text-decoration-color 0.3s;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 3px;
-  }
-
-  .ins-card:hover .ins-card__title {
-    text-decoration-color: var(--dark-text);
-  }
-
-  .ins-card__excerpt {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-gray);
-    margin-bottom: 16px;
-  }
-
-  .ins-card__link {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--navy);
-    text-decoration: none;
-    transition: color 0.25s;
-  }
-
-  .ins-card__link:hover {
-    color: var(--amber);
-  }
-
-
-  /* ════════ 7. CTA ════════ */
-  .home-cta {
-    background-color: var(--white);
-    border-top: 1px solid var(--medium-gray);
-  }
-
-  .home-cta__inner {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .home-cta__inner .section-title {
-    margin-bottom: 16px;
-  }
-
-  .home-cta__sub {
-    font-size: 18px;
-    color: var(--text-gray);
-    line-height: 1.6;
+  .work__head {
     margin-bottom: 32px;
   }
 
-  .home-cta__actions {
+  .work__title {
+    max-width: 900px;
+    margin-bottom: 48px;
+  }
+
+  .work__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .work__card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    display: block;
+    text-decoration: none;
+  }
+
+  .work__card--wide {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+
+  .work__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .work__card:hover .work__img {
+    transform: scale(1.04);
+  }
+
+  .work__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(12, 24, 48, 0.85) 0%, rgba(12, 24, 48, 0.3) 40%, transparent 65%);
     display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    transition: background 0.35s ease;
+  }
+
+  .work__card:hover .work__overlay {
+    background: linear-gradient(0deg, rgba(12, 24, 48, 0.9) 0%, rgba(12, 24, 48, 0.4) 50%, transparent 70%);
+  }
+
+  .work__tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+
+  .work__card-title {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+
+  .work__card-sub {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+  }
+
+  .work__card:hover .work__card-sub {
+    max-height: 80px;
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .work__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .work__card--wide {
+      grid-column: span 1;
+      aspect-ratio: 16 / 9;
+    }
+
+    .work__card {
+      aspect-ratio: 16 / 10;
+    }
+
+    .work__card-sub {
+      max-height: none;
+      opacity: 1;
+    }
   }
 
 
@@ -1328,11 +1349,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     .bento--r2c1 { grid-column: 1 / span 2; grid-row: 3; }
     .bento--r2c3 { grid-column: 1; grid-row: 4; }
     .bento--r2c4 { grid-column: 2; grid-row: 4; }
-
-    .insights__grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
   }
 
   @media (max-width: 768px) {
@@ -1424,10 +1440,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
       align-items: stretch;
     }
 
-    .insights__header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
   }
 
   @media (max-width: 480px) {

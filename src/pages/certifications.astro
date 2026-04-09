@@ -5,37 +5,37 @@ import Footer from '../components/Footer.astro';
 
 const certifications = [
   {
-    badge: 'SDVOSB',
-    fullName: 'Service-Disabled Veteran-Owned Small Business',
-    description:
-      'Verified SDVOSB status supporting federal set-asides, sole-source pathways, and subcontracting goals for agencies and primes.',
-  },
-  {
-    badge: '8(a)',
-    fullName: 'SBA 8(a) Business Development Program',
-    description:
-      'Participation in the 8(a) program to accelerate capability reviews, mentor-protégé structures, and compliant teaming arrangements.',
-  },
-  {
-    badge: 'ISO 9001',
-    fullName: 'Quality Management System',
-    description:
-      'Certified QMS alignment for documented processes, audit readiness, and consistent quality across design, fabrication, and delivery.',
-  },
-  {
     badge: 'CAGE',
     fullName: 'Commercial and Government Entity Code',
     description:
-      'Registered CAGE code for SAM.gov visibility, contract vehicle eligibility, and standardized government entity identification.',
+      'Registered CAGE code (1CHJ1) for SAM.gov visibility, contract vehicle eligibility, and standardized government entity identification.',
+  },
+  {
+    badge: 'MBE',
+    fullName: 'Minority-Owned Small Business Enterprise',
+    description:
+      'Certified Minority-Owned, Small Business Enterprise status supporting diversity-focused procurement, set-aside contracting, and subcontracting goals.',
+  },
+  {
+    badge: 'BONDING',
+    fullName: '$25M Single / $50M Aggregate Bonding',
+    description:
+      'Bonding capacity of $25M per single project and $50M aggregate through Marsh USA Inc., ensuring financial assurance for large-scale programs.',
+  },
+  {
+    badge: 'CLASS A',
+    fullName: 'General Engineering Contractor',
+    description:
+      'California Class A General Engineering Contractor license enabling infrastructure, site work, and heavy civil construction across the state.',
   },
 ];
 
-const states = ['California', 'Nevada', 'Arizona', 'Texas', 'Oregon'];
+const states = ['California', 'Hawaii', 'Louisiana', 'Nevada', 'Guam'];
 ---
 
 <Layout
   title="Certifications & Licenses"
-  description="SDVOSB, 8(a), ISO 9001, CAGE, and multi-state contractor licenses for procurement and compliance teams."
+  description="CAGE-registered, MBE-certified, Class A licensed, and bonded up to $50M aggregate — multi-state contractor credentials for procurement and compliance teams."
 >
   <Header slot="header" />
 
@@ -130,32 +130,6 @@ const states = ['California', 'Nevada', 'Arizona', 'Texas', 'Oregon'];
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cert-cta section-gap">
-    <div class="mnc-container">
-      <div class="cert-cta__inner">
-        <h2 class="cert-cta__title">Verify our credentials</h2>
-        <p class="cert-cta__desc">
-          Need certificate copies, license numbers, or a compliance packet for your vendor file?
-          Our team responds quickly with the artifacts your process requires.
-        </p>
-        <div class="cert-cta__actions">
-          <a href="/contact" class="mnc-btn mnc-btn--amber">
-            <span class="mnc-btn__wrap">
-              <span>Request documentation</span>
-              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-            </span>
-          </a>
-          <a href="/partners" class="mnc-btn mnc-btn--stroke">
-            <span class="mnc-btn__wrap">
-              <span>Partner network</span>
-              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <Footer slot="footer" />
 </Layout>
@@ -452,36 +426,6 @@ const states = ['California', 'Nevada', 'Arizona', 'Texas', 'Oregon'];
   .cert-lic__pill:hover {
     border-color: var(--amber);
     box-shadow: 0 2px 8px rgba(224,161,53,.15);
-  }
-
-  /* ── CTA ── */
-  .cert-cta {
-    background: var(--navy);
-  }
-  .cert-cta__inner {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .cert-cta__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 600;
-    line-height: 1.2;
-    color: #fff;
-    margin-bottom: 16px;
-  }
-  .cert-cta__desc {
-    font-size: 17px;
-    line-height: 1.7;
-    color: rgba(255,255,255,.65);
-    margin-bottom: 36px;
-  }
-  .cert-cta__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
   }
 
   /* ── Responsive ── */

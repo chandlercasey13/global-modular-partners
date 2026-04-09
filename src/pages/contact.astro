@@ -204,32 +204,6 @@ const offices = [
     </div>
   </section>
 
-  <!-- CTA Section (navy bg) -->
-  <section class="cta-section section-gap">
-    <div class="mnc-container">
-      <div class="cta-inner">
-        <h2 class="section-title cta-title">Let's Start a <span class="cta-span">Conversation</span></h2>
-        <p class="cta-body">
-          Tell us about your timeline, sector, and goals — we'll align the right specialists.
-        </p>
-        <div class="cta-actions">
-          <a href="#form" class="mnc-btn mnc-btn--dark">
-            <span class="mnc-btn__wrap">
-              <span>Contact form</span>
-              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-            </span>
-          </a>
-          <a href="mailto:info@globalmodularpartners.com" class="mnc-btn mnc-btn--stroke">
-            <span class="mnc-btn__wrap">
-              <span>Email us</span>
-              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
 </Layout>
 
@@ -728,38 +702,6 @@ const offices = [
     line-height: 1.5;
   }
 
-  /* ── CTA Section (navy bg) ── */
-  .cta-section {
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 100%);
-  }
-
-  .cta-inner {
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .cta-title {
-    color: #fff;
-  }
-
-  .cta-span {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .cta-body {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-
-  .cta-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
@@ -807,14 +749,5 @@ const offices = [
       justify-content: center;
     }
 
-    .cta-actions {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .cta-actions .mnc-btn {
-      width: 100%;
-      justify-content: center;
-    }
   }
 </style>

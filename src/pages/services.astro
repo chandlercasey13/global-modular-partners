@@ -6,51 +6,51 @@ import Footer from '../components/Footer.astro';
 const services = [
   {
     num: '01',
-    title: 'Feasibility Analysis',
+    title: 'Consulting',
+    image: '/images/showcase/ri-factory-panorama.jpg',
     description:
-      'Work with developers to complete feasibility analysis for volumetric construction to promote modular projects.',
+      'We partner with stakeholders early to evaluate feasibility, define scope, and align modular strategies with project goals — from site analysis and code review to budgeting and schedule planning.',
+    bullets: ['Feasibility analysis', 'Site evaluation & code review', 'Budget modeling & schedule planning', 'Entitlements & permitting strategy'],
   },
   {
     num: '02',
-    title: 'Technical Support',
+    title: 'Development & New Construction',
+    image: '/images/showcase/west-blvd-render.jpg',
     description:
-      'Provide technical support throughout the various stages of projects, from concept through completion.',
+      'Full-cycle design-build delivery for modular structures — residential, commercial, healthcare, and government. We coordinate architecture, engineering, and BIM from concept through factory production.',
+    bullets: ['Architectural design & BIM coordination', 'Structural & MEP engineering', 'Factory production management', 'Shop drawings & design-assist'],
   },
   {
     num: '03',
-    title: 'Entitlements & Permits',
+    title: 'Procurement',
+    image: '/images/showcase/west-factory.jpg',
     description:
-      'Assist with obtaining entitlements and building permits from local jurisdictions and state agencies.',
+      'Leveraging our global alliance network to source materials, modules, and specialized systems at scale — ensuring quality, compliance, and cost efficiency across every supply chain.',
+    bullets: ['Material sourcing & vendor management', 'Module fabrication oversight', 'Supply chain logistics', 'Quality assurance & compliance'],
   },
   {
     num: '04',
-    title: 'Shop Drawings & Coordination',
+    title: 'Installation',
+    image: '/images/showcase/west-crane.jpg',
     description:
-      'Work with client architects, structural engineers, and MEP professionals on preparing detailed shop drawings.',
+      'Turnkey on-site assembly of modular units — from foundation tie-in and craning to utility connections, finishing, and inspections. We manage every phase of field execution.',
+    bullets: ['Module transport coordination', 'Craning & setting', 'Utility connections & finishing', 'Inspections & agency approvals'],
   },
   {
     num: '05',
-    title: 'Production Management',
+    title: 'Project Management',
+    image: '/images/showcase/hwb-ri-factory-visit.jpeg',
     description:
-      'Manage and oversee full modular production processes at partnered manufacturing facilities.',
+      'Dedicated program management that keeps scope, schedule, and budget aligned across all stakeholders — from pre-construction through turnover and closeout.',
+    bullets: ['Schedule & milestone tracking', 'Stakeholder coordination', 'Risk management & reporting', 'Documentation & closeout'],
   },
   {
     num: '06',
-    title: 'Logistics & Installation',
+    title: 'Support & Maintenance',
+    image: '/images/showcase/ri-medical-shelter.jpg',
     description:
-      'Coordinate with shipping, logistics, and expert installation companies to ensure efficient delivery and assembly of modular units.',
-  },
-  {
-    num: '07',
-    title: 'Inspections & Approvals',
-    description:
-      'Coordinate project inspections and approvals with permitting agencies including local jurisdictions and State HCD.',
-  },
-  {
-    num: '08',
-    title: 'Project Closeout',
-    description:
-      'Assist with project closeout including final documentation, certifications, and warranty handover.',
+      'Post-occupancy support including warranty administration, preventive maintenance programs, and lifecycle planning to protect your investment long-term.',
+    bullets: ['Warranty administration', 'Preventive maintenance programs', 'Facility lifecycle planning', 'Emergency response & rapid deployment'],
   },
 ];
 
@@ -135,56 +135,28 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Services Accordion -->
-  <section id="services" class="section-gap svc-list-section">
-    <div class="mnc-container">
-      <div class="svc-header fade-up">
-        <span class="section-tag">What We Deliver</span>
-        <h2 class="section-title">Services built for scale <span class="section-span">from concept to completion</span></h2>
-        <p class="svc-lead">
-          From first conversation through long-term operations, we align teams, suppliers, and site
-          execution around your outcomes.
-        </p>
+  <!-- Service Sections -->
+  {services.map((s, i) => (
+    <section id={i === 0 ? 'services' : undefined} class:list={['section-gap', 'svc-block', { 'svc-block--alt': i % 2 === 1 }]}>
+      <div class="mnc-container">
+        <div class:list={['svc-block__grid', 'fade-up', { 'svc-block__grid--reverse': i % 2 === 1 }]}>
+          <div class="svc-block__image">
+            <img src={s.image} alt={s.title} loading="lazy" />
+          </div>
+          <div class="svc-block__content">
+            <span class="svc-block__num">{s.num}</span>
+            <h2 class="svc-block__title">{s.title}</h2>
+            <p class="svc-block__desc">{s.description}</p>
+            <ul class="svc-block__bullets">
+              {s.bullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="svc-accordion">
-        {services.map((s) => (
-          <details class="svc-accordion__item fade-up" name="gmp-services">
-            <summary class="svc-accordion__summary">
-              <span class="svc-accordion__num">{s.num}</span>
-              <span class="svc-accordion__title">{s.title}</span>
-              <span class="svc-accordion__chevron" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </summary>
-            <div class="svc-accordion__body">
-              <p>{s.description}</p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Value Section -->
-  <section class="section-gap svc-value-section">
-    <div class="mnc-container">
-      <div class="val-header fade-up">
-        <span class="section-tag">Outcomes</span>
-        <h2 class="section-title">Value we create <span class="section-span">for every engagement</span></h2>
-        <p class="val-lead">Measurable advantages our clients expect from a modern modular program.</p>
-      </div>
-      <div class="val-grid">
-        {values.map((v) => (
-          <article class="val-card fade-up">
-            <h3 class="val-card__title">{v.title}</h3>
-            <p class="val-card__body">{v.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
   <!-- FAQ Section -->
   <section class="section-gap svc-faq-section">
@@ -209,28 +181,6 @@ const faqs = [
             </div>
           </details>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section-gap svc-cta-section">
-    <div class="mnc-container">
-      <div class="cta-inner fade-up">
-        <h2 class="cta-title">Let's Discuss Your Project</h2>
-        <p class="cta-sub">
-          Tell us about your timeline, site, and stakeholders—we will map the right modular path forward.
-        </p>
-        <div class="cta-actions">
-          <a href="/contact" class="mnc-btn mnc-btn--dark" style="background: var(--amber); border-color: var(--amber); color: var(--navy);">
-            Contact Us
-            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-          </a>
-          <a href="/departments/modular" class="mnc-btn mnc-btn--stroke">
-            Explore Modular
-            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -345,139 +295,95 @@ const faqs = [
   }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-  /* ── Services Accordion ── */
-  .svc-list-section { background: var(--white); }
-  .svc-header { max-width: 720px; margin-bottom: 48px; }
-  .svc-lead {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--text-gray);
-    margin: 0;
+  /* ── Service Sections ── */
+  .svc-block { background: var(--white); }
+  .svc-block--alt { background: var(--off-white); }
+
+  .svc-block__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
   }
-  .svc-accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .svc-block__grid--reverse .svc-block__image {
+    order: 2;
   }
-  .svc-accordion__item {
-    background: var(--white);
-    border: 1px solid #dedede;
+  .svc-block__grid--reverse .svc-block__content {
+    order: 1;
+  }
+
+  .svc-block__image {
     border-radius: 8px;
     overflow: hidden;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
   }
-  .svc-accordion__item:hover { border-color: var(--navy); }
-  .svc-accordion__item[open] {
-    border-color: var(--navy);
-    box-shadow: 0 4px 16px rgba(36,55,85,.08);
+  .svc-block__image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
   }
-  .svc-accordion__summary {
-    display: grid;
-    grid-template-columns: 48px 1fr 36px;
-    align-items: center;
-    gap: 12px;
-    padding: 20px 24px;
-    cursor: pointer;
-    list-style: none;
+
+  .svc-block__num {
+    display: inline-block;
     font-family: var(--font-secondary);
-    color: var(--dark-text);
-  }
-  .svc-accordion__summary::-webkit-details-marker { display: none; }
-  .svc-accordion__num {
     font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     color: var(--amber);
+    margin-bottom: 12px;
   }
-  .svc-accordion__title {
-    font-size: clamp(16px, 2vw, 20px);
+  .svc-block__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 42px);
     font-weight: 600;
+    line-height: 1.2;
+    color: var(--dark-text);
+    margin-bottom: 16px;
   }
-  .svc-accordion__chevron {
-    width: 36px;
-    height: 36px;
-    border-radius: 4px;
-    background: var(--off-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--navy);
-    transition: transform 0.3s ease, background 0.25s ease;
-    flex-shrink: 0;
-  }
-  .svc-accordion__item[open] .svc-accordion__chevron {
-    transform: rotate(180deg);
-    background: rgba(224,161,53,.15);
-  }
-  .svc-accordion__body {
-    padding: 0 24px 20px 84px;
-    border-top: 1px solid #ececec;
-  }
-  .svc-accordion__body p {
-    margin: 0;
-    padding-top: 16px;
-    font-size: 16px;
+  .svc-block__desc {
+    font-size: 17px;
     line-height: 1.75;
     color: var(--text-gray);
-    max-width: 52rem;
+    margin-bottom: 24px;
   }
-
-  @media (max-width: 640px) {
-    .svc-accordion__body { padding-left: 24px; }
-    .svc-accordion__summary { grid-template-columns: 36px 1fr 32px; padding: 16px; }
-  }
-
-  /* ── Value Section ── */
-  .svc-value-section { background: var(--off-white); }
-  .val-header {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto 48px;
-  }
-  .val-lead {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--text-gray);
+  .svc-block__bullets {
+    list-style: none;
+    padding: 0;
     margin: 0;
-  }
-  .val-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 28px;
   }
-  .val-card {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 28px 20px;
-    border: 1px solid rgba(0,0,0,.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .val-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(36,55,85,.08);
-  }
-  .val-card__title {
-    font-family: var(--font-secondary);
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-  .val-card__body {
-    font-size: 14px;
+  .svc-block__bullets li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 15px;
+    color: var(--dark-text);
     line-height: 1.6;
-    color: var(--text-gray);
-    margin: 0;
+  }
+  .svc-block__bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--amber);
   }
 
-  @media (max-width: 1100px) {
-    .val-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 900px) {
+    .svc-block__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .svc-block__grid--reverse .svc-block__image { order: 0; }
+    .svc-block__grid--reverse .svc-block__content { order: 0; }
+    .svc-block__image img { height: 280px; }
   }
-  @media (max-width: 768px) {
-    .val-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 480px) {
-    .val-grid { grid-template-columns: 1fr; }
+  @media (max-width: 640px) {
+    .svc-block__bullets { grid-template-columns: 1fr; }
+    .svc-block__image img { height: 220px; }
   }
 
   /* ── FAQ Section ── */
@@ -544,42 +450,6 @@ const faqs = [
     line-height: 1.75;
     color: var(--text-gray);
   }
-
-  /* ── CTA Section ── */
-  .svc-cta-section {
-    background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 45%, var(--navy-light) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .svc-cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(224,161,53,.1), transparent),
-                radial-gradient(ellipse 60% 50% at 10% 90%, rgba(0,0,0,.12), transparent);
-    pointer-events: none;
-  }
-  .cta-inner {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .cta-title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-  .cta-sub {
-    color: rgba(255,255,255,.65);
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 32px;
-  }
-  .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
