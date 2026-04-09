@@ -2,16 +2,7 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  {
-    label: 'About Us',
-    children: [
-      { href: '/about', label: 'Overview' },
-      { href: '/about/subsidiaries', label: 'Subsidiaries' },
-      { href: '/about/leadership', label: 'Leadership' },
-      { href: '/about/mission', label: 'Mission & Values' },
-      { href: '/about/history', label: 'History' },
-    ],
-  },
+  { href: '/about', label: 'About Us' },
   {
     label: 'Departments',
     children: [
@@ -351,6 +342,12 @@ function isActive(href?: string) {
 
   .hdr-mega-wrap .hdr-menu-link {
     white-space: nowrap;
+    color: var(--dark-text);
+  }
+  .hdr-mega-wrap .hdr-menu-link:hover,
+  .hdr-mega-wrap .hdr-menu-link.active {
+    color: var(--dark-text);
+    text-decoration-color: var(--dark-text);
   }
 
   /* ── CTA Button (MNC style) ── */
