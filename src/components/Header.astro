@@ -2,7 +2,16 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { href: '/about', label: 'About Us' },
+  {
+    label: 'About Us',
+    children: [
+      { href: '/about', label: 'Overview' },
+      { href: '/about/subsidiaries', label: 'Subsidiaries' },
+      { href: '/about/leadership', label: 'Leadership' },
+      { href: '/about/mission', label: 'Mission & Values' },
+      { href: '/about/history', label: 'History' },
+    ],
+  },
   {
     label: 'Departments',
     children: [
@@ -29,10 +38,11 @@ function isActive(href?: string) {
 <header class="hdr-section" id="site-header">
   <div class="hdr-container">
     <div class="hdr-block">
-      <!-- Brand -->
+      <!-- Brand Logo -->
       <div class="hdr-brand-block">
         <a href="/" class="hdr-brand" aria-label="Global Modular Partners home">
-          <img src="/images/logo/gmp-logo-final.png" alt="Global Modular Partners" class="hdr-logo" />
+          <img src="/images/logo/gmp-globe-white.svg" alt="Global Modular Partners" class="hdr-logo-svg" />
+          <span class="hdr-brand-name"><span>GLOBAL</span><span>MODULAR</span><span>PARTNERS</span></span>
         </a>
       </div>
 
@@ -65,14 +75,11 @@ function isActive(href?: string) {
 
           <!-- CTA inside menu (desktop) -->
           <div class="hdr-button-wrap-inner">
-            <a class="hdr-btn" href="/contact">
+            <a class="hdr-btn" href="/services">
               <div class="hdr-btn-wrap">
-                <span class="hdr-btn-text">Get in Touch</span>
+                <span class="hdr-btn-text">View Our Work</span>
                 <span class="hdr-btn-icon">
-                  <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                    <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                  </svg>
+                  <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                 </span>
               </div>
             </a>
@@ -82,14 +89,11 @@ function isActive(href?: string) {
 
       <!-- CTA outside menu (desktop, visible at certain breakpoints) -->
       <div class="hdr-button-block">
-        <a class="hdr-btn" href="/contact">
+        <a class="hdr-btn" href="/services">
           <div class="hdr-btn-wrap">
-            <span class="hdr-btn-text">Get in Touch</span>
+            <span class="hdr-btn-text">View Our Work</span>
             <span class="hdr-btn-icon">
-              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-              </svg>
+              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
             </span>
           </div>
         </a>
@@ -125,7 +129,7 @@ function isActive(href?: string) {
           )}
         </div>
       ))}
-      <a href="/contact" class="hdr-mobile-cta">Get in Touch</a>
+      <a href="/services" class="hdr-mobile-cta">View Our Work</a>
     </nav>
   </div>
 </header>
@@ -153,30 +157,83 @@ function isActive(href?: string) {
 
   /* ── Block (the white bar) ── */
   .hdr-block {
-    padding: 12px 20px;
-    border: 1px solid #dedede;
+    padding: 12px 0;
+    border: 1px solid transparent;
     border-radius: 8px;
-    background-color: var(--white);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
     justify-content: space-between;
     align-items: center;
     display: flex;
+    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s, backdrop-filter 0.4s, padding 0.4s;
+  }
+
+  .hdr-section.scrolled .hdr-block {
+    padding: 12px 20px;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+  .hdr-section.scrolled .hdr-brand-name {
+    color: var(--dark-text);
+  }
+  .hdr-section.scrolled .hdr-menu-link {
+    color: var(--dark-text);
+  }
+  .hdr-section.scrolled .hdr-menu-link:hover,
+  .hdr-section.scrolled .hdr-menu-link.active {
+    color: var(--dark-text);
+    text-decoration-color: var(--dark-text);
+  }
+  .hdr-section.scrolled .hdr-toggle {
+    color: var(--dark-text);
+  }
+  .hdr-section.scrolled .hdr-toggle:hover {
+    text-decoration-color: var(--dark-text);
+  }
+  .hdr-section.scrolled .hdr-dropdown-icon {
+    color: var(--dark-text);
   }
 
   /* ── Brand ── */
   .hdr-brand-block {
     flex: none;
-    width: 100%;
-    max-width: 210px;
   }
   .hdr-brand {
     display: flex;
     align-items: center;
     text-decoration: none;
+    gap: 8px;
+    transition: gap 0.4s ease;
   }
-  .hdr-logo {
-    height: 44px;
-    width: auto;
-    object-fit: contain;
+  .hdr-logo-svg {
+    width: 80px;
+    height: 80px;
+    transition: width 0.4s ease, height 0.4s ease, filter 0.4s ease;
+  }
+  .hdr-brand-name {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    color: white;
+    letter-spacing: 2.5px;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    transition: font-size 0.4s ease, color 0.4s ease;
+  }
+
+  .hdr-section.scrolled .hdr-logo-svg {
+    width: 42px;
+    height: 42px;
+    filter: brightness(0);
+  }
+  .hdr-section.scrolled .hdr-brand-name {
+    font-size: 9px;
   }
 
   /* ── Nav menu ── */
@@ -207,7 +264,7 @@ function isActive(href?: string) {
   /* ── Nav links ── */
   .hdr-menu-link {
     font-family: var(--font-primary);
-    color: var(--navy);
+    color: var(--white);
     font-size: 15px;
     line-height: 1.6;
     font-weight: 500;
@@ -216,12 +273,12 @@ function isActive(href?: string) {
     text-decoration-color: transparent;
     text-underline-offset: 4px;
     padding: 0;
-    transition: text-decoration-color 0.4s;
+    transition: text-decoration-color 0.4s, color 0.4s;
   }
   .hdr-menu-link:hover,
   .hdr-menu-link.active {
-    text-decoration-color: var(--navy);
-    color: var(--navy);
+    text-decoration-color: var(--white);
+    color: var(--white);
   }
 
   /* ── Dropdown ── */
@@ -240,7 +297,7 @@ function isActive(href?: string) {
     border: none;
     cursor: pointer;
     font-family: var(--font-primary);
-    color: var(--navy);
+    color: var(--white);
     font-size: 15px;
     line-height: 1.6;
     font-weight: 500;
@@ -249,10 +306,10 @@ function isActive(href?: string) {
     text-decoration-color: transparent;
     text-underline-offset: 4px;
     padding: 0;
-    transition: text-decoration-color 0.4s;
+    transition: text-decoration-color 0.4s, color 0.4s;
   }
   .hdr-toggle:hover {
-    text-decoration-color: var(--navy);
+    text-decoration-color: var(--white);
   }
 
   .hdr-dropdown-icon {
@@ -469,4 +526,14 @@ function isActive(href?: string) {
     mobile?.classList.toggle('open');
     toggle.setAttribute('aria-expanded', toggle.classList.contains('open').toString());
   });
+
+  function updateScrollState() {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+  updateScrollState();
+  window.addEventListener('scroll', updateScrollState, { passive: true });
 </script>

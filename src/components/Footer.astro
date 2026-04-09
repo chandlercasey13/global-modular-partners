@@ -3,10 +3,10 @@ const currentYear = new Date().getFullYear();
 
 const quickLinks = [
   { href: '/about', label: 'About Us' },
-  { href: '/services', label: 'Services' },
-  { href: '/partners', label: 'Partners' },
-  { href: '/news', label: 'News' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/about/subsidiaries', label: 'Subsidiaries' },
+  { href: '/about/leadership', label: 'Leadership' },
+  { href: '/about/mission', label: 'Mission & Values' },
+  { href: '/about/history', label: 'History' },
 ];
 
 const departments = [
@@ -20,8 +20,9 @@ const departments = [
 const resources = [
   { href: '/news', label: 'News & Insights' },
   { href: '/partners', label: 'Partner Network' },
-  { href: '/about', label: 'Leadership' },
+  { href: '/about/leadership', label: 'Leadership' },
   { href: '/contact', label: 'Careers' },
+  { href: '#', label: '28 Day ADU' },
   { href: '#', label: 'FAQs' },
 ];
 ---
@@ -38,10 +39,7 @@ const resources = [
           <div class="ftr__gotop-inner">
             <span class="ftr__gotop-label">Go To Top</span>
             <span class="ftr__gotop-icon">
-              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.4 11.76s-4.52-6.13-6.13-6.13S6.13 11.76 6.13 11.76" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                <path d="M18.4 18.91s-4.52-6.13-6.13-6.13S6.13 18.91 6.13 18.91" opacity="0.4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-              </svg>
+              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
             </span>
           </div>
         </a>
@@ -57,8 +55,8 @@ const resources = [
       <div class="ftr__menu-row">
         <!-- Newsletter CTA -->
         <div class="ftr__cta">
-          <h3 class="ftr__cta-title">Stay Informed. Stay Ahead.</h3>
-          <p class="ftr__cta-text">Join our community and receive insights on innovation, industry trends, and corporate updates — delivered straight to your inbox.</p>
+          <h3 class="ftr__cta-title">Field-tested perspective.</h3>
+          <p class="ftr__cta-text">Occasional updates on modular delivery, regulated sectors, and how we partner with owners and agencies — written by the team that executes the work.</p>
           <form class="ftr__cta-form" onsubmit="event.preventDefault();">
             <input class="ftr__cta-field" type="email" placeholder="Enter Your Email" required />
             <button class="ftr__cta-btn" type="submit">Subscribe</button>
@@ -175,6 +173,8 @@ const resources = [
      ════════════════════════════════════════════ */
 
   .ftr {
+    position: relative;
+    z-index: 3;
     background-color: var(--navy-dark, #1a2a42);
     font-family: var(--font-primary, 'Barlow', sans-serif);
     border-top: 3px solid var(--amber, #E0A135);

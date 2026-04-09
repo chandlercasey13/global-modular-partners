@@ -50,58 +50,7 @@ const departments = [
   },
 ];
 
-const stats = [
-  { value: '30%–50%', label: 'Faster Than Traditional' },
-  { value: '28', label: 'Day ADU Delivery' },
-  { value: '2019', label: 'Year Founded' },
-  { value: '10+', label: 'Trade Partners' },
-];
 
-const reachStats = [
-  { value: '10+', label: 'Trade Partners', desc: 'Manufacturers, engineers & contractors', dark: true, span: 'col1' },
-  { value: '2', label: 'Offices', desc: 'Oakland headquarters & Irvine operations', dark: false, span: 'col3' },
-  { value: '50%', label: 'Time Savings', desc: 'Faster than traditional construction', dark: true, span: 'col6' },
-  { value: '28', label: 'Day ADU', desc: 'Accelerated dwelling unit delivery', dark: true, span: 'col7' },
-];
-
-const testimonials = [
-  {
-    quote: 'Global Modular Partners delivered our facility on time and under budget. Their modular approach reduced our construction timeline by 40%.',
-    author: 'James Mitchell',
-    title: 'Director of Operations',
-    company: 'DEF Logistics',
-    savings: '$2.5M+',
-    savingsLabel: 'Cost Savings',
-    years: '5+',
-    yearsLabel: 'Years of Collaboration',
-    service: 'Modular Construction',
-    serviceLabel: 'Service Type',
-  },
-  {
-    quote: 'The DoD compliance expertise was exactly what we needed. Professional, thorough, and the finished facility exceeded our specifications.',
-    author: 'Sarah Chen',
-    title: 'Project Manager',
-    company: 'Federal Construction Co.',
-    savings: '$1.8M+',
-    savingsLabel: 'Cost Savings',
-    years: '3+',
-    yearsLabel: 'Years of Collaboration',
-    service: 'DoD Compliance',
-    serviceLabel: 'Service Type',
-  },
-  {
-    quote: 'Working with GMP on our healthcare facility was seamless. Their partnership with HWB brought world-class expertise to our community.',
-    author: 'Dr. Michael Torres',
-    title: 'Chief Medical Officer',
-    company: 'Regional Health Systems',
-    savings: '$3.2M+',
-    savingsLabel: 'Cost Savings',
-    years: '4+',
-    yearsLabel: 'Years of Collaboration',
-    service: 'Healthcare',
-    serviceLabel: 'Service Type',
-  },
-];
 
 const blogPosts = [
   {
@@ -121,7 +70,18 @@ const blogPosts = [
   },
 ];
 
-const partners = ['West Modular', 'PROSET Construction', 'TRUE NORTH Compliance', 'EnTech Engineering', 'Agbayani Construction', 'STREAM Logistics', 'ATCCO Construction', 'Petra Air Conditioning', 'Petra Aluminum', 'Abstract Architecture'];
+const partners = [
+  { name: 'West Modular', logo: '/images/partners/west-og.png' },
+  { name: 'PROSET Construction', logo: '/images/partners/proset-footer.png' },
+  { name: 'TRUE NORTH Compliance', logo: '/images/partners/true-north.svg' },
+  { name: 'EnTech Engineering', logo: '/images/partners/entech.svg' },
+  { name: 'Agbayani Construction', logo: '/images/partners/agbayani-real.png' },
+  { name: 'STREAM Logistics', logo: '/images/partners/stream-dark.png' },
+  { name: 'ATCCO Construction', logo: '/images/partners/atcco-big.png' },
+  { name: 'Petra Air Conditioning', logo: '/images/partners/petra-eng.png' },
+  { name: 'Petra Aluminum', logo: '/images/partners/petralu-logo.jpg' },
+  { name: 'Abstract Architecture', logo: '/images/partners/abstract-arch.jpg' },
+];
 
 const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 ---
@@ -133,14 +93,13 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   <section class="banner">
     <div class="banner__pad">
       <div class="banner__inner">
+        <div class="banner__3d">
+          <canvas id="hero-3d"></canvas>
+        </div>
         <div class="banner__overlay"></div>
         <div class="banner__content">
           <div class="banner__container">
-            <div class="banner__tag fade-up">
-              <span class="banner__dot"></span>
-              Trusted by government & industry leaders
-            </div>
-            <h1 class="banner__h1 fade-up">Building the Future with Modular Innovation</h1>
+            <h1 class="banner__h1 fade-up">Building the Future<br/>with Modular Innovation</h1>
             <p class="banner__sub fade-up">
               Improving and perfecting modular building technologies by fostering long-lasting partnerships among developers, architects, engineers, contractors, and manufacturers worldwide.
             </p>
@@ -149,21 +108,15 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
                 <span class="mnc-btn__wrap">
                   <span>View Our Work</span>
                   <span class="mnc-btn__icon">
-                    <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                      <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                    </svg>
+                    <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                   </span>
                 </span>
               </a>
-              <a href="/contact" class="mnc-btn mnc-btn--stroke">
+              <a href="/about" class="mnc-btn mnc-btn--stroke">
                 <span class="mnc-btn__wrap">
-                  <span>Get in Touch</span>
+                  <span>Our Capabilities</span>
                   <span class="mnc-btn__icon">
-                    <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                      <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                    </svg>
+                    <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                   </span>
                 </span>
               </a>
@@ -174,32 +127,180 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     </div>
   </section>
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const canvas = document.getElementById('hero-3d');
+    if (canvas) {
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(12, 9, 14);
+
+      const controls = new OrbitControls(camera, canvas);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.enablePan = false;
+      controls.minDistance = 6;
+      controls.maxDistance = 30;
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 0.8;
+
+      const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+      const ridgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.15 });
+
+      const modules = [];
+      const dropHeight = 15;
+
+      function addModule(w, h, d, x, y, z, order) {
+        const group = new THREE.Group();
+        group.position.set(x, y + dropHeight, z);
+
+        const geo = new THREE.BoxGeometry(w, h, d);
+        const edges = new THREE.EdgesGeometry(geo);
+        const line = new THREE.LineSegments(edges, edgeMat.clone());
+        line.material.opacity = 0;
+        group.add(line);
+
+        const ridgeCount = Math.floor(w / 0.45);
+        const ridgeGeo = new THREE.BufferGeometry();
+        const verts = [];
+        for (let i = 1; i < ridgeCount; i++) {
+          const lx = -w / 2 + (w / ridgeCount) * i;
+          verts.push(lx, -h / 2, d / 2, lx, h / 2, d / 2);
+          verts.push(lx, -h / 2, -d / 2, lx, h / 2, -d / 2);
+        }
+        const sideCount = Math.floor(d / 0.45);
+        for (let i = 1; i < sideCount; i++) {
+          const lz = -d / 2 + (d / sideCount) * i;
+          verts.push(-w / 2, -h / 2, lz, -w / 2, h / 2, lz);
+          verts.push(w / 2, -h / 2, lz, w / 2, h / 2, lz);
+        }
+        ridgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+        const ridges = new THREE.LineSegments(ridgeGeo, ridgeMat.clone());
+        ridges.material.opacity = 0;
+        group.add(ridges);
+
+        scene.add(group);
+        modules.push({ group, targetY: y, delay: order * 0.3, started: false, done: false });
+      }
+
+      // Ground floor first (order 0–5)
+      addModule(3, 1.3, 2, -5, 0.65, -3, 0);
+      addModule(5, 1.2, 2.2, 0, 0.6, -4, 1);
+      addModule(2.8, 1.3, 2, 4.5, 0.65, -2, 1);
+      addModule(2.2, 1.2, 1.8, -4, 0.6, 2, 2);
+      addModule(2.2, 1.2, 1.8, -1.5, 0.6, 2, 2);
+      addModule(2.2, 1.2, 1.8, 1, 0.6, 2, 3);
+      addModule(2, 1.3, 2, 5, 0.65, 2, 3);
+      addModule(2.5, 1.1, 1.8, -1, 0.55, -1, 4);
+      addModule(4, 1, 2.5, 2, 0.5, 0, 4);
+
+      // Second floor (order 5–7)
+      addModule(3, 1.3, 2, -5, 1.95, -3, 6);
+      addModule(2.8, 1.3, 2, 4.5, 1.95, -2, 6);
+      addModule(2, 1.3, 2, 5, 1.95, 2, 7);
+
+      // Third floor (order 8–9)
+      addModule(2, 0.8, 1.5, -5, 3, -3, 8);
+      addModule(2, 1.3, 2, 5, 3.25, 2, 9);
+
+      // Top piece (order 10)
+      addModule(1.6, 0.6, 1.6, 5, 4.2, 2, 10);
+
+      // Ground grid — appears immediately
+      const gridMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.06 });
+      const gridGeo = new THREE.BufferGeometry();
+      const gv = [];
+      for (let i = -8; i <= 8; i += 1) {
+        gv.push(i, 0, -8, i, 0, 8);
+        gv.push(-8, 0, i, 8, 0, i);
+      }
+      gridGeo.setAttribute('position', new THREE.Float32BufferAttribute(gv, 3));
+      const grid = new THREE.LineSegments(gridGeo, gridMat);
+      scene.add(grid);
+
+      scene.position.y = 0;
+
+      // Easing
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      const buildDuration = 1.2;
+      const startTime = performance.now() / 1000;
+
+      function resize() {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        const w = parent.clientWidth;
+        const h = parent.clientHeight;
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const now = performance.now() / 1000;
+        const elapsed = now - startTime;
+
+        for (const m of modules) {
+          if (m.done) continue;
+          const t = (elapsed - m.delay) / buildDuration;
+          if (t <= 0) continue;
+          m.started = true;
+          const clamped = Math.min(t, 1);
+          const ease = easeOutCubic(clamped);
+          m.group.position.y = m.targetY + dropHeight * (1 - ease);
+          m.group.children.forEach(child => {
+            if (child.material) child.material.opacity = child.material === m.group.children[0].material ? 0.6 * ease : 0.15 * ease;
+          });
+          if (clamped >= 1) m.done = true;
+        }
+
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+  </script>
+
   <!-- ════════ 2. DETAILS SECTION ════════ -->
   <section class="details section-gap">
     <div class="mnc-container">
       <div class="details__head fade-up">
-        <span class="section-tag">who We are</span>
+        <span class="section-tag">Who We Are</span>
       </div>
       <h2 class="section-title details__title fade-up">
-        Founded in 2019 by Fuad Sweiss, GMP perfects modular building technologies <span class="section-span">by fostering partnerships that reduce costs, accelerate delivery, and minimize environmental impact.</span>
+        Modernizing how the world <span class="section-span">builds.</span>
       </h2>
-
-      <div class="details__stats fade-up">
-        {stats.map((s) => (
-          <div class="details__stat">
-            <span class="details__stat-val">{s.value}</span>
-            <span class="details__stat-label">{s.label}</span>
-          </div>
-        ))}
-      </div>
+      <p class="details__body fade-up">
+        Global Modular Partners brings together developers, architects, engineers, and manufacturers to deliver construction projects faster, leaner, and with less environmental impact than traditional methods. Headquartered in the San Francisco Bay Area with operations in Irvine, GMP was founded in 2019 to coordinate an integrated network of trade partners, manufacturers, and specialty contractors — selecting the right team for each project based on location, scope, and compliance requirements.
+      </p>
 
       <div class="details__partners fade-up">
-        <span class="details__partners-label">Trusted Partners</span>
+        <span class="details__partners-label">Trade Partners</span>
         <div class="details__marquee-track">
           <div class="details__marquee">
-            {partners.map((p) => <span class="details__partner">{p}</span>)}
-            {partners.map((p) => <span class="details__partner">{p}</span>)}
-            {partners.map((p) => <span class="details__partner">{p}</span>)}
+            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
           </div>
         </div>
       </div>
@@ -237,10 +338,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
                 <span class="mnc-btn__wrap">
                   <span>Learn More</span>
                   <span class="mnc-btn__icon">
-                    <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                      <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                    </svg>
+                    <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                   </span>
                 </span>
               </a>
@@ -262,7 +360,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
       </h2>
 
       <div class="reach__bento fade-up">
-        <!-- Row 1 -->
         <div class="bento bento--dark bento--stat bento--r1c1">
           <span class="bento__val">10+</span>
           <span class="bento__label">Trade Partners</span>
@@ -279,7 +376,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
         <div class="bento bento--img bento--r1c4">
           <div class="bento__gradient bento__gradient--alt"></div>
         </div>
-        <!-- Row 2 -->
         <div class="bento bento--img bento--r2c1">
           <div class="bento__gradient bento__gradient--wide"></div>
         </div>
@@ -297,55 +393,50 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     </div>
   </section>
 
-  <!-- ════════ 5. REVIEW SECTION ════════ -->
-  <section class="review section-gap">
+  <!-- ════════ 5. CREDENTIALS SECTION ════════ -->
+  <section class="credentials section-gap">
     <div class="mnc-container">
-      <div class="review__head fade-up">
-        <span class="section-tag">Testimonials</span>
+      <div class="credentials__head fade-up">
+        <span class="section-tag">Credentials</span>
       </div>
-      <h2 class="section-title review__title fade-up">
-        What our clients say about working with us <span class="section-span">and achieving measurable business results.</span>
+      <h2 class="section-title credentials__title fade-up">
+        Licensed, certified, and compliant <span class="section-span">across every jurisdiction we operate in.</span>
       </h2>
-
-      <div class="review__carousel fade-up">
-        {testimonials.map((t, idx) => (
-          <div class={`review__card ${idx === 0 ? 'review__card--active' : ''}`} data-review-idx={idx}>
-            <div class="review__rating">
-              <span class="review__stars">★★★★★</span>
-              <span class="review__score">5.0</span>
-            </div>
-            <p class="review__quote">"{t.quote}"</p>
-            <div class="review__info-strip">
-              <div class="review__info-col">
-                <span class="review__info-val">{t.savings}</span>
-                <span class="review__info-label">{t.savingsLabel}</span>
-              </div>
-              <div class="review__info-col review__info-col--border">
-                <span class="review__info-val">{t.years}</span>
-                <span class="review__info-label">{t.yearsLabel}</span>
-              </div>
-              <div class="review__info-col">
-                <span class="review__info-val">{t.service}</span>
-                <span class="review__info-label">{t.serviceLabel}</span>
-              </div>
-            </div>
-            <div class="review__author">
-              <div class="review__avatar">{t.author.charAt(0)}</div>
-              <div>
-                <span class="review__name">{t.author}</span>
-                <span class="review__role">{t.title}, {t.company}</span>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div class="credentials__grid fade-up">
+        <div class="credentials__card">
+          <span class="credentials__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 4l10 4v8c0 6-4 11-10 12-6-1-10-6-10-12V8l10-4z" /></svg>
+          </span>
+          <h3 class="credentials__card-title">State Contractor Licenses</h3>
+          <p class="credentials__card-desc">Licensed general contractor in California and multiple additional states, meeting all bonding and insurance requirements for public and private work.</p>
+        </div>
+        <div class="credentials__card">
+          <span class="credentials__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M6 16l8 8 12-14" /></svg>
+          </span>
+          <h3 class="credentials__card-title">Federal Compliance</h3>
+          <p class="credentials__card-desc">Registered and compliant for federal contracting with DoD and government agencies, including required security clearances and documentation standards.</p>
+        </div>
+        <div class="credentials__card">
+          <span class="credentials__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M16 6l3.5 7.5L28 15l-6 5.5L24 30l-8-4.5L8 30l2-9.5L4 15l8.5-1.5L16 6z" /></svg>
+          </span>
+          <h3 class="credentials__card-title">Industry Certifications</h3>
+          <p class="credentials__card-desc">ISO-certified processes, modular building institute membership, and specialized trade certifications across our partner network.</p>
+        </div>
+        <div class="credentials__card">
+          <span class="credentials__icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="16" cy="16" r="12" /><path d="M4 16h24M16 4c3 4 3 20 0 24M16 4c-3 4-3 20 0 24" /></svg>
+          </span>
+          <h3 class="credentials__card-title">International Standards</h3>
+          <p class="credentials__card-desc">Manufacturing partnerships meeting European and international building standards through RI Group USA and global supply chain partners.</p>
+        </div>
       </div>
-
-      <div class="review__tabs fade-up">
-        {testimonials.map((t, idx) => (
-          <button class={`review__tab ${idx === 0 ? 'review__tab--active' : ''}`} data-review-tab={idx} type="button">
-            {t.company}
-          </button>
-        ))}
+      <div class="credentials__cta fade-up">
+        <a href="/certifications" class="mnc-btn mnc-btn--outline">
+          View All Certifications
+          <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
@@ -359,10 +450,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
           <span class="mnc-btn__wrap">
             <span>Read All Articles</span>
             <span class="mnc-btn__icon">
-              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-              </svg>
+              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
             </span>
           </span>
         </a>
@@ -398,10 +486,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
             <span class="mnc-btn__wrap">
               <span>Contact Us</span>
               <span class="mnc-btn__icon">
-                <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                  <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                </svg>
+                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
               </span>
             </span>
           </a>
@@ -409,10 +494,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
             <span class="mnc-btn__wrap">
               <span>View Services</span>
               <span class="mnc-btn__icon">
-                <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                  <path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/>
-                </svg>
+                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
               </span>
             </span>
           </a>
@@ -425,18 +507,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 </Layout>
 
 <script>
-  // Testimonial tabs
-  const cards = document.querySelectorAll<HTMLElement>('[data-review-idx]');
-  const tabs = document.querySelectorAll<HTMLElement>('[data-review-tab]');
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const idx = tab.dataset.reviewTab;
-      cards.forEach((c) => c.classList.toggle('review__card--active', c.dataset.reviewIdx === idx));
-      tabs.forEach((t) => t.classList.toggle('review__tab--active', t.dataset.reviewTab === idx));
-    });
-  });
-
   // Puzzle animation
   const puzzleGrid = document.getElementById('puzzle-grid');
   const pieces = document.querySelectorAll<HTMLElement>('[data-puzzle]');
@@ -481,20 +551,33 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 
   /* ── Section Tag (pill) ── */
   .section-tag {
-    display: inline-block;
-    border: 1px solid var(--amber);
-    border-radius: 4px;
-    padding: 4px 16px;
-    font-size: 16px;
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--amber-dark);
-    font-family: var(--font-primary);
+    letter-spacing: 2.5px;
+    color: var(--amber);
+    margin-bottom: 20px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
   }
 
   .section-tag--dark {
-    border-color: var(--amber);
-    color: var(--amber);
+    color: rgba(255,255,255,.6);
+  }
+  .section-tag--dark::before {
+    background: var(--amber);
   }
 
   /* ── Section Title ── */
@@ -591,13 +674,21 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 
   /* ════════ 1. BANNER ════════ */
   .banner {
+    position: relative;
+    z-index: 1;
     width: 100%;
     min-height: 100vh;
     background-color: var(--off-white);
   }
+  .banner ~ section,
+  .banner ~ footer,
+  .banner ~ div {
+    position: relative;
+    z-index: 3;
+  }
 
   .banner__pad {
-    padding: 16px;
+    padding: 0;
     height: 100vh;
     min-height: 700px;
   }
@@ -606,7 +697,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
     overflow: hidden;
     background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
   }
@@ -618,20 +708,44 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     z-index: 1;
   }
 
-  .banner__content {
+  .banner__3d {
     position: absolute;
     inset: 0;
+    z-index: 0;
+  }
+  .banner__3d canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .banner__content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 2;
     display: flex;
     align-items: flex-end;
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    pointer-events: none;
+  }
+  .banner__content * {
+    pointer-events: auto;
   }
 
   .banner__container {
-    max-width: 850px;
-    padding-bottom: 64px;
+    max-width: 700px;
+    padding-bottom: 100px;
+  }
+
+  .banner__line {
+    height: 1px;
+    width: 100%;
+    background: rgba(255,255,255,.12);
+    margin: 20px 0;
   }
 
   .banner__tag {
@@ -660,8 +774,8 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 
   .banner__h1 {
     font-family: var(--font-secondary);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 600;
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 500;
     line-height: 1.1;
     color: var(--white);
     margin-bottom: 20px;
@@ -688,14 +802,20 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   }
 
   .details__head {
-    text-align: center;
     margin-bottom: 32px;
   }
 
   .details__title {
-    text-align: center;
-    max-width: 1010px;
-    margin: 0 auto 64px;
+    max-width: 900px;
+    margin-bottom: 24px;
+  }
+
+  .details__body {
+    max-width: 780px;
+    margin-bottom: 56px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text-gray);
   }
 
   .details__stats {
@@ -756,12 +876,25 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 
   .details__partner {
     flex-shrink: 0;
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--dark-text);
-    opacity: 0.3;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity 0.3s, filter 0.3s;
+  }
+
+  .details__partner:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  .details__partner img {
+    height: 100%;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
   }
 
 
@@ -996,100 +1129,23 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 
 
   /* ════════ 4. REACH ════════ */
-  .reach {
-    background-color: var(--white);
-  }
-
-  .reach__head {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
-  .reach__title {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto 64px;
-  }
-
-  .reach__bento {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 250px 250px;
-    gap: 20px;
-  }
-
-  .bento {
-    border-radius: 8px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .bento--dark {
-    background: linear-gradient(145deg, var(--navy) 0%, var(--navy-dark) 100%);
-  }
-
-  .bento--light {
-    background-color: var(--white);
-    border: 1px solid var(--medium-gray);
-  }
-
-  .bento--img {
-    padding: 0;
-  }
-
-  .bento__gradient {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 50%, var(--navy-dark) 100%);
-    border-radius: 8px;
-  }
-
-  .bento__gradient--alt {
-    background: linear-gradient(225deg, var(--navy-light) 0%, var(--navy-dark) 100%);
-  }
-
-  .bento__gradient--wide {
-    background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-light) 50%, var(--navy) 100%);
-  }
-
-  .bento__val {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3vw, 36px);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .bento__val--dark {
-    color: var(--dark-text);
-  }
-
-  .bento__label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .bento__label--dark {
-    color: var(--dark-text);
-  }
-
-  .bento__sub {
-    font-size: 14px;
-    color: rgba(255,255,255,.45);
-  }
-
-  .bento__sub--dark {
-    color: var(--text-gray);
-  }
-
-  /* Bento grid placement */
+  .reach { background-color: var(--white); }
+  .reach__head { text-align: center; margin-bottom: 32px; }
+  .reach__title { text-align: center; max-width: 900px; margin: 0 auto 64px; }
+  .reach__bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 250px 250px; gap: 20px; }
+  .bento { border-radius: 8px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; position: relative; }
+  .bento--dark { background: linear-gradient(145deg, var(--navy) 0%, var(--navy-dark) 100%); }
+  .bento--light { background-color: var(--white); border: 1px solid var(--medium-gray); }
+  .bento--img { padding: 0; }
+  .bento__gradient { width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 50%, var(--navy-dark) 100%); border-radius: 8px; }
+  .bento__gradient--alt { background: linear-gradient(225deg, var(--navy-light) 0%, var(--navy-dark) 100%); }
+  .bento__gradient--wide { background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-light) 50%, var(--navy) 100%); }
+  .bento__val { font-family: var(--font-secondary); font-size: clamp(28px, 3vw, 36px); font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 4px; }
+  .bento__val--dark { color: var(--dark-text); }
+  .bento__label { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .bento__label--dark { color: var(--dark-text); }
+  .bento__sub { font-size: 14px; color: rgba(255,255,255,.45); }
+  .bento__sub--dark { color: var(--text-gray); }
   .bento--r1c1 { grid-column: 1; grid-row: 1; }
   .bento--r1c2 { grid-column: 2; grid-row: 1; }
   .bento--r1c3 { grid-column: 3; grid-row: 1; }
@@ -1098,168 +1154,19 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .bento--r2c3 { grid-column: 3; grid-row: 2; }
   .bento--r2c4 { grid-column: 4; grid-row: 2; }
 
-
-  /* ════════ 5. REVIEW ════════ */
-  .review {
-    background-color: var(--white);
-  }
-
-  .review__head {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
-  .review__title {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto 64px;
-  }
-
-  .review__carousel {
-    position: relative;
-    min-height: 400px;
-  }
-
-  .review__card {
-    display: none;
-    border: 1px solid var(--medium-gray);
-    border-radius: 8px;
-    background-color: var(--off-white);
-    padding: 48px;
-    text-align: center;
-  }
-
-  .review__card--active {
-    display: block;
-  }
-
-  .review__rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 32px;
-  }
-
-  .review__stars {
-    color: var(--amber);
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
-
-  .review__score {
-    font-size: 14px;
-    color: var(--text-gray);
-    font-weight: 500;
-  }
-
-  .review__quote {
-    font-family: var(--font-secondary);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--dark-text);
-    max-width: 800px;
-    margin: 0 auto 40px;
-    font-weight: 400;
-  }
-
-  .review__info-strip {
-    display: inline-flex;
-    border: 1px solid var(--medium-gray);
-    border-radius: 4px;
-    background-color: var(--white);
-    margin-bottom: 32px;
-    overflow: hidden;
-  }
-
-  .review__info-col {
-    padding: 16px 32px;
-    text-align: center;
-  }
-
-  .review__info-col--border {
-    border-left: 1px solid var(--medium-gray);
-    border-right: 1px solid var(--medium-gray);
-  }
-
-  .review__info-val {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--dark-text);
-    margin-bottom: 2px;
-  }
-
-  .review__info-label {
-    font-size: 13px;
-    color: var(--text-gray);
-  }
-
-  .review__author {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .review__avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--navy);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
-  .review__name {
-    display: block;
-    font-weight: 600;
-    color: var(--dark-text);
-    font-size: 16px;
-    text-align: left;
-  }
-
-  .review__role {
-    display: block;
-    font-size: 14px;
-    color: var(--text-gray);
-    text-align: left;
-  }
-
-  .review__tabs {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-  }
-
-  .review__tab {
-    padding: 12px 24px;
-    border: 1px solid var(--medium-gray);
-    border-radius: 4px;
-    background: var(--white);
-    font-family: var(--font-primary);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-gray);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .review__tab--active,
-  .review__tab:hover {
-    border-color: var(--navy);
-    color: var(--navy);
-    background-color: var(--off-white);
-  }
+  /* ════════ 5. CREDENTIALS ════════ */
+  .credentials { background-color: var(--white); }
+  .credentials__head { margin-bottom: 32px; }
+  .credentials__title { max-width: 900px; margin-bottom: 48px; }
+  .credentials__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
+  .credentials__card { background: var(--off-white); border-radius: 8px; padding: 28px 24px; border-top: 3px solid var(--amber); }
+  .credentials__icon { width: 48px; height: 48px; border-radius: 8px; background: linear-gradient(145deg, rgba(224,161,53,.12), rgba(36,55,85,.06)); color: var(--amber); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .credentials__icon svg { width: 22px; height: 22px; }
+  .credentials__card-title { font-family: var(--font-secondary); font-size: 18px; font-weight: 600; color: var(--dark-text); margin-bottom: 8px; }
+  .credentials__card-desc { font-size: 15px; line-height: 1.55; color: var(--text-gray); margin: 0; }
+  .credentials__cta { text-align: center; }
+  @media (max-width: 960px) { .credentials__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .credentials__grid { grid-template-columns: 1fr; } }
 
 
   /* ════════ 6. INSIGHTS ════════ */
@@ -1434,6 +1341,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     }
 
     .banner__container {
+      max-width: 100%;
       padding-bottom: 40px;
     }
 

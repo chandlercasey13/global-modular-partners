@@ -75,13 +75,13 @@ const value = [
           <h1 class="dod-hero__h1">DoD &amp; Military<br />Construction</h1>
           <p class="dod-hero__sub">Mission-critical facilities and infrastructure delivered with the compliance, security, and precision that defense programs demand.</p>
           <div class="dod-hero__btns">
-            <a href="/contact" class="mnc-btn mnc-btn--dark">
-              Start a Project
-              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg>
+            <a href="/services" class="mnc-btn mnc-btn--dark">
+              View Our Work
+              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
             </a>
             <a href="/services" class="mnc-btn mnc-btn--stroke">
               Our Services
-              <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg>
+              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
             </a>
           </div>
         </div>
@@ -185,7 +185,7 @@ const value = [
         <div class="dod-cta__line"></div>
         <a href="/contact" class="mnc-btn mnc-btn--dark">
           Get in Touch
-          <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg>
+          <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
         </a>
       </div>
     </div>
@@ -207,15 +207,26 @@ const value = [
   }
 
   .section-tag {
-    display: inline-block;
-    border: 1px solid var(--amber);
-    border-radius: 4px;
-    padding: 4px 16px;
-    font-size: 16px;
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--amber-dark);
+    letter-spacing: 2.5px;
+    color: var(--amber);
     margin-bottom: 20px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
   }
 
   .section-title {

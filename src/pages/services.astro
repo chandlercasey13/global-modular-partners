@@ -122,13 +122,13 @@ const faqs = [
           innovation, and turn your vision into reality.
         </p>
         <div class="hero-actions fade-up">
-          <a href="/contact" class="mnc-btn mnc-btn--dark">
-            Start a Project
-            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+          <a href="/departments/modular" class="mnc-btn mnc-btn--dark">
+            View Portfolio
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
           </a>
-          <a href="/departments/modular" class="mnc-btn mnc-btn--stroke">
-            View Our Work
-            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+          <a href="#services" class="mnc-btn mnc-btn--stroke">
+            Explore Services
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
           </a>
         </div>
       </div>
@@ -136,7 +136,7 @@ const faqs = [
   </section>
 
   <!-- Services Accordion -->
-  <section class="section-gap svc-list-section">
+  <section id="services" class="section-gap svc-list-section">
     <div class="mnc-container">
       <div class="svc-header fade-up">
         <span class="section-tag">What We Deliver</span>
@@ -224,11 +224,11 @@ const faqs = [
         <div class="cta-actions">
           <a href="/contact" class="mnc-btn mnc-btn--dark" style="background: var(--amber); border-color: var(--amber); color: var(--navy);">
             Contact Us
-            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
           </a>
           <a href="/departments/modular" class="mnc-btn mnc-btn--stroke">
             Explore Modular
-            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M12.78 18.4s6.13-4.52 6.13-6.13S12.78 6.13 12.78 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/><path d="M5.62 18.4s6.13-4.52 6.13-6.13S5.62 6.13 5.62 6.13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67"/></svg></span>
+            <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
           </a>
         </div>
       </div>
@@ -243,15 +243,26 @@ const faqs = [
   .mnc-container { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
   .section-gap { padding: 100px 0; }
   .section-tag {
-    display: inline-block;
-    border: 1px solid var(--amber);
-    border-radius: 4px;
-    padding: 4px 16px;
-    font-size: 16px;
-    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
-    color: var(--amber-dark);
+    letter-spacing: 2.5px;
+    color: var(--amber);
     margin-bottom: 20px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
   }
   .section-title {
     font-family: var(--font-secondary);
@@ -314,7 +325,8 @@ const faqs = [
   .breadcrumb a { color: rgba(255,255,255,.5); }
   .breadcrumb a:hover { color: var(--amber); }
   .breadcrumb__sep { color: rgba(255,255,255,.25); }
-  .hero-wrap .section-tag { border-color: var(--amber); color: var(--amber); }
+  .hero-wrap .section-tag { color: rgba(255,255,255,.6); }
+  .hero-wrap .section-tag::before { background: var(--amber); }
   .hero-title {
     font-family: var(--font-secondary);
     font-size: clamp(36px, 5vw, 56px);
