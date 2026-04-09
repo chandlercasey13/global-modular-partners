@@ -74,7 +74,7 @@ const tools = ['Procore', 'Microsoft Project', 'BIM 360', 'PlanGrid', 'AutoCAD',
             <span class="pm-breadcrumb__sep">/</span>
             <span>Project Management</span>
           </nav>
-          <h1 class="pm-hero__h1">End-to-End<br />Project Management</h1>
+          <h1 class="pm-hero__h1">End-to-End<br /><span class="hero-span">Project Management</span></h1>
           <p class="pm-hero__sub">Expert delivery from pre-construction through close-out, with full DoD compliance and proven methodology.</p>
           <div class="pm-hero__btns">
             <a href="/services" class="mnc-btn mnc-btn--dark">
@@ -296,7 +296,7 @@ const tools = ['Procore', 'Microsoft Project', 'BIM 360', 'PlanGrid', 'AutoCAD',
   .pm-hero__inner {
     background: linear-gradient(145deg, var(--navy) 0%, var(--navy-dark) 100%);
     border-radius: 8px;
-    height: 560px;
+    height: 490px;
     display: flex;
     align-items: flex-end;
     position: relative;
@@ -313,7 +313,7 @@ const tools = ['Procore', 'Microsoft Project', 'BIM 360', 'PlanGrid', 'AutoCAD',
 
   .pm-hero__content {
     position: relative;
-    padding: 80px 1.5rem 48px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
+    padding: 80px 1.5rem 36px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
     width: 100%;
   }
 
@@ -349,6 +349,7 @@ const tools = ['Procore', 'Microsoft Project', 'BIM 360', 'PlanGrid', 'AutoCAD',
     margin: 0 0 16px;
     max-width: 680px;
   }
+  .hero-span { color: rgba(255,255,255,.5); }
 
   .pm-hero__sub {
     font-size: 17px;
@@ -570,7 +571,7 @@ const tools = ['Procore', 'Microsoft Project', 'BIM 360', 'PlanGrid', 'AutoCAD',
     }
 
     .pm-hero__inner {
-      height: 480px;
+      height: 400px;
     }
 
     .pm-hero__content {

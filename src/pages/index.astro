@@ -276,15 +276,73 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   <!-- ════════ 2. DETAILS SECTION ════════ -->
   <section class="details section-gap">
     <div class="mnc-container">
-      <div class="details__head fade-up">
-        <span class="section-tag">Who We Are</span>
+      <div class="details__split fade-up">
+        <div class="details__left">
+          <div class="details__head">
+            <span class="section-tag">Who We Are</span>
+          </div>
+          <h2 class="section-title details__title">
+            Modernizing how the world <span class="section-span">builds.</span>
+          </h2>
+          <p class="details__body">
+            Global Modular Partners brings together developers, architects, engineers, and manufacturers to deliver construction projects faster, leaner, and with less environmental impact than traditional methods. Headquartered in the San Francisco Bay Area with operations in Irvine, GMP was founded in 2019 to coordinate an integrated network of trade partners, manufacturers, and specialty contractors — selecting the right team for each project based on location, scope, and compliance requirements.
+          </p>
+        </div>
+        <div class="details__carousel" id="details-carousel">
+          <div class="carousel__track">
+            <div class="carousel__slide carousel__slide--active">
+              <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" loading="lazy" />
+              <div class="carousel__caption">
+                <span class="carousel__tag">Defense</span>
+                <span class="carousel__title">Military Compound</span>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <img src="/images/showcase/ri-commercial.jpg" alt="RI Group commercial building" loading="lazy" />
+              <div class="carousel__caption">
+                <span class="carousel__tag">Commercial</span>
+                <span class="carousel__title">Modular Facilities</span>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <img src="/images/showcase/ri-civil-compound.jpg" alt="RI Group civil compound" loading="lazy" />
+              <div class="carousel__caption">
+                <span class="carousel__tag">Civil</span>
+                <span class="carousel__title">Civil Compound</span>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB mobile pediatric clinic" loading="lazy" />
+              <div class="carousel__caption">
+                <span class="carousel__tag">Healthcare</span>
+                <span class="carousel__title">Mobile Pediatric Clinic</span>
+              </div>
+            </div>
+            <div class="carousel__slide">
+              <img src="/images/showcase/west-crane.jpg" alt="Modular unit crane set" loading="lazy" />
+              <div class="carousel__caption">
+                <span class="carousel__tag">Installation</span>
+                <span class="carousel__title">Crane Set & Assembly</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel__controls">
+            <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">
+              <svg fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="carousel__dots">
+              <button class="carousel__dot carousel__dot--active" data-slide="0" aria-label="Slide 1"></button>
+              <button class="carousel__dot" data-slide="1" aria-label="Slide 2"></button>
+              <button class="carousel__dot" data-slide="2" aria-label="Slide 3"></button>
+              <button class="carousel__dot" data-slide="3" aria-label="Slide 4"></button>
+              <button class="carousel__dot" data-slide="4" aria-label="Slide 5"></button>
+            </div>
+            <button class="carousel__btn carousel__btn--next" aria-label="Next slide">
+              <svg fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
       </div>
-      <h2 class="section-title details__title fade-up">
-        Modernizing how the world <span class="section-span">builds.</span>
-      </h2>
-      <p class="details__body fade-up">
-        Global Modular Partners brings together developers, architects, engineers, and manufacturers to deliver construction projects faster, leaner, and with less environmental impact than traditional methods. Headquartered in the San Francisco Bay Area with operations in Irvine, GMP was founded in 2019 to coordinate an integrated network of trade partners, manufacturers, and specialty contractors — selecting the right team for each project based on location, scope, and compliance requirements.
-      </p>
 
       <div class="details__partners fade-up">
         <span class="details__partners-label">Trade Partners</span>
@@ -298,6 +356,46 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
       </div>
     </div>
   </section>
+
+  <script>
+    const carousel = document.getElementById('details-carousel');
+    if (carousel) {
+      const slides = carousel.querySelectorAll('.carousel__slide');
+      const dots = carousel.querySelectorAll('.carousel__dot');
+      const prevBtn = carousel.querySelector('.carousel__btn--prev');
+      const nextBtn = carousel.querySelector('.carousel__btn--next');
+      let current = 0;
+      let interval: ReturnType<typeof setInterval>;
+
+      function goTo(idx: number) {
+        slides[current].classList.remove('carousel__slide--active');
+        dots[current].classList.remove('carousel__dot--active');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('carousel__slide--active');
+        dots[current].classList.add('carousel__dot--active');
+      }
+
+      function startAuto() {
+        interval = setInterval(() => goTo(current + 1), 4000);
+      }
+
+      function resetAuto() {
+        clearInterval(interval);
+        startAuto();
+      }
+
+      prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+      nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.getAttribute('data-slide') || '0'));
+          resetAuto();
+        });
+      });
+
+      startAuto();
+    }
+  </script>
 
   <!-- ════════ 3. OFFER SECTION — Puzzle Grid ════════ -->
   <section class="offer">
@@ -351,162 +449,69 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     </div>
   </section>
 
-  <!-- ════════ 4. REACH SECTION ════════ -->
+  <!-- ════════ 4. OUR WORK & REACH SECTION ════════ -->
   <section class="reach section-gap">
     <div class="mnc-container">
       <div class="reach__head fade-up">
-        <span class="section-tag">Global Reach</span>
+        <span class="section-tag">Our Work</span>
       </div>
       <h2 class="section-title reach__title fade-up">
-        Operating nationwide, delivering reliable solutions <span class="section-span">across global markets with local expertise</span>
+        Delivering modular solutions <span class="section-span">across sectors and borders.</span>
       </h2>
 
       <div class="reach__bento fade-up">
-        <div class="bento bento--dark bento--stat bento--r1c1">
-          <span class="bento__val">10+</span>
-          <span class="bento__label">Trade Partners</span>
-          <span class="bento__sub">Manufacturers, engineers & contractors</span>
-        </div>
-        <div class="bento bento--img bento--r1c2">
-          <div class="bento__gradient"></div>
-        </div>
-        <div class="bento bento--light bento--stat bento--r1c3">
-          <span class="bento__val bento__val--dark">2</span>
-          <span class="bento__label bento__label--dark">Offices</span>
-          <span class="bento__sub bento__sub--dark">Oakland headquarters & Irvine operations</span>
-        </div>
-        <div class="bento bento--img bento--r1c4">
-          <div class="bento__gradient bento__gradient--alt"></div>
-        </div>
-        <div class="bento bento--img bento--r2c1">
-          <div class="bento__gradient bento__gradient--wide"></div>
-        </div>
-        <div class="bento bento--dark bento--stat bento--r2c3">
-          <span class="bento__val">50%</span>
-          <span class="bento__label">Time Savings</span>
-          <span class="bento__sub">Faster than traditional construction</span>
-        </div>
-        <div class="bento bento--dark bento--stat bento--r2c4">
-          <span class="bento__val">28</span>
-          <span class="bento__label">Day ADU</span>
-          <span class="bento__sub">Accelerated dwelling unit delivery</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ 5. CREDENTIALS SECTION ════════ -->
-  <section class="credentials section-gap">
-    <div class="mnc-container">
-      <div class="credentials__head fade-up">
-        <span class="section-tag">Credentials</span>
-      </div>
-      <h2 class="section-title credentials__title fade-up">
-        Licensed, certified, and compliant <span class="section-span">across every jurisdiction we operate in.</span>
-      </h2>
-      <div class="credentials__grid fade-up">
-        <div class="credentials__card">
-          <span class="credentials__badge">CAGE</span>
-          <h3 class="credentials__card-title">Commercial & Government Entity Code</h3>
-          <p class="credentials__card-desc">Registered CAGE code (1CHJ1) for SAM.gov visibility, contract vehicle eligibility, and standardized government entity identification.</p>
-        </div>
-        <div class="credentials__card">
-          <span class="credentials__badge">MBE</span>
-          <h3 class="credentials__card-title">Minority-Owned Small Business Enterprise</h3>
-          <p class="credentials__card-desc">Certified MBE status supporting diversity-focused procurement, set-aside contracting, and subcontracting goals for agencies and primes.</p>
-        </div>
-        <div class="credentials__card">
-          <span class="credentials__badge">$50M</span>
-          <h3 class="credentials__card-title">$25M Single / $50M Aggregate Bonding</h3>
-          <p class="credentials__card-desc">Bonding capacity of $25M per single project and $50M aggregate through Marsh USA Inc., ensuring financial assurance for large-scale programs.</p>
-        </div>
-        <div class="credentials__card">
-          <span class="credentials__badge">CLASS A</span>
-          <h3 class="credentials__card-title">General Engineering Contractor</h3>
-          <p class="credentials__card-desc">Class A General Engineering Contractor license with active contractor licenses in California, Hawaii, Louisiana, Nevada, and Guam.</p>
-        </div>
-      </div>
-      <div class="credentials__cta fade-up">
-        <a href="/certifications" class="mnc-btn mnc-btn--outline">
-          View All Certifications
-          <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════ 7. OUR WORK SECTION ════════ -->
-  <section class="work section-gap">
-    <div class="mnc-container">
-      <div class="work__head fade-up">
-        <span class="section-tag">Our Work</span>
-      </div>
-      <h2 class="section-title work__title fade-up">
-        Projects delivered across modular, healthcare, <span class="section-span">civil, and defense sectors.</span>
-      </h2>
-
-      <div class="work__grid fade-up">
-        <a href="/departments/modular" class="work__card work__card--wide">
-          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential project" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Modular Construction</span>
-            <h3 class="work__card-title">West Boulevard Residential</h3>
-            <p class="work__card-sub">Multi-story modular housing with West Modular — factory-built precision, site-assembled efficiency.</p>
+        <a href="/departments/modular" class="bento bento--img bento--r1c1">
+          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Modular</span>
+            <span class="bento__img-title">West Blvd Residential</span>
           </div>
         </a>
-        <a href="/departments/healthcare" class="work__card">
-          <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Healthcare</span>
-            <h3 class="work__card-title">Pediatric Clinic</h3>
-            <p class="work__card-sub">Rapid-deploy modular medical facility with Hospitals Without Borders.</p>
+        <a href="/departments/healthcare" class="bento bento--img bento--r1c2">
+          <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Healthcare</span>
+            <span class="bento__img-title">Pediatric Clinic</span>
           </div>
         </a>
-        <a href="/departments/civil" class="work__card">
-          <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Defense</span>
-            <h3 class="work__card-title">Military Compound</h3>
-            <p class="work__card-sub">Modular defense infrastructure through RI Group partnership.</p>
+        <a href="/departments/civil" class="bento bento--img bento--r1c3">
+          <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Defense</span>
+            <span class="bento__img-title">Military Compound</span>
           </div>
         </a>
-        <a href="/departments/modular" class="work__card">
-          <img src="/images/showcase/west-factory.jpg" alt="West Modular factory floor" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Manufacturing</span>
-            <h3 class="work__card-title">Factory Production</h3>
-            <p class="work__card-sub">Off-site fabrication delivering consistent quality at scale.</p>
+        <a href="/departments/modular" class="bento bento--img bento--r1c4">
+          <img src="/images/showcase/west-factory.jpg" alt="West Modular factory floor" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Manufacturing</span>
+            <span class="bento__img-title">Factory Production</span>
           </div>
         </a>
-        <a href="/departments/healthcare" class="work__card work__card--wide">
-          <img src="/images/showcase/hwb-surgery-cutaway.png" alt="HWB modular surgery suite cutaway" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Healthcare</span>
-            <h3 class="work__card-title">Modular Surgery Suite</h3>
-            <p class="work__card-sub">Self-contained surgical facilities deployable to disaster zones and underserved regions.</p>
+        <a href="/departments/civil" class="bento bento--img bento--r2c1">
+          <img src="/images/showcase/ri-factory-panorama.jpg" alt="RI Group factory panorama" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Manufacturing</span>
+            <span class="bento__img-title">RI Group Factory</span>
           </div>
         </a>
-        <a href="/departments/civil" class="work__card">
-          <img src="/images/showcase/ri-commercial.jpg" alt="RI Group commercial building" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Commercial</span>
-            <h3 class="work__card-title">Commercial Facilities</h3>
-            <p class="work__card-sub">Permanent modular commercial buildings through RI Group USA.</p>
+        <a href="/departments/healthcare" class="bento bento--img bento--r2c3">
+          <img src="/images/showcase/hwb-surgery-cutaway.png" alt="HWB modular surgery suite" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Healthcare</span>
+            <span class="bento__img-title">Surgery Suite</span>
           </div>
         </a>
-        <a href="/departments/modular" class="work__card">
-          <img src="/images/showcase/west-crane.jpg" alt="Modular unit crane installation" class="work__img" loading="lazy" />
-          <div class="work__overlay">
-            <span class="work__tag">Installation</span>
-            <h3 class="work__card-title">Crane Set & Assembly</h3>
-            <p class="work__card-sub">Precision placement of factory-built modules on prepared foundations.</p>
+        <a href="/departments/modular" class="bento bento--img bento--r2c4">
+          <img src="/images/showcase/west-crane.jpg" alt="Modular crane installation" class="bento__photo" loading="lazy" />
+          <div class="bento__img-overlay">
+            <span class="bento__img-tag">Installation</span>
+            <span class="bento__img-title">Crane Set</span>
           </div>
         </a>
       </div>
     </div>
   </section>
-
 
   <Footer slot="footer" />
 </Layout>
@@ -806,50 +811,157 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     background-color: var(--white);
   }
 
-  .details__head {
-    margin-bottom: 32px;
+  .details__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 64px;
   }
 
-  .details__title {
-    max-width: 900px;
+  .details__left {}
+
+  .details__head {
     margin-bottom: 24px;
   }
 
+  .details__title {
+    margin-bottom: 20px;
+  }
+
   .details__body {
-    max-width: 780px;
-    margin-bottom: 56px;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.75;
     color: var(--text-gray);
+    margin: 0;
   }
 
-  .details__stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 48px;
-    margin-bottom: 80px;
+  .details__carousel {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    background: var(--navy);
   }
 
-  .details__stat {
-    background-color: var(--off-white);
-    border-radius: 8px;
-    padding: 24px;
-    text-align: center;
-    border-top: 3px solid var(--amber);
+  .carousel__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
-  .details__stat-val {
+  .carousel__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .carousel__slide--active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    font-family: var(--font-secondary);
-    font-size: 30px;
-    font-weight: 600;
-    color: var(--amber-dark);
-    margin-bottom: 4px;
   }
 
-  .details__stat-label {
-    font-size: 16px;
-    color: var(--text-gray);
+  .carousel__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 24px;
+    background: linear-gradient(0deg, rgba(12,24,48,.8) 0%, transparent 100%);
+    z-index: 2;
+  }
+
+  .carousel__tag {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 2px;
+  }
+
+  .carousel__title {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .carousel__controls {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .carousel__btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3);
+    background: rgba(0,0,0,.25);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    padding: 0;
+  }
+
+  .carousel__btn:hover {
+    background: rgba(0,0,0,.5);
+    border-color: rgba(255,255,255,.5);
+  }
+
+  .carousel__btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .carousel__dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .carousel__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,.35);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .carousel__dot--active {
+    background: var(--amber);
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 768px) {
+    .details__split {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .details__carousel {
+      aspect-ratio: 16 / 10;
+    }
   }
 
   .details__partners {
@@ -926,6 +1038,7 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .puzzle {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 0;
     position: relative;
   }
@@ -1016,12 +1129,12 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .puzzle__inner {
     position: relative;
     z-index: 1;
-    padding: 40px;
+    padding: 20px;
     border-radius: 8px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 340px;
+    min-height: auto;
     border: 1px solid rgba(255,255,255,.06);
     transition: border-color 0.3s, box-shadow 0.3s;
   }
@@ -1051,87 +1164,87 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .puzzle__num {
     display: inline-block;
     font-family: var(--font-primary);
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
     color: var(--white);
     background: var(--navy);
-    border-radius: 4px;
-    padding: 4px 10px;
-    margin-bottom: 20px;
+    border-radius: 3px;
+    padding: 2px 7px;
+    margin-bottom: 10px;
     width: fit-content;
   }
 
   .puzzle__title {
     font-family: var(--font-secondary);
-    font-size: clamp(22px, 2.2vw, 28px);
+    font-size: clamp(15px, 1.6vw, 18px);
     font-weight: 600;
     color: var(--dark-text);
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     line-height: 1.25;
   }
 
   .puzzle__desc {
-    font-size: 15px;
+    font-size: 12px;
     color: var(--text-gray);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 10px;
     flex: 1;
   }
 
   .puzzle__bullets {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 24px;
+    gap: 4px;
+    margin-bottom: 12px;
   }
 
   .puzzle__bullet {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .puzzle__bullet-dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: var(--amber);
     flex-shrink: 0;
   }
 
   .puzzle__bullet-text {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 500;
     color: var(--dark-text);
     opacity: 0.7;
   }
 
   .puzzle__companies {
-    margin-bottom: 24px;
-    padding-top: 16px;
+    margin-bottom: 10px;
+    padding-top: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .puzzle__companies-label {
     display: block;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-gray);
     opacity: 0.5;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .puzzle__companies-logos {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     flex-wrap: wrap;
   }
 
   .puzzle__company-logo {
-    height: 22px;
+    height: 15px;
     width: auto;
     object-fit: contain;
     filter: grayscale(1) opacity(0.45);
@@ -1175,18 +1288,13 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .reach__title { text-align: center; max-width: 900px; margin: 0 auto 64px; }
   .reach__bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 250px 250px; gap: 20px; }
   .bento { border-radius: 8px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; position: relative; }
-  .bento--dark { background: linear-gradient(145deg, var(--navy) 0%, var(--navy-dark) 100%); }
-  .bento--light { background-color: var(--white); border: 1px solid var(--medium-gray); }
-  .bento--img { padding: 0; }
-  .bento__gradient { width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 50%, var(--navy-dark) 100%); border-radius: 8px; }
-  .bento__gradient--alt { background: linear-gradient(225deg, var(--navy-light) 0%, var(--navy-dark) 100%); }
-  .bento__gradient--wide { background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-light) 50%, var(--navy) 100%); }
-  .bento__val { font-family: var(--font-secondary); font-size: clamp(28px, 3vw, 36px); font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 4px; }
-  .bento__val--dark { color: var(--dark-text); }
-  .bento__label { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-  .bento__label--dark { color: var(--dark-text); }
-  .bento__sub { font-size: 14px; color: rgba(255,255,255,.45); }
-  .bento__sub--dark { color: var(--text-gray); }
+  .bento--img { padding: 0; text-decoration: none; cursor: pointer; }
+  .bento__photo { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; transition: transform 0.5s ease; }
+  .bento--img:hover .bento__photo { transform: scale(1.04); }
+  .bento__img-overlay { position: absolute; inset: 0; border-radius: 8px; background: linear-gradient(0deg, rgba(12,24,48,.75) 0%, transparent 50%); display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; transition: background 0.3s ease; }
+  .bento--img:hover .bento__img-overlay { background: linear-gradient(0deg, rgba(12,24,48,.85) 0%, rgba(12,24,48,.2) 60%); }
+  .bento__img-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 2px; }
+  .bento__img-title { font-family: var(--font-secondary); font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; }
   .bento--r1c1 { grid-column: 1; grid-row: 1; }
   .bento--r1c2 { grid-column: 2; grid-row: 1; }
   .bento--r1c3 { grid-column: 3; grid-row: 1; }
@@ -1196,145 +1304,13 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .bento--r2c4 { grid-column: 4; grid-row: 2; }
 
   /* ════════ 5. CREDENTIALS ════════ */
-  .credentials { background-color: var(--white); }
-  .credentials__head { margin-bottom: 32px; }
-  .credentials__title { max-width: 900px; margin-bottom: 48px; }
-  .credentials__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
-  .credentials__card { background: var(--off-white); border-radius: 8px; padding: 28px 24px; border-top: 3px solid var(--amber); }
-  .credentials__badge { display: inline-block; font-family: var(--font-secondary); font-size: 13px; font-weight: 800; letter-spacing: 1px; color: var(--navy); background: linear-gradient(145deg, rgba(224,161,53,.15), rgba(36,55,85,.06)); border: 1px solid rgba(224,161,53,.25); border-radius: 6px; padding: 6px 12px; margin-bottom: 14px; }
-  .credentials__card-title { font-family: var(--font-secondary); font-size: 18px; font-weight: 600; color: var(--dark-text); margin-bottom: 8px; }
-  .credentials__card-desc { font-size: 15px; line-height: 1.55; color: var(--text-gray); margin: 0; }
-  .credentials__cta { text-align: center; }
-  @media (max-width: 960px) { .credentials__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .credentials__grid { grid-template-columns: 1fr; } }
-
-
-  /* ════════ 7. OUR WORK ════════ */
-  .work {
-    background: var(--off-white);
-  }
-
-  .work__head {
-    margin-bottom: 32px;
-  }
-
-  .work__title {
-    max-width: 900px;
-    margin-bottom: 48px;
-  }
-
-  .work__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .work__card {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-    display: block;
-    text-decoration: none;
-  }
-
-  .work__card--wide {
-    grid-column: span 2;
-    aspect-ratio: 16 / 9;
-  }
-
-  .work__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .work__card:hover .work__img {
-    transform: scale(1.04);
-  }
-
-  .work__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(12, 24, 48, 0.85) 0%, rgba(12, 24, 48, 0.3) 40%, transparent 65%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-    transition: background 0.35s ease;
-  }
-
-  .work__card:hover .work__overlay {
-    background: linear-gradient(0deg, rgba(12, 24, 48, 0.9) 0%, rgba(12, 24, 48, 0.4) 50%, transparent 70%);
-  }
-
-  .work__tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 6px;
-  }
-
-  .work__card-title {
-    font-family: var(--font-secondary);
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-    margin: 0 0 4px;
-    line-height: 1.3;
-  }
-
-  .work__card-sub {
-    font-size: 14px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.65);
-    margin: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.35s ease, opacity 0.3s ease;
-  }
-
-  .work__card:hover .work__card-sub {
-    max-height: 80px;
-    opacity: 1;
-  }
-
-  @media (max-width: 768px) {
-    .work__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .work__card--wide {
-      grid-column: span 1;
-      aspect-ratio: 16 / 9;
-    }
-
-    .work__card {
-      aspect-ratio: 16 / 10;
-    }
-
-    .work__card-sub {
-      max-height: none;
-      opacity: 1;
-    }
-  }
 
 
   /* ════════ RESPONSIVE ════════ */
   @media (max-width: 1024px) {
-    .details__stats {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
     .puzzle__inner {
-      padding: 32px;
-      min-height: 300px;
+      padding: 20px;
+      min-height: auto;
     }
 
     .reach__bento {
@@ -1363,11 +1339,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
 
     .banner__h1 {
       font-size: clamp(28px, 7vw, 42px);
-    }
-
-    .details__stats {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
     }
 
     .puzzle {
@@ -1443,10 +1414,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   }
 
   @media (max-width: 480px) {
-    .details__stats {
-      grid-template-columns: 1fr;
-    }
-
     .banner__actions {
       flex-direction: column;
     }

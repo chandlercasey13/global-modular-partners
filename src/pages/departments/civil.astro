@@ -68,18 +68,8 @@ const value = [
             <span class="cv-breadcrumb__sep">/</span>
             <span>Civil</span>
           </nav>
-          <h1 class="cv-hero__title">Civil Construction<br />&amp; Infrastructure</h1>
+          <h1 class="cv-hero__title">Civil Construction<br /><span class="hero-span">& Infrastructure</span></h1>
           <p class="cv-hero__sub">Large-scale infrastructure and site development projects delivered through our partner Agbayani Construction.</p>
-          <div class="cv-hero__actions">
-            <a href="/services" class="mnc-btn mnc-btn--dark">
-              View Our Work
-              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-            </a>
-            <a href="/services" class="mnc-btn mnc-btn--stroke">
-              Our Services
-              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -292,7 +282,7 @@ const value = [
   }
 
   .cv-hero__inner {
-    height: 560px;
+    height: 490px;
     border-radius: 8px;
     background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy-dark) 100%);
     display: flex;
@@ -302,7 +292,7 @@ const value = [
   }
 
   .cv-hero__content {
-    padding: 80px 1.5rem 48px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
+    padding: 80px 1.5rem 36px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
     width: 100%;
   }
 
@@ -337,6 +327,7 @@ const value = [
     line-height: 1.15;
     margin: 0 0 16px;
   }
+  .hero-span { color: rgba(255,255,255,.5); }
 
   .cv-hero__sub {
     font-size: 18px;
@@ -349,12 +340,6 @@ const value = [
   .cv-hero__sub strong {
     color: #fff;
     font-weight: 600;
-  }
-
-  .cv-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
   }
 
   /* ── Overview ── */
@@ -611,7 +596,7 @@ const value = [
     }
 
     .cv-hero__inner {
-      height: 480px;
+      height: 400px;
     }
   }
 </style>

@@ -43,20 +43,6 @@ const offices = [
         <p class="hero-subtitle">
           For inquiries, partnerships, and RFP submissions.
         </p>
-        <div class="hero-actions">
-          <a href="/services" class="mnc-btn mnc-btn--dark">
-            <span class="mnc-btn__wrap">
-              <span>View Our Work</span>
-              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-            </span>
-          </a>
-          <a href="/services" class="mnc-btn mnc-btn--stroke">
-            <span class="mnc-btn__wrap">
-              <span>View Services</span>
-              <span class="mnc-btn__icon"><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></span>
-            </span>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -161,7 +147,7 @@ const offices = [
             <h3 class="info-card__title">Quick Links</h3>
             <ul class="info-card__links">
               <li><a href="/partners">Become a Partner</a></li>
-              <li><a href="/partners">Certifications</a></li>
+              <li><a href="/credentials">Credentials</a></li>
               <li><a href="/departments/modular">Modular Construction</a></li>
               <li><a href="/services">Services</a></li>
             </ul>
@@ -329,7 +315,7 @@ const offices = [
   .hero-inner {
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
     border-radius: 8px;
-    height: 560px;
+    height: 490px;
     display: flex;
     align-items: flex-end;
     position: relative;
@@ -347,7 +333,7 @@ const offices = [
   .hero-content {
     position: relative;
     z-index: 1;
-    padding: 120px 1.5rem 56px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
+    padding: 80px 1.5rem 36px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
     width: 100%;
   }
 
@@ -392,12 +378,6 @@ const offices = [
     line-height: 1.7;
     max-width: 540px;
     margin-bottom: 32px;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
   }
 
   /* ── Form Section (white bg) ── */
@@ -727,7 +707,7 @@ const offices = [
     }
 
     .hero-inner {
-      height: 480px;
+      height: 400px;
     }
   }
 
@@ -738,15 +718,6 @@ const offices = [
 
     .offices-grid {
       grid-template-columns: 1fr;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-    }
-
-    .hero-actions .mnc-btn {
-      width: 100%;
-      justify-content: center;
     }
 
   }
