@@ -3,74 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const departments = [
-  {
-    num: '01',
-    title: 'Modular Construction',
-    href: '/departments/modular',
-    description: 'Innovative off-site building solutions for commercial, residential, and industrial applications.',
-    bullets: [
-      { title: 'Design-Build Capability', sub: 'End-to-end project delivery' },
-      { title: 'Prefabricated Modules', sub: 'Factory-built precision' },
-      { title: 'Sustainable Materials', sub: 'Eco-conscious construction' },
-    ],
-    companies: [
-      { name: 'West Modular', logo: '/images/partners/west-og.png' },
-      { name: 'RI Group', logo: '/images/partners/ri-group.png' },
-      { name: 'PROSET', logo: '/images/partners/proset-footer.png' },
-      { name: 'EDIS', logo: '/images/partners/edis.png' },
-    ],
-  },
-  {
-    num: '02',
-    title: 'Project Management',
-    href: '/departments/project-management',
-    description: 'Expert project delivery with DoD/Military compliance and proven methodology.',
-    bullets: [
-      { title: 'DoD Compliance', sub: 'Military-grade standards' },
-      { title: 'Risk Management', sub: 'Proactive mitigation' },
-      { title: 'Quality Assurance', sub: 'Certified processes' },
-    ],
-    companies: [
-      { name: 'STREAM', logo: '/images/partners/stream-dark.png' },
-      { name: 'TRUE NORTH', logo: '/images/partners/true-north.svg' },
-      { name: 'EnTech', logo: '/images/partners/entech.svg' },
-    ],
-  },
-  {
-    num: '03',
-    title: 'Healthcare Facilities',
-    href: '/departments/healthcare',
-    description: 'Modular medical facilities through our partnership with Hospitals Without Borders.',
-    bullets: [
-      { title: 'Telemedicine Centers', sub: 'Remote care infrastructure' },
-      { title: 'Modular Clinics', sub: 'Rapid deployment medical' },
-      { title: 'Emergency Response', sub: 'Disaster-ready facilities' },
-    ],
-    companies: [
-      { name: 'Hospitals Without Borders', logo: '/images/partners/hwb.svg' },
-      { name: 'Petra Engineering', logo: '/images/partners/petra-eng.png' },
-    ],
-  },
-  {
-    num: '04',
-    title: 'Civil Construction',
-    href: '/departments/civil',
-    description: 'Infrastructure and civil construction projects through Agbayani Construction.',
-    bullets: [
-      { title: 'Bridge Systems', sub: 'Engineered crossings' },
-      { title: 'Utility Installation', sub: 'Underground infrastructure' },
-      { title: 'Road & Highway', sub: 'Transportation networks' },
-    ],
-    companies: [
-      { name: 'Agbayani', logo: '/images/partners/agbayani-real.png' },
-      { name: 'ATCCO', logo: '/images/partners/atcco-big.png' },
-    ],
-  },
-];
-
-
-
 const partners = [
   { name: 'West Modular', logo: '/images/partners/west-og.png' },
   { name: 'PROSET Construction', logo: '/images/partners/proset-footer.png' },
@@ -84,7 +16,6 @@ const partners = [
   { name: 'Abstract Architecture', logo: '/images/partners/abstract-arch.jpg' },
 ];
 
-const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 ---
 
 <Layout title="Home">
@@ -99,28 +30,27 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
         </div>
         <div class="banner__overlay"></div>
         <div class="banner__content">
-          <div class="banner__container">
-            <h1 class="banner__h1 fade-up">Building the Future<br/>with Modular Innovation</h1>
-            <p class="banner__sub fade-up">
-              Improving and perfecting modular building technologies by fostering long-lasting partnerships among developers, architects, engineers, contractors, and manufacturers worldwide.
-            </p>
-            <div class="banner__actions fade-up">
-              <a href="/departments/modular" class="mnc-btn mnc-btn--dark">
-                <span class="mnc-btn__wrap">
-                  <span>View Our Work</span>
-                  <span class="mnc-btn__icon">
-                    <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-                  </span>
-                </span>
-              </a>
-              <a href="/about" class="mnc-btn mnc-btn--stroke">
-                <span class="mnc-btn__wrap">
-                  <span>Our Capabilities</span>
-                  <span class="mnc-btn__icon">
-                    <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-                  </span>
-                </span>
-              </a>
+          <div class="banner__top"></div>
+          <div class="banner__center">
+            <h1 class="banner__h1 fade-up">Your Global<br/>Partner in <span class="banner__h1-accent">Modular<br/>Excellence.</span></h1>
+            <div class="banner__blurb fade-up">
+              <span class="banner__blurb-line"></span>
+              <p class="banner__blurb-text">
+                A singular alliance providing end-to-end modular solutions for the world's most complex architectural demands. Precision engineered. Globally deployed.
+              </p>
+            </div>
+          </div>
+          <div class="banner__bottom">
+            <div class="banner__stats fade-up">
+              <div class="banner__stat">
+                <span class="banner__stat-label">Load Bearing Cap</span>
+                <span class="banner__stat-value">14,200 KN</span>
+              </div>
+              <div class="banner__stat-divider"></div>
+              <div class="banner__stat">
+                <span class="banner__stat-label">Precision Tolerance</span>
+                <span class="banner__stat-value">&pm; 0.05 MM</span>
+              </div>
             </div>
           </div>
         </div>
@@ -224,7 +154,8 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
       const grid = new THREE.LineSegments(gridGeo, gridMat);
       scene.add(grid);
 
-      scene.position.y = 0;
+      scene.position.set(0, 0, 0);
+      controls.target.set(0, 2, 0);
 
       // Easing
       function easeOutCubic(t) {
@@ -273,74 +204,33 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     }
   </script>
 
-  <!-- ════════ 2. DETAILS SECTION ════════ -->
-  <section class="details section-gap">
+  <!-- ════════ 2. ADVANTAGE SECTION ════════ -->
+  <section class="advantage section-gap">
     <div class="mnc-container">
-      <div class="details__split fade-up">
-        <div class="details__left">
-          <div class="details__head">
-            <span class="section-tag">Who We Are</span>
-          </div>
-          <h2 class="section-title details__title">
-            Modernizing how the world <span class="section-span">builds.</span>
-          </h2>
-          <p class="details__body">
-            Global Modular Partners brings together developers, architects, engineers, and manufacturers to deliver construction projects faster, leaner, and with less environmental impact than traditional methods. Headquartered in the San Francisco Bay Area with operations in Irvine, GMP was founded in 2019 to coordinate an integrated network of trade partners, manufacturers, and specialty contractors — selecting the right team for each project based on location, scope, and compliance requirements.
-          </p>
+      <div class="advantage__top fade-up">
+        <h2 class="section-title advantage__title">
+          The End-to-End Advantage:<br/><span class="section-span">A Total Solution.</span>
+        </h2>
+        <p class="advantage__desc">
+          We eliminate the fragmentation of traditional construction. By integrating engineering, procurement, fabrication, and global logistics into a single workflow, we provide a seamless partnership that guarantees architectural integrity and speed-to-market.
+        </p>
+      </div>
+
+      <div class="advantage__cards">
+        <div class="advantage__card fade-up">
+          <svg class="advantage__icon" viewBox="0 0 40 40" fill="none"><path d="M20 4l2.5 8H31l-7 5 2.5 8-7-5-7 5 2.5-8-7-5h8.5L20 4z" stroke="var(--amber-dark)" stroke-width="1.5" fill="none"/><path d="M8 36h24M12 36V24h16v12" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 class="advantage__card-title">Precision Engineering</h3>
+          <p class="advantage__card-desc">Advanced BIM modeling and structural analysis ensure every module exceeds international seismic and environmental standards.</p>
         </div>
-        <div class="details__carousel" id="details-carousel">
-          <div class="carousel__track">
-            <div class="carousel__slide carousel__slide--active">
-              <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" loading="lazy" />
-              <div class="carousel__caption">
-                <span class="carousel__tag">Defense</span>
-                <span class="carousel__title">Military Compound</span>
-              </div>
-            </div>
-            <div class="carousel__slide">
-              <img src="/images/showcase/ri-commercial.jpg" alt="RI Group commercial building" loading="lazy" />
-              <div class="carousel__caption">
-                <span class="carousel__tag">Commercial</span>
-                <span class="carousel__title">Modular Facilities</span>
-              </div>
-            </div>
-            <div class="carousel__slide">
-              <img src="/images/showcase/ri-civil-compound.jpg" alt="RI Group civil compound" loading="lazy" />
-              <div class="carousel__caption">
-                <span class="carousel__tag">Civil</span>
-                <span class="carousel__title">Civil Compound</span>
-              </div>
-            </div>
-            <div class="carousel__slide">
-              <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB mobile pediatric clinic" loading="lazy" />
-              <div class="carousel__caption">
-                <span class="carousel__tag">Healthcare</span>
-                <span class="carousel__title">Mobile Pediatric Clinic</span>
-              </div>
-            </div>
-            <div class="carousel__slide">
-              <img src="/images/showcase/west-crane.jpg" alt="Modular unit crane set" loading="lazy" />
-              <div class="carousel__caption">
-                <span class="carousel__tag">Installation</span>
-                <span class="carousel__title">Crane Set & Assembly</span>
-              </div>
-            </div>
-          </div>
-          <div class="carousel__controls">
-            <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">
-              <svg fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="carousel__dots">
-              <button class="carousel__dot carousel__dot--active" data-slide="0" aria-label="Slide 1"></button>
-              <button class="carousel__dot" data-slide="1" aria-label="Slide 2"></button>
-              <button class="carousel__dot" data-slide="2" aria-label="Slide 3"></button>
-              <button class="carousel__dot" data-slide="3" aria-label="Slide 4"></button>
-              <button class="carousel__dot" data-slide="4" aria-label="Slide 5"></button>
-            </div>
-            <button class="carousel__btn carousel__btn--next" aria-label="Next slide">
-              <svg fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
+        <div class="advantage__card fade-up">
+          <svg class="advantage__icon" viewBox="0 0 40 40" fill="none"><rect x="6" y="20" width="12" height="14" rx="1" stroke="var(--amber-dark)" stroke-width="1.5"/><rect x="22" y="14" width="12" height="20" rx="1" stroke="var(--amber-dark)" stroke-width="1.5"/><path d="M10 16h4M10 12h4M26 10h4" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round"/><rect x="14" y="6" width="12" height="28" rx="1" stroke="var(--amber-dark)" stroke-width="1.5"/></svg>
+          <h3 class="advantage__card-title">Modular Fabrication</h3>
+          <p class="advantage__card-desc">Proprietary steel-frame systems manufactured in controlled environments for unrivaled quality consistency and waste reduction.</p>
+        </div>
+        <div class="advantage__card advantage__card--accent fade-up">
+          <svg class="advantage__icon" viewBox="0 0 40 40" fill="none"><rect x="4" y="22" width="14" height="10" rx="2" stroke="var(--amber-dark)" stroke-width="1.5"/><circle cx="8" cy="35" r="2" stroke="var(--amber-dark)" stroke-width="1.5"/><circle cx="14" cy="35" r="2" stroke="var(--amber-dark)" stroke-width="1.5"/><path d="M18 27h8l4-8H22" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="35" r="2" stroke="var(--amber-dark)" stroke-width="1.5"/><path d="M20 8l4 4M24 8l-4 4M22 4v4" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h3 class="advantage__card-title">Integrated Logistics</h3>
+          <p class="advantage__card-desc">Global supply chain management and specialized transport networks delivering turnkey components to any site worldwide.</p>
         </div>
       </div>
 
@@ -357,99 +247,163 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     </div>
   </section>
 
-  <script>
-    const carousel = document.getElementById('details-carousel');
-    if (carousel) {
-      const slides = carousel.querySelectorAll('.carousel__slide');
-      const dots = carousel.querySelectorAll('.carousel__dot');
-      const prevBtn = carousel.querySelector('.carousel__btn--prev');
-      const nextBtn = carousel.querySelector('.carousel__btn--next');
-      let current = 0;
-      let interval: ReturnType<typeof setInterval>;
-
-      function goTo(idx: number) {
-        slides[current].classList.remove('carousel__slide--active');
-        dots[current].classList.remove('carousel__dot--active');
-        current = (idx + slides.length) % slides.length;
-        slides[current].classList.add('carousel__slide--active');
-        dots[current].classList.add('carousel__dot--active');
-      }
-
-      function startAuto() {
-        interval = setInterval(() => goTo(current + 1), 4000);
-      }
-
-      function resetAuto() {
-        clearInterval(interval);
-        startAuto();
-      }
-
-      prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-      nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          goTo(parseInt(dot.getAttribute('data-slide') || '0'));
-          resetAuto();
-        });
-      });
-
-      startAuto();
-    }
-  </script>
-
-  <!-- ════════ 3. OFFER SECTION — Puzzle Grid ════════ -->
-  <section class="offer">
+  <!-- ════════ 3. GLOBAL NETWORK MAP ════════ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" />
+  <section class="netmap section-gap">
     <div class="mnc-container">
-      <div class="offer__head section-gap">
-        <span class="section-tag section-tag--dark fade-up">What We Offer</span>
-        <h2 class="section-title offer__title fade-up">
-          Integrated capabilities spanning construction, compliance, <span class="section-span">and healthcare infrastructure delivery.</span>
-        </h2>
-      </div>
+      <div class="netmap__layout fade-up">
+        <div class="netmap__left">
+          <h2 class="section-title netmap__title">Our Integrated<br/>Global Network.</h2>
 
-      <div class="puzzle" id="puzzle-grid">
-        {departments.map((dept, i) => (
-          <div class={`puzzle__piece puzzle__piece--${i}`} data-puzzle={i}>
-            <div class="puzzle__tab-h"></div>
-            <div class="puzzle__tab-v"></div>
-            <div class="puzzle__inner">
-              <span class="puzzle__num">{dept.num}</span>
-              <h3 class="puzzle__title">{dept.title}</h3>
-              <p class="puzzle__desc">{dept.description}</p>
-              <div class="puzzle__bullets">
-                {dept.bullets.map((b) => (
-                  <div class="puzzle__bullet">
-                    <span class="puzzle__bullet-dot"></span>
-                    <span class="puzzle__bullet-text">{b.title}</span>
-                  </div>
-                ))}
+          <div class="netmap__hubs">
+            <div class="netmap__hub">
+              <span class="netmap__hub-line"></span>
+              <div>
+                <h4 class="netmap__hub-title">Agbayani Construction</h4>
+                <p class="netmap__hub-desc">Civil &amp; modular general contracting. Headquartered in Daly City, CA with operations across the Bay Area.</p>
               </div>
-              {dept.companies && dept.companies.length > 0 && (
-                <div class="puzzle__companies">
-                  <span class="puzzle__companies-label">Partners</span>
-                  <div class="puzzle__companies-logos">
-                    {dept.companies.map((c) => (
-                      <img src={c.logo} alt={c.name} title={c.name} class="puzzle__company-logo" loading="lazy" />
-                    ))}
-                  </div>
-                </div>
-              )}
-              <a href={dept.href} class="mnc-btn mnc-btn--light">
-                <span class="mnc-btn__wrap">
-                  <span>Learn More</span>
-                  <span class="mnc-btn__icon">
-                    <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-                  </span>
-                </span>
-              </a>
+            </div>
+            <div class="netmap__hub">
+              <span class="netmap__hub-line"></span>
+              <div>
+                <h4 class="netmap__hub-title">RI Group USA</h4>
+                <p class="netmap__hub-desc">International modular construction and manufacturing. Parent company based in Lecce, Italy with global project delivery.</p>
+              </div>
+            </div>
+            <div class="netmap__hub">
+              <span class="netmap__hub-line"></span>
+              <div>
+                <h4 class="netmap__hub-title">Hospitals Without Borders</h4>
+                <p class="netmap__hub-desc">Deployable modular medical infrastructure. HQ in Oakland, CA with European operations in Rome, Italy.</p>
+              </div>
+            </div>
+            <div class="netmap__hub">
+              <span class="netmap__hub-line"></span>
+              <div>
+                <h4 class="netmap__hub-title">EDIS USA</h4>
+                <p class="netmap__hub-desc">Early warning systems and disaster preparedness technology for emergency management agencies.</p>
+              </div>
             </div>
           </div>
-        ))}
+        </div>
+
+        <div class="netmap__right">
+          <div class="netmap__badge">
+            <span class="netmap__badge-dot"></span>
+            Active Hubs: 8 Locations
+          </div>
+          <div id="network-map" class="netmap__map"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════ 4. OUR WORK & REACH SECTION ════════ -->
+  <script>
+    import L from 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet-src.esm.js';
+
+    const mapEl = document.getElementById('network-map');
+    if (mapEl) {
+      const map = L.map(mapEl, {
+        center: [30, 20],
+        zoom: 2,
+        zoomControl: true,
+        scrollWheelZoom: false,
+        attributionControl: false,
+        minZoom: 2,
+        maxZoom: 6,
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        subdomains: 'abcd',
+      }).addTo(map);
+
+      const companies = [
+        { name: 'GMP Headquarters', loc: [37.8044, -122.2712], city: 'Oakland, CA', type: 'hq' },
+        { name: 'GMP Southern CA', loc: [33.6846, -117.8265], city: 'Irvine, CA', type: 'hq' },
+        { name: 'Agbayani Construction', loc: [37.6879, -122.4702], city: 'Daly City, CA', type: 'subsidiary' },
+        { name: 'RI Group (R.I. Group S.p.A.)', loc: [40.2834, 18.0107], city: 'Lecce, Italy', type: 'subsidiary' },
+        { name: 'Hospitals Without Borders', loc: [37.8044, -122.2712], city: 'Oakland, CA', type: 'subsidiary' },
+        { name: 'HWB Europe', loc: [41.9028, 12.4964], city: 'Rome, Italy', type: 'subsidiary' },
+        { name: 'EDIS USA', loc: [37.8044, -122.2712], city: 'Oakland, CA', type: 'subsidiary' },
+        { name: 'EDIS International', loc: [31.9454, 35.9284], city: 'Amman, Jordan', type: 'subsidiary' },
+      ];
+
+      function makeDot(color: string, size: number) {
+        return L.divIcon({
+          className: 'netmap-marker',
+          html: `<span style="
+            width:${size}px;height:${size}px;
+            background:${color};
+            border:2px solid #fff;
+            border-radius:50%;
+            display:block;
+            box-shadow:0 0 8px ${color}88;
+          "></span>`,
+          iconSize: [size, size],
+          iconAnchor: [size/2, size/2],
+        });
+      }
+
+      const hqIcon = makeDot('#2B4B7E', 14);
+      const subIcon = makeDot('#4a8c3f', 12);
+
+      companies.forEach(c => {
+        const icon = c.type === 'hq' ? hqIcon : subIcon;
+        L.marker(c.loc, { icon })
+          .addTo(map)
+          .bindPopup(`<strong>${c.name}</strong><br/>${c.city}`);
+      });
+
+      const legendEl = document.createElement('div');
+      legendEl.className = 'netmap-legend';
+      legendEl.innerHTML = `
+        <div class="netmap-legend__row"><span class="netmap-legend__dot" style="background:#2B4B7E"></span> GMP Offices</div>
+        <div class="netmap-legend__row"><span class="netmap-legend__dot" style="background:#4a8c3f"></span> Subsidiaries</div>
+      `;
+      mapEl.appendChild(legendEl);
+    }
+  </script>
+
+  <!-- ════════ 4. AUTHORITY SECTION ════════ -->
+  <section class="authority">
+    <div class="authority__inner">
+      <div class="authority__left fade-up">
+        <h2 class="authority__title">The Authority in<br/>Steel Engineering.</h2>
+        <p class="authority__desc">
+          Our structural systems are designed for extreme longevity and performance. We utilize high-tensile steel and proprietary joinery that sets the global benchmark for modular stability.
+        </p>
+        <div class="authority__stats">
+          <div class="authority__stat">
+            <span class="authority__stat-num">120+</span>
+            <span class="authority__stat-label">Project Certifications</span>
+          </div>
+          <div class="authority__stat">
+            <span class="authority__stat-num">0.5mm</span>
+            <span class="authority__stat-label">Fabrication Tolerance</span>
+          </div>
+          <div class="authority__stat">
+            <span class="authority__stat-num">60%</span>
+            <span class="authority__stat-label">Faster Deployment</span>
+          </div>
+          <div class="authority__stat">
+            <span class="authority__stat-num">100%</span>
+            <span class="authority__stat-label">Recyclable Steel</span>
+          </div>
+        </div>
+      </div>
+      <div class="authority__right fade-up">
+        <div class="authority__img-wrap">
+          <img src="/images/showcase/ri-modular-units.jpg" alt="Precision modular steel assembly" class="authority__img" loading="lazy" />
+        </div>
+        <div class="authority__cert">
+          <span class="authority__cert-title">Certified Mastery</span>
+          <span class="authority__cert-sub">ISO 9001:2015 Approved</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 5. OUR WORK & REACH SECTION ════════ -->
   <section class="reach section-gap">
     <div class="mnc-container">
       <div class="reach__head fade-up">
@@ -459,54 +413,33 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
         Delivering modular solutions <span class="section-span">across sectors and borders.</span>
       </h2>
 
-      <div class="reach__bento fade-up">
-        <a href="/departments/modular" class="bento bento--img bento--r1c1">
-          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Modular</span>
-            <span class="bento__img-title">West Blvd Residential</span>
+      <div class="reach__grid">
+        <a href="/departments#modular" class="reach__card fade-up">
+          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential" class="reach__card-img" loading="lazy" />
+          <div class="reach__card-overlay">
+            <span class="reach__card-tag">Modular</span>
+            <span class="reach__card-title">West Blvd Residential</span>
           </div>
         </a>
-        <a href="/departments/healthcare" class="bento bento--img bento--r1c2">
-          <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Healthcare</span>
-            <span class="bento__img-title">Pediatric Clinic</span>
+        <a href="/departments#healthcare" class="reach__card fade-up">
+          <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="reach__card-img" loading="lazy" />
+          <div class="reach__card-overlay">
+            <span class="reach__card-tag">Healthcare</span>
+            <span class="reach__card-title">Pediatric Clinic</span>
           </div>
         </a>
-        <a href="/departments/civil" class="bento bento--img bento--r1c3">
-          <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Defense</span>
-            <span class="bento__img-title">Military Compound</span>
+        <a href="/departments#civil" class="reach__card fade-up">
+          <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" class="reach__card-img" loading="lazy" />
+          <div class="reach__card-overlay">
+            <span class="reach__card-tag">Defense</span>
+            <span class="reach__card-title">Military Compound</span>
           </div>
         </a>
-        <a href="/departments/modular" class="bento bento--img bento--r1c4">
-          <img src="/images/showcase/west-factory.jpg" alt="West Modular factory floor" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Manufacturing</span>
-            <span class="bento__img-title">Factory Production</span>
-          </div>
-        </a>
-        <a href="/departments/civil" class="bento bento--img bento--r2c1">
-          <img src="/images/showcase/ri-factory-panorama.jpg" alt="RI Group factory panorama" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Manufacturing</span>
-            <span class="bento__img-title">RI Group Factory</span>
-          </div>
-        </a>
-        <a href="/departments/healthcare" class="bento bento--img bento--r2c3">
-          <img src="/images/showcase/hwb-surgery-cutaway.png" alt="HWB modular surgery suite" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Healthcare</span>
-            <span class="bento__img-title">Surgery Suite</span>
-          </div>
-        </a>
-        <a href="/departments/modular" class="bento bento--img bento--r2c4">
-          <img src="/images/showcase/west-crane.jpg" alt="Modular crane installation" class="bento__photo" loading="lazy" />
-          <div class="bento__img-overlay">
-            <span class="bento__img-tag">Installation</span>
-            <span class="bento__img-title">Crane Set</span>
+        <a href="/departments#modular" class="reach__card fade-up">
+          <img src="/images/showcase/west-factory.jpg" alt="West Modular factory floor" class="reach__card-img" loading="lazy" />
+          <div class="reach__card-overlay">
+            <span class="reach__card-tag">Manufacturing</span>
+            <span class="reach__card-title">Factory Production</span>
           </div>
         </a>
       </div>
@@ -516,32 +449,6 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   <Footer slot="footer" />
 </Layout>
 
-<script>
-  // Puzzle animation
-  const puzzleGrid = document.getElementById('puzzle-grid');
-  const pieces = document.querySelectorAll<HTMLElement>('[data-puzzle]');
-
-  if (puzzleGrid && pieces.length) {
-    let placed = false;
-    const puzzleObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !placed) {
-          placed = true;
-          pieces.forEach((piece, i) => {
-            setTimeout(() => {
-              piece.classList.add('is-placed');
-            }, i * 150);
-          });
-          setTimeout(() => {
-            puzzleGrid.classList.add('is-complete');
-          }, pieces.length * 150 + 600);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    puzzleObserver.observe(puzzleGrid);
-  }
-</script>
 
 <style>
   /* ════════════════════════════════════════════
@@ -714,13 +621,16 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   .banner__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(26,42,66,.85) 0%, rgba(26,42,66,.3) 40%, transparent 70%);
+    background: linear-gradient(to right, rgba(26,42,66,.82) 0%, rgba(26,42,66,.45) 50%, rgba(26,42,66,.2) 100%);
     z-index: 1;
   }
 
   .banner__3d {
     position: absolute;
-    inset: 0;
+    top: 5%;
+    right: 0;
+    bottom: 5%;
+    width: 50%;
     z-index: 0;
   }
   .banner__3d canvas {
@@ -736,7 +646,8 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     bottom: 0;
     z-index: 2;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -746,221 +657,178 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
     pointer-events: auto;
   }
 
-  .banner__container {
-    max-width: 700px;
-    padding-bottom: 100px;
+  .banner__top {
+    padding-top: 100px;
   }
 
-  .banner__line {
-    height: 1px;
-    width: 100%;
-    background: rgba(255,255,255,.12);
-    margin: 20px 0;
+
+  .banner__center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
   }
 
-  .banner__tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--white);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 8px;
-    backdrop-filter: blur(8px);
-    background: rgba(224,161,53,.12);
-    border: 1px solid rgba(224,161,53,.3);
-    margin-bottom: 24px;
+  .banner__h1-accent {
+    color: var(--amber);
   }
 
-  .banner__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--amber);
+  .banner__blurb {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    max-width: 480px;
+  }
+
+  .banner__blurb-line {
+    width: 3px;
     flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(224,161,53,.6);
+    background: var(--amber);
+    border-radius: 2px;
+  }
+
+  .banner__blurb-text {
+    color: rgba(255,255,255,.55);
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0;
   }
 
   .banner__h1 {
     font-family: var(--font-secondary);
-    font-size: clamp(32px, 4.5vw, 56px);
-    font-weight: 500;
-    line-height: 1.1;
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 800;
+    line-height: 0.95;
     color: var(--white);
-    margin-bottom: 20px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin: 0;
   }
 
-  .banner__sub {
-    color: var(--medium-gray);
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 620px;
-    margin-bottom: 32px;
-  }
-
-  .banner__actions {
+  .banner__bottom {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 60px;
   }
 
 
-  /* ════════ 2. DETAILS ════════ */
-  .details {
-    background-color: var(--white);
+  .banner__stats {
+    display: flex;
+    align-items: stretch;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 6px;
+    padding: 16px 28px;
+    gap: 24px;
+    flex-shrink: 0;
   }
 
-  .details__split {
+  .banner__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .banner__stat-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+  }
+
+  .banner__stat-value {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .banner__stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,.15);
+    align-self: stretch;
+  }
+
+
+  /* ════════ 2. ADVANTAGE ════════ */
+  .advantage {
+    background-color: var(--off-white);
+  }
+
+  .advantage__top {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
+    gap: 48px;
+    align-items: start;
     margin-bottom: 64px;
   }
 
-  .details__left {}
-
-  .details__head {
-    margin-bottom: 24px;
+  .advantage__title {
+    margin: 0;
   }
 
-  .details__title {
-    margin-bottom: 20px;
-  }
-
-  .details__body {
+  .advantage__desc {
     font-size: 17px;
     line-height: 1.75;
     color: var(--text-gray);
     margin: 0;
   }
 
-  .details__carousel {
-    position: relative;
-    border-radius: 0;
-    overflow: hidden;
-    aspect-ratio: 16 / 11;
-    background: var(--navy);
+  .advantage__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 80px;
   }
 
-  .carousel__track {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  .advantage__card {
+    background: var(--white);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .carousel__slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+  .advantage__card--accent {
+    background: var(--off-white);
+    border: 1px solid rgba(0,0,0,.04);
   }
 
-  .carousel__slide--active {
-    opacity: 1;
-    z-index: 1;
+  .advantage__icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
   }
 
-  .carousel__slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .carousel__caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px 24px;
-    background: linear-gradient(0deg, rgba(12,24,48,.8) 0%, transparent 100%);
-    z-index: 2;
-  }
-
-  .carousel__tag {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 2px;
-  }
-
-  .carousel__title {
+  .advantage__card-title {
     font-family: var(--font-secondary);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
-    color: #fff;
+    color: var(--dark-text);
+    line-height: 1.3;
   }
 
-  .carousel__controls {
-    position: absolute;
-    bottom: 16px;
-    right: 20px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .carousel__btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.3);
-    background: rgba(0,0,0,.25);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-    padding: 0;
-  }
-
-  .carousel__btn:hover {
-    background: rgba(0,0,0,.5);
-    border-color: rgba(255,255,255,.5);
-  }
-
-  .carousel__btn svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .carousel__dots {
-    display: flex;
-    gap: 6px;
-  }
-
-  .carousel__dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255,255,255,.35);
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .carousel__dot--active {
-    background: var(--amber);
-    transform: scale(1.25);
+  .advantage__card-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-gray);
+    margin: 0;
   }
 
   @media (max-width: 768px) {
-    .details__split {
+    .advantage__top {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 24px;
     }
 
-    .details__carousel {
-      aspect-ratio: 16 / 10;
+    .advantage__cards {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -1015,316 +883,371 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
   }
 
 
-  /* ════════ 3. OFFER — Puzzle Grid ════════ */
-  .offer {
-    background-color: var(--navy);
-    padding-bottom: 100px;
+  /* ════════ 3. GLOBAL NETWORK MAP ════════ */
+  .netmap {
+    background-color: var(--off-white);
   }
 
-  .offer__head {
-    padding-bottom: 64px;
-  }
-
-  .offer__head .section-tag {
-    margin-bottom: 24px;
-  }
-
-  .offer__title {
-    color: var(--white);
-    max-width: 900px;
-  }
-
-  /* ── Puzzle grid ── */
-  .puzzle {
+  .netmap__layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0;
-    position: relative;
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 48px;
+    align-items: start;
   }
 
-  .puzzle__piece {
-    position: relative;
-    overflow: visible;
-    opacity: 0;
-    transition: transform 0.9s cubic-bezier(.22,1,.36,1), opacity 0.7s ease;
-  }
-
-  .puzzle__piece--0 { transform: translate(-60px, -60px) rotate(-3deg); }
-  .puzzle__piece--1 { transform: translate(60px, -60px) rotate(3deg); }
-  .puzzle__piece--2 { transform: translate(-60px, 60px) rotate(3deg); }
-  .puzzle__piece--3 { transform: translate(60px, 60px) rotate(-3deg); }
-
-  .puzzle__piece.is-placed {
-    opacity: 1;
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  /* Staggered delays */
-  .puzzle__piece--0 { transition-delay: 0s; }
-  .puzzle__piece--1 { transition-delay: 0.15s; }
-  .puzzle__piece--2 { transition-delay: 0.3s; }
-  .puzzle__piece--3 { transition-delay: 0.45s; }
-
-  /* ── Puzzle tab connectors (decorative interlocking nubs) ── */
-  .puzzle__tab-h,
-  .puzzle__tab-v {
-    position: absolute;
-    z-index: 3;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  /* Horizontal tab: sits on the right edge of left-column pieces */
-  .puzzle__piece--0 .puzzle__tab-h,
-  .puzzle__piece--2 .puzzle__tab-h {
-    width: 28px;
-    height: 28px;
-    background: var(--amber);
-    right: -14px;
-    top: 50%;
-    transform: translateY(-50%);
-    box-shadow: 0 0 0 4px var(--navy), 0 2px 8px rgba(0,0,0,.3);
-  }
-
-  /* Horizontal tab: sits on the left edge of right-column pieces (indent) */
-  .puzzle__piece--1 .puzzle__tab-h,
-  .puzzle__piece--3 .puzzle__tab-h {
-    width: 28px;
-    height: 28px;
-    background: var(--navy);
-    border: 3px solid var(--amber);
-    left: -14px;
-    top: 50%;
-    transform: translateY(-50%);
-    box-shadow: 0 2px 8px rgba(0,0,0,.2);
-  }
-
-  /* Vertical tab: sits on the bottom edge of top-row pieces */
-  .puzzle__piece--0 .puzzle__tab-v,
-  .puzzle__piece--1 .puzzle__tab-v {
-    width: 28px;
-    height: 28px;
-    background: var(--amber);
-    bottom: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 0 4px var(--navy), 0 2px 8px rgba(0,0,0,.3);
-  }
-
-  /* Vertical tab: sits on the top edge of bottom-row pieces (indent) */
-  .puzzle__piece--2 .puzzle__tab-v,
-  .puzzle__piece--3 .puzzle__tab-v {
-    width: 28px;
-    height: 28px;
-    background: var(--navy);
-    border: 3px solid var(--amber);
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 2px 8px rgba(0,0,0,.2);
-  }
-
-  /* ── Card inner ── */
-  .puzzle__inner {
-    position: relative;
-    z-index: 1;
-    padding: 20px;
-    border-radius: 8px;
-    height: 100%;
+  .netmap__left {
     display: flex;
     flex-direction: column;
-    min-height: auto;
-    border: 1px solid rgba(255,255,255,.06);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    gap: 36px;
   }
 
-  .puzzle__piece:hover .puzzle__inner {
-    border-color: rgba(224,161,53,.2);
-    box-shadow: 0 8px 32px rgba(0,0,0,.2);
+  .netmap__title {
+    margin: 0;
   }
 
-  .puzzle__piece--0 .puzzle__inner {
-    background: var(--off-white);
-    border-radius: 8px 0 0 0;
-  }
-  .puzzle__piece--1 .puzzle__inner {
-    background: var(--white);
-    border-radius: 0 8px 0 0;
-  }
-  .puzzle__piece--2 .puzzle__inner {
-    background: var(--white);
-    border-radius: 0 0 0 8px;
-  }
-  .puzzle__piece--3 .puzzle__inner {
-    background: var(--off-white);
-    border-radius: 0 0 8px 0;
-  }
-
-  .puzzle__num {
-    display: inline-block;
-    font-family: var(--font-primary);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--white);
-    background: var(--navy);
-    border-radius: 3px;
-    padding: 2px 7px;
-    margin-bottom: 10px;
-    width: fit-content;
-  }
-
-  .puzzle__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(15px, 1.6vw, 18px);
-    font-weight: 600;
-    color: var(--dark-text);
-    margin-bottom: 6px;
-    line-height: 1.25;
-  }
-
-  .puzzle__desc {
-    font-size: 12px;
-    color: var(--text-gray);
-    line-height: 1.5;
-    margin-bottom: 10px;
-    flex: 1;
-  }
-
-  .puzzle__bullets {
+  .netmap__hubs {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-bottom: 12px;
+    gap: 24px;
   }
 
-  .puzzle__bullet {
+  .netmap__hub {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    gap: 16px;
+    align-items: stretch;
   }
 
-  .puzzle__bullet-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--amber);
+  .netmap__hub-line {
+    width: 3px;
     flex-shrink: 0;
+    background: var(--amber);
+    border-radius: 2px;
   }
 
-  .puzzle__bullet-text {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--dark-text);
-    opacity: 0.7;
-  }
-
-  .puzzle__companies {
-    margin-bottom: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .puzzle__companies-label {
-    display: block;
-    font-size: 9px;
+  .netmap__hub-title {
+    font-family: var(--font-secondary);
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--text-gray);
-    opacity: 0.5;
-    margin-bottom: 8px;
+    color: var(--dark-text);
+    margin-bottom: 6px;
   }
 
-  .puzzle__companies-logos {
+  .netmap__hub-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  .netmap__right {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 1px solid rgba(0,0,0,.08);
+  }
+
+  .netmap__map {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .netmap__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark-text);
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 6px;
+    padding: 10px 16px;
+  }
+
+  .netmap__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 8px rgba(224,161,53,.6);
+  }
+
+  :global(.netmap-marker) {
+    background: none !important;
+    border: none !important;
+  }
+
+  :global(.netmap-legend) {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1000;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  :global(.netmap-legend__row) {
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark-text);
   }
 
-  .puzzle__company-logo {
-    height: 15px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(1) opacity(0.45);
-    transition: filter 0.25s ease;
+  :global(.netmap-legend__dot) {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,.15);
+    flex-shrink: 0;
   }
 
-  .puzzle__piece:hover .puzzle__company-logo {
-    filter: grayscale(0) opacity(0.85);
-  }
+  @media (max-width: 900px) {
+    .netmap__layout {
+      grid-template-columns: 1fr;
+    }
 
-  /* Landing "snap" pop */
-  @keyframes puzzle-snap {
-    0% { transform: scale(1); }
-    40% { transform: scale(1.015); }
-    100% { transform: scale(1); }
-  }
-
-  .puzzle__piece.is-placed {
-    animation: puzzle-snap 0.4s ease forwards;
-    animation-delay: inherit;
-  }
-
-  /* Connector glow pulse after all pieces land */
-  @keyframes tab-glow {
-    0%   { box-shadow: 0 0 0 4px var(--navy), 0 0 0 rgba(224,161,53,0); }
-    50%  { box-shadow: 0 0 0 4px var(--navy), 0 0 16px rgba(224,161,53,.5); }
-    100% { box-shadow: 0 0 0 4px var(--navy), 0 0 0 rgba(224,161,53,0); }
-  }
-
-  .puzzle.is-complete .puzzle__piece--0 .puzzle__tab-h,
-  .puzzle.is-complete .puzzle__piece--2 .puzzle__tab-h,
-  .puzzle.is-complete .puzzle__piece--0 .puzzle__tab-v,
-  .puzzle.is-complete .puzzle__piece--1 .puzzle__tab-v {
-    animation: tab-glow 1.5s ease 0.6s 1;
+    .netmap__right {
+      aspect-ratio: 16 / 9;
+    }
   }
 
 
-  /* ════════ 4. REACH ════════ */
+  /* ════════ 4. AUTHORITY ════════ */
+  .authority {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    overflow: hidden;
+  }
+
+  .authority__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+
+  .authority__left {
+    padding: 80px 64px 80px max(1.5rem, calc(50vw - 620px + 1.5rem));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .authority__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .authority__desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,.55);
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+
+  .authority__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+  }
+
+  .authority__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .authority__stat-num {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  .authority__stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+  }
+
+  .authority__right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .authority__img-wrap {
+    position: absolute;
+    inset: 20px 20px 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,.1);
+  }
+
+  .authority__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .authority__cert {
+    position: absolute;
+    bottom: 36px;
+    right: 36px;
+    background: var(--amber);
+    padding: 16px 24px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  }
+
+  .authority__cert-title {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.2;
+  }
+
+  .authority__cert-sub {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  @media (max-width: 900px) {
+    .authority__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .authority__left {
+      padding: 64px 1.5rem;
+    }
+
+    .authority__right {
+      position: relative;
+      height: 350px;
+    }
+
+    .authority__img-wrap {
+      inset: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .authority__cert {
+      bottom: 32px;
+      right: 32px;
+    }
+  }
+
+  /* ════════ 5. REACH ════════ */
   .reach { background-color: var(--white); }
   .reach__head { text-align: center; margin-bottom: 32px; }
   .reach__title { text-align: center; max-width: 900px; margin: 0 auto 64px; }
-  .reach__bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 250px 250px; gap: 20px; }
-  .bento { border-radius: 0; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; position: relative; }
-  .bento--img { padding: 0; text-decoration: none; cursor: pointer; }
-  .bento__photo { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 0; transition: transform 0.5s ease; }
-  .bento--img:hover .bento__photo { transform: scale(1.04); }
-  .bento__img-overlay { position: absolute; inset: 0; border-radius: 0; background: linear-gradient(0deg, rgba(12,24,48,.75) 0%, transparent 50%); display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; transition: background 0.3s ease; }
-  .bento--img:hover .bento__img-overlay { background: linear-gradient(0deg, rgba(12,24,48,.85) 0%, rgba(12,24,48,.2) 60%); }
-  .bento__img-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 2px; }
-  .bento__img-title { font-family: var(--font-secondary); font-size: 15px; font-weight: 600; color: #fff; line-height: 1.3; }
-  .bento--r1c1 { grid-column: 1; grid-row: 1; }
-  .bento--r1c2 { grid-column: 2; grid-row: 1; }
-  .bento--r1c3 { grid-column: 3; grid-row: 1; }
-  .bento--r1c4 { grid-column: 4; grid-row: 1; }
-  .bento--r2c1 { grid-column: 1 / span 2; grid-row: 2; }
-  .bento--r2c3 { grid-column: 3; grid-row: 2; }
-  .bento--r2c4 { grid-column: 4; grid-row: 2; }
+
+  .reach__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 24px;
+  }
+
+  .reach__card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .reach__card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .reach__card:hover .reach__card-img {
+    transform: scale(1.04);
+  }
+
+  .reach__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(12,24,48,.75) 0%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    transition: background 0.3s ease;
+  }
+
+  .reach__card:hover .reach__card-overlay {
+    background: linear-gradient(0deg, rgba(12,24,48,.85) 0%, rgba(12,24,48,.2) 60%);
+  }
+
+  .reach__card-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+
+  .reach__card-title {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
 
   /* ════════ 5. CREDENTIALS ════════ */
 
 
   /* ════════ RESPONSIVE ════════ */
   @media (max-width: 1024px) {
-    .puzzle__inner {
-      padding: 20px;
-      min-height: auto;
+    .offer__grid {
+      gap: 20px;
     }
 
-    .reach__bento {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
+    .offer__card {
+      padding: 32px 28px;
     }
-
-    .bento--r1c1 { grid-column: 1; grid-row: 1; }
-    .bento--r1c2 { grid-column: 2; grid-row: 1; }
-    .bento--r1c3 { grid-column: 1; grid-row: 2; }
-    .bento--r1c4 { grid-column: 2; grid-row: 2; }
-    .bento--r2c1 { grid-column: 1 / span 2; grid-row: 3; }
-    .bento--r2c3 { grid-column: 1; grid-row: 4; }
-    .bento--r2c4 { grid-column: 2; grid-row: 4; }
   }
 
   @media (max-width: 768px) {
@@ -1332,95 +1255,45 @@ const puzzleDirections = ['top-left', 'top-right', 'bottom-left', 'bottom-right'
       padding: 64px 0;
     }
 
-    .banner__container {
-      max-width: 100%;
+    .banner__h1 {
+      font-size: clamp(42px, 12vw, 72px);
+    }
+
+    .banner__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
       padding-bottom: 40px;
     }
 
-    .banner__h1 {
-      font-size: clamp(28px, 7vw, 42px);
+    .banner__stats {
+      padding: 12px 20px;
+      gap: 16px;
     }
 
-    .puzzle {
+    .banner__stat-value {
+      font-size: 18px;
+    }
+
+    .banner__top {
+      padding-top: 80px;
+    }
+
+    .offer__grid {
       grid-template-columns: 1fr;
     }
 
-    .puzzle__piece--0 .puzzle__inner,
-    .puzzle__piece--1 .puzzle__inner,
-    .puzzle__piece--2 .puzzle__inner,
-    .puzzle__piece--3 .puzzle__inner {
-      border-radius: 8px;
+    .offer__card {
+      padding: 28px 24px;
     }
 
-    .puzzle__piece--0 { transform: translate(0, -40px); }
-    .puzzle__piece--1 { transform: translate(0, -40px); }
-    .puzzle__piece--2 { transform: translate(0, 40px); }
-    .puzzle__piece--3 { transform: translate(0, 40px); }
-
-    .puzzle__tab-h { display: none; }
-
-    .puzzle__piece--0 .puzzle__tab-v,
-    .puzzle__piece--1 .puzzle__tab-v { bottom: -14px; }
-    .puzzle__piece--2 .puzzle__tab-v,
-    .puzzle__piece--3 .puzzle__tab-v { top: -14px; }
-
-    .puzzle__inner {
-      padding: 28px;
-      min-height: auto;
-    }
-
-    .reach__bento {
+    .reach__grid {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
     }
 
-    .bento--r1c1,
-    .bento--r1c2,
-    .bento--r1c3,
-    .bento--r1c4 { grid-column: 1; }
-    .bento--r1c1 { grid-row: 1; }
-    .bento--r1c2 { grid-row: 2; }
-    .bento--r1c3 { grid-row: 3; }
-    .bento--r1c4 { grid-row: 4; }
-    .bento--r2c1 { grid-column: 1; grid-row: 5; }
-    .bento--r2c3 { grid-column: 1; grid-row: 6; }
-    .bento--r2c4 { grid-column: 1; grid-row: 7; }
-
-    .bento--img {
-      min-height: 180px;
-    }
-
-    .review__card {
-      padding: 24px;
-    }
-
-    .review__info-strip {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .review__info-col--border {
-      border-left: none;
-      border-right: none;
-      border-top: 1px solid var(--medium-gray);
-      border-bottom: 1px solid var(--medium-gray);
-    }
-
-    .review__tabs {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-  }
-
-  @media (max-width: 480px) {
-    .banner__actions {
-      flex-direction: column;
-    }
-
-    .banner__actions .mnc-btn {
-      text-align: center;
-      justify-content: center;
+    .reach__card {
+      min-height: 220px;
     }
   }
 </style>

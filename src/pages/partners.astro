@@ -86,6 +86,16 @@ const partners = [
   <!-- Hero -->
   <section class="hero-wrap">
     <div class="hero-inner">
+      <div class="hero-lines" aria-hidden="true">
+        <div class="hero-lines__v hero-lines__v--1"></div>
+        <div class="hero-lines__v hero-lines__v--2"></div>
+        <div class="hero-lines__v hero-lines__v--3"></div>
+        <div class="hero-lines__v hero-lines__v--4"></div>
+        <div class="hero-lines__h hero-lines__h--1"></div>
+        <div class="hero-lines__h hero-lines__h--2"></div>
+        <div class="hero-lines__h hero-lines__h--3"></div>
+        <div class="hero-lines__h hero-lines__h--4"></div>
+      </div>
       <div class="hero-content">
         <div class="hero-breadcrumb">
           <a href="/">Home</a>
@@ -282,7 +292,7 @@ const partners = [
 
   /* ── Hero ── */
   .hero-wrap {
-    padding: 16px;
+    padding: 0;
   }
 
   .hero-inner {
@@ -301,6 +311,47 @@ const partners = [
     inset: 0;
     background: radial-gradient(ellipse at 75% 20%, rgba(224, 161, 53, 0.07) 0%, transparent 55%);
     pointer-events: none;
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .hero-lines__v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255,255,255,.06);
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: lineRevealV 1s ease-out forwards;
+  }
+  .hero-lines__v--1 { left: 52%; animation-delay: 0.2s; }
+  .hero-lines__v--2 { left: 72%; animation-delay: 0.35s; }
+  .hero-lines__v--3 { left: 88%; animation-delay: 0.15s; }
+  .hero-lines__v--4 { left: 4%; animation-delay: 0.4s; }
+  .hero-lines__h {
+    position: absolute;
+    height: 1px;
+    background: rgba(255,255,255,.06);
+    transform: scaleX(0);
+    animation: lineRevealH 1s ease-out forwards;
+  }
+  .hero-lines__h--1 { top: 35%; left: 0; right: 0; transform-origin: left; animation-delay: 0.5s; }
+  .hero-lines__h--2 { top: 14%; left: 50%; right: 0; transform-origin: left; animation-delay: 0.65s; }
+  .hero-lines__h--3 { top: 58%; left: 50%; right: 0; transform-origin: right; animation-delay: 0.55s; }
+  .hero-lines__h--4 { top: 85%; left: 0; right: 40%; transform-origin: left; animation-delay: 0.75s; }
+  @keyframes lineRevealV {
+    0% { transform: scaleY(0); opacity: 0; }
+    100% { transform: scaleY(1); opacity: 1; }
+  }
+  @keyframes lineRevealH {
+    0% { transform: scaleX(0); opacity: 0; }
+    100% { transform: scaleX(1); opacity: 1; }
   }
 
   .hero-content {
