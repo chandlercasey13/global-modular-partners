@@ -40,19 +40,7 @@ const partners = [
               </p>
             </div>
           </div>
-          <div class="banner__bottom">
-            <div class="banner__stats fade-up">
-              <div class="banner__stat">
-                <span class="banner__stat-label">Load Bearing Cap</span>
-                <span class="banner__stat-value">14,200 KN</span>
-              </div>
-              <div class="banner__stat-divider"></div>
-              <div class="banner__stat">
-                <span class="banner__stat-label">Precision Tolerance</span>
-                <span class="banner__stat-value">&pm; 0.05 MM</span>
-              </div>
-            </div>
-          </div>
+          <div class="banner__bottom"></div>
         </div>
       </div>
     </div>
@@ -204,51 +192,29 @@ const partners = [
     }
   </script>
 
-  <!-- ════════ 2. ADVANTAGE SECTION ════════ -->
-  <section class="advantage section-gap">
+  <!-- ════════ ABOUT STRIP ════════ -->
+  <section class="hp-about">
     <div class="mnc-container">
-      <div class="advantage__top fade-up">
-        <h2 class="section-title advantage__title">
-          The End-to-End Advantage:<br/><span class="section-span">A Total Solution.</span>
-        </h2>
-        <p class="advantage__desc">
-          We eliminate the fragmentation of traditional construction. By integrating engineering, procurement, fabrication, and global logistics into a single workflow, we provide a seamless partnership that guarantees architectural integrity and speed-to-market.
-        </p>
-      </div>
-
-      <div class="advantage__cards">
-        <div class="advantage__card fade-up">
-          <svg class="advantage__icon" viewBox="0 0 40 40" fill="none"><path d="M20 4l2.5 8H31l-7 5 2.5 8-7-5-7 5 2.5-8-7-5h8.5L20 4z" stroke="var(--amber-dark)" stroke-width="1.5" fill="none"/><path d="M8 36h24M12 36V24h16v12" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3 class="advantage__card-title">Precision Engineering</h3>
-          <p class="advantage__card-desc">Advanced BIM modeling and structural analysis ensure every module exceeds international seismic and environmental standards.</p>
+      <div class="hp-about__layout fade-up">
+        <div class="hp-about__left">
+          <span class="section-tag">About GMP</span>
+          <h2 class="section-title">Modular by Design.<br/>Global by Nature.</h2>
+          <p class="hp-about__desc">
+            For five years, Global Modular Partners has positioned itself as the definitive force in modern modular construction. What began as a specialized joint venture has evolved into the global hub of modular engineering — selecting the right team for each project based on location, scope, and compliance requirements. With over 40 projects delivered across three continents and 2,400+ modular units produced, GMP coordinates end-to-end solutions spanning structural engineering, factory fabrication, supply chain logistics, and on-site deployment. Our partner network brings together specialists in steel construction, healthcare infrastructure, civil contracting, and early warning systems — all operating under a unified quality and compliance framework.
+          </p>
+          <a href="/about" class="hp-about__link">
+            Learn more about GMP
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
-        <div class="advantage__card fade-up">
-          <svg class="advantage__icon" viewBox="0 0 40 40" fill="none"><rect x="6" y="20" width="12" height="14" rx="1" stroke="var(--amber-dark)" stroke-width="1.5"/><rect x="22" y="14" width="12" height="20" rx="1" stroke="var(--amber-dark)" stroke-width="1.5"/><path d="M10 16h4M10 12h4M26 10h4" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round"/><rect x="14" y="6" width="12" height="28" rx="1" stroke="var(--amber-dark)" stroke-width="1.5"/></svg>
-          <h3 class="advantage__card-title">Modular Fabrication</h3>
-          <p class="advantage__card-desc">Proprietary steel-frame systems manufactured in controlled environments for unrivaled quality consistency and waste reduction.</p>
-        </div>
-        <div class="advantage__card advantage__card--accent fade-up">
-          <svg class="advantage__icon" viewBox="0 0 40 40" fill="none"><rect x="4" y="22" width="14" height="10" rx="2" stroke="var(--amber-dark)" stroke-width="1.5"/><circle cx="8" cy="35" r="2" stroke="var(--amber-dark)" stroke-width="1.5"/><circle cx="14" cy="35" r="2" stroke="var(--amber-dark)" stroke-width="1.5"/><path d="M18 27h8l4-8H22" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="35" r="2" stroke="var(--amber-dark)" stroke-width="1.5"/><path d="M20 8l4 4M24 8l-4 4M22 4v4" stroke="var(--amber-dark)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <h3 class="advantage__card-title">Integrated Logistics</h3>
-          <p class="advantage__card-desc">Global supply chain management and specialized transport networks delivering turnkey components to any site worldwide.</p>
-        </div>
-      </div>
-
-      <div class="details__partners fade-up">
-        <span class="details__partners-label">Trade Partners</span>
-        <div class="details__marquee-track">
-          <div class="details__marquee">
-            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
-            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
-            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
-          </div>
+        <div class="hp-about__right">
+          <img src="/images/showcase/ri-factory-panorama.jpg" alt="GMP modular factory" class="hp-about__img" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════ 3. GLOBAL NETWORK MAP ════════ -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" />
+  <!-- ════════ GLOBAL NETWORK MAP ════════ -->
   <section class="netmap section-gap">
     <div class="mnc-container">
       <div class="netmap__layout fade-up">
@@ -295,15 +261,30 @@ const partners = [
           <div id="network-map" class="netmap__map"></div>
         </div>
       </div>
+      <div class="netmap__partners">
+        <span class="netmap__partners-label">Trade Partners</span>
+        <div class="details__marquee-track">
+          <div class="details__marquee">
+            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <script>
-    import L from 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet-src.esm.js';
+  <script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script is:inline>
+    (function initMap() {
+      var mapEl = document.getElementById('network-map');
+      if (!mapEl) return;
+      if (typeof L === 'undefined') {
+        setTimeout(initMap, 100);
+        return;
+      }
 
-    const mapEl = document.getElementById('network-map');
-    if (mapEl) {
-      const map = L.map(mapEl, {
+      var map = L.map(mapEl, {
         center: [30, 20],
         zoom: 2,
         zoomControl: true,
@@ -313,11 +294,13 @@ const partners = [
         maxZoom: 6,
       });
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        subdomains: 'abcd',
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
       }).addTo(map);
 
-      const companies = [
+      setTimeout(function () { map.invalidateSize(); }, 300);
+
+      var companies = [
         { name: 'GMP Headquarters', loc: [37.8044, -122.2712], city: 'Oakland, CA', type: 'hq' },
         { name: 'GMP Southern CA', loc: [33.6846, -117.8265], city: 'Irvine, CA', type: 'hq' },
         { name: 'Agbayani Construction', loc: [37.6879, -122.4702], city: 'Daly City, CA', type: 'subsidiary' },
@@ -328,82 +311,91 @@ const partners = [
         { name: 'EDIS International', loc: [31.9454, 35.9284], city: 'Amman, Jordan', type: 'subsidiary' },
       ];
 
-      function makeDot(color: string, size: number) {
+      function makeDot(color, size) {
         return L.divIcon({
           className: 'netmap-marker',
-          html: `<span style="
-            width:${size}px;height:${size}px;
-            background:${color};
-            border:2px solid #fff;
-            border-radius:50%;
-            display:block;
-            box-shadow:0 0 8px ${color}88;
-          "></span>`,
+          html: '<span style="width:' + size + 'px;height:' + size + 'px;background:' + color + ';border:2px solid #fff;border-radius:50%;display:block;box-shadow:0 0 8px ' + color + '88;"></span>',
           iconSize: [size, size],
-          iconAnchor: [size/2, size/2],
+          iconAnchor: [size / 2, size / 2],
         });
       }
 
-      const hqIcon = makeDot('#2B4B7E', 14);
-      const subIcon = makeDot('#4a8c3f', 12);
+      var hqIcon = makeDot('#2B4B7E', 14);
+      var subIcon = makeDot('#4a8c3f', 12);
 
-      companies.forEach(c => {
-        const icon = c.type === 'hq' ? hqIcon : subIcon;
-        L.marker(c.loc, { icon })
+      companies.forEach(function (c) {
+        var icon = c.type === 'hq' ? hqIcon : subIcon;
+        L.marker(c.loc, { icon: icon })
           .addTo(map)
-          .bindPopup(`<strong>${c.name}</strong><br/>${c.city}`);
+          .bindPopup('<strong>' + c.name + '</strong><br/>' + c.city);
       });
 
-      const legendEl = document.createElement('div');
+      var legendEl = document.createElement('div');
       legendEl.className = 'netmap-legend';
-      legendEl.innerHTML = `
-        <div class="netmap-legend__row"><span class="netmap-legend__dot" style="background:#2B4B7E"></span> GMP Offices</div>
-        <div class="netmap-legend__row"><span class="netmap-legend__dot" style="background:#4a8c3f"></span> Subsidiaries</div>
-      `;
+      legendEl.innerHTML =
+        '<div class="netmap-legend__row"><span class="netmap-legend__dot" style="background:#2B4B7E"></span> GMP Offices</div>' +
+        '<div class="netmap-legend__row"><span class="netmap-legend__dot" style="background:#4a8c3f"></span> Subsidiaries</div>';
       mapEl.appendChild(legendEl);
-    }
+    })();
   </script>
 
-  <!-- ════════ 4. AUTHORITY SECTION ════════ -->
-  <section class="authority">
-    <div class="authority__inner">
-      <div class="authority__left fade-up">
-        <h2 class="authority__title">The Authority in<br/>Steel Engineering.</h2>
-        <p class="authority__desc">
-          Our structural systems are designed for extreme longevity and performance. We utilize high-tensile steel and proprietary joinery that sets the global benchmark for modular stability.
+  <!-- ════════ 2. ADVANTAGE SECTION ════════ -->
+  <section class="advantage section-gap">
+    <div class="mnc-container">
+      <span class="section-tag fade-up">Our Process</span>
+      <div class="advantage__top fade-up">
+        <h2 class="section-title advantage__title">
+          Design. Fabricate. Deploy. <span class="section-span">Repeat.</span>
+        </h2>
+        <p class="advantage__desc">
+          Modular construction replaces the chaos of traditional job sites with factory-precision manufacturing. Complete building sections are engineered and assembled in controlled environments — then delivered to site ready to install.
         </p>
-        <div class="authority__stats">
-          <div class="authority__stat">
-            <span class="authority__stat-num">120+</span>
-            <span class="authority__stat-label">Project Certifications</span>
+      </div>
+
+      <div class="advantage__cards">
+        <div class="advantage__card fade-up">
+          <img src="/images/showcase/west-blvd-render.jpg" alt="Precision engineering" class="advantage__card-img" loading="lazy" />
+          <div class="advantage__card-overlay"></div>
+          <div class="advantage__card-body">
+            <span class="advantage__card-num">01</span>
+            <h3 class="advantage__card-title">Precision Engineering</h3>
+            <p class="advantage__card-desc">Advanced BIM coordination and structural analysis — designed for factory fabrication and rapid on-site assembly.</p>
           </div>
-          <div class="authority__stat">
-            <span class="authority__stat-num">0.5mm</span>
-            <span class="authority__stat-label">Fabrication Tolerance</span>
+        </div>
+        <div class="advantage__card fade-up">
+          <img src="/images/showcase/ri-factory-panorama.jpg" alt="Modular fabrication" class="advantage__card-img" loading="lazy" />
+          <div class="advantage__card-overlay"></div>
+          <div class="advantage__card-body">
+            <span class="advantage__card-num">02</span>
+            <h3 class="advantage__card-title">Modular Fabrication</h3>
+            <p class="advantage__card-desc">Modules built in controlled factories — up to 60% faster with tighter tolerances and dramatically less waste.</p>
           </div>
-          <div class="authority__stat">
-            <span class="authority__stat-num">60%</span>
-            <span class="authority__stat-label">Faster Deployment</span>
-          </div>
-          <div class="authority__stat">
-            <span class="authority__stat-num">100%</span>
-            <span class="authority__stat-label">Recyclable Steel</span>
+        </div>
+        <div class="advantage__card fade-up">
+          <img src="/images/showcase/ri-modular-units.jpg" alt="Integrated logistics" class="advantage__card-img" loading="lazy" />
+          <div class="advantage__card-overlay"></div>
+          <div class="advantage__card-body">
+            <span class="advantage__card-num">03</span>
+            <h3 class="advantage__card-title">Integrated Logistics</h3>
+            <p class="advantage__card-desc">Finished modules transported and installed on schedule via our global supply chain, anywhere in the world.</p>
           </div>
         </div>
       </div>
-      <div class="authority__right fade-up">
-        <div class="authority__img-wrap">
-          <img src="/images/showcase/ri-modular-units.jpg" alt="Precision modular steel assembly" class="authority__img" loading="lazy" />
-        </div>
-        <div class="authority__cert">
-          <span class="authority__cert-title">Certified Mastery</span>
-          <span class="authority__cert-sub">ISO 9001:2015 Approved</span>
-        </div>
-      </div>
+
     </div>
   </section>
 
-  <!-- ════════ 5. OUR WORK & REACH SECTION ════════ -->
+  <!-- ════════ FACILITY STAT BANNER ════════ -->
+  <section class="hp-facility">
+    <img src="/images/showcase/ri-factory-panorama.jpg" alt="GMP manufacturing facility" class="hp-facility__img" loading="lazy" />
+    <div class="hp-facility__overlay"></div>
+    <div class="hp-facility__content fade-up">
+      <h2 class="hp-facility__stat">500,000<br/>Sq. Ft.<br/>Facility</h2>
+      <p class="hp-facility__desc">Combined manufacturing capacity across our partner network — automated production lines, quality labs, and staging areas delivering turnkey modular components at scale.</p>
+    </div>
+  </section>
+
+  <!-- ════════ 3. OUR WORK & REACH SECTION ════════ -->
   <section class="reach section-gap">
     <div class="mnc-container">
       <div class="reach__head fade-up">
@@ -463,7 +455,7 @@ const partners = [
   }
 
   .section-gap {
-    padding: 100px 0;
+    padding: 80px 0;
   }
 
   /* ── Section Tag (pill) ── */
@@ -502,7 +494,7 @@ const partners = [
     font-family: var(--font-secondary);
     font-size: clamp(32px, 4vw, 52px);
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--dark-text);
   }
 
@@ -608,14 +600,16 @@ const partners = [
     padding: 0;
     height: 100vh;
     min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
   }
 
   .banner__inner {
     position: relative;
     width: 100%;
-    height: 100%;
+    flex: 1;
     overflow: hidden;
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
   }
 
   .banner__overlay {
@@ -639,7 +633,7 @@ const partners = [
   }
 
   .banner__content {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -679,6 +673,7 @@ const partners = [
     align-items: stretch;
     gap: 16px;
     max-width: 480px;
+    margin-top: 20px;
   }
 
   .banner__blurb-line {
@@ -690,16 +685,16 @@ const partners = [
 
   .banner__blurb-text {
     color: rgba(255,255,255,.55);
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.6;
     margin: 0;
   }
 
   .banner__h1 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: clamp(36px, 5.5vw, 72px);
     font-weight: 800;
-    line-height: 0.95;
+    line-height: 1.1;
     color: var(--white);
     letter-spacing: -2px;
     text-transform: uppercase;
@@ -756,21 +751,105 @@ const partners = [
   }
 
 
+  .netmap__partners {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(0,0,0,.06);
+    overflow: hidden;
+  }
+  .netmap__partners-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .netmap__partners .details__marquee-track { flex: 1; min-width: 0; }
+  .netmap__partners .details__partner {
+    filter: grayscale(100%);
+    opacity: 0.35;
+  }
+  .netmap__partners .details__partner:hover {
+    filter: grayscale(0%);
+    opacity: 0.7;
+  }
+
+  /* ════════ ABOUT STRIP ════════ */
+  .hp-about {
+    padding: 80px 0;
+    background: var(--white);
+  }
+  .hp-about__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .hp-about__desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin-top: 20px;
+  }
+  .hp-about__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--amber);
+    text-decoration: none;
+    transition: gap .25s;
+  }
+  .hp-about__link:hover { gap: 12px; }
+  .hp-about__link svg { flex-shrink: 0; }
+
+  .hp-about__right {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+  .hp-about__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 320px;
+  }
+
+  @media (max-width: 768px) {
+    .hp-about { padding: 56px 0; }
+    .hp-about__layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hp-about__img { min-height: 240px; }
+  }
+
   /* ════════ 2. ADVANTAGE ════════ */
   .advantage {
-    background-color: var(--off-white);
+    background-color: var(--white);
   }
 
   .advantage__top {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: 28px;
     align-items: start;
     margin-bottom: 64px;
   }
 
   .advantage__title {
     margin: 0;
+    text-align: left;
   }
 
   .advantage__desc {
@@ -788,36 +867,62 @@ const partners = [
   }
 
   .advantage__card {
-    background: var(--white);
-    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    justify-content: flex-end;
   }
 
-  .advantage__card--accent {
-    background: var(--off-white);
-    border: 1px solid rgba(0,0,0,.04);
+  .advantage__card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+  }
+  .advantage__card:hover .advantage__card-img {
+    transform: scale(1.05);
   }
 
-  .advantage__icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
+  .advantage__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 50%, rgba(0,0,0,.05) 100%);
+    z-index: 1;
+  }
+
+  .advantage__card-body {
+    position: relative;
+    z-index: 2;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .advantage__card-num {
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--amber);
   }
 
   .advantage__card-title {
     font-family: var(--font-secondary);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--dark-text);
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
     line-height: 1.3;
   }
 
   .advantage__card-desc {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.6);
     margin: 0;
   }
 
@@ -924,6 +1029,10 @@ const partners = [
     border-radius: 2px;
   }
 
+  .netmap__hub-line {
+    background: var(--amber);
+  }
+
   .netmap__hub-title {
     font-family: var(--font-secondary);
     font-size: 13px;
@@ -950,6 +1059,8 @@ const partners = [
   }
 
   .netmap__map {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
@@ -1032,149 +1143,72 @@ const partners = [
   }
 
 
-  /* ════════ 4. AUTHORITY ════════ */
-  .authority {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
-    overflow: hidden;
-  }
-
-  .authority__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 520px;
-  }
-
-  .authority__left {
-    padding: 80px 64px 80px max(1.5rem, calc(50vw - 620px + 1.5rem));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .authority__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    font-style: italic;
-    line-height: 1.15;
-    color: var(--white);
-    margin-bottom: 20px;
-  }
-
-  .authority__desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255,255,255,.55);
-    max-width: 440px;
-    margin-bottom: 40px;
-  }
-
-  .authority__stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px 40px;
-  }
-
-  .authority__stat {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .authority__stat-num {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3vw, 40px);
-    font-weight: 900;
-    color: var(--amber);
-    line-height: 1;
-  }
-
-  .authority__stat-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.35);
-  }
-
-  .authority__right {
+  /* ════════ FACILITY STAT BANNER ════════ */
+  .hp-facility {
     position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
     overflow: hidden;
   }
 
-  .authority__img-wrap {
+  .hp-facility__img {
     position: absolute;
-    inset: 20px 20px 20px 0;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 3px solid rgba(255,255,255,.1);
-  }
-
-  .authority__img {
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .authority__cert {
+  .hp-facility__overlay {
     position: absolute;
-    bottom: 36px;
-    right: 36px;
-    background: var(--amber);
-    padding: 16px 24px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20,40,75,.85) 0%, rgba(20,40,75,.55) 45%, transparent 70%);
+    z-index: 1;
+  }
+
+  .hp-facility__content {
+    position: relative;
     z-index: 2;
-    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 1.5rem;
+    width: 100%;
   }
 
-  .authority__cert-title {
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--navy-dark);
-    line-height: 1.2;
-  }
-
-  .authority__cert-sub {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
+  .hp-facility__stat {
+    font-family: var(--font-primary);
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--white);
     text-transform: uppercase;
-    color: var(--navy);
+    letter-spacing: -2px;
+    font-style: italic;
+    margin-bottom: 24px;
   }
 
-  @media (max-width: 900px) {
-    .authority__inner {
-      grid-template-columns: 1fr;
-    }
+  .hp-facility__desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,.55);
+    max-width: 380px;
+    margin: 0;
+  }
 
-    .authority__left {
-      padding: 64px 1.5rem;
-    }
-
-    .authority__right {
-      position: relative;
-      height: 350px;
-    }
-
-    .authority__img-wrap {
-      inset: 0 1.5rem 1.5rem 1.5rem;
-    }
-
-    .authority__cert {
-      bottom: 32px;
-      right: 32px;
+  @media (max-width: 768px) {
+    .hp-facility { min-height: 340px; }
+    .hp-facility__stat { font-size: clamp(40px, 10vw, 64px); }
+    .hp-facility__overlay {
+      background: linear-gradient(90deg, rgba(20,40,75,.9) 0%, rgba(20,40,75,.7) 60%, rgba(20,40,75,.4) 100%);
     }
   }
 
-  /* ════════ 5. REACH ════════ */
+  /* ════════ 4. REACH ════════ */
   .reach { background-color: var(--white); }
-  .reach__head { text-align: center; margin-bottom: 32px; }
-  .reach__title { text-align: center; max-width: 900px; margin: 0 auto 64px; }
+  .reach__head { margin-bottom: 32px; }
+  .reach__title { max-width: 900px; margin: 0 0 64px; }
 
   .reach__grid {
     display: grid;

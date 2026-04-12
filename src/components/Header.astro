@@ -66,7 +66,7 @@ function isActive(href?: string) {
 
           <!-- CTA inside menu (desktop) -->
           <div class="hdr-button-wrap-inner">
-            <a class="hdr-btn" href="/services">
+            <a class="hdr-btn" href="/projects">
               <div class="hdr-btn-wrap">
                 <span class="hdr-btn-text">View Our Work</span>
                 <span class="hdr-btn-icon">
@@ -80,7 +80,7 @@ function isActive(href?: string) {
 
       <!-- CTA outside menu (desktop, visible at certain breakpoints) -->
       <div class="hdr-button-block">
-        <a class="hdr-btn" href="/services">
+        <a class="hdr-btn" href="/projects">
           <div class="hdr-btn-wrap">
             <span class="hdr-btn-text">View Our Work</span>
             <span class="hdr-btn-icon">
@@ -120,7 +120,7 @@ function isActive(href?: string) {
           )}
         </div>
       ))}
-      <a href="/services" class="hdr-mobile-cta">View Our Work</a>
+      <a href="/projects" class="hdr-mobile-cta">View Our Work</a>
     </nav>
   </div>
 </header>
@@ -150,7 +150,7 @@ function isActive(href?: string) {
   .hdr-block {
     padding: 12px 0;
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: 0;
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -187,7 +187,7 @@ function isActive(href?: string) {
     transition: width 0.4s ease, height 0.4s ease, filter 0.4s ease;
   }
   .hdr-brand-name {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-primary);
     font-weight: 800;
     font-size: 11px;
     color: white;
@@ -314,7 +314,7 @@ function isActive(href?: string) {
     gap: 16px;
     padding: 24px;
     border: 1px solid #dedede;
-    border-radius: 8px;
+    border-radius: 0;
     background-color: var(--white);
     box-shadow: 0 8px 24px rgba(0,0,0,.08);
   }
@@ -349,7 +349,7 @@ function isActive(href?: string) {
     display: inline-flex;
     padding: 12px 16px;
     border: 1px solid var(--amber);
-    border-radius: 4px;
+    border-radius: 2px;
     background-color: var(--amber);
     color: var(--navy);
     font-family: var(--font-primary);

@@ -1,0 +1,690 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const sectors = [
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14m6-14v14m6-14v14m6-14v14M4 7h16l-8-4L4 7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Residential',
+    desc: 'High-density urban housing modules with integrated mechanical system provisions.',
+    stats: [
+      { label: 'Cycle Time Reduction', value: '~45%' },
+      { label: 'Units Delivered', value: '12,400+' },
+    ],
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Healthcare',
+    desc: 'Clinical-grade modular units for rapid deployment of surgical suites and diagnostics.',
+    stats: [
+      { label: 'Compliance Uptime', value: '99.9%' },
+      { label: 'Facilities', value: '184' },
+    ],
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M13 16V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1ZM13 8h5l3 3v5a1 1 0 0 1-1 1h-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="18.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="18.5" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>`,
+    title: 'Logistics',
+    desc: 'Heavy-duty distribution modules for automating hubs and transit zones.',
+    stats: [
+      { label: 'Operational Uptime', value: '99.98%' },
+      { label: 'Total Footprint', value: '2.4M ft²' },
+    ],
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'Strategic',
+    desc: 'Classified government and defense facility infrastructure solutions.',
+    stats: [
+      { label: 'Response Time', value: '72 hrs' },
+      { label: 'Active Regions', value: '12 Regions' },
+    ],
+  },
+];
+
+const featured = {
+  tag: 'Case Study 01',
+  title: 'The Meridian Heights Assembly',
+  location: 'Odessa, TX',
+  duration: '18 Weeks',
+  desc: 'A 120-unit residential modular tower utilizing our proprietary partnership framework — collaborating with 4 independent specialized contractors. Precision logistics integration reduced on-site waste by 45%. Achieving a 33% reduction in carbon footprint compared to traditional RC casting.',
+};
+
+const projects = [
+  {
+    tag: 'Project / Residential',
+    title: 'West Modular Blvd Complex',
+    desc: 'Modular-type scalable data center facility optimized for natural thermal regulation.',
+    img: '/images/showcase/west-blvd-render.jpg',
+  },
+  {
+    tag: 'Project / Defense',
+    title: 'Forward Operations Compound',
+    desc: 'Rapid deployment of 200,000 sf of facilities across demanding operational conditions.',
+    img: '/images/showcase/ri-defense.jpg',
+  },
+  {
+    tag: 'Project / Healthcare',
+    title: 'St. Jude Medical Wing',
+    desc: 'Integrated surgical-grade modular modules delivered within a live hospital operational environment.',
+    img: '/images/showcase/hwb-clinic-interior.jpeg',
+  },
+];
+
+const bottomStats = [
+  { value: '100%', label: 'Mission-level tolerance control' },
+  { value: '350+', label: 'Structural modular innovations' },
+  { value: 'ISO', label: '9001, 14001, 45001 Verified' },
+];
+---
+
+<Layout
+  title="Projects"
+  description="A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance."
+>
+  <Header slot="header" />
+
+  <!-- ════════ 1. HERO ════════ -->
+  <section class="pj-hero">
+    <div class="pj-hero__content">
+      <h1 class="pj-hero__h1">Global Scale.<br/>Precision Delivery.</h1>
+      <p class="pj-hero__sub">
+        A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════ 2. SECTOR CAPABILITIES ════════ -->
+  <section class="pj-sectors">
+    <div class="mnc">
+      <div class="pj-sectors__head fade-up">
+        <div>
+          <h2 class="pj-sectors__title">Sector Capabilities & Performance</h2>
+          <p class="pj-sectors__sub">
+            Quantifying our impact across high-stakes industries. Each sector represents a specialized modular methodology optimized for speed, precision, and lifecycle efficiency.
+          </p>
+        </div>
+        <div class="pj-sectors__badge">
+          <span class="pj-sectors__badge-label">ISO 9001-2024</span>
+        </div>
+      </div>
+
+      <div class="pj-sectors__grid">
+        {sectors.map((s) => (
+          <div class="pj-sector fade-up">
+            <div class="pj-sector__icon" set:html={s.icon} />
+            <h3 class="pj-sector__title">{s.title}</h3>
+            <p class="pj-sector__desc">{s.desc}</p>
+            <div class="pj-sector__stats">
+              {s.stats.map((st) => (
+                <div class="pj-sector__stat">
+                  <span class="pj-sector__stat-label">{st.label}</span>
+                  <span class="pj-sector__stat-value">{st.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 3. FEATURED IMAGE ════════ -->
+  <section class="pj-featured-img">
+    <div class="mnc">
+      <div class="pj-featured-img__wrap fade-up">
+        <img src="/images/showcase/west-factory.jpg" alt="Factory interior" loading="lazy" />
+        <div class="pj-featured-img__card">
+          <h4 class="pj-featured-img__card-title">■ Digital Archive</h4>
+          <div class="pj-featured-img__card-rows">
+            <div class="pj-featured-img__card-row">
+              <span>Total Active Files</span>
+              <span class="pj-featured-img__card-val">408</span>
+            </div>
+            <div class="pj-featured-img__card-row">
+              <span>Compliance Level</span>
+              <span class="pj-featured-img__card-val pj-featured-img__card-val--green">7,038 ↓</span>
+            </div>
+            <div class="pj-featured-img__card-row">
+              <span>Energy Efficiency</span>
+              <span class="pj-featured-img__card-val pj-featured-img__card-val--green">A+++</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 4. CASE STUDY ════════ -->
+  <section class="pj-case">
+    <div class="mnc">
+      <div class="pj-case__layout fade-up">
+        <div class="pj-case__left">
+          <span class="pj-tag">{featured.tag}</span>
+          <h2 class="pj-case__title">{featured.title} · <span class="pj-case__location">{featured.location}</span></h2>
+          <span class="pj-case__duration">{featured.duration}</span>
+          <p class="pj-case__desc">{featured.desc}</p>
+        </div>
+        <div class="pj-case__right">
+          <div class="pj-case__accent-card">
+            <h4 class="pj-case__accent-title">Innovation Lead</h4>
+            <p class="pj-case__accent-desc">Our R&D department has recently completed a testing phase for 100% recyclable partition composite materials for early industrial deployment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 5. PROJECT GRID ════════ -->
+  <section class="pj-grid-section">
+    <div class="mnc">
+      <div class="pj-grid">
+        {projects.map((p) => (
+          <article class="pj-card fade-up">
+            <div class="pj-card__img-wrap">
+              <img src={p.img} alt={p.title} loading="lazy" />
+            </div>
+            <div class="pj-card__body">
+              <span class="pj-card__tag">{p.tag}</span>
+              <h3 class="pj-card__title">{p.title}</h3>
+              <p class="pj-card__desc">{p.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 6. STATS BANNER ════════ -->
+  <section class="pj-stats">
+    <div class="mnc">
+      <div class="pj-stats__grid">
+        {bottomStats.map((s) => (
+          <div class="pj-stats__item">
+            <span class="pj-stats__num">{s.value}</span>
+            <span class="pj-stats__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .mnc { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .pj-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+  .pj-tag::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+  .pj-tag--hero { color: rgba(255,255,255,.5); }
+  .pj-tag--hero::before { background: var(--amber); }
+
+  /* ═══ 1. HERO ═══ */
+  .pj-hero {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
+  }
+
+  .pj-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 20%, rgba(224, 161, 53, 0.07) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .pj-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+  }
+
+  .pj-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20,40,75,.4) 0%, rgba(20,40,75,.85) 100%);
+    z-index: 1;
+  }
+
+  .pj-hero__lines {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .pj-hero__lv {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: rgba(255,255,255,.05);
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: pjLineV 1.6s cubic-bezier(.22,.68,.36,1) forwards;
+  }
+  .pj-hero__lv--1 { left: 55%; animation-delay: 0.1s; }
+  .pj-hero__lv--2 { left: 72%; animation-delay: 0.4s; }
+  .pj-hero__lv--3 { left: 90%; animation-delay: 0.7s; }
+  .pj-hero__lh {
+    position: absolute;
+    height: 1px;
+    left: 0; right: 0;
+    background: rgba(255,255,255,.05);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: pjLineH 1.6s cubic-bezier(.22,.68,.36,1) forwards;
+  }
+  .pj-hero__lh--1 { top: 35%; animation-delay: 0.5s; }
+  .pj-hero__lh--2 { top: 70%; animation-delay: 0.8s; }
+  @keyframes pjLineV { to { transform: scaleY(1); } }
+  @keyframes pjLineH { to { transform: scaleX(1); } }
+
+  .pj-hero__content {
+    position: relative;
+    z-index: 3;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 120px 1.5rem 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .pj-hero__h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+  .pj-hero__sub {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,.45);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* ═══ 2. SECTORS ═══ */
+  .pj-sectors {
+    background: var(--white);
+    padding: 100px 0;
+  }
+
+  .pj-sectors__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+
+  .pj-sectors__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: var(--dark-text);
+    margin-bottom: 12px;
+  }
+
+  .pj-sectors__sub {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .pj-sectors__badge {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .pj-sectors__badge-label {
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-text);
+    letter-spacing: 0.5px;
+  }
+
+  .pj-sectors__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .pj-sector {
+    padding: 32px 28px;
+    border: 1px solid rgba(0,0,0,.06);
+    margin: -0.5px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .pj-sector:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,.06);
+    z-index: 1;
+    position: relative;
+  }
+
+  .pj-sector__icon {
+    color: var(--amber-dark);
+    margin-bottom: 16px;
+  }
+
+  .pj-sector__title {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+  }
+
+  .pj-sector__desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+  }
+
+  .pj-sector__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+
+  .pj-sector__stat-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin-bottom: 2px;
+  }
+
+  .pj-sector__stat-value {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--dark-text);
+    display: block;
+  }
+
+  /* ═══ 3. FEATURED IMAGE ═══ */
+  .pj-featured-img {
+    background: var(--off-white);
+    padding: 0 0 80px;
+  }
+
+  .pj-featured-img__wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pj-featured-img__wrap img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+
+  .pj-featured-img__card {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: var(--white);
+    padding: 24px;
+    width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.15);
+  }
+
+  .pj-featured-img__card-title {
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 16px;
+  }
+
+  .pj-featured-img__card-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pj-featured-img__card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-gray);
+  }
+
+  .pj-featured-img__card-val {
+    font-weight: 700;
+    color: var(--dark-text);
+  }
+
+  .pj-featured-img__card-val--green {
+    color: #2d9e5a;
+  }
+
+  /* ═══ 4. CASE STUDY ═══ */
+  .pj-case {
+    background: var(--off-white);
+    padding: 0 0 80px;
+  }
+
+  .pj-case__layout {
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .pj-case__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: var(--dark-text);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .pj-case__location {
+    color: var(--text-gray);
+    font-weight: 400;
+  }
+
+  .pj-case__duration {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .pj-case__desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  .pj-case__accent-card {
+    background: var(--amber);
+    padding: 28px 24px;
+    border-radius: 8px;
+  }
+
+  .pj-case__accent-title {
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pj-case__accent-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(30,58,102,.7);
+    margin: 0;
+  }
+
+  /* ═══ 5. PROJECT GRID ═══ */
+  .pj-grid-section {
+    background: var(--off-white);
+    padding: 0 0 100px;
+  }
+
+  .pj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pj-card {
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .pj-card__img-wrap {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .pj-card__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .pj-card:hover .pj-card__img-wrap img {
+    transform: scale(1.04);
+  }
+
+  .pj-card__body {
+    padding: 24px;
+  }
+
+  .pj-card__tag {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+  }
+
+  .pj-card__title {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+  }
+
+  .pj-card__desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  /* ═══ 6. STATS BANNER ═══ */
+  .pj-stats {
+    background: var(--navy);
+    padding: 64px 0;
+  }
+
+  .pj-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .pj-stats__item {
+    text-align: center;
+  }
+
+  .pj-stats__num {
+    font-family: var(--font-secondary);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--amber);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .pj-stats__label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 1024px) {
+    .pj-sectors__grid { grid-template-columns: repeat(2, 1fr); }
+    .pj-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .pj-sectors__head { flex-direction: column; }
+    .pj-case__layout { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 768px) {
+    .pj-hero { height: 380px; }
+    .pj-sectors { padding: 64px 0; }
+    .pj-sectors__grid { grid-template-columns: 1fr; }
+    .pj-grid { grid-template-columns: 1fr; }
+    .pj-stats__grid { grid-template-columns: 1fr; gap: 24px; }
+    .pj-featured-img__card { display: none; }
+  }
+</style>

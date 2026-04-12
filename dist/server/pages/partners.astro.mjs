@@ -1,87 +1,54 @@
 import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_DDZiRHkW.mjs';
 import 'piccolore';
-import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_KgPdRGIw.mjs';
+import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_BIKR535C.mjs';
 /* empty css                                    */
 export { renderers } from '../renderers.mjs';
 
 const $$Partners = createComponent(($$result, $$props, $$slots) => {
   const partners = [
+    { name: "West Modular", logo: "/images/partners/west-og.png" },
+    { name: "PROSET Construction", logo: "/images/partners/proset-footer.png" },
+    { name: "TRUE NORTH Compliance", logo: "/images/partners/true-north.svg" },
+    { name: "EnTech Engineering", logo: "/images/partners/entech.svg" },
+    { name: "Agbayani Construction", logo: "/images/partners/agbayani-real.png" },
+    { name: "STREAM Logistics", logo: "/images/partners/stream-dark.png" },
+    { name: "ATCCO Construction", logo: "/images/partners/atcco-big.png" },
+    { name: "Petra Engineering", logo: "/images/partners/petra-eng.png" }
+  ];
+  const caseStudies = [
     {
-      name: "West Modular Manufacturing",
-      type: "Manufacturing",
-      logo: "/images/partners/west-modular.svg",
-      description: "Modular factory production and volumetric unit fabrication."
+      tag: "Multi-Unit Residential",
+      title: "The Meridian Heights Assembly",
+      desc: "Collaborating with 4 independent specialized contractors to deploy 120 modular units in 18 weeks. Precision logistics integration reduced on-site waste by 45%.",
+      value: "$24M",
+      location: "Odessa, TX",
+      img: "/images/showcase/ri-commercial.jpg"
     },
     {
-      name: "PROSET Construction",
-      type: "Construction",
-      logo: "/images/partners/proset.svg",
-      description: "General contracting and on-site modular assembly."
-    },
-    {
-      name: "TRUE NORTH Compliance",
-      type: "Compliance",
-      logo: "/images/partners/true-north.svg",
-      description: "Regulatory compliance, permitting, and code consulting."
-    },
-    {
-      name: "EnTech Engineering",
-      type: "Engineering",
-      logo: "/images/partners/entech.svg",
-      description: "Structural, mechanical, and electrical engineering services."
-    },
-    {
-      name: "Agbayani Construction Corporation",
-      type: "Construction",
-      logo: "/images/partners/agbayani.svg",
-      description: "Civil and modular general contracting."
-    },
-    {
-      name: "STREAM Logistics",
-      type: "Logistics",
-      logo: "/images/partners/stream-logistics.svg",
-      description: "Module transportation, shipping, and delivery coordination."
-    },
-    {
-      name: "ATCCO Construction",
-      type: "Construction",
-      logo: "/images/partners/atcco.svg",
-      description: "Specialty construction and installation services."
-    },
-    {
-      name: "Petra Air Conditioning",
-      type: "MEP",
-      logo: "/images/partners/petra-eng.png",
-      description: "HVAC systems design and installation for modular units."
-    },
-    {
-      name: "Petra Aluminum",
-      type: "Materials",
-      logo: "/images/partners/petralu-logo.jpg",
-      description: "Aluminum fabrication for facades and structural components."
-    },
-    {
-      name: "Abstract Architecture",
-      type: "Architecture",
-      logo: "/images/partners/abstract-arch.jpg",
-      description: "Architectural design and BIM coordination."
+      tag: "Healthcare Infrastructure",
+      title: "Surgical Excellence Clinic",
+      desc: "An end-to-end partnership with medical equipment manufacturers to pre-install Grade A clinical environments within modular frames, meeting all clinical compliance certifications.",
+      value: "",
+      location: "",
+      img: "/images/showcase/hwb-modular-pediatric.jpeg"
     }
   ];
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Partners & Alliance Network", "description": "Global Modular Partners' alliance network spans manufacturing, construction, healthcare, and emergency response.", "data-astro-cid-6odhiasn": true }, { "default": ($$result2) => renderTemplate`   ${maybeRenderHead()}<section class="hero-wrap" data-astro-cid-6odhiasn> <div class="hero-inner" data-astro-cid-6odhiasn> <div class="hero-lines" aria-hidden="true" data-astro-cid-6odhiasn> <div class="hero-lines__v hero-lines__v--1" data-astro-cid-6odhiasn></div> <div class="hero-lines__v hero-lines__v--2" data-astro-cid-6odhiasn></div> <div class="hero-lines__v hero-lines__v--3" data-astro-cid-6odhiasn></div> <div class="hero-lines__v hero-lines__v--4" data-astro-cid-6odhiasn></div> <div class="hero-lines__h hero-lines__h--1" data-astro-cid-6odhiasn></div> <div class="hero-lines__h hero-lines__h--2" data-astro-cid-6odhiasn></div> <div class="hero-lines__h hero-lines__h--3" data-astro-cid-6odhiasn></div> <div class="hero-lines__h hero-lines__h--4" data-astro-cid-6odhiasn></div> </div> <div class="hero-content" data-astro-cid-6odhiasn> <div class="hero-breadcrumb" data-astro-cid-6odhiasn> <a href="/" data-astro-cid-6odhiasn>Home</a> <span class="hero-breadcrumb__sep" data-astro-cid-6odhiasn>/</span> <span data-astro-cid-6odhiasn>Partners & Alliance Network</span> </div> <h1 data-astro-cid-6odhiasn>Partners & Alliance<br data-astro-cid-6odhiasn><span class="hero-span" data-astro-cid-6odhiasn>Network</span></h1> <p class="hero-subtitle" data-astro-cid-6odhiasn>
-Building together with industry leaders across manufacturing, construction, healthcare, and emergency response.
-</p> </div> </div> </section>  <section id="network" class="alliance-section section-gap" data-astro-cid-6odhiasn> <div class="mnc-container" data-astro-cid-6odhiasn> <div class="alliance-center" data-astro-cid-6odhiasn> <span class="section-tag" data-astro-cid-6odhiasn>Alliance</span> <h2 class="section-title" data-astro-cid-6odhiasn>A network built for <span class="section-span" data-astro-cid-6odhiasn>complex programs</span></h2> <div class="alliance-copy" data-astro-cid-6odhiasn> <p data-astro-cid-6odhiasn>
-Global Modular Partners curates an alliance network that unites manufacturing scale,
-            construction execution, healthcare delivery, and emergency-response readiness. Together,
-            we shorten procurement cycles, de-risk delivery, and align every stakeholder to a single
-            program standard.
-</p> <p data-astro-cid-6odhiasn>
-Whether you are a public agency, a healthcare operator, or a commercial developer, our
-            partners extend GMP's reach with specialized capabilities—without sacrificing compliance,
-            safety, or schedule integrity.
-</p> </div> </div> </div> </section>  <section class="partners-section section-gap" data-astro-cid-6odhiasn> <div class="mnc-container" data-astro-cid-6odhiasn> <span class="section-tag" data-astro-cid-6odhiasn>Strategic Partners</span> <h2 class="section-title" data-astro-cid-6odhiasn>Leaders across every <span class="section-span" data-astro-cid-6odhiasn>critical vertical</span></h2> <p class="partners-lead" data-astro-cid-6odhiasn>
-Each relationship is intentional: complementary strengths, shared accountability, and a
-        commitment to modular excellence from factory floor to final inspection.
-</p> <div class="partners-grid" data-astro-cid-6odhiasn> ${partners.map((partner) => renderTemplate`<article class="partner-card" data-astro-cid-6odhiasn> <div class="partner-card__logo-wrap" data-astro-cid-6odhiasn> <img${addAttribute(partner.logo, "src")}${addAttribute(`${partner.name} logo`, "alt")} class="partner-card__logo" loading="lazy" data-astro-cid-6odhiasn> </div> <div class="partner-card__body" data-astro-cid-6odhiasn> <div class="partner-card__top" data-astro-cid-6odhiasn> <h3 class="partner-card__name" data-astro-cid-6odhiasn>${partner.name}</h3> <span class="partner-card__pill" data-astro-cid-6odhiasn>${partner.type}</span> </div> <p class="partner-card__desc" data-astro-cid-6odhiasn>${partner.description}</p> </div> </article>`)} </div> </div> </section>  `, "footer": ($$result2) => renderTemplate`${renderComponent($$result2, "Footer", $$Footer, { "slot": "footer", "data-astro-cid-6odhiasn": true })}`, "header": ($$result2) => renderTemplate`${renderComponent($$result2, "Header", $$Header, { "slot": "header", "data-astro-cid-6odhiasn": true })}` })} `;
+  const protocols = [
+    { num: "01", title: "Centralized Command", desc: "All partnership communications are routed through our Secure Portal. This creates a single source of truth for all schedule, financial, and change order management." },
+    { num: "02", title: "Vetting Directory", desc: "Potential partners must undergo the Pre-Qualification Audit covering financial stability, ethical compliance, and verifiable performance history." },
+    { num: "03", title: "Transparent Inquiry", desc: "We maintain a strict inquiry directory. Partners are assigned dedicated Liaison Officers to ensure clarity of deliverables and adherence to decision-making cycles." }
+  ];
+  const contacts = [
+    { label: "Alliance Partnerships", email: "alliances@globalmodularpartners.com" },
+    { label: "Engineering Inquiries", email: "engineering@globalmodularpartners.com" },
+    { label: "Procurement Office", email: "procurement@globalmodularpartners.com" },
+    { label: "Corporate Affairs", email: "governance@globalmodularpartners.com" }
+  ];
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Partners & Alliance Network", "description": "Global Modular Partners' alliance network spans manufacturing, construction, healthcare, and emergency response.", "data-astro-cid-6odhiasn": true }, { "default": ($$result2) => renderTemplate`   ${maybeRenderHead()}<section class="pt-hero" data-astro-cid-6odhiasn> <div class="pt-hero__inner" data-astro-cid-6odhiasn> <div class="pt-hero__content" data-astro-cid-6odhiasn> <h1 class="pt-hero__h1" data-astro-cid-6odhiasn>A Network<br data-astro-cid-6odhiasn>Built on Trust</h1> <p class="pt-hero__sub" data-astro-cid-6odhiasn>
+Engineering excellence is not a solo endeavor. We curate a specialized ecosystem of global modular experts to deliver uncompromised architectural authority.
+</p> </div> </div> </section>  <section class="pt-alliances" data-astro-cid-6odhiasn> <div class="mnc-container" data-astro-cid-6odhiasn> <div class="pt-alliances__top fade-up" data-astro-cid-6odhiasn> <h2 class="pt-alliances__title" data-astro-cid-6odhiasn>Strategic<br data-astro-cid-6odhiasn>Alliances</h2> <p class="pt-alliances__desc" data-astro-cid-6odhiasn>
+Our trade partners are vetted through a rigorous proprietary multi-point qualification process. We maintain long-term relationships with leaders in steel fabrication, logistics, and precision interior finishing.
+</p> </div> <div class="pt-alliances__grid fade-up" data-astro-cid-6odhiasn> ${partners.map((p) => renderTemplate`<div class="pt-alliances__logo-card" data-astro-cid-6odhiasn> <img${addAttribute(p.logo, "src")}${addAttribute(p.name, "alt")}${addAttribute(p.name, "title")} loading="lazy" data-astro-cid-6odhiasn> </div>`)} </div> </div> </section>  <section class="pt-cases" data-astro-cid-6odhiasn> <div class="mnc-container" data-astro-cid-6odhiasn> <div class="pt-cases__head fade-up" data-astro-cid-6odhiasn> <span class="pt-tag" data-astro-cid-6odhiasn>Proven Performance</span> <h2 class="pt-cases__title" data-astro-cid-6odhiasn>Case Studies in Partnership</h2> </div> <div class="pt-cases__grid" data-astro-cid-6odhiasn> ${caseStudies.map((cs) => renderTemplate`<article class="pt-case fade-up" data-astro-cid-6odhiasn> <div class="pt-case__img-wrap" data-astro-cid-6odhiasn> <img${addAttribute(cs.img, "src")}${addAttribute(cs.title, "alt")} class="pt-case__img" loading="lazy" data-astro-cid-6odhiasn> <span class="pt-case__img-tag" data-astro-cid-6odhiasn>${cs.tag}</span> </div> <h3 class="pt-case__title" data-astro-cid-6odhiasn>${cs.title}</h3> <p class="pt-case__desc" data-astro-cid-6odhiasn>${cs.desc}</p> ${(cs.value || cs.location) && renderTemplate`<div class="pt-case__meta" data-astro-cid-6odhiasn> ${cs.value && renderTemplate`<span class="pt-case__meta-item" data-astro-cid-6odhiasn><strong data-astro-cid-6odhiasn>Project Value:</strong> ${cs.value}</span>`} ${cs.location && renderTemplate`<span class="pt-case__meta-item" data-astro-cid-6odhiasn><strong data-astro-cid-6odhiasn>Location:</strong> ${cs.location}</span>`} </div>`} </article>`)} </div> </div> </section>  <section class="pt-protocol" data-astro-cid-6odhiasn> <div class="mnc-container" data-astro-cid-6odhiasn> <div class="pt-protocol__layout fade-up" data-astro-cid-6odhiasn> <div class="pt-protocol__left" data-astro-cid-6odhiasn> <h2 class="pt-protocol__title" data-astro-cid-6odhiasn>The Protocol of<br data-astro-cid-6odhiasn>Collaboration</h2> <div class="pt-protocol__steps" data-astro-cid-6odhiasn> ${protocols.map((p) => renderTemplate`<div class="pt-protocol__step" data-astro-cid-6odhiasn> <span class="pt-protocol__num" data-astro-cid-6odhiasn>${p.num}.</span> <div data-astro-cid-6odhiasn> <h4 class="pt-protocol__step-title" data-astro-cid-6odhiasn>${p.title}</h4> <p class="pt-protocol__step-desc" data-astro-cid-6odhiasn>${p.desc}</p> </div> </div>`)} </div> </div> <div class="pt-protocol__right" data-astro-cid-6odhiasn> <div class="pt-protocol__directory" data-astro-cid-6odhiasn> <h4 class="pt-protocol__dir-title" data-astro-cid-6odhiasn>Corporate Inquiry Directory</h4> <div class="pt-protocol__contacts" data-astro-cid-6odhiasn> ${contacts.map((c) => renderTemplate`<div class="pt-protocol__contact" data-astro-cid-6odhiasn> <span class="pt-protocol__contact-label" data-astro-cid-6odhiasn>${c.label}</span> <a${addAttribute(`mailto:${c.email}`, "href")} class="pt-protocol__contact-email" data-astro-cid-6odhiasn>${c.email}</a> </div>`)} </div> </div> </div> </div> </div> </section>  `, "footer": ($$result2) => renderTemplate`${renderComponent($$result2, "Footer", $$Footer, { "slot": "footer", "data-astro-cid-6odhiasn": true })}`, "header": ($$result2) => renderTemplate`${renderComponent($$result2, "Header", $$Header, { "slot": "header", "data-astro-cid-6odhiasn": true })}` })} `;
 }, "/home/tylr/global-modular-partners/src/pages/partners.astro", void 0);
 
 const $$file = "/home/tylr/global-modular-partners/src/pages/partners.astro";

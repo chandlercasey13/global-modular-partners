@@ -4,76 +4,46 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const partners = [
+  { name: 'West Modular', logo: '/images/partners/west-og.png' },
+  { name: 'PROSET Construction', logo: '/images/partners/proset-footer.png' },
+  { name: 'TRUE NORTH Compliance', logo: '/images/partners/true-north.svg' },
+  { name: 'EnTech Engineering', logo: '/images/partners/entech.svg' },
+  { name: 'Agbayani Construction', logo: '/images/partners/agbayani-real.png' },
+  { name: 'STREAM Logistics', logo: '/images/partners/stream-dark.png' },
+  { name: 'ATCCO Construction', logo: '/images/partners/atcco-big.png' },
+  { name: 'Petra Engineering', logo: '/images/partners/petra-eng.png' },
+];
+
+const caseStudies = [
   {
-    name: 'West Modular Manufacturing',
-    type: 'Manufacturing',
-    logo: '/images/partners/west-modular.svg',
-    description:
-      'Modular factory production and volumetric unit fabrication.',
+    tag: 'Multi-Unit Residential',
+    title: 'The Meridian Heights Assembly',
+    desc: 'Collaborating with 4 independent specialized contractors to deploy 120 modular units in 18 weeks. Precision logistics integration reduced on-site waste by 45%.',
+    value: '$24M',
+    location: 'Odessa, TX',
+    img: '/images/showcase/ri-commercial.jpg',
   },
   {
-    name: 'PROSET Construction',
-    type: 'Construction',
-    logo: '/images/partners/proset.svg',
-    description:
-      'General contracting and on-site modular assembly.',
+    tag: 'Healthcare Infrastructure',
+    title: 'Surgical Excellence Clinic',
+    desc: 'An end-to-end partnership with medical equipment manufacturers to pre-install Grade A clinical environments within modular frames, meeting all clinical compliance certifications.',
+    value: '',
+    location: '',
+    img: '/images/showcase/hwb-modular-pediatric.jpeg',
   },
-  {
-    name: 'TRUE NORTH Compliance',
-    type: 'Compliance',
-    logo: '/images/partners/true-north.svg',
-    description:
-      'Regulatory compliance, permitting, and code consulting.',
-  },
-  {
-    name: 'EnTech Engineering',
-    type: 'Engineering',
-    logo: '/images/partners/entech.svg',
-    description:
-      'Structural, mechanical, and electrical engineering services.',
-  },
-  {
-    name: 'Agbayani Construction Corporation',
-    type: 'Construction',
-    logo: '/images/partners/agbayani.svg',
-    description:
-      'Civil and modular general contracting.',
-  },
-  {
-    name: 'STREAM Logistics',
-    type: 'Logistics',
-    logo: '/images/partners/stream-logistics.svg',
-    description:
-      'Module transportation, shipping, and delivery coordination.',
-  },
-  {
-    name: 'ATCCO Construction',
-    type: 'Construction',
-    logo: '/images/partners/atcco.svg',
-    description:
-      'Specialty construction and installation services.',
-  },
-  {
-    name: 'Petra Air Conditioning',
-    type: 'MEP',
-    logo: '/images/partners/petra-eng.png',
-    description:
-      'HVAC systems design and installation for modular units.',
-  },
-  {
-    name: 'Petra Aluminum',
-    type: 'Materials',
-    logo: '/images/partners/petralu-logo.jpg',
-    description:
-      'Aluminum fabrication for facades and structural components.',
-  },
-  {
-    name: 'Abstract Architecture',
-    type: 'Architecture',
-    logo: '/images/partners/abstract-arch.jpg',
-    description:
-      'Architectural design and BIM coordination.',
-  },
+];
+
+const protocols = [
+  { num: '01', title: 'Centralized Command', desc: 'All partnership communications are routed through our Secure Portal. This creates a single source of truth for all schedule, financial, and change order management.' },
+  { num: '02', title: 'Vetting Directory', desc: 'Potential partners must undergo the Pre-Qualification Audit covering financial stability, ethical compliance, and verifiable performance history.' },
+  { num: '03', title: 'Transparent Inquiry', desc: 'We maintain a strict inquiry directory. Partners are assigned dedicated Liaison Officers to ensure clarity of deliverables and adherence to decision-making cycles.' },
+];
+
+const contacts = [
+  { label: 'Alliance Partnerships', email: 'alliances@globalmodularpartners.com' },
+  { label: 'Engineering Inquiries', email: 'engineering@globalmodularpartners.com' },
+  { label: 'Procurement Office', email: 'procurement@globalmodularpartners.com' },
+  { label: 'Corporate Affairs', email: 'governance@globalmodularpartners.com' },
 ];
 ---
 
@@ -83,81 +53,100 @@ const partners = [
 >
   <Header slot="header" />
 
-  <!-- Hero -->
-  <section class="hero-wrap">
-    <div class="hero-inner">
-      <div class="hero-lines" aria-hidden="true">
-        <div class="hero-lines__v hero-lines__v--1"></div>
-        <div class="hero-lines__v hero-lines__v--2"></div>
-        <div class="hero-lines__v hero-lines__v--3"></div>
-        <div class="hero-lines__v hero-lines__v--4"></div>
-        <div class="hero-lines__h hero-lines__h--1"></div>
-        <div class="hero-lines__h hero-lines__h--2"></div>
-        <div class="hero-lines__h hero-lines__h--3"></div>
-        <div class="hero-lines__h hero-lines__h--4"></div>
-      </div>
-      <div class="hero-content">
-        <div class="hero-breadcrumb">
-          <a href="/">Home</a>
-          <span class="hero-breadcrumb__sep">/</span>
-          <span>Partners & Alliance Network</span>
-        </div>
-        <h1>Partners & Alliance<br /><span class="hero-span">Network</span></h1>
-        <p class="hero-subtitle">
-          Building together with industry leaders across manufacturing, construction, healthcare, and emergency response.
+  <!-- ════════ 1. HERO ════════ -->
+  <section class="pt-hero">
+    <div class="pt-hero__inner">
+      <div class="pt-hero__content">
+        <h1 class="pt-hero__h1">A Network<br/>Built on Trust</h1>
+        <p class="pt-hero__sub">
+          Engineering excellence is not a solo endeavor. We curate a specialized ecosystem of global modular experts to deliver uncompromised architectural authority.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Alliance Intro -->
-  <section id="network" class="alliance-section section-gap">
+  <!-- ════════ 2. STRATEGIC ALLIANCES ════════ -->
+  <section class="pt-alliances">
     <div class="mnc-container">
-      <div class="alliance-center">
-        <span class="section-tag">Alliance</span>
-        <h2 class="section-title">A network built for <span class="section-span">complex programs</span></h2>
-        <div class="alliance-copy">
-          <p>
-            Global Modular Partners curates an alliance network that unites manufacturing scale,
-            construction execution, healthcare delivery, and emergency-response readiness. Together,
-            we shorten procurement cycles, de-risk delivery, and align every stakeholder to a single
-            program standard.
-          </p>
-          <p>
-            Whether you are a public agency, a healthcare operator, or a commercial developer, our
-            partners extend GMP's reach with specialized capabilities—without sacrificing compliance,
-            safety, or schedule integrity.
-          </p>
-        </div>
+      <div class="pt-alliances__top fade-up">
+        <h2 class="pt-alliances__title">Strategic<br/>Alliances</h2>
+        <p class="pt-alliances__desc">
+          Our trade partners are vetted through a rigorous proprietary multi-point qualification process. We maintain long-term relationships with leaders in steel fabrication, logistics, and precision interior finishing.
+        </p>
+      </div>
+
+      <div class="pt-alliances__grid fade-up">
+        {partners.map((p) => (
+          <div class="pt-alliances__logo-card">
+            <img src={p.logo} alt={p.name} title={p.name} loading="lazy" />
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Partners Grid -->
-  <section class="partners-section section-gap">
+  <!-- ════════ 3. CASE STUDIES ════════ -->
+  <section class="pt-cases">
     <div class="mnc-container">
-      <span class="section-tag">Strategic Partners</span>
-      <h2 class="section-title">Leaders across every <span class="section-span">critical vertical</span></h2>
-      <p class="partners-lead">
-        Each relationship is intentional: complementary strengths, shared accountability, and a
-        commitment to modular excellence from factory floor to final inspection.
-      </p>
+      <div class="pt-cases__head fade-up">
+        <span class="pt-tag">Proven Performance</span>
+        <h2 class="pt-cases__title">Case Studies in Partnership</h2>
+      </div>
 
-      <div class="partners-grid">
-        {partners.map((partner) => (
-          <article class="partner-card">
-            <div class="partner-card__logo-wrap">
-              <img src={partner.logo} alt={`${partner.name} logo`} class="partner-card__logo" loading="lazy" />
+      <div class="pt-cases__grid">
+        {caseStudies.map((cs) => (
+          <article class="pt-case fade-up">
+            <div class="pt-case__img-wrap">
+              <img src={cs.img} alt={cs.title} class="pt-case__img" loading="lazy" />
+              <span class="pt-case__img-tag">{cs.tag}</span>
             </div>
-            <div class="partner-card__body">
-              <div class="partner-card__top">
-                <h3 class="partner-card__name">{partner.name}</h3>
-                <span class="partner-card__pill">{partner.type}</span>
+            <h3 class="pt-case__title">{cs.title}</h3>
+            <p class="pt-case__desc">{cs.desc}</p>
+            {(cs.value || cs.location) && (
+              <div class="pt-case__meta">
+                {cs.value && <span class="pt-case__meta-item"><strong>Project Value:</strong> {cs.value}</span>}
+                {cs.location && <span class="pt-case__meta-item"><strong>Location:</strong> {cs.location}</span>}
               </div>
-              <p class="partner-card__desc">{partner.description}</p>
-            </div>
+            )}
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 4. PROTOCOL ════════ -->
+  <section class="pt-protocol">
+    <div class="mnc-container">
+      <div class="pt-protocol__layout fade-up">
+        <div class="pt-protocol__left">
+          <h2 class="pt-protocol__title">The Protocol of<br/>Collaboration</h2>
+
+          <div class="pt-protocol__steps">
+            {protocols.map((p) => (
+              <div class="pt-protocol__step">
+                <span class="pt-protocol__num">{p.num}.</span>
+                <div>
+                  <h4 class="pt-protocol__step-title">{p.title}</h4>
+                  <p class="pt-protocol__step-desc">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="pt-protocol__right">
+          <div class="pt-protocol__directory">
+            <h4 class="pt-protocol__dir-title">Corporate Inquiry Directory</h4>
+            <div class="pt-protocol__contacts">
+              {contacts.map((c) => (
+                <div class="pt-protocol__contact">
+                  <span class="pt-protocol__contact-label">{c.label}</span>
+                  <a href={`mailto:${c.email}`} class="pt-protocol__contact-email">{c.email}</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -166,146 +155,36 @@ const partners = [
 </Layout>
 
 <style>
-  /* ── Container & Spacing ── */
-  .mnc-container {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+  .mnc-container { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
 
-  .section-gap {
-    padding: 100px 0;
-  }
-
-  /* ── Section Tag ── */
-  .section-tag {
+  .pt-tag {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     color: var(--amber);
-    margin-bottom: 20px;
-    padding: 0;
-    border: none;
-    border-radius: 0;
+    margin-bottom: 16px;
   }
-  .section-tag::before {
+  .pt-tag::before {
     content: '';
-    display: inline-block;
     width: 24px;
     height: 2px;
     background: var(--amber);
     flex-shrink: 0;
   }
 
-  /* ── Section Title ── */
-  .section-title {
-    font-family: var(--font-secondary);
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.2;
-    font-weight: 500;
-    color: var(--dark-text);
-    margin-bottom: 24px;
-  }
-
-  .section-span {
-    color: var(--amber);
-  }
-
-  /* ── Buttons ── */
-  .mnc-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 14px 28px;
-    font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
-    line-height: 1;
-  }
-
-  .mnc-btn__wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .mnc-btn__icon {
-    display: inline-flex;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    transition: transform 0.3s ease;
-  }
-
-  .mnc-btn__icon svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .mnc-btn:hover .mnc-btn__icon {
-    transform: translateX(3px);
-  }
-
-  .mnc-btn--dark {
-    background: var(--amber);
-    color: var(--navy);
-    border-color: var(--amber);
-    font-weight: 700;
-  }
-
-  .mnc-btn--dark:hover {
-    background: var(--amber-dark);
-    border-color: var(--amber-dark);
-    color: var(--white);
-    box-shadow: 0 4px 16px rgba(224,161,53,.35);
-  }
-
-  .mnc-btn--outline {
-    background: transparent;
-    color: var(--navy);
-    border-color: var(--navy);
-  }
-
-  .mnc-btn--outline:hover {
-    background: var(--navy);
-    color: #fff;
-  }
-
-  .mnc-btn--stroke {
-    background: transparent;
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.4);
-  }
-
-  .mnc-btn--stroke:hover {
-    border-color: #fff;
-    color: #fff;
-  }
-
-  /* ── Hero ── */
-  .hero-wrap {
-    padding: 0;
-  }
-
-  .hero-inner {
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
-    border-radius: 0;
-    height: 490px;
-    display: flex;
-    align-items: flex-end;
+  /* ═══ 1. HERO ═══ */
+  .pt-hero__inner {
     position: relative;
+    height: 480px;
     overflow: hidden;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
-  .hero-inner::before {
+  .pt-hero__inner::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -313,243 +192,361 @@ const partners = [
     pointer-events: none;
   }
 
-  .hero-lines {
+  .pt-hero__bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  .hero-lines__v {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: rgba(255,255,255,.06);
-    transform: scaleY(0);
-    transform-origin: top;
-    animation: lineRevealV 1s ease-out forwards;
-  }
-  .hero-lines__v--1 { left: 52%; animation-delay: 0.2s; }
-  .hero-lines__v--2 { left: 72%; animation-delay: 0.35s; }
-  .hero-lines__v--3 { left: 88%; animation-delay: 0.15s; }
-  .hero-lines__v--4 { left: 4%; animation-delay: 0.4s; }
-  .hero-lines__h {
-    position: absolute;
-    height: 1px;
-    background: rgba(255,255,255,.06);
-    transform: scaleX(0);
-    animation: lineRevealH 1s ease-out forwards;
-  }
-  .hero-lines__h--1 { top: 35%; left: 0; right: 0; transform-origin: left; animation-delay: 0.5s; }
-  .hero-lines__h--2 { top: 14%; left: 50%; right: 0; transform-origin: left; animation-delay: 0.65s; }
-  .hero-lines__h--3 { top: 58%; left: 50%; right: 0; transform-origin: right; animation-delay: 0.55s; }
-  .hero-lines__h--4 { top: 85%; left: 0; right: 40%; transform-origin: left; animation-delay: 0.75s; }
-  @keyframes lineRevealV {
-    0% { transform: scaleY(0); opacity: 0; }
-    100% { transform: scaleY(1); opacity: 1; }
-  }
-  @keyframes lineRevealH {
-    0% { transform: scaleX(0); opacity: 0; }
-    100% { transform: scaleX(1); opacity: 1; }
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: 80px 1.5rem 36px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
   }
 
-  .hero-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 24px;
+  .pt-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(30,58,102,.5) 0%, rgba(30,58,102,.92) 100%);
+    z-index: 1;
   }
 
-  .hero-breadcrumb a {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .hero-breadcrumb a:hover {
-    color: var(--amber);
-  }
-
-  .hero-breadcrumb__sep {
-    color: rgba(255, 255, 255, 0.25);
-  }
-
-  .hero-content h1 {
-    font-family: var(--font-secondary);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 600;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 20px;
-    max-width: 680px;
-  }
-
-  .hero-span {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .hero-subtitle {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 540px;
-    margin-bottom: 32px;
-  }
-
-  /* ── Alliance Section (white bg) ── */
-  .alliance-section {
-    background: #fff;
-  }
-
-  .alliance-center {
-    max-width: 780px;
+  .pt-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1240px;
     margin: 0 auto;
-    text-align: center;
-  }
-
-  .alliance-center .section-title {
-    margin-bottom: 32px;
-  }
-
-  .alliance-copy {
-    text-align: left;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .alliance-copy p {
-    color: var(--text-gray);
-    font-size: 17px;
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-
-  .alliance-copy p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* ── Partners Grid (off-white bg) ── */
-  .partners-section {
-    background: var(--off-white);
-  }
-
-  .partners-lead {
-    color: var(--text-gray);
-    font-size: 17px;
-    line-height: 1.7;
-    max-width: 620px;
-    margin-bottom: 48px;
-  }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .partner-card {
-    background: #fff;
-    border-radius: 0;
+    padding: 120px 1.5rem 60px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.3s ease;
-    overflow: hidden;
+    justify-content: flex-end;
   }
 
-  .partner-card:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  .pt-hero__tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: rgba(224,161,53,.1);
+    border: 1px solid rgba(224,161,53,.25);
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    width: fit-content;
   }
 
-  .partner-card__logo-wrap {
+  .pt-hero__h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .pt-hero__sub {
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(255,255,255,.5);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* ═══ 2. ALLIANCES ═══ */
+  .pt-alliances {
+    background: var(--white);
+    padding: 100px 0;
+  }
+
+  .pt-alliances__top {
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 64px;
+  }
+
+  .pt-alliances__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .pt-alliances__desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  .pt-alliances__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .pt-alliances__logo-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 28px 24px;
-    background: #f7f7f7;
-    border-bottom: 1px solid #eee;
-    min-height: 100px;
+    padding: 32px 24px;
+    border: 1px solid rgba(0,0,0,.06);
+    margin: -0.5px;
+    transition: background 0.2s ease;
   }
 
-  .partner-card__logo {
-    max-height: 56px;
-    max-width: 180px;
+  .pt-alliances__logo-card:hover {
+    background: var(--off-white);
+  }
+
+  .pt-alliances__logo-card img {
+    height: 36px;
     width: auto;
-    height: auto;
+    max-width: 140px;
     object-fit: contain;
+    filter: grayscale(1) opacity(0.5);
+    transition: filter 0.3s ease;
   }
 
-  .partner-card__body {
-    padding: 24px 28px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .pt-alliances__logo-card:hover img {
+    filter: grayscale(0) opacity(1);
   }
 
-  .partner-card__top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
+  /* ═══ 3. CASE STUDIES ═══ */
+  .pt-cases {
+    background: var(--off-white);
+    padding: 100px 0;
   }
 
-  .partner-card__name {
+  .pt-cases__head {
+    margin-bottom: 48px;
+  }
+
+  .pt-cases__title {
     font-family: var(--font-secondary);
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 600;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
     color: var(--dark-text);
     margin: 0;
-    flex: 1;
-    min-width: 160px;
   }
 
-  .partner-card__pill {
-    display: inline-block;
-    border: 1px solid #8f8f8f;
-    border-radius: 4px;
-    padding: 4px 14px;
-    font-size: 13px;
-    font-weight: 500;
+  .pt-cases__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .pt-case {
+    background: var(--white);
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .pt-case__img-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .pt-case__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .pt-case:hover .pt-case__img {
+    transform: scale(1.04);
+  }
+
+  .pt-case__img-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-gray);
-    white-space: nowrap;
+    color: var(--white);
+    background: rgba(43,75,126,.85);
+    backdrop-filter: blur(6px);
+    padding: 6px 14px;
+    border-radius: 4px;
   }
 
-  .partner-card__desc {
+  .pt-case__title {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-text);
     margin: 0;
-    color: var(--text-gray);
-    font-size: 15px;
-    line-height: 1.7;
+    padding: 24px 24px 8px;
   }
 
-  /* ── Responsive ── */
+  .pt-case__desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-gray);
+    padding: 0 24px;
+    margin: 0 0 16px;
+  }
+
+  .pt-case__meta {
+    display: flex;
+    gap: 24px;
+    padding: 0 24px 24px;
+    font-size: 12px;
+    color: var(--text-gray);
+  }
+
+  .pt-case__meta-item strong {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    color: var(--dark-text);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ═══ 4. PROTOCOL ═══ */
+  .pt-protocol {
+    background: var(--white);
+    padding: 100px 0;
+  }
+
+  .pt-protocol__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .pt-protocol__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.15;
+    margin-bottom: 40px;
+  }
+
+  .pt-protocol__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .pt-protocol__step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .pt-protocol__num {
+    font-family: var(--font-secondary);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--amber);
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+
+  .pt-protocol__step-title {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 6px;
+  }
+
+  .pt-protocol__step-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  .pt-protocol__directory {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 36px 32px;
+  }
+
+  .pt-protocol__dir-title {
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 28px;
+  }
+
+  .pt-protocol__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .pt-protocol__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .pt-protocol__contact-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+  }
+
+  .pt-protocol__contact-email {
+    font-size: 15px;
+    color: var(--amber);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .pt-protocol__contact-email:hover {
+    color: var(--white);
+  }
+
+  /* ═══ RESPONSIVE ═══ */
   @media (max-width: 900px) {
-    .partners-grid {
+    .pt-alliances__top {
       grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .pt-alliances__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pt-cases__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pt-protocol__layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
   }
 
   @media (max-width: 768px) {
-    .section-gap {
+    .pt-hero__inner { height: 380px; }
+
+    .pt-alliances,
+    .pt-cases,
+    .pt-protocol {
       padding: 64px 0;
     }
-
-    .hero-content {
-      padding: 80px 1.5rem 40px;
-    }
-
-    .hero-inner {
-      height: 400px;
-    }
   }
-
 </style>

@@ -34,11 +34,8 @@ const timeline = [
   <!-- ════════ 1. HERO ════════ -->
   <section class="ab-hero">
     <div class="ab-hero__inner">
-      <div class="ab-hero__overlay"></div>
-      <img src="/images/showcase/west-factory.jpg" alt="Factory floor" class="ab-hero__bg" />
       <div class="ab-hero__content">
-        <span class="ab-hero__tag">Industrial Authority</span>
-        <h1 class="ab-hero__h1">The Architectural<br/>Authority in<br/>Modular Engineering</h1>
+        <h1 class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
         <p class="ab-hero__sub">
           Redefining the built environment of global infrastructure through precision modular assembly and partnership-driven engineering innovation.
         </p>
@@ -206,20 +203,6 @@ const timeline = [
     </div>
   </section>
 
-  <!-- ════════ 7. CTA ════════ -->
-  <section class="ab-cta">
-    <div class="mnc-container">
-      <div class="ab-cta__inner fade-up">
-        <h2 class="ab-cta__title">Explore our capabilities</h2>
-        <p class="ab-cta__sub">From modular delivery and manufacturing partnerships to mission-critical programs.</p>
-        <div class="ab-cta__actions">
-          <a href="/services" class="ab-cta__btn ab-cta__btn--primary">View Our Work</a>
-          <a href="/contact" class="ab-cta__btn ab-cta__btn--outline">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
 </Layout>
 
@@ -248,9 +231,17 @@ const timeline = [
   /* ═══ 1. HERO ═══ */
   .ab-hero__inner {
     position: relative;
-    height: 620px;
+    height: 480px;
     overflow: hidden;
-    background: var(--navy-dark);
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
+  }
+
+  .ab-hero__inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 20%, rgba(224, 161, 53, 0.07) 0%, transparent 55%);
+    pointer-events: none;
   }
 
   .ab-hero__bg {
@@ -274,11 +265,11 @@ const timeline = [
     z-index: 2;
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 120px 1.5rem 60px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .ab-hero__tag {
@@ -291,13 +282,13 @@ const timeline = [
   }
 
   .ab-hero__h1 {
-    font-family: var(--font-secondary);
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 900;
+    font-family: var(--font-primary);
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 800;
     text-transform: uppercase;
-    line-height: 0.95;
+    line-height: 1.1;
     color: var(--white);
-    letter-spacing: -1px;
+    letter-spacing: -2px;
     margin-bottom: 24px;
   }
 
@@ -739,70 +730,6 @@ const timeline = [
     margin: 0;
   }
 
-  /* ═══ 7. CTA ═══ */
-  .ab-cta {
-    background: linear-gradient(165deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
-    padding: 80px 0;
-  }
-
-  .ab-cta__inner {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .ab-cta__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-
-  .ab-cta__sub {
-    font-size: 16px;
-    line-height: 1.65;
-    color: rgba(255,255,255,.55);
-    margin-bottom: 32px;
-  }
-
-  .ab-cta__actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .ab-cta__btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 14px 28px;
-    border-radius: 4px;
-    font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.25s ease;
-  }
-
-  .ab-cta__btn--primary {
-    background: var(--amber);
-    color: var(--navy);
-  }
-  .ab-cta__btn--primary:hover {
-    background: var(--amber-dark);
-    color: var(--white);
-    box-shadow: 0 4px 16px rgba(224,161,53,.35);
-  }
-
-  .ab-cta__btn--outline {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,.3);
-    color: var(--white);
-  }
-  .ab-cta__btn--outline:hover {
-    border-color: var(--amber);
-    color: var(--amber);
-  }
 
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 900px) {
@@ -820,7 +747,7 @@ const timeline = [
   }
 
   @media (max-width: 768px) {
-    .ab-hero__inner { height: 480px; }
+    .ab-hero__inner { height: 380px; }
 
     .ab-legacy,
     .ab-vision,
