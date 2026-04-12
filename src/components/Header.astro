@@ -133,22 +133,22 @@ function isActive(href?: string) {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding-top: 16px;
-    margin-top: 16px;
+    padding-top: 0;
+    margin-top: 0;
     background-color: transparent;
     transition: padding var(--transition-base), margin var(--transition-base);
   }
 
   /* ── Container ── */
   .hdr-container {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   /* ── Block (the white bar) ── */
   .hdr-block {
-    padding: 12px 0;
+    padding: 12px max(1.5rem, calc((100% - 1240px) / 2 + 1.5rem));
     border: 1px solid transparent;
     border-radius: 0;
     background: transparent;
@@ -162,7 +162,7 @@ function isActive(href?: string) {
   }
 
   .hdr-section.scrolled .hdr-block {
-    padding: 12px 20px;
+    padding: 12px max(1.5rem, calc((100% - 1240px) / 2 + 1.5rem));
     border-color: rgba(255, 255, 255, 0.08);
     background: rgba(43, 75, 126, 0.92);
     backdrop-filter: blur(16px) saturate(180%);
