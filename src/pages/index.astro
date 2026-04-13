@@ -3,6 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+const partners = [
+  { name: 'West Modular', logo: '/images/partners/west-modular.svg' },
+  { name: 'PROSET Construction', logo: '/images/partners/proset.svg' },
+  { name: 'TRUE NORTH Compliance', logo: '/images/partners/true-north.svg' },
+  { name: 'EnTech Engineering', logo: '/images/partners/entech.svg' },
+  { name: 'Agbayani Construction', logo: '/images/partners/agbayani.svg' },
+  { name: 'STREAM Logistics', logo: '/images/partners/stream-logistics.svg' },
+  { name: 'ATCCO Construction', logo: '/images/partners/atcco.svg' },
+  { name: 'Petra Air Conditioning', logo: '/images/partners/petra-eng.png' },
+];
 ---
 
 <Layout title="Home">
@@ -27,6 +37,15 @@ import Footer from '../components/Footer.astro';
               </p>
             </div>
           </div>
+          <div class="banner__bottom">
+            <div class="banner__partners">
+              {partners.map((p) => (
+                <span class="banner__partner" data-partner={p.name}>
+                  <img src={p.logo} alt={p.name} loading="lazy" />
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,89 +61,358 @@ import Footer from '../components/Footer.astro';
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-      camera.position.set(12, 9, 14);
+      const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 280);
+      camera.position.set(-0.87505, 4.00014, 10.71888);
 
       const controls = new OrbitControls(camera, canvas);
+      controls.enableZoom = false;
       controls.enableDamping = true;
       controls.dampingFactor = 0.05;
-      controls.enablePan = false;
-      controls.minDistance = 6;
-      controls.maxDistance = 30;
+      controls.enablePan = true;
+      controls.panSpeed = 0.55;
+      controls.screenSpacePanning = true;
+      controls.minDistance = 9;
+      controls.maxDistance = 50;
+      controls.minPolarAngle = Math.PI * 0.18;
+      controls.maxPolarAngle = Math.PI * 0.52;
       controls.autoRotate = true;
       controls.autoRotateSpeed = 0.8;
-
-      const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
-      const ridgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.15 });
-
-      const modules = [];
-      const dropHeight = 15;
-
-      function addModule(w, h, d, x, y, z, order) {
-        const group = new THREE.Group();
-        group.position.set(x, y + dropHeight, z);
-
-        const geo = new THREE.BoxGeometry(w, h, d);
-        const edges = new THREE.EdgesGeometry(geo);
-        const line = new THREE.LineSegments(edges, edgeMat.clone());
-        line.material.opacity = 0;
-        group.add(line);
-
-        const ridgeCount = Math.floor(w / 0.45);
-        const ridgeGeo = new THREE.BufferGeometry();
-        const verts = [];
-        for (let i = 1; i < ridgeCount; i++) {
-          const lx = -w / 2 + (w / ridgeCount) * i;
-          verts.push(lx, -h / 2, d / 2, lx, h / 2, d / 2);
-          verts.push(lx, -h / 2, -d / 2, lx, h / 2, -d / 2);
-        }
-        const sideCount = Math.floor(d / 0.45);
-        for (let i = 1; i < sideCount; i++) {
-          const lz = -d / 2 + (d / sideCount) * i;
-          verts.push(-w / 2, -h / 2, lz, -w / 2, h / 2, lz);
-          verts.push(w / 2, -h / 2, lz, w / 2, h / 2, lz);
-        }
-        ridgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
-        const ridges = new THREE.LineSegments(ridgeGeo, ridgeMat.clone());
-        ridges.material.opacity = 0;
-        group.add(ridges);
-
-        scene.add(group);
-        modules.push({ group, targetY: y, delay: order * 0.3, started: false, done: false });
+      let autoRotateResumeTimer = 0;
+      controls.addEventListener('start', () => {
+        window.clearTimeout(autoRotateResumeTimer);
+        controls.autoRotate = false;
+      });
+      const fmtCam = (v) => Math.round(v * 1e5) / 1e5;
+      function logHeroCameraState() {
+        const p = camera.position;
+        const t = controls.target;
+        const dist = p.distanceTo(t);
+        const state = {
+          cameraPosition: { x: fmtCam(p.x), y: fmtCam(p.y), z: fmtCam(p.z) },
+          controlsTarget: { x: fmtCam(t.x), y: fmtCam(t.y), z: fmtCam(t.z) },
+          distance: fmtCam(dist),
+          polarAngle: fmtCam(controls.getPolarAngle()),
+          azimuthalAngle: fmtCam(controls.getAzimuthalAngle()),
+          fov: camera.fov,
+          near: camera.near,
+          far: camera.far,
+        };
+        console.log('[hero-3d camera]', state);
+        console.log(
+          `[hero-3d copy/paste] camera.position.set(${fmtCam(p.x)}, ${fmtCam(p.y)}, ${fmtCam(p.z)});\n` +
+            `controls.target.set(${fmtCam(t.x)}, ${fmtCam(t.y)}, ${fmtCam(t.z)});`
+        );
       }
 
-      // Ground floor first (order 0–5)
-      addModule(3, 1.3, 2, -5, 0.65, -3, 0);
-      addModule(5, 1.2, 2.2, 0, 0.6, -4, 1);
-      addModule(2.8, 1.3, 2, 4.5, 0.65, -2, 1);
-      addModule(2.2, 1.2, 1.8, -4, 0.6, 2, 2);
-      addModule(2.2, 1.2, 1.8, -1.5, 0.6, 2, 2);
-      addModule(2.2, 1.2, 1.8, 1, 0.6, 2, 3);
-      addModule(2, 1.3, 2, 5, 0.65, 2, 3);
-      addModule(2.5, 1.1, 1.8, -1, 0.55, -1, 4);
-      addModule(4, 1, 2.5, 2, 0.5, 0, 4);
+      controls.addEventListener('end', () => {
+        logHeroCameraState();
+        window.clearTimeout(autoRotateResumeTimer);
+        autoRotateResumeTimer = window.setTimeout(() => {
+          controls.autoRotate = true;
+        }, 2200);
+      });
 
-      // Second floor (order 5–7)
-      addModule(3, 1.3, 2, -5, 1.95, -3, 6);
-      addModule(2.8, 1.3, 2, 4.5, 1.95, -2, 6);
-      addModule(2, 1.3, 2, 5, 1.95, 2, 7);
+      const modules = [];
+      const dropHeight = 11;
 
-      // Third floor (order 8–9)
-      addModule(2, 0.8, 1.5, -5, 3, -3, 8);
-      addModule(2, 1.3, 2, 5, 3.25, 2, 9);
+      const towerX = -0.92;
+      const towerZ = -0.08;
+      const SEAM_HUG = 0.0022;
+      const ADJ = 0.03;
 
-      // Top piece (order 10)
-      addModule(1.6, 0.6, 1.6, 5, 4.2, 2, 10);
+      /** Axis-aligned cell (world space) from center + full dimensions. */
+      function pushCell(cx, cy, cz, w, h, d, cells, tier) {
+        const hx = w / 2;
+        const hy = h / 2;
+        const hz = d / 2;
+        cells.push({
+          x0: cx - hx,
+          x1: cx + hx,
+          y0: cy - hy,
+          y1: cy + hy,
+          z0: cz - hz,
+          z1: cz + hz,
+          tier,
+        });
+      }
+
+      function iv2(a0, a1, b0, b1) {
+        return Math.min(a1, b1) - Math.max(a0, b0) > ADJ;
+      }
+
+      function hasNeighborOnFace(c, boxes, face) {
+        for (let i = 0; i < boxes.length; i++) {
+          const o = boxes[i];
+          if (o === c) continue;
+          if (face === '+x' && Math.abs(c.x1 - o.x0) < ADJ && iv2(c.y0, c.y1, o.y0, o.y1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '-x' && Math.abs(c.x0 - o.x1) < ADJ && iv2(c.y0, c.y1, o.y0, o.y1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '+y' && Math.abs(c.y1 - o.y0) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '-y' && Math.abs(c.y0 - o.y1) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '+z' && Math.abs(c.z1 - o.z0) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.y0, c.y1, o.y0, o.y1)) return true;
+          if (face === '-z' && Math.abs(c.z0 - o.z1) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.y0, c.y1, o.y0, o.y1)) return true;
+        }
+        return false;
+      }
+
+      function r(v) {
+        return Math.round(v * 1e5) / 1e5;
+      }
+
+      function edgeKey(x1, y1, z1, x2, y2, z2) {
+        const a = `${r(x1)},${r(y1)},${r(z1)}`;
+        const b = `${r(x2)},${r(y2)},${r(z2)}`;
+        return a < b ? `${a}|${b}` : `${b}|${a}`;
+      }
+
+      function addUniqueEdge(edgeMap, ax, ay, az, bx, by, bz) {
+        const k = edgeKey(ax, ay, az, bx, by, bz);
+        if (!edgeMap.has(k)) edgeMap.set(k, [ax, ay, az, bx, by, bz]);
+      }
+
+      function pushTri(pos, ax, ay, az, bx, by, bz, cx, cy, cz) {
+        pos.push(ax, ay, az, bx, by, bz, cx, cy, cz);
+      }
+
+      /** Two triangles for one exposed quad (same faces as wireframe extraction). */
+      function emitExposedFaceTriangles(c, face, positions) {
+        const { x0, x1, y0, y1, z0, z1 } = c;
+        if (face === '+x') {
+          pushTri(positions, x1, y0, z0, x1, y1, z0, x1, y1, z1);
+          pushTri(positions, x1, y0, z0, x1, y1, z1, x1, y0, z1);
+        } else if (face === '-x') {
+          pushTri(positions, x0, y0, z0, x0, y1, z1, x0, y1, z0);
+          pushTri(positions, x0, y0, z0, x0, y0, z1, x0, y1, z1);
+        } else if (face === '+y') {
+          pushTri(positions, x0, y1, z0, x1, y1, z0, x1, y1, z1);
+          pushTri(positions, x0, y1, z0, x1, y1, z1, x0, y1, z1);
+        } else if (face === '-y') {
+          pushTri(positions, x0, y0, z0, x1, y0, z1, x1, y0, z0);
+          pushTri(positions, x0, y0, z0, x0, y0, z1, x1, y0, z1);
+        } else if (face === '+z') {
+          pushTri(positions, x0, y0, z1, x1, y0, z1, x1, y1, z1);
+          pushTri(positions, x0, y0, z1, x1, y1, z1, x0, y1, z1);
+        } else if (face === '-z') {
+          pushTri(positions, x0, y0, z0, x1, y0, z0, x1, y1, z0);
+          pushTri(positions, x0, y0, z0, x1, y1, z0, x0, y1, z0);
+        }
+      }
+
+      /** Four perimeter edges of one face (only called when that face is exposed). */
+      function emitExposedFaceEdges(c, face, edgeMap) {
+        const { x0, x1, y0, y1, z0, z1 } = c;
+        if (face === '+x') {
+          addUniqueEdge(edgeMap, x1, y0, z0, x1, y1, z0);
+          addUniqueEdge(edgeMap, x1, y1, z0, x1, y1, z1);
+          addUniqueEdge(edgeMap, x1, y1, z1, x1, y0, z1);
+          addUniqueEdge(edgeMap, x1, y0, z1, x1, y0, z0);
+        } else if (face === '-x') {
+          addUniqueEdge(edgeMap, x0, y0, z0, x0, y1, z0);
+          addUniqueEdge(edgeMap, x0, y1, z0, x0, y1, z1);
+          addUniqueEdge(edgeMap, x0, y1, z1, x0, y0, z1);
+          addUniqueEdge(edgeMap, x0, y0, z1, x0, y0, z0);
+        } else if (face === '+y') {
+          addUniqueEdge(edgeMap, x0, y1, z0, x1, y1, z0);
+          addUniqueEdge(edgeMap, x1, y1, z0, x1, y1, z1);
+          addUniqueEdge(edgeMap, x1, y1, z1, x0, y1, z1);
+          addUniqueEdge(edgeMap, x0, y1, z1, x0, y1, z0);
+        } else if (face === '-y') {
+          addUniqueEdge(edgeMap, x0, y0, z0, x1, y0, z0);
+          addUniqueEdge(edgeMap, x1, y0, z0, x1, y0, z1);
+          addUniqueEdge(edgeMap, x1, y0, z1, x0, y0, z1);
+          addUniqueEdge(edgeMap, x0, y0, z1, x0, y0, z0);
+        } else if (face === '+z') {
+          addUniqueEdge(edgeMap, x0, y0, z1, x1, y0, z1);
+          addUniqueEdge(edgeMap, x1, y0, z1, x1, y1, z1);
+          addUniqueEdge(edgeMap, x1, y1, z1, x0, y1, z1);
+          addUniqueEdge(edgeMap, x0, y1, z1, x0, y0, z1);
+        } else if (face === '-z') {
+          addUniqueEdge(edgeMap, x0, y0, z0, x1, y0, z0);
+          addUniqueEdge(edgeMap, x1, y0, z0, x1, y1, z0);
+          addUniqueEdge(edgeMap, x1, y1, z0, x0, y1, z0);
+          addUniqueEdge(edgeMap, x0, y1, z0, x0, y0, z0);
+        }
+      }
+
+      function addSliceGrid(cols, rows, modW, modD, modH, gapX, gapZ, floors, cells, yTopRef, tierRef) {
+        const tier = tierRef.v;
+        const hug = gapX === 0 && gapZ === 0 ? SEAM_HUG : 0;
+        const pitchX = modW + gapX - hug;
+        const pitchZ = modD + gapZ - hug;
+        for (let f = 0; f < floors; f++) {
+          yTopRef.v += modH / 2;
+          const cy = yTopRef.v;
+          for (let ix = 0; ix < cols; ix++) {
+            for (let iz = 0; iz < rows; iz++) {
+              const cx = towerX + (ix - (cols - 1) / 2) * pitchX;
+              const cz = towerZ + (iz - (rows - 1) / 2) * pitchZ;
+              pushCell(cx, cy, cz, modW, modH, modD, cells, tier);
+            }
+          }
+          yTopRef.v += modH / 2;
+        }
+        tierRef.v += 1;
+      }
+
+      function addSpireCells(baseW, baseD, segmentH, segments, taper, cells, yTopRef, tierRef) {
+        let w = baseW;
+        let d = baseD;
+        for (let s = 0; s < segments; s++) {
+          const tier = tierRef.v;
+          yTopRef.v += segmentH / 2;
+          pushCell(towerX, yTopRef.v, towerZ, w, segmentH, d, cells, tier);
+          yTopRef.v += segmentH / 2;
+          w *= taper;
+          d *= taper;
+          tierRef.v += 1;
+        }
+      }
+
+      /** Neighbor tests use full occupancy; only `subset` cells emit geometry (staggered build). */
+      function buildExteriorWireframeGeometry(subset, allCells) {
+        const faces = ['+x', '-x', '+y', '-y', '+z', '-z'];
+        const edgeMap = new Map();
+        for (let i = 0; i < subset.length; i++) {
+          const c = subset[i];
+          for (let fi = 0; fi < 6; fi++) {
+            const face = faces[fi];
+            if (!hasNeighborOnFace(c, allCells, face)) {
+              emitExposedFaceEdges(c, face, edgeMap);
+            }
+          }
+        }
+        const verts = [];
+        edgeMap.forEach((seg) => {
+          verts.push(seg[0], seg[1], seg[2], seg[3], seg[4], seg[5]);
+        });
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+        return geo;
+      }
+
+      function buildExteriorShellGeometry(subset, allCells) {
+        const faces = ['+x', '-x', '+y', '-y', '+z', '-z'];
+        const positions = [];
+        for (let i = 0; i < subset.length; i++) {
+          const c = subset[i];
+          for (let fi = 0; fi < 6; fi++) {
+            const face = faces[fi];
+            if (!hasNeighborOnFace(c, allCells, face)) {
+              emitExposedFaceTriangles(c, face, positions);
+            }
+          }
+        }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        geo.computeVertexNormals();
+        return geo;
+      }
+
+      const cells = [];
+      const yTopRef = { v: 0 };
+      const tierRef = { v: 0 };
+      addSliceGrid(6, 5, 0.52, 0.5, 0.3, 0, 0, 2, cells, yTopRef, tierRef);
+      addSliceGrid(5, 5, 0.54, 0.52, 0.31, 0, 0, 3, cells, yTopRef, tierRef);
+      addSliceGrid(5, 4, 0.55, 0.53, 0.32, 0, 0, 2, cells, yTopRef, tierRef);
+      addSliceGrid(4, 4, 0.56, 0.54, 0.32, 0, 0, 4, cells, yTopRef, tierRef);
+      addSliceGrid(3, 3, 0.58, 0.55, 0.33, 0, 0, 3, cells, yTopRef, tierRef);
+      addSliceGrid(2, 2, 0.6, 0.57, 0.33, 0, 0, 4, cells, yTopRef, tierRef);
+      addSliceGrid(1, 1, 0.52, 0.5, 0.32, 0, 0, 4, cells, yTopRef, tierRef);
+      addSpireCells(0.27, 0.24, 0.29, 8, 0.87, cells, yTopRef, tierRef);
+
+      let minY = Infinity;
+      let maxY = -Infinity;
+      let maxTier = 0;
+      for (let i = 0; i < cells.length; i++) {
+        const c = cells[i];
+        minY = Math.min(minY, c.y0);
+        maxY = Math.max(maxY, c.y1);
+        maxTier = Math.max(maxTier, c.tier);
+      }
+      const pivotY = (minY + maxY) / 2;
+
+      const tierStagger = 0.1;
+
+      for (let tier = 0; tier <= maxTier; tier++) {
+        const subset = [];
+        for (let i = 0; i < cells.length; i++) {
+          if (cells[i].tier === tier) subset.push(cells[i]);
+        }
+        if (subset.length === 0) continue;
+
+        const worldGeo = buildExteriorWireframeGeometry(subset, cells);
+        const wArr = worldGeo.getAttribute('position').array.slice();
+        worldGeo.dispose();
+        if (wArr.length < 6) continue;
+        const local = new Float32Array(wArr.length);
+        for (let i = 0; i < wArr.length; i += 3) {
+          local[i] = wArr[i] - towerX;
+          local[i + 1] = wArr[i + 1] - pivotY;
+          local[i + 2] = wArr[i + 2] - towerZ;
+        }
+        const localGeo = new THREE.BufferGeometry();
+        localGeo.setAttribute('position', new THREE.BufferAttribute(local, 3));
+
+        const worldShell = buildExteriorShellGeometry(subset, cells);
+        const sArr = worldShell.getAttribute('position').array.slice();
+        worldShell.dispose();
+        const shellLocal = new Float32Array(sArr.length);
+        for (let i = 0; i < sArr.length; i += 3) {
+          shellLocal[i] = sArr[i] - towerX;
+          shellLocal[i + 1] = sArr[i + 1] - pivotY;
+          shellLocal[i + 2] = sArr[i + 2] - towerZ;
+        }
+        const shellLocalGeo = new THREE.BufferGeometry();
+        shellLocalGeo.setAttribute('position', new THREE.BufferAttribute(shellLocal, 3));
+        shellLocalGeo.computeVertexNormals();
+
+        const group = new THREE.Group();
+        group.position.set(towerX, pivotY + dropHeight, towerZ);
+        const shellMat = new THREE.MeshBasicMaterial({
+          colorWrite: false,
+          depthWrite: true,
+          depthTest: true,
+          side: THREE.DoubleSide,
+          polygonOffset: true,
+          polygonOffsetFactor: 1,
+          polygonOffsetUnits: 1,
+        });
+        const shellMesh = new THREE.Mesh(shellLocalGeo, shellMat);
+        shellMesh.userData.depthOccluder = true;
+        shellMesh.renderOrder = 0;
+        group.add(shellMesh);
+
+        const edgeMat = new THREE.LineBasicMaterial({
+          color: 0xffffff,
+          transparent: true,
+          opacity: 0,
+          depthTest: true,
+          depthWrite: false,
+          polygonOffset: true,
+          polygonOffsetFactor: -1,
+          polygonOffsetUnits: -1,
+        });
+        const lines = new THREE.LineSegments(localGeo, edgeMat);
+        lines.renderOrder = 1;
+        group.add(lines);
+        scene.add(group);
+        modules.push({
+          group,
+          targetY: pivotY,
+          delay: tier * tierStagger,
+          started: false,
+          done: false,
+        });
+      }
 
       scene.position.set(0, 0, 0);
-      controls.target.set(0, 2, 0);
+      controls.target.set(towerX, 4.68, towerZ);
 
       // Easing
       function easeOutCubic(t) {
         return 1 - Math.pow(1 - t, 3);
       }
 
-      const buildDuration = 1.2;
+      const buildDuration = 0.65;
       const startTime = performance.now() / 1000;
 
       function resize() {
@@ -154,7 +442,8 @@ import Footer from '../components/Footer.astro';
           const ease = easeOutCubic(clamped);
           m.group.position.y = m.targetY + dropHeight * (1 - ease);
           m.group.children.forEach(child => {
-            if (child.material) child.material.opacity = child.material === m.group.children[0].material ? 0.6 * ease : 0.15 * ease;
+            if (child.userData.depthOccluder) return;
+            if (child.material) child.material.opacity = 0.6 * ease;
           });
           if (clamped >= 1) m.done = true;
         }
@@ -543,19 +832,26 @@ import Footer from '../components/Footer.astro';
     inset: 0;
     background: linear-gradient(to right, rgba(26,42,66,.82) 0%, rgba(26,42,66,.45) 50%, rgba(26,42,66,.2) 100%);
     z-index: 1;
+    pointer-events: none;
   }
 
   .banner__3d {
     position: absolute;
-    top: 2%;
+    top: 0;
     right: 0;
     bottom: 0;
-    width: 50%;
-    z-index: 0;
+    width: 58%;
+    z-index: 2;
+    pointer-events: auto;
   }
   .banner__3d canvas {
     width: 100% !important;
     height: 100% !important;
+    cursor: grab;
+    touch-action: none;
+  }
+  .banner__3d canvas:active {
+    cursor: grabbing;
   }
 
   .banner__content {
@@ -564,30 +860,38 @@ import Footer from '../components/Footer.astro';
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 1.5rem;
     pointer-events: none;
   }
-  .banner__content * {
-    pointer-events: auto;
-  }
 
   .banner__top {
-    padding-top: clamp(132px, 22vh, 260px);
+    flex-shrink: 0;
+    padding-top: clamp(88px, 10.5vh, 148px);
+    pointer-events: none;
   }
 
   .banner__center {
-    flex: 0 1 auto;
+    flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 20px;
-    padding-top: clamp(48px, 9vh, 108px);
+    padding: clamp(10px, 1.6vh, 24px) 0;
+    pointer-events: none;
+  }
+
+  .banner__h1,
+  .banner__blurb,
+  .banner__blurb-line,
+  .banner__blurb-text {
+    pointer-events: auto;
   }
 
   .banner__h1-accent {
@@ -625,6 +929,66 @@ import Footer from '../components/Footer.astro';
     letter-spacing: -2px;
     text-transform: uppercase;
     margin: 0;
+  }
+
+  .banner__bottom {
+    flex-shrink: 0;
+    padding-bottom: 48px;
+    min-width: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .banner__partners {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(6px, 1vw, 16px);
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding: 22px clamp(16px, 2.5vw, 28px) 18px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.006) 100%
+    );
+    backdrop-filter: blur(22px) saturate(100%);
+    -webkit-backdrop-filter: blur(22px) saturate(100%);
+    box-shadow: none;
+  }
+
+  .banner__partner {
+    pointer-events: auto;
+    flex: 1.22 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(30px, 4vw, 48px);
+    filter: brightness(0) invert(1);
+  }
+
+  .banner__partner img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Compact marks: narrower columns; other six get more width for larger artwork */
+  .banner__partner[data-partner='EnTech Engineering'],
+  .banner__partner[data-partner='Petra Air Conditioning'] {
+    flex: 0.64 1 0;
+  }
+
+  .banner__partner[data-partner='EnTech Engineering'] {
+    margin-inline: clamp(20px, 3.5vw, 44px);
   }
 
   .netmap__link {
@@ -976,14 +1340,6 @@ import Footer from '../components/Footer.astro';
     align-items: center;
     justify-content: center;
     height: 48px;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    transition: opacity 0.3s, filter 0.3s;
-  }
-
-  .details__partner:hover {
-    opacity: 1;
-    filter: grayscale(0%);
   }
 
   .details__partner img {
@@ -1243,12 +1599,23 @@ import Footer from '../components/Footer.astro';
   }
 
   .reach__card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--amber);
+    color: rgba(255, 255, 255, 0.65);
     margin-bottom: 4px;
+  }
+
+  .reach__card-tag::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
   }
 
   .reach__card-title {
@@ -1288,11 +1655,23 @@ import Footer from '../components/Footer.astro';
     }
 
     .banner__top {
-      padding-top: clamp(116px, 18vh, 216px);
+      padding-top: clamp(80px, 10vh, 128px);
     }
 
     .banner__center {
-      padding-top: clamp(40px, 7vh, 84px);
+      padding: clamp(8px, 1.2vh, 20px) 0;
+    }
+
+    .banner__bottom {
+      padding-bottom: 40px;
+    }
+
+    .banner__partners {
+      gap: clamp(4px, 1.5vw, 10px);
+    }
+
+    .banner__partner {
+      height: clamp(26px, 3.6vw, 40px);
     }
 
     .banner__stats {

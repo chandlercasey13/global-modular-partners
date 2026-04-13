@@ -151,7 +151,7 @@ const timeline = [
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    color: var(--amber);
+    color: var(--text-gray);
     margin-bottom: 16px;
   }
   .ab-tag::before {
@@ -282,7 +282,8 @@ const timeline = [
   .ab-hero__timeline {
     position: relative;
     z-index: 1;
-    background: var(--navy-dark);
+    background: var(--off-white);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
     padding: clamp(80px, 11vw, 132px) 0 64px;
   }
 
@@ -290,7 +291,7 @@ const timeline = [
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
-    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
   }
 
   .ab-hero__timeline-row {
@@ -309,7 +310,7 @@ const timeline = [
     right: 0;
     top: 2.45rem;
     height: 1px;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(0, 0, 0, 0.1);
     pointer-events: none;
   }
 
@@ -327,7 +328,7 @@ const timeline = [
     font-family: var(--font-secondary);
     font-size: clamp(13px, 1.15vw, 17px);
     font-weight: 800;
-    color: var(--white);
+    color: var(--navy);
     letter-spacing: 0.04em;
     margin-bottom: 14px;
     line-height: 1.2;
@@ -338,18 +339,18 @@ const timeline = [
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--white);
+    background: var(--amber);
     flex-shrink: 0;
     position: relative;
     z-index: 1;
     margin-bottom: 16px;
-    box-shadow: 0 0 0 3px var(--navy-dark);
+    box-shadow: 0 0 0 3px var(--off-white);
   }
 
   .ab-hero__timeline-desc {
     font-size: clamp(10px, 0.85vw, 12.5px);
     line-height: 1.4;
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--text-gray);
     margin: 0;
     max-width: 13rem;
     hyphens: auto;
@@ -382,7 +383,7 @@ const timeline = [
   /* ═══ 2. VISION ═══ */
   .ab-vision {
     background: var(--off-white);
-    padding: 100px 0;
+    padding: 64px 0 100px;
   }
 
   .ab-vision__head {
@@ -554,7 +555,7 @@ const timeline = [
     }
 
     .ab-vision {
-      padding: 64px 0;
+      padding: 48px 0 64px;
     }
 
     .ab-team__grid {

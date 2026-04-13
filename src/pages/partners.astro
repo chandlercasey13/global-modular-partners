@@ -230,7 +230,7 @@ const contacts = [
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    color: var(--amber);
+    color: var(--text-gray);
     margin-bottom: 16px;
   }
   .pt-tag::before {
@@ -286,18 +286,28 @@ const contacts = [
   }
 
   .pt-hero__tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--amber);
-    background: rgba(224,161,53,.1);
-    border: 1px solid rgba(224,161,53,.25);
-    padding: 6px 16px;
-    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.58);
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
     margin-bottom: 20px;
     width: fit-content;
+  }
+
+  .pt-hero__tag::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
   }
 
   .pt-hero__h1 {

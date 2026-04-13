@@ -27,6 +27,9 @@ import Footer from '../../components/Footer.astro';
         <p class="dp-sec__desc">
           Our Modular Construction division delivers efficiency through precision-engineered off-site fabrication. By shifting 90% of the build process to controlled factory environments, we eliminate weather delays and ensure traceability within tolerances. This division also serves as the technical heart of our operations, advancing scalable structures from single-unit components to complex multi-story complexes.
         </p>
+        <p class="dp-sec__desc">
+          Every module ships with documented QA checkpoints, coordinated logistics for oversized loads, and field teams trained to integrate factory-built volumes with site conditions. That combination shortens commissioning cycles, reduces rework, and gives owners predictable occupancy dates across education, hospitality, workforce housing, and commercial programs.
+        </p>
       </div>
       <div class="dp-mod__cards">
         <div class="dp-mod__card fade-up">
@@ -54,6 +57,9 @@ import Footer from '../../components/Footer.astro';
           <p class="dp-sec__desc">
             Authority in management is maintained through rigorous oversight and data-driven systems. Our Project Management office utilizes advanced BIM, Building Information Modeling, and ERP systems to synchronize all phases of construction with on-site assembly. We provide a singular point of accountability for the entire project lifecycle, from initial pre-construction planning to final occupancy optimization.
           </p>
+          <p class="dp-sec__desc">
+            Stakeholders receive transparent reporting on schedule, cost, and quality metrics, with change control that ties decisions back to contract documents and design intent. We align trade partners, inspectors, and owner representatives on a single program calendar so factory production, site readiness, and commissioning stay in lockstep from mobilization through turnover.
+          </p>
           <ul class="dp-bullets">
             <li>BIM Level 2 integration for real-time conflict resolution</li>
             <li>Global supply chain automation and logistics management</li>
@@ -65,14 +71,17 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- ════════ 03. DOD & MILITARY ════════ -->
-  <section class="dp-sec dp-sec--navy dp-strip dp-strip--split" id="dod-military">
+  <section class="dp-sec dp-sec--white dp-strip dp-strip--split" id="dod-military">
     <div class="dp-dod">
       <div class="dp-dod__text-col fade-up">
         <div class="dp-dod__text-inner">
-          <span class="dp-tag dp-tag--light">Division 03</span>
-          <h2 class="dp-sec__title dp-sec__title--white">DoD & Military<br/>Infrastructure</h2>
-          <p class="dp-sec__desc dp-sec__desc--light">
+          <span class="dp-tag">Division 03</span>
+          <h2 class="dp-sec__title">DoD & Military<br/>Infrastructure</h2>
+          <p class="dp-sec__desc">
             Global Modular Partners is a primary contractor for rapid-deployment military facilities. Our Military department specializes in MILCON (Military Construction), Barracks, Administrative Facilities, Maintenance Barracks, and tactical operations planning. Our record includes projects certified by Defense Logistics Agency (DLA) and AT/FP (Anti-Terrorism/Force Protection), mandated by service, national, and international standards and force protection.
+          </p>
+          <p class="dp-sec__desc">
+            We plan for constrained sites, expeditionary logistics, and layered security from day one—coordinating with government technical monitors, fire protection engineers, and communications specialists so modules arrive ready for utilities, access control, and operational use. Lessons learned from each deployment feed back into our standard details and training programs for the next mobilization.
           </p>
           <div class="dp-dod__accent-card">
             <h4 class="dp-dod__accent-title">Security & Compliance</h4>
@@ -87,7 +96,7 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- ════════ 04. HEALTHCARE ════════ -->
-  <section class="dp-sec dp-sec--white dp-strip dp-strip--split" id="healthcare">
+  <section class="dp-sec dp-sec--off dp-strip dp-strip--split" id="healthcare">
     <div class="dp-hc">
       <div class="dp-hc__text-col fade-up">
         <div class="dp-hc__text-inner">
@@ -95,6 +104,9 @@ import Footer from '../../components/Footer.astro';
           <h2 class="dp-sec__title">Healthcare Systems</h2>
           <p class="dp-sec__desc">
             Our Med-Tech team delivers specialized modules for high-acuity medical environments, providing rapid deployment for hospitals, diagnostic labs, and outpatient clinics without compromising existing facility operations.
+          </p>
+          <p class="dp-sec__desc">
+            We coordinate with clinical staff on adjacencies, mechanical redundancy, and life-safety pathways before fabrication begins, then sequence delivery to minimize disruption to active departments. Acoustic isolation, resilient flooring options, and modular headwalls allow facilities to expand capacity or reconfigure wings as census and service lines evolve.
           </p>
           <div class="dp-hc__images">
             <img src="/images/showcase/hwb-clinic-interior.jpeg" alt="Healthcare interior" loading="lazy" />
@@ -127,7 +139,7 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- ════════ 05. CIVIL CONSTRUCTION ════════ -->
-  <section class="dp-sec dp-sec--off dp-strip dp-strip--split" id="civil">
+  <section class="dp-sec dp-sec--white dp-strip dp-strip--split" id="civil">
     <div class="dp-civil">
       <div class="dp-civil__img-col">
         <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Civil construction" class="dp-civil__img" loading="lazy" />
@@ -139,6 +151,9 @@ import Footer from '../../components/Footer.astro';
           <h2 class="dp-sec__title">Civil Construction</h2>
           <p class="dp-sec__desc">
             Bridging the gap between modular upper-structures and traditional civil infrastructure, our Civil Construction department manages earthwork, utility integration, and foundation engineering. We provide the institutional base upon which our modular installations are permanently or semi-permanently affixed, operating in difficult terrain and complex urban environments using modern stabilization and geotechnical analysis for site stability and longevity.
+          </p>
+          <p class="dp-sec__desc">
+            Our crews handle stormwater management, paving and curbs, and tie-ins to municipal water and sewer where required, always with clear handoffs to the modular set crew. That end-to-end ownership reduces interface risk, keeps warranties aligned, and protects the long-term performance of both the civil shell and the modules it supports.
           </p>
           <div class="dp-civil__stats">
             <div class="dp-civil__stat">
@@ -201,9 +216,6 @@ import Footer from '../../components/Footer.astro';
     background: var(--amber);
     flex-shrink: 0;
   }
-  .dp-tag--light { color: rgba(255,255,255,.5); }
-  .dp-tag--light::before { background: var(--amber); }
-
   /* Same as homepage .section-title + .hp-about strip headings */
   .dp-sec__title {
     font-family: var(--font-secondary);
@@ -213,9 +225,6 @@ import Footer from '../../components/Footer.astro';
     color: var(--dark-text);
     margin: 0 0 14px;
   }
-  .dp-sec__title--white {
-    color: var(--white);
-  }
 
   .dp-sec__desc {
     font-size: 16px;
@@ -224,9 +233,11 @@ import Footer from '../../components/Footer.astro';
     margin: 0;
     max-width: none;
   }
-  .dp-sec__desc--light { color: rgba(255,255,255,.55); }
+  .dp-sec__desc + .dp-sec__desc {
+    margin-top: 1.125rem;
+  }
 
-  /* ═══ HERO ═══ */
+  /* ═══ HERO (navy gradient — matches About / original departments hero) ═══ */
   .dp-hero {
     position: relative;
     height: 480px;
@@ -269,7 +280,7 @@ import Footer from '../../components/Footer.astro';
   .dp-hero__sub {
     font-size: 16px;
     line-height: 1.65;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
     max-width: 520px;
     margin: 0;
   }
@@ -280,7 +291,6 @@ import Footer from '../../components/Footer.astro';
   }
   .dp-sec--white { background: var(--white); }
   .dp-sec--off { background: var(--off-white); }
-  .dp-sec--navy { background: var(--navy); }
 
   /* ═══ 01. MODULAR (intro + cards, full-bleed gutters) ═══ */
   .dp-mod__wrap {
@@ -473,7 +483,7 @@ import Footer from '../../components/Footer.astro';
   .dp-dod__accent-desc {
     font-size: 13px;
     line-height: 1.6;
-    color: rgba(255,255,255,.5);
+    color: var(--text-gray);
     margin: 0;
   }
 
