@@ -13,18 +13,6 @@ const topics = [
   'RFP/Bid Submission',
 ] as const;
 
-const offices = [
-  {
-    city: 'Oakland',
-    lines: ['Global Modular Partners, LLC', 'San Francisco Bay Area', 'Oakland, CA 94612'],
-    note: 'Headquarters',
-  },
-  {
-    city: 'Irvine',
-    lines: ['Southern California operations', 'Irvine, CA'],
-    note: 'Regional project hub',
-  },
-];
 ---
 
 <Layout title="Contact" description="Contact Global Modular Partners — inquiries, partnerships, and RFP submissions.">
@@ -34,7 +22,7 @@ const offices = [
   <section class="hero-wrap">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>Contact<br />Information</h1>
+        <h1>Contact<br/>Information</h1>
         <p class="hero-subtitle">
           For inquiries, partnerships, and RFP submissions.
         </p>
@@ -152,59 +140,7 @@ const offices = [
     </div>
   </section>
 
-  <!-- Global Headquarters Map -->
-  <section class="hq-section">
-    <div class="mnc-container">
-      <div class="hq-layout">
-        <div class="hq-info fade-up">
-          <h2 class="hq-title">Global Headquarters</h2>
-          <div class="hq-divider"></div>
-
-          <div class="hq-detail">
-            <span class="hq-label">Primary Hub</span>
-            <p class="hq-address">San Francisco Bay Area<br/>Oakland, CA 94612<br/>United States</p>
-          </div>
-
-          <div class="hq-detail">
-            <span class="hq-label">Direct Line</span>
-            <p class="hq-phone">+1 (510) 555-0198</p>
-          </div>
-        </div>
-
-        <div class="hq-map-wrap fade-up">
-          <div id="hq-map" class="hq-map"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
-      var map = L.map('hq-map', {
-        center: [37.8044, -122.2711],
-        zoom: 13,
-        scrollWheelZoom: false,
-        attributionControl: false,
-      });
-
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        maxZoom: 19,
-      }).addTo(map);
-
-      var icon = L.divIcon({
-        html: '<div style="width:14px;height:14px;background:#1e3a66;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);"></div>',
-        iconSize: [14, 14],
-        iconAnchor: [7, 7],
-        className: '',
-      });
-
-      L.marker([37.8044, -122.2711], { icon: icon }).addTo(map);
-    });
-  </script>
 </Layout>
 
 <style>
@@ -245,7 +181,7 @@ const offices = [
 
   /* ── Section Title ── */
   .section-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: clamp(32px, 4vw, 52px);
     line-height: 1.2;
     font-weight: 500;
@@ -323,17 +259,15 @@ const offices = [
 
   /* ── Hero ── */
   .hero-wrap {
-    padding: 0;
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
   .hero-inner {
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
-    border-radius: 0;
-    height: 480px;
-    display: flex;
-    align-items: flex-end;
+    height: 100%;
     position: relative;
-    overflow: hidden;
   }
 
   .hero-inner::before {
@@ -347,8 +281,13 @@ const offices = [
   .hero-content {
     position: relative;
     z-index: 1;
-    padding: 120px 1.5rem 60px max(1.5rem, calc(50vw - 620px + 1.5rem - 16px));
-    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 120px 1.5rem 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .hero-breadcrumb {
@@ -389,6 +328,7 @@ const offices = [
   }
 
   .hero-subtitle {
+    font-family: var(--font-primary);
     color: rgba(255, 255, 255, 0.65);
     font-size: 18px;
     line-height: 1.7;
@@ -422,13 +362,17 @@ const offices = [
   }
 
   .form-card__title {
+    font-family: var(--font-primary);
     font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--dark-text);
     margin-bottom: 8px;
   }
 
   .form-card__subtitle {
     margin: 0;
     color: var(--text-gray);
+    font-family: var(--font-primary);
     font-size: 16px;
     line-height: 1.65;
   }
@@ -699,75 +643,6 @@ const offices = [
   }
 
 
-  /* ── HQ Map Section ── */
-  .hq-section {
-    background: var(--off-white);
-    padding: 100px 0;
-  }
-
-  .hq-layout {
-    display: grid;
-    grid-template-columns: 0.4fr 0.6fr;
-    gap: 56px;
-    align-items: start;
-  }
-
-  .hq-title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 40px);
-    font-weight: 800;
-    color: var(--dark-text);
-    margin-bottom: 16px;
-  }
-
-  .hq-divider {
-    width: 40px;
-    height: 3px;
-    background: var(--amber);
-    margin-bottom: 32px;
-  }
-
-  .hq-detail {
-    margin-bottom: 28px;
-  }
-
-  .hq-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-gray);
-    margin-bottom: 8px;
-  }
-
-  .hq-address {
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.5;
-    color: var(--dark-text);
-    margin: 0;
-  }
-
-  .hq-phone {
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--dark-text);
-    margin: 0;
-  }
-
-  .hq-map-wrap {
-    position: relative;
-  }
-
-  .hq-map {
-    width: 100%;
-    height: 400px;
-    border-radius: 0;
-  }
-
   /* ── Responsive ── */
   @media (max-width: 1024px) {
     .form-grid {
@@ -791,13 +666,9 @@ const offices = [
       padding: 80px 1.5rem 40px;
     }
 
-    .hero-inner {
+    .hero-wrap {
       height: 380px;
     }
-
-    .hq-section { padding: 64px 0; }
-    .hq-layout { grid-template-columns: 1fr; gap: 32px; }
-    .hq-map { height: 300px; }
   }
 
   @media (max-width: 640px) {

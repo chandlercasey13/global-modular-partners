@@ -13,20 +13,21 @@ import Footer from '../../components/Footer.astro';
   <!-- ════════ HERO ════════ -->
   <section class="dp-hero">
     <div class="dp-hero__content">
-      <h1 class="dp-hero__h1">Specialized<br/>Operational<br/>Departments</h1>
+      <h1 class="dp-hero__h1">Operational<br/>Departments</h1>
       <p class="dp-hero__sub">Five core divisions driving modular excellence — from construction and project management to defense, healthcare, and civil infrastructure.</p>
     </div>
   </section>
 
   <!-- ════════ 01. MODULAR CONSTRUCTION ════════ -->
-  <section class="dp-sec dp-sec--white" id="modular">
-    <div class="mnc">
-      <span class="dp-tag">Division 01</span>
-      <h2 class="dp-sec__title">Modular Construction</h2>
-      <p class="dp-sec__desc">
-        Our Modular Construction division delivers efficiency through precision-engineered off-site fabrication. By shifting 90% of the build process to controlled factory environments, we eliminate weather delays and ensure traceability within tolerances. This division also serves as the technical heart of our operations, advancing scalable structures from single-unit components to complex multi-story complexes.
-      </p>
-
+  <section class="dp-sec dp-sec--white dp-strip" id="modular">
+    <div class="dp-mod__wrap">
+      <div class="dp-mod__intro">
+        <span class="dp-tag">Division 01</span>
+        <h2 class="dp-sec__title">Modular Construction</h2>
+        <p class="dp-sec__desc">
+          Our Modular Construction division delivers efficiency through precision-engineered off-site fabrication. By shifting 90% of the build process to controlled factory environments, we eliminate weather delays and ensure traceability within tolerances. This division also serves as the technical heart of our operations, advancing scalable structures from single-unit components to complex multi-story complexes.
+        </p>
+      </div>
       <div class="dp-mod__cards">
         <div class="dp-mod__card fade-up">
           <h4 class="dp-mod__card-title">Assembly Process</h4>
@@ -41,13 +42,13 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- ════════ 02. PROJECT MANAGEMENT ════════ -->
-  <section class="dp-sec dp-sec--off" id="project-management">
-    <div class="mnc">
-      <div class="dp-split fade-up">
-        <div class="dp-split__img">
-          <img src="/images/showcase/west-interior.jpg" alt="Project Management" loading="lazy" />
-        </div>
-        <div class="dp-split__text">
+  <section class="dp-sec dp-sec--off dp-strip dp-strip--split" id="project-management">
+    <div class="dp-split">
+      <div class="dp-split__img-col">
+        <img src="/images/showcase/west-interior.jpg" alt="Project Management" class="dp-split__img" loading="lazy" />
+      </div>
+      <div class="dp-split__text-col fade-up">
+        <div class="dp-split__text-inner">
           <span class="dp-tag">Division 02</span>
           <h2 class="dp-sec__title">Project Management</h2>
           <p class="dp-sec__desc">
@@ -64,10 +65,10 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- ════════ 03. DOD & MILITARY ════════ -->
-  <section class="dp-sec dp-sec--navy" id="dod-military">
-    <div class="mnc">
-      <div class="dp-dod fade-up">
-        <div class="dp-dod__text">
+  <section class="dp-sec dp-sec--navy dp-strip dp-strip--split" id="dod-military">
+    <div class="dp-dod">
+      <div class="dp-dod__text-col fade-up">
+        <div class="dp-dod__text-inner">
           <span class="dp-tag dp-tag--light">Division 03</span>
           <h2 class="dp-sec__title dp-sec__title--white">DoD & Military<br/>Infrastructure</h2>
           <p class="dp-sec__desc dp-sec__desc--light">
@@ -78,21 +79,20 @@ import Footer from '../../components/Footer.astro';
             <p class="dp-dod__accent-desc">Full SCIF/SAP clearance capability. Unified Facilities Criteria compliance embedded from concept through construction and commissioning.</p>
           </div>
         </div>
-        <div class="dp-dod__img">
-          <img src="/images/showcase/ri-defense-base.png" alt="Military infrastructure" loading="lazy" />
-        </div>
+      </div>
+      <div class="dp-dod__img-col">
+        <img src="/images/showcase/ri-defense-base.png" alt="Military infrastructure" class="dp-dod__img" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- ════════ 04. HEALTHCARE ════════ -->
-  <section class="dp-sec dp-sec--white" id="healthcare">
-    <div class="mnc">
-      <span class="dp-tag">Division 04</span>
-      <h2 class="dp-sec__title">Healthcare Systems</h2>
-
-      <div class="dp-hc fade-up">
-        <div class="dp-hc__left">
+  <section class="dp-sec dp-sec--white dp-strip dp-strip--split" id="healthcare">
+    <div class="dp-hc">
+      <div class="dp-hc__text-col fade-up">
+        <div class="dp-hc__text-inner">
+          <span class="dp-tag">Division 04</span>
+          <h2 class="dp-sec__title">Healthcare Systems</h2>
           <p class="dp-sec__desc">
             Our Med-Tech team delivers specialized modules for high-acuity medical environments, providing rapid deployment for hospitals, diagnostic labs, and outpatient clinics without compromising existing facility operations.
           </p>
@@ -101,7 +101,9 @@ import Footer from '../../components/Footer.astro';
             <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="Pediatric facility" loading="lazy" />
           </div>
         </div>
-        <div class="dp-hc__right">
+      </div>
+      <div class="dp-hc__side-col fade-up">
+        <div class="dp-hc__side-inner">
           <div class="dp-hc__watermark" aria-hidden="true">HC-74</div>
           <div class="dp-hc__feature">
             <h4 class="dp-hc__feature-title">Medical-Grade Engineering</h4>
@@ -125,14 +127,14 @@ import Footer from '../../components/Footer.astro';
   </section>
 
   <!-- ════════ 05. CIVIL CONSTRUCTION ════════ -->
-  <section class="dp-sec dp-sec--off" id="civil">
-    <div class="mnc">
-      <div class="dp-civil fade-up">
-        <div class="dp-civil__img">
-          <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Civil construction" loading="lazy" />
-          <img src="/images/showcase/atcco-aerial.jpg" alt="Aerial view" loading="lazy" />
-        </div>
-        <div class="dp-civil__text">
+  <section class="dp-sec dp-sec--off dp-strip dp-strip--split" id="civil">
+    <div class="dp-civil">
+      <div class="dp-civil__img-col">
+        <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Civil construction" class="dp-civil__img" loading="lazy" />
+        <img src="/images/showcase/atcco-aerial.jpg" alt="Aerial view" class="dp-civil__img" loading="lazy" />
+      </div>
+      <div class="dp-civil__text-col fade-up">
+        <div class="dp-civil__text-inner">
           <span class="dp-tag">Division 05</span>
           <h2 class="dp-sec__title">Civil Construction</h2>
           <p class="dp-sec__desc">
@@ -162,18 +164,35 @@ import Footer from '../../components/Footer.astro';
 
 <style>
   html { scroll-behavior: smooth; }
-  .mnc { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Match homepage: hero / UI chrome = Barlow; section h2s = secondary (same as .section-title) */
+  .dp-mod__card-title,
+  .dp-hc__feature-title,
+  .dp-dod__accent-title {
+    font-family: var(--font-primary);
+  }
+
+  /* Match homepage / services strips */
+  .dp-strip {
+    --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
+    --strip-inner-gap: 36px;
+    scroll-margin-top: 100px;
+  }
+
+  .dp-strip--split {
+    padding: 0;
+  }
 
   .dp-tag {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    color: var(--amber);
-    margin-bottom: 16px;
+    color: var(--text-gray);
+    margin-bottom: 28px;
   }
   .dp-tag::before {
     content: '';
@@ -182,10 +201,30 @@ import Footer from '../../components/Footer.astro';
     background: var(--amber);
     flex-shrink: 0;
   }
-  .dp-tag--hero { color: rgba(255,255,255,.6); }
-  .dp-tag--hero::before { background: var(--amber); }
-  .dp-tag--light { color: rgba(255,255,255,.4); }
+  .dp-tag--light { color: rgba(255,255,255,.5); }
   .dp-tag--light::before { background: var(--amber); }
+
+  /* Same as homepage .section-title + .hp-about strip headings */
+  .dp-sec__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--dark-text);
+    margin: 0 0 14px;
+  }
+  .dp-sec__title--white {
+    color: var(--white);
+  }
+
+  .dp-sec__desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0;
+    max-width: none;
+  }
+  .dp-sec__desc--light { color: rgba(255,255,255,.55); }
 
   /* ═══ HERO ═══ */
   .dp-hero {
@@ -203,55 +242,6 @@ import Footer from '../../components/Footer.astro';
     pointer-events: none;
     z-index: 1;
   }
-
-  .dp-hero__bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.25;
-  }
-
-  .dp-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(20,40,75,.35) 0%, rgba(20,40,75,.8) 100%);
-    z-index: 1;
-  }
-
-  .dp-hero__lines {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .dp-hero__lv {
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 1px;
-    background: rgba(255,255,255,.05);
-    transform: scaleY(0);
-    transform-origin: top;
-    animation: dpLineV 1.6s cubic-bezier(.22,.68,.36,1) forwards;
-  }
-  .dp-hero__lv--1 { left: 55%; animation-delay: 0.1s; }
-  .dp-hero__lv--2 { left: 72%; animation-delay: 0.4s; }
-  .dp-hero__lv--3 { left: 90%; animation-delay: 0.7s; }
-  .dp-hero__lh {
-    position: absolute;
-    height: 1px;
-    left: 0; right: 0;
-    background: rgba(255,255,255,.05);
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: dpLineH 1.6s cubic-bezier(.22,.68,.36,1) forwards;
-  }
-  .dp-hero__lh--1 { top: 35%; animation-delay: 0.5s; }
-  .dp-hero__lh--2 { top: 70%; animation-delay: 0.8s; }
-  @keyframes dpLineV { to { transform: scaleY(1); } }
-  @keyframes dpLineH { to { transform: scaleX(1); } }
 
   .dp-hero__content {
     position: relative;
@@ -284,35 +274,23 @@ import Footer from '../../components/Footer.astro';
     margin: 0;
   }
 
-  /* ═══ SECTIONS ═══ */
+  /* ═══ SECTION SHELL ═══ */
   .dp-sec {
-    padding: 100px 0;
-    scroll-margin-top: 100px;
+    padding: 0;
   }
   .dp-sec--white { background: var(--white); }
   .dp-sec--off { background: var(--off-white); }
   .dp-sec--navy { background: var(--navy); }
 
-  .dp-sec__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 800;
-    line-height: 1.1;
-    color: var(--dark-text);
-    margin-bottom: 20px;
+  /* ═══ 01. MODULAR (intro + cards, full-bleed gutters) ═══ */
+  .dp-mod__wrap {
+    padding: 80px var(--strip-edge-gutter) 100px;
   }
-  .dp-sec__title--white { color: var(--white); }
 
-  .dp-sec__desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-gray);
-    max-width: 720px;
-    margin-bottom: 0;
+  .dp-mod__intro {
+    max-width: 680px;
   }
-  .dp-sec__desc--light { color: rgba(255,255,255,.55); }
 
-  /* ═══ 01. MODULAR ═══ */
   .dp-mod__cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -325,6 +303,7 @@ import Footer from '../../components/Footer.astro';
     border: 1px solid rgba(0,0,0,.08);
     background: var(--off-white);
     transition: box-shadow 0.3s ease;
+    border-radius: 8px;
   }
 
   .dp-mod__card:hover {
@@ -337,7 +316,7 @@ import Footer from '../../components/Footer.astro';
   }
 
   .dp-mod__card-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 700;
     color: var(--dark-text);
@@ -359,25 +338,46 @@ import Footer from '../../components/Footer.astro';
     color: rgba(30,58,102,.7);
   }
 
-  /* ═══ 02. PM — SPLIT LAYOUT ═══ */
+  /* ═══ 02. PM — image left, text right (like .netmap / services default) ═══ */
   .dp-split {
     display: grid;
-    grid-template-columns: 0.45fr 0.55fr;
-    gap: 48px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+  }
+
+  .dp-split__img-col {
+    position: relative;
+    overflow: hidden;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: var(--strip-edge-gutter);
+    padding-right: var(--strip-inner-gap);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
   .dp-split__img {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
   }
 
-  .dp-split__img img {
+  .dp-split__text-col {
+    display: flex;
+    align-items: center;
+    padding-right: var(--strip-edge-gutter);
+    padding-left: 0;
+    min-width: 0;
+  }
+
+  .dp-split__text-inner {
+    padding: 48px 0 48px var(--strip-inner-gap);
+    max-width: 680px;
     width: 100%;
-    display: block;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
   }
 
   .dp-bullets {
@@ -411,24 +411,45 @@ import Footer from '../../components/Footer.astro';
   .dp-bullets--compact { margin: 12px 0 0; gap: 6px; }
   .dp-bullets--compact li { font-size: 13px; }
 
-  /* ═══ 03. DOD ═══ */
+  /* ═══ 03. DOD — text left, image right (like .hp-about) ═══ */
   .dp-dod {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    min-height: 560px;
+  }
+
+  .dp-dod__text-col {
+    display: flex;
     align-items: center;
+    padding-left: var(--strip-edge-gutter);
+    padding-right: 0;
+    min-width: 0;
+  }
+
+  .dp-dod__text-inner {
+    padding: 48px var(--strip-inner-gap) 48px 0;
+    max-width: 680px;
+  }
+
+  .dp-dod__img-col {
+    position: relative;
+    overflow: hidden;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: var(--strip-inner-gap);
+    padding-right: var(--strip-edge-gutter);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
   .dp-dod__img {
-    overflow: hidden;
-    border-radius: 0;
-  }
-
-  .dp-dod__img img {
     width: 100%;
-    display: block;
-    aspect-ratio: 4 / 3;
+    flex: 1;
+    min-height: 0;
     object-fit: cover;
+    display: block;
+    border-radius: 8px;
   }
 
   .dp-dod__accent-card {
@@ -436,10 +457,11 @@ import Footer from '../../components/Footer.astro';
     padding: 20px 24px;
     background: rgba(224,161,53,.08);
     border-left: 3px solid var(--amber);
+    border-radius: 0 8px 8px 0;
   }
 
   .dp-dod__accent-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 14px;
     font-weight: 700;
     color: var(--amber);
@@ -459,9 +481,23 @@ import Footer from '../../components/Footer.astro';
   .dp-hc {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    margin-top: 32px;
-    align-items: start;
+    gap: 0;
+    align-items: stretch;
+    min-height: 560px;
+  }
+
+  .dp-hc__text-col {
+    display: flex;
+    align-items: flex-start;
+    padding: 48px 0 48px var(--strip-edge-gutter);
+    padding-right: var(--strip-inner-gap);
+    min-width: 0;
+  }
+
+  .dp-hc__text-inner {
+    padding: 0;
+    max-width: 680px;
+    width: 100%;
   }
 
   .dp-hc__images {
@@ -476,14 +512,23 @@ import Footer from '../../components/Footer.astro';
     aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
+    border-radius: 8px;
   }
 
-  .dp-hc__right {
-    position: relative;
+  .dp-hc__side-col {
+    display: flex;
+    align-items: flex-start;
+    padding: 48px var(--strip-edge-gutter) 48px 0;
+    min-width: 0;
+  }
+
+  .dp-hc__side-inner {
+    width: 100%;
+    max-width: 420px;
   }
 
   .dp-hc__watermark {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: clamp(60px, 10vw, 120px);
     font-weight: 900;
     color: rgba(0,0,0,.04);
@@ -502,39 +547,59 @@ import Footer from '../../components/Footer.astro';
   }
 
   .dp-hc__feature-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 700;
     color: var(--dark-text);
     margin-bottom: 4px;
   }
 
-  /* ═══ 05. CIVIL ═══ */
+  /* ═══ 05. CIVIL — images left, text right ═══ */
   .dp-civil {
     display: grid;
-    grid-template-columns: 0.45fr 0.55fr;
-    gap: 48px;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
   }
 
-  .dp-civil__img {
+  .dp-civil__img-col {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: var(--strip-edge-gutter);
+    padding-right: var(--strip-inner-gap);
+    min-height: 0;
+    justify-content: center;
   }
 
-  .dp-civil__img img {
+  .dp-civil__img {
     width: 100%;
     display: block;
     object-fit: cover;
+    border-radius: 8px;
   }
 
-  .dp-civil__img img:first-child {
+  .dp-civil__img:first-child {
     aspect-ratio: 16 / 10;
   }
 
-  .dp-civil__img img:last-child {
+  .dp-civil__img:last-child {
     aspect-ratio: 16 / 9;
+  }
+
+  .dp-civil__text-col {
+    display: flex;
+    align-items: center;
+    padding-right: var(--strip-edge-gutter);
+    padding-left: 0;
+    min-width: 0;
+  }
+
+  .dp-civil__text-inner {
+    padding: 48px 0 48px var(--strip-inner-gap);
+    max-width: 680px;
+    width: 100%;
   }
 
   .dp-civil__stats {
@@ -546,7 +611,7 @@ import Footer from '../../components/Footer.astro';
   }
 
   .dp-civil__stat-num {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 28px;
     font-weight: 900;
     color: var(--dark-text);
@@ -563,6 +628,53 @@ import Footer from '../../components/Footer.astro';
     margin-top: 4px;
   }
 
+  @media (min-width: 901px) {
+    .dp-split,
+    .dp-dod,
+    .dp-civil {
+      height: 620px;
+      min-height: 620px;
+      max-height: 620px;
+      overflow: hidden;
+    }
+
+    .dp-split__text-col,
+    .dp-dod__text-col,
+    .dp-civil__text-col {
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .dp-split__text-inner,
+    .dp-dod__text-inner,
+    .dp-civil__text-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .dp-split__text-inner .dp-bullets {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .dp-dod__text-inner .dp-dod__accent-card {
+      margin-top: auto;
+    }
+
+    .dp-civil__text-inner .dp-civil__stats {
+      margin-top: auto;
+    }
+
+    .dp-split__img-col,
+    .dp-dod__img-col {
+      min-height: 0;
+    }
+  }
+
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 900px) {
     .dp-mod__cards { grid-template-columns: 1fr; }
@@ -572,16 +684,72 @@ import Footer from '../../components/Footer.astro';
     .dp-hc,
     .dp-civil {
       grid-template-columns: 1fr;
-      gap: 32px;
+      min-height: auto;
+      height: auto;
+      max-height: none;
+      overflow: visible;
     }
 
-    .dp-dod__img { order: -1; }
+    .dp-split__img-col,
+    .dp-dod__img-col,
+    .dp-civil__img-col {
+      padding: 28px 1.5rem;
+      order: -1;
+      height: auto;
+    }
+
+    .dp-split__img,
+    .dp-dod__img {
+      flex: none;
+      aspect-ratio: 4 / 3;
+      min-height: 200px;
+    }
+
+    .dp-split__text-col,
+    .dp-dod__text-col,
+    .dp-hc__text-col,
+    .dp-hc__side-col,
+    .dp-civil__text-col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .dp-split__text-inner,
+    .dp-dod__text-inner,
+    .dp-hc__text-col {
+      padding: 40px 32px 0;
+    }
+
+    .dp-hc__text-inner,
+    .dp-civil__text-inner {
+      padding: 0;
+      max-width: none;
+    }
+
+    .dp-hc__side-col {
+      padding: 0 0 48px;
+    }
+
+    .dp-hc__side-inner {
+      max-width: none;
+      padding: 0 32px 40px;
+    }
+
+    .dp-dod__img-col {
+      order: -1;
+    }
+
+    .dp-civil__img-col {
+      order: -1;
+    }
   }
 
   @media (max-width: 768px) {
     .dp-hero { height: 380px; }
 
-    .dp-sec { padding: 64px 0; }
+    .dp-mod__wrap {
+      padding: 64px var(--strip-edge-gutter);
+    }
 
     .dp-hc__images { grid-template-columns: 1fr; }
 

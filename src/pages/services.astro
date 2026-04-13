@@ -56,54 +56,100 @@ const standards = [
 
   <!-- ════════ 1. HERO ════════ -->
   <section class="sv-hero">
-    <div class="sv-hero__content">
-      <h1 class="sv-hero__h1">Engineering the<br/>Future of Construction.</h1>
-      <p class="sv-hero__sub">Multipurpose modular construction services — from consulting and design-build to procurement, installation, and emergency deployment.</p>
+    <div class="mnc-container sv-hero__inner">
+      <div class="sv-hero__content">
+        <h1 class="sv-hero__h1">Engineering the<br/>Future of Construction.</h1>
+        <p class="sv-hero__sub">Multipurpose modular construction services — from consulting and design-build to procurement, installation, and emergency deployment.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ════════ 2. CORE COMPETENCIES INTRO ════════ -->
-  <section class="sv-intro">
+  <!-- ════════ OUR PROCESS ════════ -->
+  <section class="sv-advantage">
     <div class="mnc-container">
-      <div class="sv-intro__inner fade-up">
-        <h2 class="sv-intro__title">Core Competencies</h2>
-        <p class="sv-intro__desc">
-          Our modular systems integration gives us a structural, fabrication, and management capacity that can't just be outsourced — it's engineered, compliant, and field-validated at global scale.
+      <div class="sv-sec-head fade-up">
+        <span class="section-tag">Our Process</span>
+      </div>
+      <div class="sv-advantage__top fade-up">
+        <h2 class="sv-advantage__title">
+          Design. Fabricate. Deploy. <span class="sv-advantage__span">Repeat.</span>
+        </h2>
+        <p class="sv-advantage__desc">
+          Modular construction replaces the chaos of traditional job sites with factory-precision manufacturing. Complete building sections are engineered and assembled in controlled environments — then delivered to site ready to install.
         </p>
       </div>
+
+      <div class="sv-advantage__cards">
+        <div class="sv-advantage__card">
+          <img src="/images/showcase/west-blvd-render.jpg" alt="Precision engineering" class="sv-advantage__card-img" loading="lazy" />
+          <div class="sv-advantage__card-overlay"></div>
+          <div class="sv-advantage__card-body">
+            <span class="sv-advantage__card-num">01</span>
+            <h3 class="sv-advantage__card-title">Precision Engineering</h3>
+            <p class="sv-advantage__card-desc">Advanced BIM coordination and structural analysis — designed for factory fabrication and rapid on-site assembly.</p>
+          </div>
+        </div>
+        <div class="sv-advantage__card">
+          <img src="/images/showcase/ri-legacy-about.jpg" alt="Modular fabrication" class="sv-advantage__card-img" loading="lazy" />
+          <div class="sv-advantage__card-overlay"></div>
+          <div class="sv-advantage__card-body">
+            <span class="sv-advantage__card-num">02</span>
+            <h3 class="sv-advantage__card-title">Modular Fabrication</h3>
+            <p class="sv-advantage__card-desc">Modules built in controlled factories — up to 60% faster with tighter tolerances and dramatically less waste.</p>
+          </div>
+        </div>
+        <div class="sv-advantage__card">
+          <img src="/images/showcase/ri-steel-frame-hills.png" alt="Modular structural engineering" class="sv-advantage__card-img" loading="lazy" />
+          <div class="sv-advantage__card-overlay"></div>
+          <div class="sv-advantage__card-body">
+            <span class="sv-advantage__card-num">03</span>
+            <h3 class="sv-advantage__card-title">Integrated Logistics</h3>
+            <p class="sv-advantage__card-desc">Finished modules transported and installed on schedule via our global supply chain, anywhere in the world.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ════════ 3. COMPETENCY SECTIONS ════════ -->
+  <!-- ════════ 2. COMPETENCY SECTIONS ════════ -->
   {competencies.map((comp, i) => (
-    <section class={`sv-comp ${comp.layout === 'text-right' ? 'sv-comp--reverse' : ''}`}>
-      <div class="sv-comp__img-col">
-        <img src={comp.img} alt={comp.title} class="sv-comp__img" loading="lazy" />
-      </div>
-      <div class="sv-comp__text-col fade-up">
-        <div class="sv-comp__text-inner">
-          <div class="sv-comp__tag-row">
-            <span class="sv-comp__tag">{comp.tag}</span>
-            <span class="sv-comp__tag-suffix">{comp.tagSuffix}</span>
+    <section
+      class:list={[
+        'sv-comp',
+        comp.layout === 'text-right' && 'sv-comp--reverse',
+        i % 2 === 0 && 'sv-comp--band-muted',
+      ]}
+    >
+      <div class="sv-comp__grid">
+          <div class="sv-comp__img-col">
+            <img src={comp.img} alt={comp.title} class="sv-comp__img" loading="lazy" />
           </div>
-          <h2 class="sv-comp__title">{comp.title}</h2>
-          <p class="sv-comp__desc">{comp.desc}</p>
-          {comp.desc2 && <p class="sv-comp__desc">{comp.desc2}</p>}
-          <div class="sv-comp__pills">
-            {comp.pills.map((pill: string) => (
-              <span class="sv-comp__pill">{pill}</span>
-            ))}
+          <div class="sv-comp__text-col fade-up">
+            <div class="sv-comp__text-inner">
+              <div class="sv-comp__tag-row">
+                <span class="sv-comp__tag">{comp.tag}</span>
+                <span class="sv-comp__tag-suffix">{comp.tagSuffix}</span>
+              </div>
+              <h2 class="sv-comp__title">{comp.title}</h2>
+              <p class="sv-comp__desc">{comp.desc}</p>
+              {comp.desc2 && <p class="sv-comp__desc">{comp.desc2}</p>}
+              <div class="sv-comp__pills">
+                {comp.pills.map((pill: string) => (
+                  <span class="sv-comp__pill">{pill}</span>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
       </div>
     </section>
   ))}
 
-  <!-- ════════ 4. PROTOCOL ════════ -->
+  <!-- ════════ 3. PROTOCOL ════════ -->
   <section class="sv-protocol">
-    <div class="mnc-container">
-      <div class="sv-protocol__layout fade-up">
-        <div class="sv-protocol__left">
+    <div class="sv-protocol__layout fade-up">
+      <div class="sv-protocol__left">
+        <div class="sv-protocol__text-inner">
+          <span class="section-tag">Protocol</span>
           <h2 class="sv-protocol__title">A Rigid Protocol<br/>for Perfection</h2>
           <p class="sv-protocol__sub">
             Every build is held to a 3-phase pre-fabrication audit and strict final QA process.
@@ -121,15 +167,11 @@ const standards = [
             ))}
           </div>
         </div>
+      </div>
 
-        <div class="sv-protocol__right">
-          <div class="sv-protocol__img-wrap">
-            <img src="/images/showcase/petra-project3.jpg" alt="Welding precision" loading="lazy" />
-            <div class="sv-protocol__stat-badge">
-              <span class="sv-protocol__stat-num">98.4%</span>
-              <span class="sv-protocol__stat-label">First-pass inspection rate</span>
-            </div>
-          </div>
+      <div class="sv-protocol__right">
+        <div class="sv-protocol__img-wrap">
+          <img src="/images/showcase/petra-project3.jpg" alt="Welding precision" loading="lazy" />
         </div>
       </div>
     </div>
@@ -140,6 +182,145 @@ const standards = [
 
 <style>
   .mnc-container { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Match homepage: .reach__head (16px) + .section-tag (20px mb) → ~20px to title */
+  .sv-sec-head {
+    margin-bottom: 16px;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  /* ═══ OUR PROCESS ═══ */
+  .sv-advantage {
+    background-color: var(--white);
+    padding: 48px 0;
+  }
+
+  .sv-advantage__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  .sv-advantage__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin: 0;
+  }
+
+  .sv-advantage__span {
+    color: var(--amber);
+  }
+
+  .sv-advantage__desc {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  .sv-advantage__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .sv-advantage__card {
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .sv-advantage__card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+  }
+  .sv-advantage__card:hover .sv-advantage__card-img {
+    transform: scale(1.05);
+  }
+
+  .sv-advantage__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 50%, rgba(0,0,0,.05) 100%);
+    z-index: 1;
+  }
+
+  .sv-advantage__card-body {
+    position: relative;
+    z-index: 2;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sv-advantage__card-num {
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--amber);
+  }
+
+  .sv-advantage__card-title {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .sv-advantage__card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.6);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .sv-advantage__top {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .sv-advantage__cards {
+      grid-template-columns: 1fr;
+    }
+  }
 
   /* ═══ 1. HERO ═══ */
   .sv-hero {
@@ -157,11 +338,13 @@ const standards = [
     pointer-events: none;
   }
 
+  .sv-hero__inner {
+    height: 100%;
+  }
+
   .sv-hero__content {
     position: relative;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 120px 1.5rem 60px;
+    padding: 120px 0 60px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -187,49 +370,71 @@ const standards = [
     margin: 0;
   }
 
-  /* ═══ 2. INTRO ═══ */
-  .sv-intro {
-    background: var(--white);
-    padding: 100px 0;
-    border-bottom: 1px solid rgba(0,0,0,.06);
-  }
-
-  .sv-intro__inner {
-    max-width: 800px;
-  }
-
-  .sv-intro__title {
-    font-family: var(--font-secondary);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-gray);
-    margin-bottom: 24px;
-  }
-
-  .sv-intro__desc {
-    font-family: var(--font-secondary);
-    font-size: clamp(20px, 2.5vw, 28px);
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--dark-text);
-    margin: 0;
-  }
-
-  /* ═══ 3. COMPETENCY SECTIONS ═══ */
+  /* ═══ 2. COMPETENCY — match homepage .hp-about / .netmap strips ═══ */
   .sv-comp {
+    background-color: var(--white);
+    --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
+    --strip-inner-gap: 36px;
+  }
+
+  .sv-comp--band-muted {
+    background-color: var(--off-white);
+  }
+
+  .sv-comp__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 520px;
+    min-height: 560px;
   }
 
   .sv-comp--reverse .sv-comp__img-col { order: 2; }
   .sv-comp--reverse .sv-comp__text-col { order: 1; }
 
-  .sv-comp__img-col {
+  /* Default: image left, text right (same gutters as .netmap) */
+  .sv-comp:not(.sv-comp--reverse) .sv-comp__img-col {
     position: relative;
     overflow: hidden;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: var(--strip-edge-gutter);
+    padding-right: var(--strip-inner-gap);
+  }
+
+  .sv-comp:not(.sv-comp--reverse) .sv-comp__text-col {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding-right: var(--strip-edge-gutter);
+    padding-left: 0;
+  }
+
+  .sv-comp:not(.sv-comp--reverse) .sv-comp__text-inner {
+    padding: 48px 0 48px var(--strip-inner-gap);
+    max-width: 680px;
+    width: 100%;
+  }
+
+  /* Reverse: text left, image right (same gutters as .hp-about) */
+  .sv-comp--reverse .sv-comp__text-col {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding-left: var(--strip-edge-gutter);
+    padding-right: 0;
+  }
+
+  .sv-comp--reverse .sv-comp__text-inner {
+    padding: 48px var(--strip-inner-gap) 48px 0;
+    max-width: 680px;
+  }
+
+  .sv-comp--reverse .sv-comp__img-col {
+    position: relative;
+    overflow: hidden;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: var(--strip-inner-gap);
+    padding-right: var(--strip-edge-gutter);
   }
 
   .sv-comp__img {
@@ -237,83 +442,63 @@ const standards = [
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-
-  .sv-comp__text-col {
-    display: flex;
-    align-items: center;
-    background: var(--white);
-  }
-
-  .sv-comp--reverse .sv-comp__text-col {
-    background: var(--navy);
-  }
-
-  .sv-comp__text-inner {
-    padding: 60px 64px;
-    max-width: 560px;
-  }
-
-  .sv-comp--reverse .sv-comp__text-inner {
-    margin-left: auto;
+    border-radius: 8px;
   }
 
   .sv-comp__tag-row {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .sv-comp__tag-row::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
   }
 
   .sv-comp__tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--amber);
-  }
-
-  .sv-comp__tag-suffix {
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--text-gray);
   }
 
-  .sv-comp--reverse .sv-comp__tag-suffix {
-    color: rgba(255,255,255,.35);
+  .sv-comp__tag-suffix {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-gray);
   }
 
   .sv-comp__title {
     font-family: var(--font-secondary);
     font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 800;
-    line-height: 1.05;
-    color: var(--dark-text);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-
-  .sv-comp--reverse .sv-comp__title {
-    color: var(--white);
+    font-weight: 600;
+    line-height: 1.2;
+    color: #111;
+    margin: 0 0 14px;
   }
 
   .sv-comp__desc {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--text-gray);
-    margin-bottom: 16px;
-  }
-
-  .sv-comp--reverse .sv-comp__desc {
-    color: rgba(255,255,255,.55);
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0 0 16px;
   }
 
   .sv-comp__pills {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 24px;
+    margin-top: 28px;
   }
 
   .sv-comp__pill {
@@ -326,39 +511,93 @@ const standards = [
     color: var(--dark-text);
   }
 
-  .sv-comp--reverse .sv-comp__pill {
-    border-color: rgba(255,255,255,.15);
-    color: rgba(255,255,255,.5);
+  @media (min-width: 901px) {
+    .sv-comp__grid {
+      height: 620px;
+      min-height: 620px;
+      max-height: 620px;
+      overflow: hidden;
+    }
+
+    .sv-comp__text-col {
+      min-height: 0;
+      overflow: hidden;
+      align-items: stretch;
+    }
+
+    .sv-comp__text-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .sv-comp__pills {
+      margin-top: auto;
+      padding-top: 28px;
+    }
+
+    .sv-comp__img-col {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .sv-comp__img {
+      flex: 1;
+      min-height: 0;
+    }
   }
 
-  /* ═══ 4. PROTOCOL ═══ */
+  /* ═══ 3. PROTOCOL — full-bleed two-col, gutters match homepage strips ═══ */
   .sv-protocol {
-    background: var(--off-white);
-    padding: 100px 0;
+    background: var(--white);
+    padding: 0;
+    --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
+    --strip-inner-gap: 36px;
   }
 
   .sv-protocol__layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
+    gap: 0;
+    align-items: stretch;
+    min-height: 560px;
+  }
+
+  .sv-protocol .section-tag {
+    margin-bottom: 28px;
+  }
+
+  .sv-protocol__left {
+    display: flex;
+    align-items: center;
+    padding-left: var(--strip-edge-gutter);
+    min-width: 0;
+  }
+
+  .sv-protocol__text-inner {
+    max-width: 680px;
+    padding: 48px var(--strip-inner-gap) 48px 0;
+    width: 100%;
   }
 
   .sv-protocol__title {
     font-family: var(--font-secondary);
     font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 800;
-    line-height: 1.1;
-    color: var(--dark-text);
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #111;
+    margin: 0 0 14px;
   }
 
   .sv-protocol__sub {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-gray);
-    margin-bottom: 36px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #444;
+    margin: 0 0 28px;
   }
 
   .sv-protocol__steps {
@@ -399,54 +638,44 @@ const standards = [
 
   .sv-protocol__right {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+    padding: 48px var(--strip-edge-gutter) 48px var(--strip-inner-gap);
   }
 
   .sv-protocol__img-wrap {
     position: relative;
+    flex: 1;
+    min-height: 280px;
     overflow: hidden;
-    border-radius: 0;
+    border-radius: 8px;
   }
 
   .sv-protocol__img-wrap img {
     width: 100%;
-    display: block;
-    aspect-ratio: 4 / 3;
+    height: 100%;
+    min-height: 280px;
     object-fit: cover;
-  }
-
-  .sv-protocol__stat-badge {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: var(--navy);
-    padding: 20px 24px;
-    border-radius: 8px;
-    text-align: center;
-    min-width: 140px;
-  }
-
-  .sv-protocol__stat-num {
-    font-family: var(--font-secondary);
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--amber);
     display: block;
-    line-height: 1;
   }
 
-  .sv-protocol__stat-label {
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.45);
-    display: block;
-    margin-top: 6px;
+  @media (min-width: 901px) {
+    .sv-protocol__img-wrap {
+      min-height: 0;
+    }
+
+    .sv-protocol__img-wrap img {
+      min-height: 0;
+    }
   }
 
-  /* ═══ 5. STANDARDS ═══ */
+  /* ═══ 4. STANDARDS ═══ */
   .sv-standards {
-    background: var(--navy-dark);
+    background: var(--off-white);
     padding: 64px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .sv-standards__inner {
@@ -462,7 +691,7 @@ const standards = [
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(255,255,255,.35);
+    color: var(--text-gray);
     white-space: nowrap;
     margin: 0;
   }
@@ -477,7 +706,7 @@ const standards = [
     align-items: center;
     gap: 10px;
     padding: 12px 20px;
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     white-space: nowrap;
   }
@@ -492,36 +721,12 @@ const standards = [
     font-family: var(--font-secondary);
     font-size: 14px;
     font-weight: 700;
-    color: rgba(255,255,255,.7);
+    color: var(--dark-text);
     letter-spacing: 0.5px;
   }
 
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 900px) {
-    .sv-comp {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    .sv-comp--reverse .sv-comp__img-col { order: 1; }
-    .sv-comp--reverse .sv-comp__text-col { order: 2; }
-
-    .sv-comp__img-col { height: 300px; }
-
-    .sv-comp__text-inner {
-      padding: 48px 32px;
-      max-width: none;
-    }
-
-    .sv-comp--reverse .sv-comp__text-inner {
-      margin-left: 0;
-    }
-
-    .sv-protocol__layout {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
     .sv-standards__inner {
       flex-direction: column;
       align-items: flex-start;
@@ -535,12 +740,67 @@ const standards = [
   @media (max-width: 768px) {
     .sv-hero { height: 380px; }
 
-    .sv-intro { padding: 64px 0; }
+    .sv-comp__grid {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
 
-    .sv-protocol { padding: 64px 0; }
+    .sv-comp--reverse .sv-comp__img-col { order: 1; }
+    .sv-comp--reverse .sv-comp__text-col { order: 2; }
 
-    .sv-comp__img-col { height: 240px; }
+    .sv-comp:not(.sv-comp--reverse) .sv-comp__img-col,
+    .sv-comp--reverse .sv-comp__img-col {
+      height: 300px;
+      padding: 28px 1.5rem;
+    }
 
-    .sv-comp__text-inner { padding: 36px 24px; }
+    .sv-comp:not(.sv-comp--reverse) .sv-comp__text-col,
+    .sv-comp--reverse .sv-comp__text-col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .sv-comp:not(.sv-comp--reverse) .sv-comp__text-inner,
+    .sv-comp--reverse .sv-comp__text-inner {
+      padding: 40px 32px;
+      max-width: none;
+    }
+
+    .sv-comp__pills {
+      margin-top: 28px;
+      padding-top: 0;
+    }
+
+    .sv-protocol__layout {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .sv-protocol__left {
+      padding-left: 0;
+    }
+
+    .sv-protocol__text-inner {
+      padding: 40px 32px;
+      max-width: none;
+    }
+
+    .sv-protocol__right {
+      padding: 0 1.5rem 40px;
+    }
+
+    .sv-protocol__img-wrap {
+      flex: none;
+      min-height: 240px;
+    }
+
+    .sv-protocol__img-wrap img {
+      min-height: 0;
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
   }
 </style>

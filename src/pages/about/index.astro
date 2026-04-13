@@ -3,10 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const leadership = [
-  { name: 'Fuad Sweiss', role: 'Founder & CEO', bio: 'Founded GMP in 2019 to advance modular construction globally' },
-];
-
 const board = [
   { name: 'Robert Bilbeisi', role: 'Board Chairman', focus: 'International Development' },
   { name: 'Dr. Maria Carranza', role: 'Board Member', focus: 'Healthcare Systems' },
@@ -31,24 +27,20 @@ const timeline = [
 >
   <Header slot="header" />
 
-  <!-- ════════ 1. HERO ════════ -->
-  <section class="ab-hero">
-    <div class="ab-hero__inner">
-      <div class="ab-hero__content">
-        <h1 class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
+  <!-- ════════ 1. HERO + MILESTONES ════════ -->
+  <section class="ab-hero" aria-labelledby="ab-hero-heading">
+    <div class="ab-hero__intro">
+      <div class="ab-hero__intro-content fade-up">
+        <h1 id="ab-hero-heading" class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
         <p class="ab-hero__sub">
           Redefining the built environment of global infrastructure through precision modular assembly and partnership-driven engineering innovation.
         </p>
       </div>
     </div>
-  </section>
-
-  <!-- ════════ 2. LEGACY ════════ -->
-  <section class="ab-legacy">
-    <div class="mnc-container">
-      <div class="ab-legacy__layout fade-up">
-        <div class="ab-legacy__left">
-          <span class="ab-tag">Heritage &amp; History</span>
+    <div class="ab-hero__top">
+      <div class="ab-hero__split mnc-container">
+        <div class="ab-hero__split-left fade-up">
+          <p class="ab-hero__split-eyebrow">Heritage &amp; History</p>
           <h2 class="ab-legacy__title">A Legacy Forged in Precision.</h2>
           <p class="ab-legacy__body">
             For five years, Global Modular Partners has positioned itself as the definitive force in modern modular construction. What began as a specialized joint venture has evolved to become the global hub of modular engineering.
@@ -56,36 +48,39 @@ const timeline = [
           <p class="ab-legacy__body">
             Our legacy is defined by the refusal to compromise on standards or timelines. Where others see obstacles and delays, we see opportunity to innovate and outperform — selecting the right team for each project based on location, scope, and compliance requirements.
           </p>
-          <div class="ab-legacy__stats">
-            <div class="ab-legacy__stat">
-              <span class="ab-legacy__stat-num">40+</span>
-              <span class="ab-legacy__stat-label">Projects Delivered</span>
-            </div>
-            <div class="ab-legacy__stat">
-              <span class="ab-legacy__stat-num">2.4k</span>
-              <span class="ab-legacy__stat-label">Modular Units Produced</span>
-            </div>
-          </div>
+          <p class="ab-legacy__body">
+            From Oakland and Irvine, we align Agbayani Construction, RI Group USA, Hospitals Without Borders, and EDIS USA around a single factory-to-field delivery chain. That network has delivered 40+ projects and 2,400+ modular units across three continents, with roughly 500,000 sq. ft. of combined partner manufacturing capacity.
+          </p>
         </div>
-        <div class="ab-legacy__right">
-          <div class="ab-legacy__img-wrap">
-            <img src="/images/showcase/ri-legacy-about.jpg" alt="Precision modular manufacturing facility" class="ab-legacy__img" loading="lazy" />
-          </div>
-          <div class="ab-legacy__badge">
-            <span class="ab-legacy__badge-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </span>
-            <div>
-              <span class="ab-legacy__badge-title">The GMP Standard</span>
-              <span class="ab-legacy__badge-sub">Our partners are selected through a rigorous vetting process to ensure the highest quality standards.</span>
-            </div>
+        <div class="ab-hero__split-right fade-up">
+          <img
+            src="/images/showcase/ri-factory-production.jpg"
+            alt="Modular manufacturing and steel frame assembly"
+            class="ab-hero__photo"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="ab-hero__timeline">
+      <div class="mnc-container">
+        <div class="ab-hero__timeline-scroll">
+          <div class="ab-hero__timeline-row">
+            <div class="ab-hero__timeline-line" aria-hidden="true"></div>
+            {timeline.map((item) => (
+              <div class="ab-hero__timeline-col fade-up">
+                <span class="ab-hero__timeline-year">{item.year}</span>
+                <span class="ab-hero__timeline-dot"></span>
+                <p class="ab-hero__timeline-desc">{item.event}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════ 3. LEADERSHIP & VISION ════════ -->
+  <!-- ════════ 2. LEADERSHIP & VISION ════════ -->
   <section class="ab-vision">
     <div class="mnc-container">
       <div class="ab-vision__head fade-up">
@@ -142,67 +137,6 @@ const timeline = [
     </div>
   </section>
 
-  <!-- ════════ 4. FACILITY SHOWCASE ════════ -->
-  <section class="ab-facility">
-    <div class="ab-facility__inner">
-      <img src="/images/showcase/ri-factory-panorama.jpg" alt="Manufacturing facility panorama" class="ab-facility__bg" loading="lazy" />
-      <div class="ab-facility__overlay"></div>
-      <div class="ab-facility__content fade-up">
-        <h2 class="ab-facility__h2">500,000<br/>Sq. Ft.<br/>Facility</h2>
-        <p class="ab-facility__desc">
-          Combined manufacturing capacity across our partner network — automated production lines, quality labs, and staging areas delivering turnkey modular components at scale.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ 5. GLOBAL FOOTPRINT ════════ -->
-  <section class="ab-footprint">
-    <div class="mnc-container">
-      <div class="ab-footprint__layout fade-up">
-        <div class="ab-footprint__left">
-          <span class="ab-tag">Our Presence</span>
-          <h2 class="ab-footprint__title">Global Footprint</h2>
-
-          <div class="ab-footprint__locs">
-            <div class="ab-footprint__loc">
-              <h4 class="ab-footprint__loc-title">Primary Command Center</h4>
-              <p class="ab-footprint__loc-desc">Located in the heart of the San Francisco Bay Area, our headquarters direct the strategic allocation of our global engineering services.</p>
-              <span class="ab-footprint__loc-addr">1630 San Pablo Ave, Oakland, CA 94612</span>
-            </div>
-            <div class="ab-footprint__loc">
-              <h4 class="ab-footprint__loc-title">Regional Presence</h4>
-              <p class="ab-footprint__loc-desc">Our West Modular and RI Group partners in San Diego, CA and Lecce, Italy drive manufacturing and international supply chain operations.</p>
-              <span class="ab-footprint__loc-addr">San Diego, CA · Lecce, Italy · Amman, Jordan</span>
-            </div>
-          </div>
-        </div>
-        <div class="ab-footprint__right">
-          <img src="/images/showcase/ri-un-ship-logistics.png" alt="Global modular logistics and shipping" class="ab-footprint__img" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ 6. TIMELINE ════════ -->
-  <section class="ab-timeline">
-    <div class="mnc-container">
-      <div class="ab-timeline__head fade-up">
-        <span class="ab-tag">Milestones</span>
-        <h2 class="ab-timeline__title">From Founding to Today</h2>
-      </div>
-      <div class="ab-timeline__track">
-        {timeline.map((item) => (
-          <div class="ab-timeline__item fade-up">
-            <span class="ab-timeline__year">{item.year}</span>
-            <span class="ab-timeline__dot"></span>
-            <p class="ab-timeline__event">{item.event}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
 </Layout>
 
@@ -228,15 +162,21 @@ const timeline = [
     flex-shrink: 0;
   }
 
-  /* ═══ 1. HERO ═══ */
-  .ab-hero__inner {
+  /* ═══ 1. HERO + MILESTONES ═══ */
+  .ab-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Match services.astro .sv-hero / .sv-hero__content */
+  .ab-hero__intro {
     position: relative;
     height: 480px;
     overflow: hidden;
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
-  .ab-hero__inner::before {
+  .ab-hero__intro::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -244,23 +184,7 @@ const timeline = [
     pointer-events: none;
   }
 
-  .ab-hero__bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.25;
-  }
-
-  .ab-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(30,58,102,.6) 0%, rgba(30,58,102,.9) 100%);
-    z-index: 1;
-  }
-
-  .ab-hero__content {
+  .ab-hero__intro-content {
     position: relative;
     z-index: 2;
     max-width: 1440px;
@@ -272,47 +196,172 @@ const timeline = [
     justify-content: flex-end;
   }
 
-  .ab-hero__tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.45);
-    margin-bottom: 20px;
-  }
-
   .ab-hero__h1 {
     font-family: var(--font-primary);
     font-size: clamp(36px, 5.5vw, 72px);
     font-weight: 800;
-    text-transform: uppercase;
     line-height: 1.1;
     color: var(--white);
+    text-transform: uppercase;
     letter-spacing: -2px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .ab-hero__sub {
     font-size: 16px;
     line-height: 1.65;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
     max-width: 520px;
     margin: 0;
   }
 
-  /* ═══ 2. LEGACY ═══ */
-  .ab-legacy {
+  .ab-hero__top {
+    position: relative;
+    z-index: 2;
     background: var(--white);
-    padding: 100px 0;
+    padding: 48px 0 0;
   }
 
-  .ab-legacy__layout {
+  .ab-hero__split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
+    gap: clamp(32px, 4vw, 56px);
+    align-items: center;
   }
 
+  .ab-hero__split-left {
+    min-width: 0;
+    padding-bottom: clamp(20px, 3vw, 36px);
+  }
+
+  /* Label: Barlow + dash like .ab-tag; headline uses .ab-legacy__title (Sora italic) */
+  .ab-hero__split-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin: 0 0 16px;
+  }
+
+  .ab-hero__split-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .ab-hero__split-left > .ab-legacy__title {
+    margin-top: 0;
+  }
+
+  .ab-hero__split-left .ab-legacy__body:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .ab-hero__split-right {
+    position: relative;
+    min-width: 0;
+  }
+
+  .ab-hero__photo {
+    display: block;
+    width: 100%;
+    border-radius: 14px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    box-shadow: 0 24px 64px rgba(30, 58, 102, 0.14);
+    margin-bottom: clamp(-100px, -8vw, -48px);
+  }
+
+  .ab-hero__timeline {
+    position: relative;
+    z-index: 1;
+    background: var(--navy-dark);
+    padding: clamp(80px, 11vw, 132px) 0 64px;
+  }
+
+  .ab-hero__timeline-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  }
+
+  .ab-hero__timeline-row {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    min-width: 100%;
+    padding-top: 4px;
+  }
+
+  .ab-hero__timeline-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2.45rem;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.92);
+    pointer-events: none;
+  }
+
+  .ab-hero__timeline-col {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 clamp(4px, 0.8vw, 10px);
+  }
+
+  .ab-hero__timeline-year {
+    font-family: var(--font-secondary);
+    font-size: clamp(13px, 1.15vw, 17px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+    line-height: 1.2;
+    min-height: 1.2em;
+  }
+
+  .ab-hero__timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--white);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+    box-shadow: 0 0 0 3px var(--navy-dark);
+  }
+
+  .ab-hero__timeline-desc {
+    font-size: clamp(10px, 0.85vw, 12.5px);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0;
+    max-width: 13rem;
+    hyphens: auto;
+  }
+
+  @media (max-width: 1100px) {
+    .ab-hero__timeline-row {
+      min-width: 880px;
+    }
+  }
+
+  /* Hero split headline + body (classes reused from former legacy section) */
   .ab-legacy__title {
     font-family: var(--font-secondary);
     font-size: clamp(28px, 3.5vw, 44px);
@@ -330,83 +379,7 @@ const timeline = [
     margin-bottom: 16px;
   }
 
-  .ab-legacy__stats {
-    display: flex;
-    gap: 48px;
-    margin-top: 32px;
-  }
-
-  .ab-legacy__stat { display: flex; flex-direction: column; gap: 4px; }
-
-  .ab-legacy__stat-num {
-    font-family: var(--font-secondary);
-    font-size: 40px;
-    font-weight: 900;
-    color: var(--dark-text);
-    line-height: 1;
-  }
-
-  .ab-legacy__stat-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-gray);
-  }
-
-  .ab-legacy__right { position: relative; }
-
-  .ab-legacy__img-wrap {
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-  }
-
-  .ab-legacy__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .ab-legacy__badge {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    background: var(--navy);
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: -48px;
-    margin-left: 24px;
-    margin-right: 24px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .ab-legacy__badge-icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    color: var(--amber);
-  }
-  .ab-legacy__badge-icon svg { width: 100%; height: 100%; }
-
-  .ab-legacy__badge-title {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .ab-legacy__badge-sub {
-    font-size: 13px;
-    line-height: 1.5;
-    color: rgba(255,255,255,.5);
-  }
-
-  /* ═══ 3. VISION ═══ */
+  /* ═══ 2. VISION ═══ */
   .ab-vision {
     background: var(--off-white);
     padding: 100px 0;
@@ -548,195 +521,11 @@ const timeline = [
     margin: 0;
   }
 
-  /* ═══ 4. FACILITY ═══ */
-  .ab-facility__inner {
-    position: relative;
-    height: 500px;
-    overflow: hidden;
-  }
-
-  .ab-facility__bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .ab-facility__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(30,58,102,.88) 0%, rgba(30,58,102,.4) 60%, transparent 100%);
-    z-index: 1;
-  }
-
-  .ab-facility__content {
-    position: relative;
-    z-index: 2;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 480px;
-    margin: 0;
-    padding: 60px max(1.5rem, calc(50vw - 620px + 1.5rem));
-  }
-
-  .ab-facility__h2 {
-    font-family: var(--font-secondary);
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 0.95;
-    color: var(--white);
-    margin-bottom: 20px;
-    font-style: italic;
-  }
-
-  .ab-facility__desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255,255,255,.55);
-    max-width: 400px;
-    margin: 0;
-  }
-
-  /* ═══ 5. FOOTPRINT ═══ */
-  .ab-footprint {
-    background: var(--white);
-    padding: 100px 0;
-  }
-
-  .ab-footprint__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-  }
-
-  .ab-footprint__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    font-style: italic;
-    color: var(--dark-text);
-    margin-bottom: 32px;
-  }
-
-  .ab-footprint__locs {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .ab-footprint__loc {
-    padding-left: 16px;
-    border-left: 3px solid var(--amber);
-  }
-
-  .ab-footprint__loc-title {
-    font-family: var(--font-secondary);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 6px;
-  }
-
-  .ab-footprint__loc-desc {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-gray);
-    margin-bottom: 6px;
-  }
-
-  .ab-footprint__loc-addr {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--navy);
-    letter-spacing: 0.5px;
-  }
-
-  .ab-footprint__right {
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-  }
-
-  .ab-footprint__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ═══ 6. TIMELINE ═══ */
-  .ab-timeline {
-    background: var(--off-white);
-    padding: 100px 0;
-  }
-
-  .ab-timeline__head {
-    text-align: center;
-    margin-bottom: 56px;
-  }
-
-  .ab-timeline__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    font-style: italic;
-    color: var(--dark-text);
-    margin: 0;
-  }
-
-  .ab-timeline__track {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .ab-timeline__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 0 1 140px;
-    gap: 10px;
-  }
-
-  .ab-timeline__year {
-    font-family: var(--font-secondary);
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--amber);
-  }
-
-  .ab-timeline__dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--navy);
-    box-shadow: 0 0 0 4px var(--off-white), 0 0 0 6px rgba(43,75,126,.2);
-  }
-
-  .ab-timeline__event {
-    font-size: 13px;
-    color: var(--dark-text);
-    line-height: 1.45;
-    margin: 0;
-  }
-
-
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 900px) {
-    .ab-legacy__layout,
-    .ab-footprint__layout {
+    .ab-hero__split {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 32px;
     }
 
     .ab-vision__cards {
@@ -747,18 +536,26 @@ const timeline = [
   }
 
   @media (max-width: 768px) {
-    .ab-hero__inner { height: 380px; }
-
-    .ab-legacy,
-    .ab-vision,
-    .ab-footprint,
-    .ab-timeline {
-      padding: 64px 0;
+    .ab-hero__intro {
+      height: 380px;
     }
 
-    .ab-facility__inner { height: 400px; }
+    .ab-hero__top {
+      padding: 28px 0 0;
+    }
 
-    .ab-legacy__stats { gap: 32px; }
+    .ab-hero__photo {
+      border-radius: 10px;
+      aspect-ratio: 4 / 3;
+    }
+
+    .ab-hero__timeline {
+      padding: 72px 0 48px;
+    }
+
+    .ab-vision {
+      padding: 64px 0;
+    }
 
     .ab-team__grid {
       grid-template-columns: 1fr;

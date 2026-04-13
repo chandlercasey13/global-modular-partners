@@ -3,45 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const sectors = [
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14m6-14v14m6-14v14m6-14v14M4 7h16l-8-4L4 7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'Residential',
-    desc: 'High-density urban housing modules with integrated mechanical system provisions.',
-    stats: [
-      { label: 'Cycle Time Reduction', value: '~45%' },
-      { label: 'Units Delivered', value: '12,400+' },
-    ],
-  },
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'Healthcare',
-    desc: 'Clinical-grade modular units for rapid deployment of surgical suites and diagnostics.',
-    stats: [
-      { label: 'Compliance Uptime', value: '99.9%' },
-      { label: 'Facilities', value: '184' },
-    ],
-  },
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M13 16V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1ZM13 8h5l3 3v5a1 1 0 0 1-1 1h-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="18.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="18.5" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>`,
-    title: 'Logistics',
-    desc: 'Heavy-duty distribution modules for automating hubs and transit zones.',
-    stats: [
-      { label: 'Operational Uptime', value: '99.98%' },
-      { label: 'Total Footprint', value: '2.4M ft²' },
-    ],
-  },
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'Strategic',
-    desc: 'Classified government and defense facility infrastructure solutions.',
-    stats: [
-      { label: 'Response Time', value: '72 hrs' },
-      { label: 'Active Regions', value: '12 Regions' },
-    ],
-  },
-];
-
 const featured = {
   tag: 'Case Study 01',
   title: 'The Meridian Heights Assembly',
@@ -71,11 +32,6 @@ const projects = [
   },
 ];
 
-const bottomStats = [
-  { value: '100%', label: 'Mission-level tolerance control' },
-  { value: '350+', label: 'Structural modular innovations' },
-  { value: 'ISO', label: '9001, 14001, 45001 Verified' },
-];
 ---
 
 <Layout
@@ -94,37 +50,16 @@ const bottomStats = [
     </div>
   </section>
 
-  <!-- ════════ 2. SECTOR CAPABILITIES ════════ -->
-  <section class="pj-sectors">
+  <!-- ════════ 2. CASE STUDY ════════ -->
+  <section class="pj-case">
     <div class="mnc">
-      <div class="pj-sectors__head fade-up">
-        <div>
-          <h2 class="pj-sectors__title">Sector Capabilities & Performance</h2>
-          <p class="pj-sectors__sub">
-            Quantifying our impact across high-stakes industries. Each sector represents a specialized modular methodology optimized for speed, precision, and lifecycle efficiency.
-          </p>
+      <div class="pj-case__layout fade-up">
+        <div class="pj-case__left">
+          <span class="pj-tag">{featured.tag}</span>
+          <h2 class="pj-case__title">{featured.title} · <span class="pj-case__location">{featured.location}</span></h2>
+          <span class="pj-case__duration">{featured.duration}</span>
+          <p class="pj-case__desc">{featured.desc}</p>
         </div>
-        <div class="pj-sectors__badge">
-          <span class="pj-sectors__badge-label">ISO 9001-2024</span>
-        </div>
-      </div>
-
-      <div class="pj-sectors__grid">
-        {sectors.map((s) => (
-          <div class="pj-sector fade-up">
-            <div class="pj-sector__icon" set:html={s.icon} />
-            <h3 class="pj-sector__title">{s.title}</h3>
-            <p class="pj-sector__desc">{s.desc}</p>
-            <div class="pj-sector__stats">
-              {s.stats.map((st) => (
-                <div class="pj-sector__stat">
-                  <span class="pj-sector__stat-label">{st.label}</span>
-                  <span class="pj-sector__stat-value">{st.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   </section>
@@ -155,27 +90,7 @@ const bottomStats = [
     </div>
   </section>
 
-  <!-- ════════ 4. CASE STUDY ════════ -->
-  <section class="pj-case">
-    <div class="mnc">
-      <div class="pj-case__layout fade-up">
-        <div class="pj-case__left">
-          <span class="pj-tag">{featured.tag}</span>
-          <h2 class="pj-case__title">{featured.title} · <span class="pj-case__location">{featured.location}</span></h2>
-          <span class="pj-case__duration">{featured.duration}</span>
-          <p class="pj-case__desc">{featured.desc}</p>
-        </div>
-        <div class="pj-case__right">
-          <div class="pj-case__accent-card">
-            <h4 class="pj-case__accent-title">Innovation Lead</h4>
-            <p class="pj-case__accent-desc">Our R&D department has recently completed a testing phase for 100% recyclable partition composite materials for early industrial deployment.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ 5. PROJECT GRID ════════ -->
+  <!-- ════════ 4. PROJECT GRID ════════ -->
   <section class="pj-grid-section">
     <div class="mnc">
       <div class="pj-grid">
@@ -200,6 +115,11 @@ const bottomStats = [
 
 <style>
   .mnc { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Headings use Barlow only on this page (no Sora) */
+  h1, h2, h3, h4 {
+    font-family: var(--font-primary);
+  }
 
   .pj-tag {
     display: inline-flex;
@@ -319,114 +239,46 @@ const bottomStats = [
     margin: 0;
   }
 
-  /* ═══ 2. SECTORS ═══ */
-  .pj-sectors {
+  /* ═══ 2. CASE STUDY ═══ */
+  .pj-case {
     background: var(--white);
-    padding: 100px 0;
+    padding: 80px 0;
   }
 
-  .pj-sectors__head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 32px;
-    margin-bottom: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(0,0,0,.08);
+  .pj-case__layout {
+    max-width: 720px;
   }
 
-  .pj-sectors__title {
-    font-family: var(--font-secondary);
+  .pj-case__title {
+    font-family: var(--font-primary);
     font-size: clamp(24px, 3vw, 36px);
     font-weight: 800;
     color: var(--dark-text);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+    line-height: 1.2;
   }
 
-  .pj-sectors__sub {
-    font-size: 14px;
-    line-height: 1.6;
+  .pj-case__location {
     color: var(--text-gray);
-    max-width: 520px;
-    margin: 0;
+    font-weight: 400;
   }
 
-  .pj-sectors__badge {
-    flex-shrink: 0;
-    text-align: right;
-  }
-
-  .pj-sectors__badge-label {
-    font-family: var(--font-secondary);
-    font-size: 14px;
+  .pj-case__duration {
+    display: inline-block;
+    font-size: 13px;
     font-weight: 700;
-    color: var(--dark-text);
-    letter-spacing: 0.5px;
-  }
-
-  .pj-sectors__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  .pj-sector {
-    padding: 32px 28px;
-    border: 1px solid rgba(0,0,0,.06);
-    margin: -0.5px;
-    transition: box-shadow 0.3s ease;
-  }
-
-  .pj-sector:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,.06);
-    z-index: 1;
-    position: relative;
-  }
-
-  .pj-sector__icon {
-    color: var(--amber-dark);
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    padding: 4px 12px;
+    border-radius: 4px;
     margin-bottom: 16px;
   }
 
-  .pj-sector__title {
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 8px;
-  }
-
-  .pj-sector__desc {
-    font-size: 13px;
-    line-height: 1.55;
+  .pj-case__desc {
+    font-size: 14px;
+    line-height: 1.65;
     color: var(--text-gray);
-    margin-bottom: 24px;
-  }
-
-  .pj-sector__stats {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(0,0,0,.06);
-  }
-
-  .pj-sector__stat-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-gray);
-    margin-bottom: 2px;
-  }
-
-  .pj-sector__stat-value {
-    font-family: var(--font-secondary);
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--dark-text);
-    display: block;
+    margin: 0;
   }
 
   /* ═══ 3. FEATURED IMAGE ═══ */
@@ -460,7 +312,7 @@ const bottomStats = [
   }
 
   .pj-featured-img__card-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 14px;
     font-weight: 700;
     color: var(--dark-text);
@@ -490,75 +342,7 @@ const bottomStats = [
     color: #2d9e5a;
   }
 
-  /* ═══ 4. CASE STUDY ═══ */
-  .pj-case {
-    background: var(--off-white);
-    padding: 0 0 80px;
-  }
-
-  .pj-case__layout {
-    display: grid;
-    grid-template-columns: 1fr 0.4fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .pj-case__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(24px, 3vw, 36px);
-    font-weight: 800;
-    color: var(--dark-text);
-    margin-bottom: 4px;
-    line-height: 1.2;
-  }
-
-  .pj-case__location {
-    color: var(--text-gray);
-    font-weight: 400;
-  }
-
-  .pj-case__duration {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    border: 1px solid var(--navy);
-    padding: 4px 12px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-  }
-
-  .pj-case__desc {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--text-gray);
-    margin: 0;
-  }
-
-  .pj-case__accent-card {
-    background: var(--amber);
-    padding: 28px 24px;
-    border-radius: 8px;
-  }
-
-  .pj-case__accent-title {
-    font-family: var(--font-secondary);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .pj-case__accent-desc {
-    font-size: 13px;
-    line-height: 1.55;
-    color: rgba(30,58,102,.7);
-    margin: 0;
-  }
-
-  /* ═══ 5. PROJECT GRID ═══ */
+  /* ═══ 4. PROJECT GRID ═══ */
   .pj-grid-section {
     background: var(--off-white);
     padding: 0 0 100px;
@@ -607,7 +391,7 @@ const bottomStats = [
   }
 
   .pj-card__title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 18px;
     font-weight: 700;
     color: var(--dark-text);
@@ -621,22 +405,14 @@ const bottomStats = [
     margin: 0;
   }
 
-  /* ═══ 6. STATS BANNER ═══ */
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 1024px) {
-    .pj-sectors__grid { grid-template-columns: repeat(2, 1fr); }
     .pj-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 900px) {
-    .pj-sectors__head { flex-direction: column; }
-    .pj-case__layout { grid-template-columns: 1fr; gap: 32px; }
   }
 
   @media (max-width: 768px) {
     .pj-hero { height: 380px; }
-    .pj-sectors { padding: 64px 0; }
-    .pj-sectors__grid { grid-template-columns: 1fr; }
+    .pj-case { padding: 64px 0; }
     .pj-grid { grid-template-columns: 1fr; }
     .pj-featured-img__card { display: none; }
   }
