@@ -20,7 +20,7 @@ const competencies = [
     title: 'Supply Chain Integration',
     desc: 'End-to-end integration from international procurement to last mile delivery. Our proprietary coordination system manages logistics for streamlining cost efficiency.',
     pills: ['Multi-Vendor OFFSEC', '<=45% Cycle Time'],
-    img: '/images/showcase/ri-commercial.jpg',
+    img: '/images/showcase/ri-un-ship-logistics.png',
     layout: 'text-right',
   },
   {
@@ -29,7 +29,7 @@ const competencies = [
     title: 'Custom Module Synthesis',
     desc: 'Purpose-built for each brief — we configure custom and standardized modules spanning commercial, healthcare, defense, and institutional applications with factory-level precision and consistency.',
     pills: ['Custom Build-Out', 'Lab Assemblies'],
-    img: '/images/showcase/west-factory.jpg',
+    img: '/images/showcase/ri-commercial-building.png',
     layout: 'text-left',
   },
 ];
@@ -135,28 +135,11 @@ const standards = [
     </div>
   </section>
 
-  <!-- ════════ 5. INTEGRATED STANDARDS ════════ -->
-  <section class="sv-standards">
-    <div class="mnc-container">
-      <div class="sv-standards__inner fade-up">
-        <h2 class="sv-standards__title">Integrated Standards</h2>
-        <div class="sv-standards__grid">
-          {standards.map((s) => (
-            <div class="sv-standards__item">
-              <div class="sv-standards__icon" set:html={s.icon} />
-              <span class="sv-standards__name">{s.title}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
 </Layout>
 
 <style>
-  .mnc-container { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+  .mnc-container { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* ═══ 1. HERO ═══ */
   .sv-hero {
@@ -176,7 +159,7 @@ const standards = [
 
   .sv-hero__content {
     position: relative;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 120px 1.5rem 60px;
     height: 100%;

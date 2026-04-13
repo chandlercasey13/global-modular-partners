@@ -14,6 +14,27 @@ const partners = [
   { name: 'Petra Engineering', logo: '/images/partners/petra-eng.png' },
 ];
 
+const isoCerts = [
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'ISO 9001',
+    subtitle: 'Quality Management',
+    desc: 'The cornerstone of our structural integrity, ensuring every component meets rigorous manufacturing governance and construction product standards.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5"/></svg>`,
+    title: 'ISO 14001',
+    subtitle: 'Environmental Standards',
+    desc: 'Zero-impact modular engineering through sustainable manufacturing, waste reduction, and pollution prevention — supported by a fully audited environmental framework.',
+  },
+  {
+    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 12c0 4.97 3.038 9.227 7.354 11.016.34.141.652.213.966.236L12 23.25l.582.006c.314-.023.626-.095.966-.236C17.962 21.227 21 16.97 21 12c0-1.047-.134-2.063-.382-3.016z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: 'ISO 45001',
+    subtitle: 'Occupational Health & Safety',
+    desc: 'A zero-harm operational culture supported by continuous training, real-time monitoring, and proactive risk assessment practices across all project environments.',
+  },
+];
+
 const caseStudies = [
   {
     tag: 'Multi-Unit Residential',
@@ -21,7 +42,7 @@ const caseStudies = [
     desc: 'Collaborating with 4 independent specialized contractors to deploy 120 modular units in 18 weeks. Precision logistics integration reduced on-site waste by 45%.',
     value: '$24M',
     location: 'Odessa, TX',
-    img: '/images/showcase/ri-commercial.jpg',
+    img: '/images/showcase/ri-permanent-building-wide.png',
   },
   {
     tag: 'Healthcare Infrastructure',
@@ -30,6 +51,37 @@ const caseStudies = [
     value: '',
     location: '',
     img: '/images/showcase/hwb-modular-pediatric.jpeg',
+  },
+];
+
+const affiliatedEntities = [
+  {
+    name: 'RI Group USA',
+    logo: '/images/partners/ri-group.png',
+    focus: 'Manufacturing & International Supply Chain',
+    desc: 'International modular construction and manufacturing. Parent company based in Lecce, Italy with global project delivery capability across Europe, the Middle East, and North America.',
+    link: '/partners',
+  },
+  {
+    name: 'Hospitals Without Borders',
+    logo: '/images/partners/hwb.svg',
+    focus: 'Deployable Medical Infrastructure',
+    desc: 'Deployable modular medical infrastructure for humanitarian and emergency response settings. Headquartered in Oakland, CA with active operations in Rome, Italy and Amman, Jordan.',
+    link: '/partners',
+  },
+  {
+    name: 'Agbayani Construction',
+    logo: '/images/partners/agbayani-real.png',
+    focus: 'Civil & Modular General Contracting',
+    desc: 'Civil and modular general contracting services, headquartered in Daly City, CA with active operations across the Bay Area and Western United States.',
+    link: '/partners',
+  },
+  {
+    name: 'EDIS USA',
+    logo: '/images/partners/edis.png',
+    focus: 'Emergency Management & Preparedness',
+    desc: 'Early warning systems and disaster preparedness technology for emergency management agencies. Supporting resilience infrastructure across government and civilian sectors.',
+    link: '/partners',
   },
 ];
 
@@ -65,7 +117,34 @@ const contacts = [
     </div>
   </section>
 
-  <!-- ════════ 2. STRATEGIC ALLIANCES ════════ -->
+  <!-- ════════ 2. AFFILIATED ENTITIES ════════ -->
+  <section class="pt-entities">
+    <div class="mnc-container">
+      <div class="pt-entities__head fade-up">
+        <span class="pt-tag">Partner Network</span>
+        <h2 class="pt-entities__title">Affiliated Entities</h2>
+        <p class="pt-entities__sub">
+          Global Modular Partners operates through a structured network of specialized affiliated entities — each bringing distinct expertise in manufacturing, civil contracting, healthcare infrastructure, and emergency management.
+        </p>
+      </div>
+      <div class="pt-entities__grid">
+        {affiliatedEntities.map((e) => (
+          <div class="pt-entity fade-up">
+            <div class="pt-entity__logo-wrap">
+              <img src={e.logo} alt={e.name} class="pt-entity__logo" loading="lazy" />
+            </div>
+            <div class="pt-entity__body">
+              <h3 class="pt-entity__name">{e.name}</h3>
+              <span class="pt-entity__focus">{e.focus}</span>
+              <p class="pt-entity__desc">{e.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 3. STRATEGIC ALLIANCES ════════ -->
   <section class="pt-alliances">
     <div class="mnc-container">
       <div class="pt-alliances__top fade-up">
@@ -114,39 +193,25 @@ const contacts = [
     </div>
   </section>
 
-  <!-- ════════ 4. PROTOCOL ════════ -->
-  <section class="pt-protocol">
+  <!-- ════════ 4. ISO CERTIFICATIONS ════════ -->
+  <section class="pt-iso">
     <div class="mnc-container">
-      <div class="pt-protocol__layout fade-up">
-        <div class="pt-protocol__left">
-          <h2 class="pt-protocol__title">The Protocol of<br/>Collaboration</h2>
-
-          <div class="pt-protocol__steps">
-            {protocols.map((p) => (
-              <div class="pt-protocol__step">
-                <span class="pt-protocol__num">{p.num}.</span>
-                <div>
-                  <h4 class="pt-protocol__step-title">{p.title}</h4>
-                  <p class="pt-protocol__step-desc">{p.desc}</p>
-                </div>
-              </div>
-            ))}
+      <div class="pt-iso__head fade-up">
+        <span class="pt-tag">Quality Standards</span>
+        <h2 class="pt-iso__title">ISO Certifications</h2>
+        <p class="pt-iso__sub">
+          Our operational governance is guided by globally recognized quality, environmental, and safety management systems — ensuring industrial precision and compliance across every project we support.
+        </p>
+      </div>
+      <div class="pt-iso__grid">
+        {isoCerts.map((cert) => (
+          <div class="pt-iso__card fade-up">
+            <div class="pt-iso__card-icon" set:html={cert.icon} />
+            <h3 class="pt-iso__card-title">{cert.title}</h3>
+            <span class="pt-iso__card-sub">{cert.subtitle}</span>
+            <p class="pt-iso__card-desc">{cert.desc}</p>
           </div>
-        </div>
-
-        <div class="pt-protocol__right">
-          <div class="pt-protocol__directory">
-            <h4 class="pt-protocol__dir-title">Corporate Inquiry Directory</h4>
-            <div class="pt-protocol__contacts">
-              {contacts.map((c) => (
-                <div class="pt-protocol__contact">
-                  <span class="pt-protocol__contact-label">{c.label}</span>
-                  <a href={`mailto:${c.email}`} class="pt-protocol__contact-email">{c.email}</a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -155,7 +220,7 @@ const contacts = [
 </Layout>
 
 <style>
-  .mnc-container { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+  .mnc-container { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
 
   .pt-tag {
     display: inline-flex;
@@ -211,7 +276,7 @@ const contacts = [
   .pt-hero__content {
     position: relative;
     z-index: 2;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 120px 1.5rem 60px;
     height: 100%;
@@ -257,7 +322,7 @@ const contacts = [
   /* ═══ 2. ALLIANCES ═══ */
   .pt-alliances {
     background: var(--white);
-    padding: 100px 0;
+    padding: 56px 0;
   }
 
   .pt-alliances__top {
@@ -320,7 +385,7 @@ const contacts = [
   /* ═══ 3. CASE STUDIES ═══ */
   .pt-cases {
     background: var(--off-white);
-    padding: 100px 0;
+    padding: 56px 0;
   }
 
   .pt-cases__head {
@@ -414,109 +479,176 @@ const contacts = [
     margin-bottom: 2px;
   }
 
-  /* ═══ 4. PROTOCOL ═══ */
-  .pt-protocol {
+  /* ═══ 2. AFFILIATED ENTITIES ═══ */
+  .pt-entities {
     background: var(--white);
-    padding: 100px 0;
+    padding: 56px 0;
   }
 
-  .pt-protocol__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
+  .pt-entities__head {
+    margin-bottom: 56px;
+    max-width: 720px;
   }
 
-  .pt-protocol__title {
+  .pt-entities__title {
     font-family: var(--font-secondary);
     font-size: clamp(28px, 3.5vw, 44px);
     font-weight: 700;
     color: var(--dark-text);
-    line-height: 1.15;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
   }
 
-  .pt-protocol__steps {
+  .pt-entities__sub {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-gray);
+    margin: 0;
+  }
+
+  .pt-entities__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .pt-entity {
+    background: var(--off-white);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .pt-entity:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,.1);
+    transform: translateY(-4px);
+  }
+
+  .pt-entity__logo-wrap {
+    height: 120px;
     display: flex;
-    flex-direction: column;
-    gap: 28px;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,.05);
   }
 
-  .pt-protocol__step {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
+  .pt-entity__logo {
+    max-width: 100%;
+    max-height: 72px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(0.8);
+    transition: filter 0.3s ease;
   }
 
-  .pt-protocol__num {
-    font-family: var(--font-secondary);
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--amber);
-    flex-shrink: 0;
-    line-height: 1.2;
+  .pt-entity:hover .pt-entity__logo {
+    filter: grayscale(0) brightness(1);
   }
 
-  .pt-protocol__step-title {
+  .pt-entity__body {
+    padding: 24px;
+  }
+
+  .pt-entity__name {
     font-family: var(--font-secondary);
     font-size: 16px;
     font-weight: 700;
     color: var(--dark-text);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
-  .pt-protocol__step-desc {
-    font-size: 14px;
+  .pt-entity__focus {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 12px;
+  }
+
+  .pt-entity__desc {
+    font-size: 13px;
     line-height: 1.6;
     color: var(--text-gray);
     margin: 0;
   }
 
-  .pt-protocol__directory {
-    background: var(--navy);
-    border-radius: 8px;
-    padding: 36px 32px;
+  /* ═══ 3. ISO CERTIFICATIONS ═══ */
+  .pt-iso {
+    background: var(--off-white);
+    padding: 56px 0;
   }
 
-  .pt-protocol__dir-title {
+  .pt-iso__head {
+    margin-bottom: 48px;
+  }
+
+  .pt-iso__title {
     font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 800;
+    color: var(--dark-text);
+    margin-bottom: 12px;
+  }
+
+  .pt-iso__sub {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-gray);
+    max-width: 640px;
+    margin: 0;
+  }
+
+  .pt-iso__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .pt-iso__card {
+    padding: 36px 32px;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,.06);
+    margin: -0.5px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .pt-iso__card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,.06);
+    z-index: 1;
+    position: relative;
+  }
+
+  .pt-iso__card-icon {
+    color: var(--amber-dark);
+    margin-bottom: 16px;
+  }
+
+  .pt-iso__card-title {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--dark-text);
+    margin-bottom: 4px;
+  }
+
+  .pt-iso__card-sub {
+    display: block;
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.4);
-    margin-bottom: 28px;
-  }
-
-  .pt-protocol__contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .pt-protocol__contact {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .pt-protocol__contact-label {
-    font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: rgba(255,255,255,.35);
+    color: var(--text-gray);
+    margin-bottom: 16px;
   }
 
-  .pt-protocol__contact-email {
-    font-size: 15px;
-    color: var(--amber);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .pt-protocol__contact-email:hover {
-    color: var(--white);
+  .pt-iso__card-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin: 0;
   }
 
   /* ═══ RESPONSIVE ═══ */
@@ -534,10 +666,8 @@ const contacts = [
       grid-template-columns: 1fr;
     }
 
-    .pt-protocol__layout {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
+    .pt-iso__grid { grid-template-columns: 1fr; }
+    .pt-entities__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 768px) {
@@ -545,8 +675,12 @@ const contacts = [
 
     .pt-alliances,
     .pt-cases,
-    .pt-protocol {
-      padding: 64px 0;
+    .pt-iso,
+    .pt-entities {
+      padding: 40px 0;
     }
+
+    .pt-iso__grid { grid-template-columns: 1fr; }
+    .pt-entities__grid { grid-template-columns: 1fr; }
   }
 </style>

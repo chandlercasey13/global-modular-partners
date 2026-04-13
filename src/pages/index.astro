@@ -194,80 +194,79 @@ const partners = [
 
   <!-- ════════ ABOUT STRIP ════════ -->
   <section class="hp-about">
-    <div class="mnc-container">
-      <div class="hp-about__layout fade-up">
-        <div class="hp-about__left">
-          <span class="section-tag">About GMP</span>
-          <h2 class="section-title">Modular by Design.<br/>Global by Nature.</h2>
-          <p class="hp-about__desc">
-            For five years, Global Modular Partners has positioned itself as the definitive force in modern modular construction. What began as a specialized joint venture has evolved into the global hub of modular engineering — selecting the right team for each project based on location, scope, and compliance requirements. With over 40 projects delivered across three continents and 2,400+ modular units produced, GMP coordinates end-to-end solutions spanning structural engineering, factory fabrication, supply chain logistics, and on-site deployment. Our partner network brings together specialists in steel construction, healthcare infrastructure, civil contracting, and early warning systems — all operating under a unified quality and compliance framework.
-          </p>
-          <a href="/about" class="hp-about__link">
-            Learn more about GMP
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-        <div class="hp-about__right">
-          <img src="/images/showcase/ri-factory-panorama.jpg" alt="GMP modular factory" class="hp-about__img" loading="lazy" />
-        </div>
+    <div class="hp-about__text-col slide-in-left">
+      <div class="hp-about__text-inner">
+        <span class="section-tag">About GMP</span>
+        <h2 class="section-title">Modular by Design.<br/>Global by Nature.</h2>
+        <p class="hp-about__desc">
+          For five years, Global Modular Partners has positioned itself as the definitive force in modern modular construction. What began as a specialized joint venture has evolved into the global hub of modular engineering — selecting the right team for each project based on location, scope, and compliance requirements. With over 40 projects delivered across three continents and 2,400+ modular units produced, GMP coordinates end-to-end solutions spanning structural engineering, factory fabrication, supply chain logistics, and on-site deployment. Our partner network brings together specialists in steel construction, healthcare infrastructure, civil contracting, and early warning systems — all operating under a unified quality and compliance framework.
+        </p>
+        <a href="/about" class="hp-about__link">
+          Learn more about GMP
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
+    </div>
+    <div class="hp-about__img-col slide-in-right">
+      <img src="/images/showcase/ri-commercial-building.png" alt="Modular commercial construction" class="hp-about__img" loading="lazy" />
     </div>
   </section>
 
   <!-- ════════ GLOBAL NETWORK MAP ════════ -->
-  <section class="netmap section-gap">
-    <div class="mnc-container">
-      <div class="netmap__layout fade-up">
-        <div class="netmap__left">
-          <h2 class="section-title netmap__title">Our Integrated<br/>Global Network.</h2>
-
-          <div class="netmap__hubs">
-            <div class="netmap__hub">
-              <span class="netmap__hub-line"></span>
-              <div>
-                <h4 class="netmap__hub-title">Agbayani Construction</h4>
-                <p class="netmap__hub-desc">Civil &amp; modular general contracting. Headquartered in Daly City, CA with operations across the Bay Area.</p>
-              </div>
-            </div>
-            <div class="netmap__hub">
-              <span class="netmap__hub-line"></span>
-              <div>
-                <h4 class="netmap__hub-title">RI Group USA</h4>
-                <p class="netmap__hub-desc">International modular construction and manufacturing. Parent company based in Lecce, Italy with global project delivery.</p>
-              </div>
-            </div>
-            <div class="netmap__hub">
-              <span class="netmap__hub-line"></span>
-              <div>
-                <h4 class="netmap__hub-title">Hospitals Without Borders</h4>
-                <p class="netmap__hub-desc">Deployable modular medical infrastructure. HQ in Oakland, CA with European operations in Rome, Italy.</p>
-              </div>
-            </div>
-            <div class="netmap__hub">
-              <span class="netmap__hub-line"></span>
-              <div>
-                <h4 class="netmap__hub-title">EDIS USA</h4>
-                <p class="netmap__hub-desc">Early warning systems and disaster preparedness technology for emergency management agencies.</p>
-              </div>
-            </div>
-          </div>
+  <section class="netmap">
+    <div class="netmap__img-col slide-in-left">
+      <div class="netmap__map-wrap">
+        <div class="netmap__badge">
+          <span class="netmap__badge-dot"></span>
+          Active Hubs: 8 Locations
         </div>
-
-        <div class="netmap__right">
-          <div class="netmap__badge">
-            <span class="netmap__badge-dot"></span>
-            Active Hubs: 8 Locations
-          </div>
-          <div id="network-map" class="netmap__map"></div>
-        </div>
+        <div id="network-map" class="netmap__map"></div>
       </div>
-      <div class="netmap__partners">
-        <span class="netmap__partners-label">Trade Partners</span>
-        <div class="details__marquee-track">
-          <div class="details__marquee">
-            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
-            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
-            {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+    </div>
+    <div class="netmap__text-col slide-in-right">
+      <div class="netmap__text-inner">
+        <span class="section-tag">Global Network</span>
+        <h2 class="section-title netmap__title">Our Integrated<br/>Global Network.</h2>
+
+        <div class="netmap__hubs">
+          <div class="netmap__hub">
+            <span class="netmap__hub-line"></span>
+            <div>
+              <h4 class="netmap__hub-title">Agbayani Construction</h4>
+              <p class="netmap__hub-desc">Civil &amp; modular general contracting. Headquartered in Daly City, CA with operations across the Bay Area.</p>
+            </div>
+          </div>
+          <div class="netmap__hub">
+            <span class="netmap__hub-line"></span>
+            <div>
+              <h4 class="netmap__hub-title">RI Group USA</h4>
+              <p class="netmap__hub-desc">International modular construction and manufacturing. Parent company based in Lecce, Italy with global project delivery.</p>
+            </div>
+          </div>
+          <div class="netmap__hub">
+            <span class="netmap__hub-line"></span>
+            <div>
+              <h4 class="netmap__hub-title">Hospitals Without Borders</h4>
+              <p class="netmap__hub-desc">Deployable modular medical infrastructure. HQ in Oakland, CA with European operations in Rome, Italy.</p>
+            </div>
+          </div>
+          <div class="netmap__hub">
+            <span class="netmap__hub-line"></span>
+            <div>
+              <h4 class="netmap__hub-title">EDIS USA</h4>
+              <p class="netmap__hub-desc">Early warning systems and disaster preparedness technology for emergency management agencies.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="netmap__partners">
+          <span class="netmap__partners-label">Trade Partners</span>
+          <div class="details__marquee-track">
+            <div class="details__marquee">
+              {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+              {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+              {partners.map((p) => <span class="details__partner"><img src={p.logo} alt={p.name} loading="lazy" /></span>)}
+            </div>
           </div>
         </div>
       </div>
@@ -353,7 +352,7 @@ const partners = [
       </div>
 
       <div class="advantage__cards">
-        <div class="advantage__card fade-up">
+        <div class="advantage__card slide-in-up" style="--delay: 0s">
           <img src="/images/showcase/west-blvd-render.jpg" alt="Precision engineering" class="advantage__card-img" loading="lazy" />
           <div class="advantage__card-overlay"></div>
           <div class="advantage__card-body">
@@ -362,8 +361,8 @@ const partners = [
             <p class="advantage__card-desc">Advanced BIM coordination and structural analysis — designed for factory fabrication and rapid on-site assembly.</p>
           </div>
         </div>
-        <div class="advantage__card fade-up">
-          <img src="/images/showcase/ri-factory-panorama.jpg" alt="Modular fabrication" class="advantage__card-img" loading="lazy" />
+        <div class="advantage__card slide-in-up" style="--delay: 0.15s">
+          <img src="/images/showcase/ri-legacy-about.jpg" alt="Modular fabrication" class="advantage__card-img" loading="lazy" />
           <div class="advantage__card-overlay"></div>
           <div class="advantage__card-body">
             <span class="advantage__card-num">02</span>
@@ -371,8 +370,8 @@ const partners = [
             <p class="advantage__card-desc">Modules built in controlled factories — up to 60% faster with tighter tolerances and dramatically less waste.</p>
           </div>
         </div>
-        <div class="advantage__card fade-up">
-          <img src="/images/showcase/ri-modular-units.jpg" alt="Integrated logistics" class="advantage__card-img" loading="lazy" />
+        <div class="advantage__card slide-in-up" style="--delay: 0.3s">
+          <img src="/images/showcase/ri-steel-frame-hills.png" alt="Modular structural engineering" class="advantage__card-img" loading="lazy" />
           <div class="advantage__card-overlay"></div>
           <div class="advantage__card-body">
             <span class="advantage__card-num">03</span>
@@ -385,15 +384,6 @@ const partners = [
     </div>
   </section>
 
-  <!-- ════════ FACILITY STAT BANNER ════════ -->
-  <section class="hp-facility">
-    <img src="/images/showcase/ri-factory-panorama.jpg" alt="GMP manufacturing facility" class="hp-facility__img" loading="lazy" />
-    <div class="hp-facility__overlay"></div>
-    <div class="hp-facility__content fade-up">
-      <h2 class="hp-facility__stat">500,000<br/>Sq. Ft.<br/>Facility</h2>
-      <p class="hp-facility__desc">Combined manufacturing capacity across our partner network — automated production lines, quality labs, and staging areas delivering turnkey modular components at scale.</p>
-    </div>
-  </section>
 
   <!-- ════════ 3. OUR WORK & REACH SECTION ════════ -->
   <section class="reach section-gap">
@@ -406,29 +396,29 @@ const partners = [
       </h2>
 
       <div class="reach__grid">
-        <a href="/departments#modular" class="reach__card fade-up">
+        <a href="/departments#modular" class="reach__card slide-in-up" style="--delay: 0s">
           <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential" class="reach__card-img" loading="lazy" />
           <div class="reach__card-overlay">
             <span class="reach__card-tag">Modular</span>
             <span class="reach__card-title">West Blvd Residential</span>
           </div>
         </a>
-        <a href="/departments#healthcare" class="reach__card fade-up">
+        <a href="/departments#healthcare" class="reach__card slide-in-up" style="--delay: 0.1s">
           <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="reach__card-img" loading="lazy" />
           <div class="reach__card-overlay">
             <span class="reach__card-tag">Healthcare</span>
             <span class="reach__card-title">Pediatric Clinic</span>
           </div>
         </a>
-        <a href="/departments#civil" class="reach__card fade-up">
-          <img src="/images/showcase/ri-defense.jpg" alt="RI Group defense compound" class="reach__card-img" loading="lazy" />
+        <a href="/departments#civil" class="reach__card slide-in-up" style="--delay: 0.2s">
+          <img src="/images/showcase/ri-defense-base.png" alt="RI Group defense compound" class="reach__card-img" loading="lazy" />
           <div class="reach__card-overlay">
             <span class="reach__card-tag">Defense</span>
             <span class="reach__card-title">Military Compound</span>
           </div>
         </a>
-        <a href="/departments#modular" class="reach__card fade-up">
-          <img src="/images/showcase/west-factory.jpg" alt="West Modular factory floor" class="reach__card-img" loading="lazy" />
+        <a href="/departments#modular" class="reach__card slide-in-up" style="--delay: 0.3s">
+          <img src="/images/showcase/ri-factory-production.jpg" alt="Factory production modular units" class="reach__card-img" loading="lazy" />
           <div class="reach__card-overlay">
             <span class="reach__card-tag">Manufacturing</span>
             <span class="reach__card-title">Factory Production</span>
@@ -449,13 +439,13 @@ const partners = [
 
   /* ── Shared layout tokens ── */
   .mnc-container {
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
   .section-gap {
-    padding: 80px 0;
+    padding: 64px 0;
   }
 
   /* ── Section Tag (pill) ── */
@@ -642,7 +632,7 @@ const partners = [
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 1.5rem;
     pointer-events: none;
@@ -781,14 +771,22 @@ const partners = [
 
   /* ════════ ABOUT STRIP ════════ */
   .hp-about {
-    padding: 80px 0;
-    background: var(--white);
-  }
-  .hp-about__layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
+    min-height: 520px;
+  }
+  .hp-about__text-col {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding-left: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
+  }
+  .hp-about__text-inner {
+    padding: 60px 48px 60px 0;
+    max-width: 680px;
+  }
+  .hp-about .section-title {
+    color: #111;
   }
   .hp-about__desc {
     font-size: 16px;
@@ -812,26 +810,29 @@ const partners = [
   .hp-about__link:hover { gap: 12px; }
   .hp-about__link svg { flex-shrink: 0; }
 
-  .hp-about__right {
+  .hp-about__img-col {
     position: relative;
     overflow: hidden;
-    border-radius: 6px;
+    padding-right: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
   }
   .hp-about__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    min-height: 320px;
   }
 
   @media (max-width: 768px) {
-    .hp-about { padding: 56px 0; }
-    .hp-about__layout {
+    .hp-about {
       grid-template-columns: 1fr;
-      gap: 40px;
+      min-height: auto;
     }
-    .hp-about__img { min-height: 240px; }
+    .hp-about__text-inner {
+      padding: 48px 32px;
+      max-width: none;
+      margin-left: 0;
+    }
+    .hp-about__img-col { height: 300px; }
   }
 
   /* ════════ 2. ADVANTAGE ════════ */
@@ -844,7 +845,7 @@ const partners = [
     grid-template-columns: 1fr 1fr;
     gap: 28px;
     align-items: start;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
   }
 
   .advantage__title {
@@ -863,7 +864,7 @@ const partners = [
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    margin-bottom: 80px;
+    margin-bottom: 0;
   }
 
   .advantage__card {
@@ -990,24 +991,40 @@ const partners = [
 
   /* ════════ 3. GLOBAL NETWORK MAP ════════ */
   .netmap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
     background-color: var(--off-white);
   }
 
-  .netmap__layout {
-    display: grid;
-    grid-template-columns: 0.4fr 0.6fr;
-    gap: 48px;
-    align-items: start;
+  .netmap__img-col {
+    position: relative;
+    overflow: hidden;
+    padding-left: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
   }
 
-  .netmap__left {
+  .netmap__map-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+  }
+
+  .netmap__text-col {
     display: flex;
-    flex-direction: column;
-    gap: 36px;
+    align-items: center;
+    padding-right: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
+    background: var(--white);
+  }
+
+  .netmap__text-inner {
+    padding: 60px 0 60px 48px;
+    max-width: 680px;
   }
 
   .netmap__title {
-    margin: 0;
+    margin: 0 0 32px;
+    color: #111;
   }
 
   .netmap__hubs {
@@ -1048,14 +1065,6 @@ const partners = [
     line-height: 1.6;
     color: var(--text-gray);
     margin: 0;
-  }
-
-  .netmap__right {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 16 / 10;
-    border: 1px solid rgba(0,0,0,.08);
   }
 
   .netmap__map {
@@ -1133,12 +1142,22 @@ const partners = [
   }
 
   @media (max-width: 900px) {
-    .netmap__layout {
+    .netmap {
       grid-template-columns: 1fr;
+      min-height: auto;
     }
 
-    .netmap__right {
-      aspect-ratio: 16 / 9;
+    .netmap__map-wrap {
+      min-height: 300px;
+    }
+
+    .netmap__text-col {
+      padding-right: 1.5rem;
+    }
+
+    .netmap__text-inner {
+      padding: 48px 0 48px 1.5rem;
+      max-width: none;
     }
   }
 
@@ -1148,6 +1167,7 @@ const partners = [
     position: relative;
     min-height: 420px;
     display: flex;
+    background: var(--navy);
     align-items: center;
     overflow: hidden;
   }
@@ -1171,7 +1191,7 @@ const partners = [
   .hp-facility__content {
     position: relative;
     z-index: 2;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 80px 1.5rem;
     width: 100%;
@@ -1206,9 +1226,9 @@ const partners = [
   }
 
   /* ════════ 4. REACH ════════ */
-  .reach { background-color: var(--white); }
-  .reach__head { margin-bottom: 32px; }
-  .reach__title { max-width: 900px; margin: 0 0 64px; }
+  .reach { background-color: var(--white); padding-top: 0; }
+  .reach__head { margin-bottom: 16px; }
+  .reach__title { max-width: 900px; margin: 0 0 40px; }
 
   .reach__grid {
     display: grid;

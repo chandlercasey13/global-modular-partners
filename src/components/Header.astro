@@ -15,7 +15,6 @@ const navItems = [
   },
   { href: '/services', label: 'Services' },
   { href: '/partners', label: 'Partners' },
-  { href: '/credentials', label: 'Credentials' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -148,7 +147,7 @@ function isActive(href?: string) {
 
   /* ── Block (the white bar) ── */
   .hdr-block {
-    padding: 12px max(1.5rem, calc((100% - 1240px) / 2 + 1.5rem));
+    padding: 12px max(1.5rem, calc((100% - 1440px) / 2 + 1.5rem));
     border: 1px solid transparent;
     border-radius: 0;
     background: transparent;
@@ -162,7 +161,7 @@ function isActive(href?: string) {
   }
 
   .hdr-section.scrolled .hdr-block {
-    padding: 12px max(1.5rem, calc((100% - 1240px) / 2 + 1.5rem));
+    padding: 12px max(1.5rem, calc((100% - 1440px) / 2 + 1.5rem));
     border-color: rgba(255, 255, 255, 0.08);
     background: rgba(43, 75, 126, 0.92);
     backdrop-filter: blur(16px) saturate(180%);

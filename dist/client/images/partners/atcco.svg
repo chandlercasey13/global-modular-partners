@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80">
-  <!-- Tower/pillar icon -->
-  <rect x="10" y="14" width="10" height="50" fill="#0a7e72" rx="2"/>
-  <rect x="24" y="22" width="10" height="42" fill="#0a7e72" opacity="0.7" rx="2"/>
-  <rect x="38" y="30" width="10" height="34" fill="#0a7e72" opacity="0.4" rx="2"/>
-  <!-- Name — strong caps -->
-  <text x="62" y="38" font-family="'Futura', 'Century Gothic', sans-serif" font-size="28" font-weight="700" fill="#0a7e72" letter-spacing="5">ATCCO</text>
-  <text x="62" y="56" font-family="'Futura', 'Century Gothic', sans-serif" font-size="10" font-weight="400" fill="#555" letter-spacing="4">CONTRACTING CO.</text>
-</svg>

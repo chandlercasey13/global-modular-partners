@@ -61,7 +61,7 @@ const projects = [
     tag: 'Project / Defense',
     title: 'Forward Operations Compound',
     desc: 'Rapid deployment of 200,000 sf of facilities across demanding operational conditions.',
-    img: '/images/showcase/ri-defense.jpg',
+    img: '/images/showcase/ri-defense-base.png',
   },
   {
     tag: 'Project / Healthcare',
@@ -133,7 +133,7 @@ const bottomStats = [
   <section class="pj-featured-img">
     <div class="mnc">
       <div class="pj-featured-img__wrap fade-up">
-        <img src="/images/showcase/west-factory.jpg" alt="Factory interior" loading="lazy" />
+        <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Modular civil compound" loading="lazy" />
         <div class="pj-featured-img__card">
           <h4 class="pj-featured-img__card-title">■ Digital Archive</h4>
           <div class="pj-featured-img__card-rows">
@@ -195,25 +195,11 @@ const bottomStats = [
     </div>
   </section>
 
-  <!-- ════════ 6. STATS BANNER ════════ -->
-  <section class="pj-stats">
-    <div class="mnc">
-      <div class="pj-stats__grid">
-        {bottomStats.map((s) => (
-          <div class="pj-stats__item">
-            <span class="pj-stats__num">{s.value}</span>
-            <span class="pj-stats__label">{s.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
 </Layout>
 
 <style>
-  .mnc { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+  .mnc { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
 
   .pj-tag {
     display: inline-flex;
@@ -305,7 +291,7 @@ const bottomStats = [
   .pj-hero__content {
     position: relative;
     z-index: 3;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 120px 1.5rem 60px;
     height: 100%;
@@ -636,38 +622,6 @@ const bottomStats = [
   }
 
   /* ═══ 6. STATS BANNER ═══ */
-  .pj-stats {
-    background: var(--navy);
-    padding: 64px 0;
-  }
-
-  .pj-stats__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  .pj-stats__item {
-    text-align: center;
-  }
-
-  .pj-stats__num {
-    font-family: var(--font-secondary);
-    font-size: 40px;
-    font-weight: 900;
-    color: var(--amber);
-    display: block;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .pj-stats__label {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.45);
-  }
-
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 1024px) {
     .pj-sectors__grid { grid-template-columns: repeat(2, 1fr); }
@@ -684,7 +638,6 @@ const bottomStats = [
     .pj-sectors { padding: 64px 0; }
     .pj-sectors__grid { grid-template-columns: 1fr; }
     .pj-grid { grid-template-columns: 1fr; }
-    .pj-stats__grid { grid-template-columns: 1fr; gap: 24px; }
     .pj-featured-img__card { display: none; }
   }
 </style>
