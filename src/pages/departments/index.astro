@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import PageCTA from '../../components/PageCTA.astro';
 ---
 
 <Layout
@@ -13,6 +14,8 @@ import Footer from '../../components/Footer.astro';
   <!-- ════════ HERO ════════ -->
   <section class="dp-hero">
     <div class="dp-hero__panel">
+      <canvas id="departments-hero-3d" class="dp-hero__canvas" aria-hidden="true"></canvas>
+      <span class="dp-hero__canvas-tag" aria-hidden="true">Five Divisions · One Core</span>
       <div class="dp-hero__content">
         <h1 class="dp-hero__h1">Operational<br/>Departments</h1>
         <p class="dp-hero__sub">Five core divisions driving modular excellence — from construction and project management to defense, healthcare, and civil infrastructure.</p>
@@ -176,6 +179,203 @@ import Footer from '../../components/Footer.astro';
     </div>
   </section>
 
+  <PageCTA
+    eyebrow="Zoom out"
+    title="The departments are only<br/>half the story."
+    image="/images/showcase/ri-commercial-building.png"
+    links={[
+      { label: 'About GMP', href: '/about' },
+      { label: 'Our Projects', href: '/projects' },
+    ]}
+  />
+
+  <script>
+    // ───────────────────────────────────────────────────────────────
+    // DEPARTMENTS — hero 3D: "Five Divisions · One Core"
+    // A central vertical spine with five modular units orbiting around
+    // it at fixed angular spacing. Each module carries a subtle accent
+    // colour cue for its division. The ring rotates slowly; each
+    // module also bobs slightly on its own phase.
+    // ───────────────────────────────────────────────────────────────
+    import * as THREE from 'three';
+
+    const canvas = document.getElementById('departments-hero-3d') as HTMLCanvasElement | null;
+    if (canvas) {
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+      camera.position.set(7.4, 4.4, 9.6);
+      camera.lookAt(0, 0.8, 0);
+
+      // Shared wireframe materials (homepage style)
+      const occluderMat = new THREE.MeshBasicMaterial({
+        colorWrite: false,
+        depthWrite: true,
+        depthTest: true,
+        side: THREE.DoubleSide,
+        polygonOffset: true,
+        polygonOffsetFactor: 1,
+        polygonOffsetUnits: 1,
+      });
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.92,
+        depthTest: true,
+        depthWrite: false,
+        polygonOffset: true,
+        polygonOffsetFactor: -1,
+        polygonOffsetUnits: -1,
+      });
+      function wire(geometry: THREE.BufferGeometry): THREE.Group {
+        const g = new THREE.Group();
+        const shell = new THREE.Mesh(geometry, occluderMat);
+        shell.renderOrder = 0;
+        const edges = new THREE.LineSegments(
+          new THREE.EdgesGeometry(geometry, 1),
+          lineMat,
+        );
+        edges.renderOrder = 1;
+        g.add(shell);
+        g.add(edges);
+        return g;
+      }
+
+      // Central spine: tall column + disc cap
+      const spineG = new THREE.Group();
+      const spine = wire(new THREE.CylinderGeometry(0.22, 0.22, 4.4, 24));
+      spine.position.y = 1.8;
+      spineG.add(spine);
+      const spineAccentBands = [0.6, 1.8, 3.0];
+      spineAccentBands.forEach((y) => {
+        const band = wire(new THREE.CylinderGeometry(0.235, 0.235, 0.04, 24));
+        band.position.y = y;
+        spineG.add(band);
+      });
+      const cap = wire(new THREE.CylinderGeometry(0.38, 0.38, 0.16, 24));
+      cap.position.y = 4.08;
+      spineG.add(cap);
+      const capAccent = wire(new THREE.CylinderGeometry(0.4, 0.4, 0.05, 24));
+      capAccent.position.y = 4.18;
+      spineG.add(capAccent);
+      const base = wire(new THREE.CylinderGeometry(1.2, 1.2, 0.18, 32));
+      base.position.y = -0.41;
+      spineG.add(base);
+      const baseAccent = wire(new THREE.CylinderGeometry(1.25, 1.25, 0.04, 32));
+      baseAccent.position.y = -0.31;
+      spineG.add(baseAccent);
+      scene.add(spineG);
+
+      // Build a single division module
+      function makeModule() {
+        const g = new THREE.Group();
+        const w = 1.6, h = 1.0, d = 0.9;
+        const body = wire(new THREE.BoxGeometry(w, h, d));
+        g.add(body);
+        const belt = wire(new THREE.BoxGeometry(w + 0.02, 0.04, d + 0.02));
+        belt.position.y = -h / 2 + h * 0.4;
+        g.add(belt);
+        // Top cap
+        const topCap = wire(new THREE.BoxGeometry(w + 0.02, 0.06, d + 0.02));
+        topCap.position.y = h / 2 + 0.03;
+        g.add(topCap);
+        // Top rim
+        const topStripe = wire(new THREE.BoxGeometry(w + 0.04, 0.03, d + 0.04));
+        topStripe.position.y = h / 2 + 0.08;
+        g.add(topStripe);
+        // Vertical ribs front/back
+        for (let side = -1; side <= 1; side += 2) {
+          for (let i = 1; i <= 3; i++) {
+            const t = i / 4;
+            const rib = wire(new THREE.BoxGeometry(0.02, h * 0.78, 0.025));
+            rib.position.set(-w / 2 + t * w, 0, side * (d / 2 + 0.001));
+            g.add(rib);
+          }
+        }
+        // Corner posts
+        [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sz]) => {
+          const post = wire(new THREE.BoxGeometry(0.08, h + 0.1, 0.08));
+          post.position.set(sx * (w / 2), 0, sz * (d / 2));
+          g.add(post);
+        });
+        return g;
+      }
+
+      const ring = new THREE.Group();
+      scene.add(ring);
+
+      const modules: { group: THREE.Group; phase: number }[] = [];
+      const radius = 2.35;
+      for (let i = 0; i < 5; i++) {
+        const angle = (i / 5) * Math.PI * 2;
+        const m = makeModule();
+        m.position.set(Math.cos(angle) * radius, 1.1, Math.sin(angle) * radius);
+        m.rotation.y = -angle + Math.PI / 2;
+        ring.add(m);
+        modules.push({ group: m, phase: i * 1.25 });
+      }
+
+      // Light connectors from spine to each module (white wireframe tubes)
+      modules.forEach((m) => {
+        const barGeo = new THREE.CylinderGeometry(0.025, 0.025, radius - 0.9, 8);
+        const bar = new THREE.LineSegments(new THREE.EdgesGeometry(barGeo, 1), lineMat);
+        bar.position.copy(m.group.position);
+        bar.position.y = 1.1;
+        const dir = m.group.position.clone().setY(0).normalize();
+        const quat = new THREE.Quaternion().setFromUnitVectors(
+          new THREE.Vector3(0, 1, 0),
+          new THREE.Vector3(dir.x, 0, dir.z),
+        );
+        bar.quaternion.copy(quat);
+        const mid = m.group.position.clone().multiplyScalar(0.5);
+        bar.position.set(mid.x, 1.1, mid.z);
+        ring.add(bar);
+      });
+
+      function resize() {
+        if (!canvas) return;
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      const ro = new ResizeObserver(resize);
+      ro.observe(canvas);
+      window.addEventListener('resize', resize);
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let paused = false;
+      const io = new IntersectionObserver((entries) => {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.01 });
+      io.observe(canvas);
+
+      let t0 = performance.now();
+      function tick(now: number) {
+        const dt = (now - t0) / 1000;
+        t0 = now;
+        if (!paused) {
+          if (!reduced) {
+            ring.rotation.y += dt * 0.15;
+            spineG.rotation.y -= dt * 0.08;
+            const tSec = now * 0.001;
+            modules.forEach((m) => {
+              m.group.position.y = 1.1 + Math.sin(tSec + m.phase) * 0.08;
+            });
+          }
+          renderer.render(scene, camera);
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+  </script>
+
   <Footer slot="footer" />
 </Layout>
 
@@ -293,6 +493,46 @@ import Footer from '../../components/Footer.astro';
     color: rgba(255, 255, 255, 0.5);
     max-width: 520px;
     margin: 0;
+  }
+
+  /* 3D hero accent — five modules orbiting a central spine */
+  .dp-hero__canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(360px, 58%, 780px);
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    display: block;
+    touch-action: none;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+  }
+  .dp-hero__canvas-tag {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 4;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.55);
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(8, 16, 30, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  @media (max-width: 768px) {
+    .dp-hero__canvas,
+    .dp-hero__canvas-tag {
+      display: none;
+    }
   }
 
   /* ═══ SECTION SHELL ═══ */

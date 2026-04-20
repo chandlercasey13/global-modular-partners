@@ -1,6 +1,7 @@
 import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_DDZiRHkW.mjs';
 import 'piccolore';
-import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_C94D0yhW.mjs';
+import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_Q4DG1CQy.mjs';
+import { $ as $$PageCTA } from '../chunks/PageCTA_CgFyJN7i.mjs';
 /* empty css                                */
 export { renderers } from '../renderers.mjs';
 
@@ -56,12 +57,15 @@ Get updates
 <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-astro-cid-5kj6t6lp><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" data-astro-cid-5kj6t6lp></path></svg> </a> </div> </div> </div> </section>  <section id="articles" class="news-articles section-gap" data-astro-cid-5kj6t6lp> <div class="mnc-container" data-astro-cid-5kj6t6lp> <div class="news-articles__head" data-astro-cid-5kj6t6lp> <span class="section-tag" data-astro-cid-5kj6t6lp>Editorial</span> <h2 class="section-title" data-astro-cid-5kj6t6lp>Selected perspectives <span class="section-span" data-astro-cid-5kj6t6lp>for leaders in government and development</span></h2> </div> <div class="news-articles__grid" data-astro-cid-5kj6t6lp> ${articles.map((article) => renderTemplate`<article class="nc" data-astro-cid-5kj6t6lp> <div class="nc__img" data-astro-cid-5kj6t6lp> <div class="nc__img-shine" aria-hidden="true" data-astro-cid-5kj6t6lp></div> <span class="nc__date" data-astro-cid-5kj6t6lp>${article.date}</span> </div> <div class="nc__body" data-astro-cid-5kj6t6lp> <span class="nc__cat" data-astro-cid-5kj6t6lp>${article.category}</span> <div class="nc__divider" data-astro-cid-5kj6t6lp></div> <h3 class="nc__title" data-astro-cid-5kj6t6lp><a${addAttribute(article.href, "href")} data-astro-cid-5kj6t6lp>${article.title}</a></h3> <p class="nc__excerpt" data-astro-cid-5kj6t6lp>${article.excerpt}</p> <a${addAttribute(article.href, "href")} class="nc__more" data-astro-cid-5kj6t6lp>Read more &rarr;</a> </div> </article>`)} </div> </div> </section>  <section id="subscribe" class="news-subscribe section-gap" data-astro-cid-5kj6t6lp> <div class="mnc-container" data-astro-cid-5kj6t6lp> <div class="news-subscribe__panel" data-astro-cid-5kj6t6lp> <div class="news-subscribe__left" data-astro-cid-5kj6t6lp> <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);" data-astro-cid-5kj6t6lp>Subscribe for insights</h2> <p class="news-subscribe__desc" data-astro-cid-5kj6t6lp>
 Receive quarterly industry briefs, program announcements, and compliance-relevant
             updates. Tell us your sector—we'll tailor what you see.
-</p> </div> <div class="news-subscribe__right" data-astro-cid-5kj6t6lp> <a href="/contact" class="mnc-btn mnc-btn--dark" data-astro-cid-5kj6t6lp> <span class="mnc-btn__wrap" data-astro-cid-5kj6t6lp> <span data-astro-cid-5kj6t6lp>Subscribe via contact</span> <span class="mnc-btn__icon" data-astro-cid-5kj6t6lp><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-astro-cid-5kj6t6lp><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" data-astro-cid-5kj6t6lp></path></svg></span> </span> </a> <p class="news-subscribe__note" data-astro-cid-5kj6t6lp>
+</p> </div> <div class="news-subscribe__right" data-astro-cid-5kj6t6lp> <a href="/contact" class="al-btn-arrow" data-astro-cid-5kj6t6lp> <span data-astro-cid-5kj6t6lp>Subscribe via contact</span> <span class="al-btn-arrow__icon" aria-hidden="true" data-astro-cid-5kj6t6lp><svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-astro-cid-5kj6t6lp><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" data-astro-cid-5kj6t6lp></path></svg></span> </a> <p class="news-subscribe__note" data-astro-cid-5kj6t6lp>
 Prefer email? Use the contact form and mention "newsletter" in your message.
-</p> </div> </div> </div> </section>  `, "footer": ($$result2) => renderTemplate`${renderComponent($$result2, "Footer", $$Footer, { "slot": "footer", "data-astro-cid-5kj6t6lp": true })}`, "header": ($$result2) => renderTemplate`${renderComponent($$result2, "Header", $$Header, { "slot": "header", "data-astro-cid-5kj6t6lp": true })}` })} `;
-}, "/home/tylr/global-modular-partners/src/pages/news.astro", void 0);
+</p> </div> </div> </div> </section> ${renderComponent($$result2, "PageCTA", $$PageCTA, { "eyebrow": "More from GMP", "title": "If you're still here,<br/>here's where else to look.", "image": "/images/showcase/ri-legacy-about.jpg", "links": [
+    { label: "Our Projects", href: "/projects" },
+    { label: "About GMP", href: "/about" }
+  ], "data-astro-cid-5kj6t6lp": true })}  `, "footer": ($$result2) => renderTemplate`${renderComponent($$result2, "Footer", $$Footer, { "slot": "footer", "data-astro-cid-5kj6t6lp": true })}`, "header": ($$result2) => renderTemplate`${renderComponent($$result2, "Header", $$Header, { "slot": "header", "data-astro-cid-5kj6t6lp": true })}` })} `;
+}, "/Users/chandlercasey/SWE/global-modular-partners/src/pages/news.astro", void 0);
 
-const $$file = "/home/tylr/global-modular-partners/src/pages/news.astro";
+const $$file = "/Users/chandlercasey/SWE/global-modular-partners/src/pages/news.astro";
 const $$url = "/news";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({

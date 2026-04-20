@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
-import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_DYGjWb2W.mjs';
-import { manifest } from './manifest_Q1TZ7H8e.mjs';
+import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_DqUTpEgU.mjs';
+import { manifest } from './manifest_DYtw9ZQu.mjs';
 
 const serverIslandMap = new Map();;
 
@@ -34,8 +34,8 @@ const _manifest = Object.assign(manifest, {
 });
 const _args = {
     "mode": "standalone",
-    "client": "file:///home/tylr/global-modular-partners/dist/client/",
-    "server": "file:///home/tylr/global-modular-partners/dist/server/",
+    "client": "file:///Users/chandlercasey/SWE/global-modular-partners/dist/client/",
+    "server": "file:///Users/chandlercasey/SWE/global-modular-partners/dist/server/",
     "host": false,
     "port": 4321,
     "assets": "_astro",

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageCTA from '../components/PageCTA.astro';
 
 const topics = [
   'General Inquiry',
@@ -139,6 +140,16 @@ const topics = [
       </div>
     </div>
   </section>
+
+  <PageCTA
+    eyebrow="While you're here"
+    title="Poke around a bit —<br/>plenty of context is a few clicks away."
+    image="/images/showcase/west-factory.jpg"
+    links={[
+      { label: 'Our Projects', href: '/projects' },
+      { label: 'What We Do', href: '/services' },
+    ]}
+  />
 
   <Footer slot="footer" />
 </Layout>

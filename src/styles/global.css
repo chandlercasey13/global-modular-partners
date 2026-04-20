@@ -684,34 +684,47 @@ label {
 .text-muted { color: var(--muted); }
 
 /* Scroll-triggered animations */
+/* Section entrance animations — tuned to the same slow, smooth
+   "rise up from below" feel as the CTA panel. Travel distance and
+   duration are generous so sections land with weight. Individual
+   sections can still stagger via `--delay` inline. */
 .fade-up {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(60px);
+  transition:
+    opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0.05s);
 }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
 .slide-in-left {
   opacity: 0;
-  transform: translateX(-80px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--delay, 0s);
+  transform: translateX(-140px);
+  transition:
+    opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0.05s);
 }
 .slide-in-left.visible { opacity: 1; transform: translateX(0); }
 
 .slide-in-right {
   opacity: 0;
-  transform: translateX(80px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--delay, 0s);
+  transform: translateX(140px);
+  transition:
+    opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0.05s);
 }
 .slide-in-right.visible { opacity: 1; transform: translateX(0); }
 
 .slide-in-up {
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--delay, 0s);
+  transform: translateY(140px);
+  transition:
+    opacity 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0.05s);
 }
 .slide-in-up.visible { opacity: 1; transform: translateY(0); }
 

@@ -488,25 +488,43 @@ const partners = [
     }
   </script>
 
-  <!-- ════════ ABOUT MOSAIC ════════ -->
+  <!-- ════════ ABOUT ════════ -->
   <section class="hp-about">
     <div class="hp-about__panel">
+      <div class="hp-about__text fade-up">
+        <span class="section-tag">About GMP</span>
+        <h2 class="section-title hp-about__title hp-about__title--simple">
+          Built for global delivery,<br/>
+          measurable outcomes.
+        </h2>
+        <p class="hp-about__desc">
+          GMP coordinates engineering, production, and deployment for modular construction across three continents — delivering disciplined, measurable results for clients, partners, and communities.
+        </p>
+      </div>
+      <div class="hp-about__img-col fade-up">
+        <div class="hp-about__img-wrap">
+          <img src="/images/showcase/ri-modular-residential.png" alt="Modular residential delivery by GMP partners" class="hp-about__img" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ABOUT MOSAIC ════════ -->
+  <section class="hp-about hp-about--mosaic">
+    <div class="hp-about__panel">
       <div class="hp-about__head fade-up">
-        <span class="hp-about__eyebrow">&bull; ABOUT GMP</span>
+        <span class="section-tag">About GMP</span>
         <h2 class="hp-about__title">
-          A modular construction partner<br/>
-          built for <span class="hp-about__title-chip hp-about__title-chip--blue" aria-hidden="true">
+          Built for <span class="hp-about__title-chip hp-about__title-chip--blue" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v8l5 3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2.2"/></svg>
-          </span> global delivery
-          <span class="hp-about__title-script">and</span>
+          </span> global delivery,
           <span class="hp-about__title-chip hp-about__title-chip--lime" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3Z" stroke="#1a2a42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span> measurable outcomes
+          </span> measurable outcomes.
         </h2>
       </div>
 
       <div class="hp-about__grid">
-        <!-- Left: blue hero stat card -->
         <article class="hp-m-card hp-m-card--hero slide-in-up">
           <div class="hp-m-card__hero-inner">
             <img src="/images/showcase/ri-modular-residential.png" alt="" class="hp-m-card__hero-bg" loading="lazy" aria-hidden="true" />
@@ -524,7 +542,6 @@ const partners = [
           </div>
         </article>
 
-        <!-- Middle: quote card -->
         <article class="hp-m-card hp-m-card--quote slide-in-up" style="--delay: 0.08s">
           <span class="hp-m-card__small">Commitment to measurable</span>
           <span class="hp-m-card__big-stat">100%</span>
@@ -537,7 +554,6 @@ const partners = [
           <p class="hp-m-card__quote-text">&ldquo;Their coordinated engineering, production, and deployment framework completely reshaped delivery — efficient, disciplined, and measurable.&rdquo;</p>
         </article>
 
-        <!-- Right: stacked lime + dark -->
         <div class="hp-about__stack">
           <article class="hp-m-card hp-m-card--lime slide-in-up" style="--delay: 0.12s">
             <span class="hp-m-card__lime-label">Modules produced</span>
@@ -557,47 +573,14 @@ const partners = [
   <!-- ════════ PROJECT LOCATIONS MAP ════════ -->
   <section class="netmap">
     <div class="netmap__panel">
-      <div class="netmap__img-col slide-in-left">
+      <div class="netmap__img-col">
         <div class="netmap__map-wrap">
           <div id="network-map" class="netmap__map"></div>
           <div class="netmap__build" id="netmap-build" aria-hidden="true"></div>
           <div class="netmap__overlay">
-            <span class="section-tag netmap__overlay-tag fade-up">Project Footprint</span>
-            <h2 class="section-title netmap__title netmap__overlay-title fade-up">Modular Delivery,<br/>Across Three Continents.</h2>
+            <span class="section-tag netmap__overlay-tag">Project Footprint</span>
+            <h2 class="section-title netmap__title netmap__overlay-title">Modular Delivery,<br/>Across Three Continents.</h2>
           </div>
-        </div>
-      </div>
-      <div class="netmap__text-col slide-in-right">
-        <div class="netmap__text-inner">
-
-        <div class="netmap__hubs">
-          <div class="netmap__hub">
-            <span class="netmap__hub-line"></span>
-            <div>
-              <h4 class="netmap__hub-title">North America</h4>
-              <p class="netmap__hub-desc">Active project delivery across the Bay Area, Santa Ana, Irvine, New York, Guam, and Odessa, TX — from residential and ADU programs to healthcare and federal deployments.</p>
-            </div>
-          </div>
-          <div class="netmap__hub">
-            <span class="netmap__hub-line"></span>
-            <div>
-              <h4 class="netmap__hub-title">Europe &amp; Mediterranean</h4>
-              <p class="netmap__hub-desc">RI Group manufacturing and deployment footprint across Italy, with Rome, Lecce, and Istanbul serving as anchors for international project delivery.</p>
-            </div>
-          </div>
-          <div class="netmap__hub">
-            <span class="netmap__hub-line"></span>
-            <div>
-              <h4 class="netmap__hub-title">Middle East &amp; Africa</h4>
-              <p class="netmap__hub-desc">Modular medical and civil infrastructure delivered into Jordan and South Sudan in partnership with Hospitals Without Borders and EDIS International.</p>
-            </div>
-          </div>
-        </div>
-
-          <a href="/projects" class="netmap__link">
-            View projects
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
     </div>
@@ -615,10 +598,16 @@ const partners = [
       }
 
       var map = L.map(mapEl, {
-        center: [25, -30],
-        zoom: 2,
-        zoomControl: true,
+        center: [49.96, -2.46],
+        zoom: 1.6,
+        zoomControl: false,
         scrollWheelZoom: false,
+        dragging: false,
+        touchZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        keyboard: false,
+        tap: false,
         attributionControl: false,
         minZoom: 1,
         maxZoom: 6,
@@ -638,8 +627,8 @@ const partners = [
           var defs = document.createElementNS(ns, 'defs');
           defs.setAttribute('id', 'gmp-blocks-defs');
           defs.innerHTML =
-            '<pattern id="gmp-blocks" x="0" y="0" width="14" height="11" patternUnits="userSpaceOnUse">' +
-              '<rect x="1" y="1" width="12" height="9" fill="#f0c645" rx="1.75"/>' +
+            '<pattern id="gmp-blocks" x="0" y="0" width="22" height="18" patternUnits="userSpaceOnUse">' +
+              '<rect x="1" y="1" width="19" height="15" fill="#3A5F99" rx="2.5"/>' +
             '</pattern>';
           svg.insertBefore(defs, svg.firstChild);
         }
@@ -656,33 +645,48 @@ const partners = [
         }
       }
 
-      // Coordinate the "squares pop in" animation: it should only play once
-      // both the geoJSON land layer is rendered AND the section has scrolled
-      // into view (so users actually see it happen).
-      var _landReady = false;
-      var _scrollFired = false;
-      function maybePopBlocks() {
-        if (_landReady && _scrollFired) {
-          mapEl.classList.add('blocks-in');
+      // ─────────────────────────────────────────────────────────────
+      // Scroll-trigger reveal: once the section scrolls into view, the
+      // animation plays out on its own schedule (no scroll-linked
+      // progress). Stages:
+      //
+      //   t = 0ms    → build-grid modules dismantle
+      //   t = 250ms  → country blocks scale/fade in
+      //   t = 1400ms → location pins fade in
+      //   t = 2000ms → overlay text fades up into place
+      // ─────────────────────────────────────────────────────────────
+      var sectionEl = mapEl.closest('.netmap');
+      var revealFired = false;
+
+      function playNetmapReveal() {
+        if (revealFired) return;
+        revealFired = true;
+
+        var root = document.documentElement.style;
+        if (typeof window.startBuildDismantle === 'function') {
+          window.startBuildDismantle();
         }
+        setTimeout(function () { root.setProperty('--rv-blocks', '1'); },  250);
+        setTimeout(function () { root.setProperty('--rv-pins',   '1'); }, 1400);
+        setTimeout(function () { root.setProperty('--rv-text',   '1'); }, 2000);
       }
 
-      // Fade the entire netmap section background from white into the map's
-      // navy ocean as the user scrolls the section into view.
-      var sectionEl = mapEl.closest('.netmap');
-      if (sectionEl && 'IntersectionObserver' in window) {
-        var sectionIO = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              sectionEl.classList.add('in-view');
-            } else {
-              sectionEl.classList.remove('in-view');
+      if (sectionEl) {
+        if ('IntersectionObserver' in window) {
+          var netmapIO = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting) {
+                playNetmapReveal();
+                netmapIO.disconnect();
+                break;
+              }
             }
-          });
-        }, { threshold: 0.18 });
-        sectionIO.observe(sectionEl);
-      } else if (sectionEl) {
-        sectionEl.classList.add('in-view');
+          }, { threshold: 0.35 });
+          netmapIO.observe(sectionEl);
+        } else {
+          // Reduced-capability fallback: just play immediately.
+          playNetmapReveal();
+        }
       }
 
       // Fix polygons that wrap across the antimeridian (Russia, Fiji, etc.)
@@ -744,9 +748,8 @@ const partners = [
             },
           }).addTo(map);
           applyPatternFill();
+          renderLocationBlocks();
           map.on('zoomend moveend viewreset layeradd', applyPatternFill);
-          _landReady = true;
-          maybePopBlocks();
         })
         .catch(function () { /* silent — ocean still looks fine if offline */ });
 
@@ -764,7 +767,6 @@ const partners = [
       // type: 'office' (GMP), 'project' (active project site), 'partner' (partner facility)
       var locations = [
         // GMP offices
-        { name: 'GMP Headquarters', loc: [37.8044, -122.2712], city: 'Oakland, CA', type: 'office' },
         { name: 'GMP Southern California', loc: [33.6846, -117.8265], city: 'Irvine, CA', type: 'office' },
 
         // North America project sites
@@ -784,31 +786,84 @@ const partners = [
         { name: 'South Sudan Deployments', loc: [4.8594, 31.5713], city: 'Juba, South Sudan', type: 'project' },
       ];
 
-      var pinColor = '#38bdf8';
-      var pinSize = 12;
-      var pinIcon = L.divIcon({
-        className: 'netmap-marker',
-        html:
-          '<span style="width:' + pinSize + 'px;height:' + pinSize + 'px;background:' + pinColor +
-          ';border:2px solid #fff;border-radius:50%;display:block;' +
-          'box-shadow:0 0 0 3px ' + pinColor + '33, 0 0 10px ' + pinColor + 'aa;"></span>',
-        iconSize: [pinSize, pinSize],
-        iconAnchor: [pinSize / 2, pinSize / 2],
-      });
+      // Render each location as a green cell that SNAPS to the same
+      // 22×18 user-space grid the country pattern uses (rect at (1,1)
+      // with 19×15 size, rx 2.5). The nearest grid cell to each lat/lng
+      // gets filled in bright green on top of the blue tiles, so
+      // locations read as modules plugged into the continental grid.
+      var LOC_COLOR = '#22c55e';
+      var GRID_W = 22, GRID_H = 18;
+      var CELL_W = 19, CELL_H = 15;
+      var CELL_OFF_X = 1, CELL_OFF_Y = 1;
 
-      locations.forEach(function (c) {
-        L.marker(c.loc, { icon: pinIcon })
-          .addTo(map)
-          .bindPopup('<strong>' + c.name + '</strong><br/>' + c.city);
-      });
+      function renderLocationBlocks() {
+        var svg = mapEl.querySelector('.leaflet-overlay-pane svg');
+        if (!svg) return;
+        var ns = 'http://www.w3.org/2000/svg';
+        var g = svg.querySelector('#gmp-loc-blocks');
+        if (!g) {
+          g = document.createElementNS(ns, 'g');
+          g.setAttribute('id', 'gmp-loc-blocks');
+        }
+        // Always re-append so the group sits above country paths.
+        svg.appendChild(g);
+        while (g.firstChild) g.removeChild(g.firstChild);
+
+        for (var k = 0; k < locations.length; k++) {
+          var loc = locations[k];
+          var p = map.latLngToLayerPoint(loc.loc);
+          // Snap to the center of the nearest cell in the tiled pattern.
+          var i = Math.round((p.x - (CELL_OFF_X + CELL_W / 2)) / GRID_W);
+          var j = Math.round((p.y - (CELL_OFF_Y + CELL_H / 2)) / GRID_H);
+          // Optional per-location grid offset: [colDelta, rowDelta],
+          // positive = right / down in cell units.
+          if (loc.offset) {
+            i += loc.offset[0] | 0;
+            j += loc.offset[1] | 0;
+          }
+          var rx = i * GRID_W + CELL_OFF_X;
+          var ry = j * GRID_H + CELL_OFF_Y;
+
+          // Halo: a slightly larger rect behind the solid cell that
+          // pulses (scales + fades) infinitely, giving the block the
+          // same "breathing" feel the old glowing dots had. Staggered
+          // animation-delay keeps the group from pulsing in lockstep.
+          var halo = document.createElementNS(ns, 'rect');
+          halo.setAttribute('class', 'gmp-loc-halo netmap-marker');
+          halo.setAttribute('x', String(rx));
+          halo.setAttribute('y', String(ry));
+          halo.setAttribute('width', String(CELL_W));
+          halo.setAttribute('height', String(CELL_H));
+          halo.setAttribute('rx', '2.5');
+          halo.setAttribute('fill', LOC_COLOR);
+          halo.style.animationDelay = (k * 0.18).toFixed(2) + 's';
+          g.appendChild(halo);
+
+          var rect = document.createElementNS(ns, 'rect');
+          rect.setAttribute('class', 'gmp-loc-block netmap-marker');
+          rect.setAttribute('x', String(rx));
+          rect.setAttribute('y', String(ry));
+          rect.setAttribute('width', String(CELL_W));
+          rect.setAttribute('height', String(CELL_H));
+          rect.setAttribute('rx', '2.5');
+          rect.setAttribute('fill', LOC_COLOR);
+          rect.style.animationDelay = (k * 0.18).toFixed(2) + 's';
+          g.appendChild(rect);
+        }
+      }
+
+      // Render (or re-render) after country paths exist and on any view
+      // change. The map is locked, but we still hook these so the first
+      // applyPatternFill → geoJSON add cycle always paints cells.
+      map.on('zoomend moveend viewreset layeradd', renderLocationBlocks);
 
       // ── Modular "build" reveal animation ──
       var buildEl = document.getElementById('netmap-build');
       if (buildEl) {
         var cols = 18;
-        var rows = 9;
+        var rows = 12;
         var wrapW = mapEl.clientWidth || 1200;
-        if (wrapW < 700) { cols = 12; rows = 7; }
+        if (wrapW < 700) { cols = 12; rows = 9; }
         buildEl.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
         buildEl.style.gridTemplateRows = 'repeat(' + rows + ', 1fr)';
 
@@ -829,98 +884,18 @@ const partners = [
         }
         buildEl.appendChild(frag);
 
-        var triggered = false;
-        var trigger = function () {
-          if (triggered) return;
-          triggered = true;
-          // Ensure Leaflet has laid out tiles before the reveal starts
+        // Exposed so the IntersectionObserver reveal trigger can fire the
+        // dismantle when the section scrolls into view.
+        window.startBuildDismantle = function () {
           map.invalidateSize();
+          buildEl.classList.add('built');
           setTimeout(function () {
-            buildEl.classList.add('built');
-            // Kick off the square pop-in at the same time the modules
-            // dismantle, so the yellow blocks appear to rebuild the world.
-            _scrollFired = true;
-            maybePopBlocks();
-            // Remove overlay from DOM once animation finishes so it doesn't
-            // intercept any layout reflows on resize.
-            setTimeout(function () {
-              buildEl.style.display = 'none';
-            }, 2800);
-          }, 150);
+            buildEl.style.display = 'none';
+          }, 2800);
         };
-
-        if ('IntersectionObserver' in window) {
-          var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) { trigger(); io.disconnect(); }
-            });
-          }, { threshold: 0.25 });
-          io.observe(mapEl);
-        } else {
-          trigger();
-        }
       }
     })();
   </script>
-
-  <!-- ════════ 2. OUR WORK & REACH SECTION ════════ -->
-  <section class="reach section-gap">
-    <div class="mnc-container">
-      <div class="reach__panel">
-        <div class="reach__head fade-up">
-          <span class="section-tag">Our Work</span>
-        </div>
-        <h2 class="section-title reach__title fade-up">
-          Delivering modular solutions across sectors and borders.
-        </h2>
-
-        <div class="reach__grid">
-        <a href="/departments#modular" class="reach__card slide-in-up" style="--delay: 0s">
-          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential" class="reach__card-img" loading="lazy" />
-          <div class="reach__card-overlay">
-            <span class="reach__card-tag">Modular</span>
-            <span class="reach__card-title">West Blvd Residential</span>
-          </div>
-        </a>
-        <a href="/departments#healthcare" class="reach__card slide-in-up" style="--delay: 0.1s">
-          <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="HWB modular pediatric clinic" class="reach__card-img" loading="lazy" />
-          <div class="reach__card-overlay">
-            <span class="reach__card-tag">Healthcare</span>
-            <span class="reach__card-title">Pediatric Clinic</span>
-          </div>
-        </a>
-        <a href="/departments#civil" class="reach__card slide-in-up" style="--delay: 0.2s">
-          <img src="/images/showcase/ri-defense-base.png" alt="RI Group defense compound" class="reach__card-img" loading="lazy" />
-          <div class="reach__card-overlay">
-            <span class="reach__card-tag">Defense</span>
-            <span class="reach__card-title">Military Compound</span>
-          </div>
-        </a>
-        <a href="/departments#modular" class="reach__card slide-in-up" style="--delay: 0.3s">
-          <img src="/images/showcase/ri-factory-production.jpg" alt="Factory production modular units" class="reach__card-img" loading="lazy" />
-          <div class="reach__card-overlay">
-            <span class="reach__card-tag">Manufacturing</span>
-            <span class="reach__card-title">Factory Production</span>
-          </div>
-        </a>
-        <a href="/departments#civil" class="reach__card slide-in-up" style="--delay: 0.4s">
-          <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Civil modular compound aerial" class="reach__card-img" loading="lazy" />
-          <div class="reach__card-overlay">
-            <span class="reach__card-tag">Civil</span>
-            <span class="reach__card-title">Regional Compound</span>
-          </div>
-        </a>
-        <a href="/departments#project-management" class="reach__card slide-in-up" style="--delay: 0.5s">
-          <img src="/images/showcase/west-interior.jpg" alt="Modular interior fit-out" class="reach__card-img" loading="lazy" />
-          <div class="reach__card-overlay">
-            <span class="reach__card-tag">Commercial</span>
-            <span class="reach__card-title">Interior Delivery</span>
-          </div>
-        </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ════════ STATS MOSAIC ════════ -->
   <section class="hp-stats">
@@ -956,6 +931,83 @@ const partners = [
           <span class="hp-stat__eyebrow">Years coordinating</span>
           <span class="hp-stat__num">5 yrs</span>
           <p class="hp-stat__caption">Unifying engineering, production, logistics, and deployment under one framework.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FEATURE PAIR ════════ -->
+  <section class="hp-feat">
+    <div class="hp-feat__panel">
+      <div class="hp-feat__head">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title hp-feat__title">Engineered across every phase of delivery.</h2>
+        <a href="/services" class="hp-feat__cta">
+          <span>Explore services</span>
+          <span class="hp-feat__cta-dot" aria-hidden="true">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="hp-feat__grid">
+        <article class="hp-feat-card slide-in-up">
+          <div class="hp-feat-card__head">
+            <div class="hp-feat-card__titles">
+              <h3 class="hp-feat-card__title">Integrated<br/>delivery</h3>
+              <span class="hp-feat-card__role">Design, compliance, logistics</span>
+            </div>
+            <a href="/services" class="hp-feat-card__arrow" aria-label="Delivery approach">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="hp-feat-card__media">
+            <img src="/images/showcase/ri-library-pavilion.png" alt="Library pavilion modular delivery" class="hp-feat-card__img" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="hp-feat-card slide-in-up" style="--delay: 0.08s">
+          <div class="hp-feat-card__head">
+            <div class="hp-feat-card__titles">
+              <h3 class="hp-feat-card__title">Controlled<br/>performance</h3>
+              <span class="hp-feat-card__role">Factory-grade quality</span>
+            </div>
+            <a href="/projects" class="hp-feat-card__arrow" aria-label="See projects">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="hp-feat-card__media">
+            <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential render" class="hp-feat-card__img" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="hp-feat-card hp-feat-card--featured slide-in-up" style="--delay: 0.16s">
+          <div class="hp-feat-card__head">
+            <div class="hp-feat-card__titles">
+              <h3 class="hp-feat-card__title">Global<br/>reach</h3>
+              <span class="hp-feat-card__role">Three continents, one framework</span>
+            </div>
+            <a href="/projects" class="hp-feat-card__arrow" aria-label="Where we build">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="hp-feat-card__media">
+            <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Multi-region modular compound" class="hp-feat-card__img" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="hp-feat-card slide-in-up" style="--delay: 0.24s">
+          <div class="hp-feat-card__head">
+            <div class="hp-feat-card__titles">
+              <h3 class="hp-feat-card__title">Partner<br/>network</h3>
+              <span class="hp-feat-card__role">Vetted manufacturing base</span>
+            </div>
+            <a href="/partners" class="hp-feat-card__arrow" aria-label="Our partners">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="hp-feat-card__media">
+            <img src="/images/showcase/ri-factory-panorama.jpg" alt="Partner manufacturing facility" class="hp-feat-card__img" loading="lazy" />
+          </div>
         </article>
       </div>
     </div>
@@ -1042,50 +1094,11 @@ const partners = [
     </div>
   </section>
 
-  <!-- ════════ FEATURE PAIR ════════ -->
-  <section class="hp-feat">
-    <div class="hp-feat__panel">
-      <article class="hp-feat-card slide-in-left">
-        <div class="hp-feat-card__media">
-          <img src="/images/showcase/ri-library-pavilion.png" alt="Library pavilion modular delivery" class="hp-feat-card__img" loading="lazy" />
-        </div>
-        <div class="hp-feat-card__body">
-          <span class="section-tag">Integrated delivery</span>
-          <h3 class="hp-feat-card__title">Design, compliance, and logistics — as a single workflow.</h3>
-          <p class="hp-feat-card__desc">
-            GMP runs engineering, permitting, procurement, and transport as one integrated program so every module lands on site ready to set.
-          </p>
-          <a href="/services" class="hp-feat-card__link">
-            Delivery approach
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="hp-feat-card slide-in-right">
-        <div class="hp-feat-card__media">
-          <img src="/images/showcase/west-blvd-render.jpg" alt="West Boulevard modular residential render" class="hp-feat-card__img" loading="lazy" />
-        </div>
-        <div class="hp-feat-card__body">
-          <span class="section-tag">Controlled performance</span>
-          <h3 class="hp-feat-card__title">Factory-grade quality, commissioned in the field.</h3>
-          <p class="hp-feat-card__desc">
-            Controlled manufacturing drives predictable schedule, tolerances, and compliance — every unit is inspected before it ships and verified on landing.
-          </p>
-          <a href="/projects" class="hp-feat-card__link">
-            See projects
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
-
   <!-- ════════ CTA BANNER ════════ -->
   <section class="hp-cta" aria-label="Build with GMP">
     <div class="hp-cta__panel slide-in-up">
       <img
-        src="/images/showcase/west-crane.jpg"
+        src="/images/showcase/ri-civil-compound-aerial.png"
         alt=""
         class="hp-cta__img"
         loading="lazy"
@@ -1128,35 +1141,29 @@ const partners = [
     padding: 64px 0;
   }
 
-  /* ── Section Tag (pill) ── */
+  /* ── Section Tag (bullet eyebrow) ── */
   .section-tag {
     display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
+    align-items: baseline;
+    font-family: var(--font-secondary);
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--text-gray);
+    letter-spacing: 0.28em;
+    color: #111;
     margin-bottom: 20px;
     padding: 0;
     border: none;
     border-radius: 0;
   }
   .section-tag::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 2px;
-    background: var(--amber);
-    flex-shrink: 0;
+    content: '•';
+    margin-right: 0.45em;
+    line-height: 1;
   }
 
   .section-tag--dark {
-    color: rgba(255,255,255,.6);
-  }
-  .section-tag--dark::before {
-    background: var(--amber);
+    color: rgba(255,255,255,0.85);
   }
 
   /* ── Section Title ── */
@@ -1279,7 +1286,7 @@ const partners = [
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
     position: relative;
     overflow: hidden;
     border-radius: 0;
@@ -1292,7 +1299,7 @@ const partners = [
       min-height: 100vh;
     }
     to {
-      border-radius: clamp(14px, 1.6vw, 22px);
+      border-radius: clamp(8px, 1vw, 14px);
       min-height: calc(100vh - clamp(12px, 1.2vw, 20px));
     }
   }
@@ -1301,7 +1308,7 @@ const partners = [
     .banner, .banner__pad { animation: none; }
     .banner { padding: clamp(6px, 0.6vw, 10px); }
     .banner__pad {
-      border-radius: clamp(14px, 1.6vw, 22px);
+      border-radius: clamp(8px, 1vw, 14px);
       min-height: calc(100vh - clamp(12px, 1.2vw, 20px));
     }
   }
@@ -1370,7 +1377,7 @@ const partners = [
   .banner__h1 {
     font-family: var(--font-secondary);
     font-size: clamp(32px, 4.4vw, 62px);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.08;
     color: var(--white);
     letter-spacing: -1.4px;
@@ -1699,7 +1706,7 @@ const partners = [
     --strip-inner-gap: 36px;
   }
   .netmap__panel {
-    min-height: 560px;
+    min-height: 460px;
   }
 
   /* ════════ ABOUT MOSAIC ════════ */
@@ -1708,11 +1715,74 @@ const partners = [
     padding: 96px var(--strip-edge-gutter);
   }
 
+  /* Two-column layout: left text column, right image. */
   .hp-about__panel {
     background: #fff;
-    max-width: 1280px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 clamp(12px, 2vw, 28px);
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(0, 1.1fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+  }
+
+  /* Mosaic variant: stacked head + 3-col card grid (overrides simple 2-col layout) */
+  .hp-about--mosaic .hp-about__panel {
+    display: block;
+    padding: 0 clamp(12px, 2vw, 28px);
+  }
+
+  .hp-about__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 520px;
+  }
+
+  .hp-about__title--simple {
+    font-family: var(--font-secondary);
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #0d1c33;
+    margin: 0;
+  }
+
+  .hp-about__desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+    max-width: 440px;
+  }
+
+  .hp-about__img-col {
+    width: 100%;
+  }
+
+  .hp-about__img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: clamp(12px, 1.4vw, 20px);
+    background: var(--medium-gray);
+  }
+
+  .hp-about__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .hp-about__panel {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
   }
 
   .hp-about__head {
@@ -1723,14 +1793,6 @@ const partners = [
     gap: 22px;
     margin: 0 auto 56px;
     max-width: 960px;
-  }
-  .hp-about__eyebrow {
-    font-family: var(--font-secondary);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #111;
   }
   .hp-about__title {
     color: #111;
@@ -1766,7 +1828,8 @@ const partners = [
     background: #2e90fa;
   }
   .hp-about__title-chip--lime {
-    background: #c4f24f;
+    background: var(--turf-green, #0C7C59);
+    color: #F9F8F6;
   }
 
   .hp-about__grid {
@@ -1786,7 +1849,7 @@ const partners = [
   .hp-m-card {
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: clamp(8px, 1vw, 14px);
     background: #f3f4f1;
     display: flex;
     flex-direction: column;
@@ -1798,7 +1861,7 @@ const partners = [
     min-height: 420px;
     background: #fff;
     padding: clamp(6px, 0.6vw, 10px);
-    border-radius: clamp(14px, 1.6vw, 22px);
+    border-radius: clamp(8px, 1vw, 14px);
     color: #fff;
   }
   .hp-m-card__hero-inner {
@@ -1808,7 +1871,7 @@ const partners = [
     flex-direction: column;
     padding: 22px;
     background: linear-gradient(180deg, #6ec3ff 0%, #2e90fa 100%);
-    border-radius: clamp(10px, 1.2vw, 16px);
+    border-radius: clamp(5px, 0.7vw, 9px);
     overflow: hidden;
   }
   .hp-m-card__hero-bg {
@@ -1865,7 +1928,7 @@ const partners = [
     margin-top: auto;
     background: #fff;
     color: #1a2a42;
-    border-radius: 16px;
+    border-radius: clamp(6px, 0.8vw, 10px);
     padding: 22px 22px 20px;
   }
   .hp-m-card__hero-big {
@@ -1932,11 +1995,11 @@ const partners = [
     margin: 4px 0 0;
   }
 
-  /* ── Right top: lime card ── */
+  /* ── Right top: accent card (matches services turf green) ── */
   .hp-m-card--lime {
     padding: 26px 24px 28px;
-    background: #c4f24f;
-    color: #1a2a42;
+    background: var(--turf-green, #0C7C59);
+    color: #F9F8F6;
     flex: 1;
     min-height: 260px;
     gap: 10px;
@@ -1945,7 +2008,7 @@ const partners = [
     font-family: var(--font-secondary);
     font-size: 12px;
     font-weight: 600;
-    color: #1a2a42;
+    color: #F9F8F6;
     letter-spacing: 0.02em;
   }
   .hp-m-card__lime-big {
@@ -1954,13 +2017,13 @@ const partners = [
     font-weight: 500;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: #111;
+    color: #fff;
     margin: 4px 0 16px;
   }
   .hp-m-card__lime-caption {
     font-size: 14px;
     line-height: 1.5;
-    color: #1a2a42;
+    color: rgba(249, 248, 246, 0.85);
     margin: auto 0 0;
     max-width: 92%;
   }
@@ -2165,54 +2228,92 @@ const partners = [
 
 
   /* ════════ 3. GLOBAL NETWORK MAP ════════ */
+  /* The section sits on the map's navy ocean color by default; the scroll
+     stop only drives staged content reveals (country blocks, pins, text). */
+  :root {
+    --rv-blocks: 0;   /* block-country opacity/scale */
+    --rv-pins:   0;   /* marker dots opacity */
+    --rv-text:   0;   /* overlay text reveal */
+  }
+
+  .netmap .netmap__panel {
+    background-color: #fff;
+  }
   .netmap {
-    background: #fff;
-    padding: 64px var(--strip-edge-gutter);
+    background-color: #fff;
+  }
+
+  .netmap {
+    position: relative;
+    padding: 0;
     margin: 0;
-    transition: background-color 0.9s ease;
   }
 
   .netmap__panel {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
+    position: relative;
     border-radius: 0;
     overflow: hidden;
     width: 100%;
-    max-width: 1440px;
     margin: 0 auto;
-    transition: background-color 0.9s ease;
   }
-
-  /* Scroll-triggered: section background blends into the map's navy ocean. */
-  .netmap.in-view,
-  .netmap.in-view .netmap__panel {
-    background-color: #0d1c33;
-  }
-  .netmap .netmap__hub-title,
-  .netmap .netmap__hub-desc {
-    transition: color 0.9s ease;
-  }
-  .netmap.in-view .netmap__hub-title { color: #fff; }
-  .netmap.in-view .netmap__hub-desc  { color: rgba(255, 255, 255, 0.72); }
-  .netmap.in-view .netmap__hub-line  { background: var(--amber); }
 
   .netmap__img-col {
-    position: relative;
-    overflow: hidden;
     width: 100%;
   }
 
   .netmap__map-wrap {
     position: relative;
     width: 100%;
-    height: clamp(420px, 55vh, 640px);
+    height: min(84vh, 820px);
     overflow: hidden;
-    background: #fff;
-    transition: background-color 0.9s ease;
+    background-color: #eef2f7;
   }
-  .netmap.in-view .netmap__map-wrap {
-    background: #0d1c33;
+
+  .netmap__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    padding:
+      clamp(56px, 6vw, 96px)
+      clamp(24px, 3vw, 40px)
+      clamp(10px, 1.2vw, 18px)
+      var(--strip-edge-gutter, 1.5rem);
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 75%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: none;
+  }
+
+  .netmap__overlay > * {
+    opacity: var(--rv-text, 0);
+    transform: translateY(calc((1 - var(--rv-text, 0)) * 18px));
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .netmap__overlay .netmap__overlay-tag,
+  .netmap__overlay .section-tag.netmap__overlay-tag {
+    margin: 0;
+  }
+  .netmap__overlay .netmap__overlay-title,
+  .netmap__overlay .section-title.netmap__overlay-title {
+    margin: 0;
+    color: #0d1c33 !important;
+    font-size: clamp(28px, 3.5vw, 44px);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .netmap__overlay {
+      padding: 20px 18px;
+      max-width: 90%;
+    }
+    .netmap__overlay-title {
+      font-size: clamp(22px, 6vw, 32px);
+    }
   }
 
   /* ── "Build" reveal: grid of modular blocks that dismantle to expose the map ── */
@@ -2225,21 +2326,15 @@ const partners = [
     background: transparent;
   }
   .netmap__build__cell {
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    background-color: #eef2f7;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     opacity: 1;
     transform: translateY(-6px) scale(1);
     transition:
       opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-      background-color 0.9s ease,
-      border-color 0.9s ease;
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--cell-delay, 0s);
     will-change: opacity, transform;
-  }
-  .netmap.in-view .netmap__build__cell {
-    background: #0d1c33;
-    border-color: rgba(255, 255, 255, 0.06);
   }
   .netmap__build.built .netmap__build__cell {
     opacity: 0;
@@ -2254,75 +2349,8 @@ const partners = [
     }
   }
 
-  .netmap__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 500;
-    padding: clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px);
-    pointer-events: none;
-    background: linear-gradient(135deg, rgba(13, 28, 51, 0.92) 0%, rgba(13, 28, 51, 0.55) 75%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: min(560px, 55%);
-  }
-
-  /* Slow, staggered entrance for the overlay copy */
-  .netmap__overlay .fade-up {
-    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .netmap__overlay .netmap__overlay-tag.fade-up { transition-delay: 0.15s; }
-  .netmap__overlay .netmap__overlay-title.fade-up { transition-delay: 0.35s; }
-  .netmap__overlay .netmap__overlay-tag,
-  .netmap__overlay .section-tag.netmap__overlay-tag {
-    color: #fff !important;
-    margin: 0;
-  }
-  .netmap__overlay .netmap__overlay-tag::before {
-    background: #fff !important;
-  }
-  .netmap__overlay .netmap__overlay-title,
-  .netmap__overlay .section-title.netmap__overlay-title {
-    margin: 0;
-    color: #fff !important;
-    font-size: clamp(28px, 3.5vw, 44px);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-  }
-
-  @media (max-width: 900px) {
-    .netmap__overlay {
-      padding: 20px 18px;
-      max-width: 90%;
-    }
-    .netmap__overlay-title {
-      font-size: clamp(22px, 6vw, 32px);
-    }
-  }
   .netmap__map-wrap :global(.leaflet-container) {
-    background: transparent;
-    transition: background-color 0.9s ease;
-  }
-  .netmap.in-view .netmap__map-wrap :global(.leaflet-container) {
-    background: #0d1c33;
-  }
-  /* Subtle ocean grid so the water doesn't read as dead space. */
-  .netmap__map-wrap :global(.leaflet-container)::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 28px 28px, 28px 28px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.9s ease 0.2s;
-  }
-  .netmap.in-view .netmap__map-wrap :global(.leaflet-container)::before {
-    opacity: 1;
+    background-color: #eef2f7;
   }
   /* Country land layer drop-shadow for a lifted, blocky feel. */
   .netmap__map-wrap :global(.netmap-land) {
@@ -2332,29 +2360,65 @@ const partners = [
   .netmap__map-wrap :global(.leaflet-marker-pane) { z-index: 610; }
   .netmap__map-wrap :global(.leaflet-popup-pane) { z-index: 700; }
 
-  /* Blocks pop-in: the tiled yellow squares scale from 0 → 1 with a
-     springy overshoot, so the world appears to be "built" out of modules. */
+  /* Country blocks: scale + fade in driven by --rv-blocks (0 → 1). */
   .netmap__map :global(#gmp-blocks rect) {
     transform-box: fill-box;
     transform-origin: center;
-    transform: scale(0);
-    opacity: 0;
+    transform: scale(var(--rv-blocks, 0));
+    opacity: var(--rv-blocks, 0);
+    transition:
+      transform 0.9s cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 0.7s ease-out;
   }
-  .netmap__map.blocks-in :global(#gmp-blocks rect) {
-    animation: gmp-block-pop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s forwards;
+
+  /* Pins: fade in once blocks are mostly placed (driven by --rv-pins). */
+  .netmap__map-wrap :global(.netmap-marker) {
+    opacity: var(--rv-pins, 0);
+    transition: opacity 0.7s ease-out;
   }
-  @keyframes gmp-block-pop {
-    0%   { transform: scale(0);    opacity: 0; }
-    60%  { transform: scale(1.15); opacity: 1; }
-    100% { transform: scale(1);    opacity: 1; }
+
+  /* Location cells breathe gently; the halo pulses outward like the
+     glow the original dots had. Both use fill-opacity so the outer
+     --rv-pins reveal opacity stays intact. */
+  .netmap__map-wrap :global(.gmp-loc-block) {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: gmpLocCore 1.8s ease-in-out infinite;
+    will-change: fill-opacity, transform;
   }
+  .netmap__map-wrap :global(.gmp-loc-halo) {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: gmpLocHalo 1.8s ease-out infinite;
+    will-change: transform, fill-opacity;
+    pointer-events: none;
+  }
+
+  @keyframes gmpLocCore {
+    0%, 100% { fill-opacity: 1;    transform: scale(1);    }
+    50%      { fill-opacity: 0.6;  transform: scale(1.15); }
+  }
+  @keyframes gmpLocHalo {
+    0%   { transform: scale(1);   fill-opacity: 0.9; }
+    70%  { transform: scale(3.2); fill-opacity: 0;   }
+    100% { transform: scale(3.2); fill-opacity: 0;   }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .netmap__map :global(#gmp-blocks rect),
-    .netmap__map.blocks-in :global(#gmp-blocks rect) {
+    .netmap__map-wrap :global(.gmp-loc-block),
+    .netmap__map-wrap :global(.gmp-loc-halo) {
+      animation: none !important;
+    }
+    .netmap__map-wrap :global(.gmp-loc-halo) { fill-opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .netmap__map :global(#gmp-blocks rect) {
       transform: none;
       opacity: 1;
-      animation: none;
     }
+    .netmap__map-wrap :global(.netmap-marker) { opacity: 1; }
+    .netmap__overlay > * { opacity: 1; transform: none; }
   }
 
   .netmap__text-col {
@@ -3009,33 +3073,143 @@ const partners = [
     .hp-svc-cell__media { display: none; }
   }
 
-  /* ════════ FEATURE PAIR ════════ */
+  /* ════════ CAPABILITIES ════════ */
   .hp-feat {
     background: #fff;
-    padding: 0 var(--strip-edge-gutter, 1.5rem) 64px;
+    padding: 64px var(--strip-edge-gutter, 1.5rem);
   }
 
   .hp-feat__panel {
     max-width: 1440px;
     margin: 0 auto;
+    padding: 56px clamp(24px, 4vw, 56px);
+  }
+
+  .hp-feat__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+    max-width: 720px;
+  }
+
+  .hp-feat__title {
+    font-size: clamp(28px, 3.4vw, 48px);
+    margin: 0;
+  }
+
+  /* Pill CTA with accented round arrow (matches reference). */
+  .hp-feat__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #0d1c33;
+    color: #fff;
+    padding: 6px 8px 6px 22px;
+    border-radius: 999px;
+    font-family: var(--font-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s;
+  }
+  .hp-feat__cta:hover { transform: translateY(-1px); background: #0a1528; }
+
+  .hp-feat__cta-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--turf-green, #0C7C59);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d1c33;
+    flex-shrink: 0;
+  }
+
+  .hp-feat__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
 
   .hp-feat-card {
-    background: #fff;
+    position: relative;
+    background: #ebe8e2;
+    border-radius: clamp(14px, 1.6vw, 22px);
+    padding: 22px 22px 18px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
     overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  .hp-feat-card:hover { transform: translateY(-4px); }
+
+  .hp-feat-card--featured {
+    background: var(--turf-green, #0C7C59);
+  }
+  .hp-feat-card--featured .hp-feat-card__title,
+  .hp-feat-card--featured .hp-feat-card__role { color: #fff; }
+
+  .hp-feat-card__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hp-feat-card__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .hp-feat-card__title {
+    font-family: var(--font-secondary);
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 600;
+    color: #111;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .hp-feat-card__role {
+    font-family: var(--font-secondary);
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .hp-feat-card__arrow {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s;
+  }
+  .hp-feat-card__arrow:hover { transform: translate(2px, -2px); background: #0d1c33; }
+  .hp-feat-card--featured .hp-feat-card__arrow { background: #0d1c33; }
 
   .hp-feat-card__media {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    border-radius: clamp(8px, 1vw, 14px);
     background: var(--medium-gray);
+    margin-top: auto;
   }
   .hp-feat-card__img {
     width: 100%;
@@ -3045,56 +3219,21 @@ const partners = [
     transition: transform 0.5s ease;
   }
   .hp-feat-card:hover .hp-feat-card__img {
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
 
-  .hp-feat-card__body {
-    padding: 32px clamp(24px, 3vw, 40px) 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  @media (max-width: 1100px) {
+    .hp-feat__grid { grid-template-columns: repeat(2, 1fr); }
   }
-
-  .hp-feat-card__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(20px, 2.2vw, 26px);
-    font-weight: 600;
-    color: #111;
-    line-height: 1.25;
-    margin: 0;
-  }
-
-  .hp-feat-card__desc {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #555;
-    margin: 0;
-  }
-
-  .hp-feat-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--amber);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: gap 0.25s;
-    margin-top: 4px;
-  }
-  .hp-feat-card__link:hover { gap: 12px; }
-
-  @media (max-width: 900px) {
-    .hp-feat__panel { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    .hp-feat__grid { grid-template-columns: 1fr; }
   }
 
   /* ════════ 5. CTA BANNER ════════ */
   .hp-cta {
     position: relative;
     background: #fff;
-    padding: clamp(6px, 0.6vw, 10px) clamp(6px, 0.6vw, 10px) 0;
+    padding: clamp(6px, 0.6vw, 10px);
   }
 
   .hp-cta__panel {
@@ -3106,7 +3245,7 @@ const partners = [
     justify-content: center;
     padding: 96px 1.5rem;
     isolation: isolate;
-    border-radius: clamp(14px, 1.6vw, 22px) clamp(14px, 1.6vw, 22px) 0 0;
+    border-radius: clamp(8px, 1vw, 14px);
   }
 
   /* Slow slide-up entrance — panel rises out from below (toward footer) */
@@ -3300,8 +3439,8 @@ const partners = [
 
 <style is:global>
   /* ═══════════════════════════════════════
-     HOMEPAGE DARK MODE — hero gradient only
-     Active only when body.dark is set by the header toggle.
+     HOMEPAGE DARK MODE — the hero gets a moody multi-stop gradient
+     when body.dark is set.
      ═══════════════════════════════════════ */
   body.dark .banner__pad {
     background:

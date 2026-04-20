@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import PageCTA from '../../components/PageCTA.astro';
 
 const board = [
   { name: 'Robert Bilbeisi', role: 'Board Chairman', focus: 'International Development' },
@@ -31,6 +32,8 @@ const timeline = [
   <section class="ab-hero" aria-labelledby="ab-hero-heading">
     <div class="ab-hero__intro">
       <div class="ab-hero__intro-panel">
+        <canvas id="about-hero-3d" class="ab-hero__canvas" aria-hidden="true"></canvas>
+        <span class="ab-hero__canvas-tag" aria-hidden="true">The Module</span>
         <div class="ab-hero__intro-content fade-up">
           <h1 id="ab-hero-heading" class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
           <p class="ab-hero__sub">
@@ -139,6 +142,220 @@ const timeline = [
     </div>
   </section>
 
+  <PageCTA
+    eyebrow="See it built"
+    title="Words only go so far.<br/>The projects show the rest."
+    image="/images/showcase/ri-factory-panorama.jpg"
+    links={[
+      { label: 'View Projects', href: '/projects' },
+      { label: 'Explore Services', href: '/services' },
+    ]}
+  />
+
+  <script>
+    // ───────────────────────────────────────────────────────────────
+    // ABOUT — hero 3D: a simple line-art shipping container.
+    // White wireframe only, slow continuous rotation, no reveal.
+    // ───────────────────────────────────────────────────────────────
+    import * as THREE from 'three';
+
+    const canvas = document.getElementById('about-hero-3d') as HTMLCanvasElement | null;
+    if (canvas) {
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+      camera.position.set(8.6, 4.0, 9.6);
+      camera.lookAt(0, 0.1, 0);
+
+      // ── Shared wireframe materials (same treatment as homepage)
+      const occluderMat = new THREE.MeshBasicMaterial({
+        colorWrite: false,
+        depthWrite: true,
+        depthTest: true,
+        side: THREE.DoubleSide,
+        polygonOffset: true,
+        polygonOffsetFactor: 1,
+        polygonOffsetUnits: 1,
+      });
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.92,
+        depthTest: true,
+        depthWrite: false,
+        polygonOffset: true,
+        polygonOffsetFactor: -1,
+        polygonOffsetUnits: -1,
+      });
+
+      /** Render a geometry as an invisible occluder shell + white edges. */
+      function wire(geometry: THREE.BufferGeometry): THREE.Group {
+        const g = new THREE.Group();
+        const shell = new THREE.Mesh(geometry, occluderMat);
+        shell.renderOrder = 0;
+        const edges = new THREE.LineSegments(
+          new THREE.EdgesGeometry(geometry, 1),
+          lineMat,
+        );
+        edges.renderOrder = 1;
+        g.add(shell);
+        g.add(edges);
+        return g;
+      }
+
+      // ── Root group (rotates)
+      const unit = new THREE.Group();
+      scene.add(unit);
+
+      // ── Container as a lattice of cubes (same construction idea as the homepage tower).
+      //    Exterior faces emit occluder triangles; unique cell edges emit wireframe lines,
+      //    so adjacent cubes share one visible seam and you read a grid of boxes.
+      const cube = 0.6;
+      const CX = 10, CY = 4, CZ = 4; // → 6.0 × 2.4 × 2.4 overall
+      const W = CX * cube, H = CY * cube, D = CZ * cube;
+      const hw = W / 2, hh = H / 2, hd = D / 2;
+
+      type Cell = { x0: number; x1: number; y0: number; y1: number; z0: number; z1: number };
+      const cells: Cell[] = [];
+      for (let ix = 0; ix < CX; ix++) {
+        for (let iy = 0; iy < CY; iy++) {
+          for (let iz = 0; iz < CZ; iz++) {
+            const x0 = -hw + ix * cube, x1 = x0 + cube;
+            const y0 = -hh + iy * cube, y1 = y0 + cube;
+            const z0 = -hd + iz * cube, z1 = z0 + cube;
+            cells.push({ x0, x1, y0, y1, z0, z1 });
+          }
+        }
+      }
+
+      const ADJ = 0.001;
+      function iv2(a0: number, a1: number, b0: number, b1: number) {
+        return Math.min(a1, b1) - Math.max(a0, b0) > ADJ;
+      }
+      function hasNeighborOnFace(c: Cell, face: string): boolean {
+        for (let i = 0; i < cells.length; i++) {
+          const o = cells[i];
+          if (o === c) continue;
+          if (face === '+x' && Math.abs(c.x1 - o.x0) < ADJ && iv2(c.y0, c.y1, o.y0, o.y1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '-x' && Math.abs(c.x0 - o.x1) < ADJ && iv2(c.y0, c.y1, o.y0, o.y1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '+y' && Math.abs(c.y1 - o.y0) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '-y' && Math.abs(c.y0 - o.y1) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.z0, c.z1, o.z0, o.z1)) return true;
+          if (face === '+z' && Math.abs(c.z1 - o.z0) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.y0, c.y1, o.y0, o.y1)) return true;
+          if (face === '-z' && Math.abs(c.z0 - o.z1) < ADJ && iv2(c.x0, c.x1, o.x0, o.x1) && iv2(c.y0, c.y1, o.y0, o.y1)) return true;
+        }
+        return false;
+      }
+
+      function r(v: number) { return Math.round(v * 1e5) / 1e5; }
+      function edgeKey(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number) {
+        const a = `${r(x1)},${r(y1)},${r(z1)}`;
+        const b = `${r(x2)},${r(y2)},${r(z2)}`;
+        return a < b ? `${a}|${b}` : `${b}|${a}`;
+      }
+
+      function faceCorners(c: Cell, face: string): [number, number, number][] {
+        const { x0, x1, y0, y1, z0, z1 } = c;
+        if (face === '+x') return [[x1, y0, z0], [x1, y1, z0], [x1, y1, z1], [x1, y0, z1]];
+        if (face === '-x') return [[x0, y0, z0], [x0, y1, z0], [x0, y1, z1], [x0, y0, z1]];
+        if (face === '+y') return [[x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1]];
+        if (face === '-y') return [[x0, y0, z0], [x1, y0, z0], [x1, y0, z1], [x0, y0, z1]];
+        if (face === '+z') return [[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]];
+        return [[x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0]];
+      }
+
+      const faces = ['+x', '-x', '+y', '-y', '+z', '-z'];
+      const edgeMap = new Map<string, [number, number, number, number, number, number]>();
+      const tri: number[] = [];
+
+      function pushTri(ax: number, ay: number, az: number, bx: number, by: number, bz: number, cx: number, cy: number, cz: number) {
+        tri.push(ax, ay, az, bx, by, bz, cx, cy, cz);
+      }
+
+      for (let i = 0; i < cells.length; i++) {
+        const c = cells[i];
+        for (let f = 0; f < 6; f++) {
+          const face = faces[f];
+          if (hasNeighborOnFace(c, face)) continue;
+          const corners = faceCorners(c, face);
+          // Occluder triangles (two per exposed quad)
+          const [p0, p1, p2, p3] = corners;
+          // Wind consistently based on face direction
+          if (face === '+x' || face === '+y' || face === '+z') {
+            pushTri(p0[0], p0[1], p0[2], p1[0], p1[1], p1[2], p2[0], p2[1], p2[2]);
+            pushTri(p0[0], p0[1], p0[2], p2[0], p2[1], p2[2], p3[0], p3[1], p3[2]);
+          } else {
+            pushTri(p0[0], p0[1], p0[2], p2[0], p2[1], p2[2], p1[0], p1[1], p1[2]);
+            pushTri(p0[0], p0[1], p0[2], p3[0], p3[1], p3[2], p2[0], p2[1], p2[2]);
+          }
+          // Four face edges (deduped across cells)
+          for (let e = 0; e < 4; e++) {
+            const a = corners[e];
+            const b = corners[(e + 1) % 4];
+            const k = edgeKey(a[0], a[1], a[2], b[0], b[1], b[2]);
+            if (!edgeMap.has(k)) edgeMap.set(k, [a[0], a[1], a[2], b[0], b[1], b[2]]);
+          }
+        }
+      }
+
+      const shellGeo = new THREE.BufferGeometry();
+      shellGeo.setAttribute('position', new THREE.Float32BufferAttribute(tri, 3));
+      shellGeo.computeVertexNormals();
+      const shellMesh = new THREE.Mesh(shellGeo, occluderMat);
+      shellMesh.renderOrder = 0;
+      unit.add(shellMesh);
+
+      const edgeVerts: number[] = [];
+      edgeMap.forEach((seg) => edgeVerts.push(seg[0], seg[1], seg[2], seg[3], seg[4], seg[5]));
+      const edgeGeo = new THREE.BufferGeometry();
+      edgeGeo.setAttribute('position', new THREE.Float32BufferAttribute(edgeVerts, 3));
+      const edgeLines = new THREE.LineSegments(edgeGeo, lineMat);
+      edgeLines.renderOrder = 1;
+      unit.add(edgeLines);
+
+
+      // ── Resize handling
+      function resize() {
+        if (!canvas) return;
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      const ro = new ResizeObserver(resize);
+      ro.observe(canvas);
+      window.addEventListener('resize', resize);
+
+      // ── Respect reduced motion
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ── Animate
+      let paused = false;
+      const io = new IntersectionObserver((entries) => {
+        paused = !entries[0].isIntersecting;
+      }, { threshold: 0.01 });
+      io.observe(canvas);
+
+      let t0 = performance.now();
+      function tick(now: number) {
+        const dt = (now - t0) / 1000;
+        t0 = now;
+        if (!paused) {
+          if (!reduced) {
+            unit.rotation.y += dt * 0.18;
+          }
+          renderer.render(scene, camera);
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+  </script>
+
   <Footer slot="footer" />
 </Layout>
 
@@ -224,6 +441,64 @@ const timeline = [
     color: rgba(255, 255, 255, 0.5);
     max-width: 520px;
     margin: 0;
+  }
+
+  /* 3D hero accent — sits on the right side of the intro panel. */
+  .ab-hero__canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(360px, 58%, 780px);
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+    touch-action: none;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+  }
+  .ab-hero__canvas-tag {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 3;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.55);
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(8, 16, 30, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  @media (max-width: 768px) {
+    .ab-hero__canvas,
+    .ab-hero__canvas-tag {
+      display: none;
+    }
+  }
+
+  /* On wider screens, nudge the model further inboard from the right edge. */
+  @media (min-width: 1280px) {
+    .ab-hero__canvas {
+      right: 64px;
+    }
+    .ab-hero__canvas-tag {
+      right: 88px;
+    }
+  }
+  @media (min-width: 1600px) {
+    .ab-hero__canvas {
+      right: 112px;
+    }
+    .ab-hero__canvas-tag {
+      right: 136px;
+    }
   }
 
   .ab-hero__top {

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageCTA from '../components/PageCTA.astro';
 
 const articles = [
   {
@@ -138,6 +139,16 @@ const articles = [
       </div>
     </div>
   </section>
+
+  <PageCTA
+    eyebrow="More from GMP"
+    title="If you're still here,<br/>here's where else to look."
+    image="/images/showcase/ri-legacy-about.jpg"
+    links={[
+      { label: 'Our Projects', href: '/projects' },
+      { label: 'About GMP', href: '/about' },
+    ]}
+  />
 
   <Footer slot="footer" />
 </Layout>
