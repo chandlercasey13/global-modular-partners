@@ -779,50 +779,79 @@ const partners = [
   <!-- ════════ CAPABILITIES ════════ -->
   <section class="hp-svc">
     <div class="hp-svc__panel">
-      <div class="hp-svc__intro fade-up">
-        <span class="section-tag">Capabilities</span>
-        <h2 class="section-title hp-svc__title">Comprehensive modular delivery under one partner.</h2>
-        <p class="hp-svc__lead">
-          From concept and engineering through factory production and on-site deployment — GMP coordinates specialists at every stage of the modular build.
-        </p>
-        <a href="/services" class="hp-svc__cta">
-          <span>Explore Services</span>
-          <span class="hp-svc__cta-icon">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-      </div>
+      <header class="hp-svc__intro fade-up">
+        <span class="section-tag">Services</span>
+        <h2 class="section-title hp-svc__title">Full-stack modular delivery, under one partner.</h2>
+      </header>
 
-      <div class="hp-svc__grid">
-        <article class="hp-svc-card slide-in-up">
-          <span class="hp-svc-card__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-5 8 5v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <div class="hp-svc__board fade-up">
+        <article class="hp-svc-cell">
+          <span class="hp-svc-cell__chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-5 8 5v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </span>
-          <h3 class="hp-svc-card__title">Engineering &amp; Design</h3>
-          <p class="hp-svc-card__desc">Structural engineering, BIM coordination, and compliance review across every jurisdiction we operate in.</p>
+          <h3 class="hp-svc-cell__title">Engineering &amp; Design</h3>
+          <p class="hp-svc-cell__desc">Structural engineering, BIM coordination, and jurisdictional compliance review for every market we operate in.</p>
+          <a href="/services" class="hp-svc-cell__btn">Learn More</a>
         </article>
 
-        <a href="/projects" class="hp-svc-card hp-svc-card--photo slide-in-up" style="--delay: 0.05s" aria-label="View modular projects">
-          <img src="/images/showcase/ri-civil-compound-aerial.png" alt="" class="hp-svc-card__img" loading="lazy" aria-hidden="true" />
-          <div class="hp-svc-card__photo-overlay">
-            <span class="hp-svc-card__photo-tag">Field delivery</span>
+        <article class="hp-svc-cell hp-svc-cell--has-media">
+          <span class="hp-svc-cell__chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" stroke="currentColor" stroke-width="2"/><path d="M3 11h18M9 7V4m6 3V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <h3 class="hp-svc-cell__title">Factory Fabrication</h3>
+          <p class="hp-svc-cell__desc">Volumetric fabrication, finish-out, and QA through our certified partner manufacturing footprint.</p>
+          <a href="/services" class="hp-svc-cell__btn">Learn More</a>
+          <div class="hp-svc-cell__media hp-svc-cell__media--stack" aria-hidden="true">
+            <div class="hp-svc-cell__photo hp-svc-cell__photo--back">
+              <img src="/images/showcase/ri-factory-panorama.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="hp-svc-cell__photo hp-svc-cell__photo--front">
+              <img src="/images/showcase/ri-commercial-building.png" alt="" loading="lazy" />
+            </div>
           </div>
-        </a>
-
-        <article class="hp-svc-card slide-in-up" style="--delay: 0.1s">
-          <span class="hp-svc-card__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" stroke="currentColor" stroke-width="2"/><path d="M3 11h18M9 7V4m6 3V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </span>
-          <h3 class="hp-svc-card__title">Factory Production</h3>
-          <p class="hp-svc-card__desc">Volumetric fabrication, finish-out, and QA through our partner manufacturing footprint.</p>
         </article>
 
-        <article class="hp-svc-card slide-in-up" style="--delay: 0.15s">
-          <span class="hp-svc-card__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17V7l9-4 9 4v10l-9 4-9-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 7l9 4 9-4M12 21V11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <article class="hp-svc-cell hp-svc-cell--has-media hp-svc-cell--media-bottom">
+          <span class="hp-svc-cell__chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 17V7l9-4 9 4v10l-9 4-9-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 7l9 4 9-4M12 21V11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </span>
-          <h3 class="hp-svc-card__title">On-Site Deployment</h3>
-          <p class="hp-svc-card__desc">Logistics, lift planning, and site supervision to land, set, and commission units on schedule.</p>
+          <h3 class="hp-svc-cell__title">Supply Chain &amp; Logistics</h3>
+          <p class="hp-svc-cell__desc">International procurement, transport planning, and last-mile coordination — one integrated workflow.</p>
+          <a href="/services" class="hp-svc-cell__btn">Learn More</a>
+          <div class="hp-svc-cell__media hp-svc-cell__media--card" aria-hidden="true">
+            <div class="hp-svc-cell__minicard hp-svc-cell__minicard--dark">
+              <span class="hp-svc-cell__minicard-eyebrow">Units Shipped</span>
+              <span class="hp-svc-cell__minicard-big">50+</span>
+              <span class="hp-svc-cell__minicard-foot">Past 7 days</span>
+            </div>
+            <div class="hp-svc-cell__minicard hp-svc-cell__minicard--light">
+              <span class="hp-svc-cell__minicard-eyebrow">On-Route</span>
+              <span class="hp-svc-cell__minicard-row"><span>Bay Area</span><span class="hp-svc-cell__minicard-val">$120k</span></span>
+              <span class="hp-svc-cell__minicard-row"><span>Amman, JO</span><span class="hp-svc-cell__minicard-val">$120k</span></span>
+              <span class="hp-svc-cell__minicard-row"><span>Lecce, IT</span><span class="hp-svc-cell__minicard-val">$120k</span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="hp-svc-cell hp-svc-cell--has-media">
+          <span class="hp-svc-cell__chip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 20h14M6 20V9l6-4 6 4v11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20v-5h4v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 class="hp-svc-cell__title">On-Site Deployment</h3>
+          <p class="hp-svc-cell__desc">Lift planning, site supervision, and commissioning to land and set every module on schedule.</p>
+          <a href="/services" class="hp-svc-cell__btn">Learn More</a>
+          <div class="hp-svc-cell__media hp-svc-cell__media--stat" aria-hidden="true">
+            <div class="hp-svc-cell__minicard hp-svc-cell__minicard--light">
+              <span class="hp-svc-cell__minicard-eyebrow">On-Schedule Rate</span>
+              <span class="hp-svc-cell__minicard-stat"><strong>98%</strong><em>+2.5%</em></span>
+              <span class="hp-svc-cell__minicard-foot">Field delivery performance</span>
+              <div class="hp-svc-cell__pills">
+                <span>Lift</span>
+                <span>Set</span>
+                <span>Commission</span>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </div>
@@ -2365,166 +2394,307 @@ const partners = [
     .hp-stat--photo { grid-column: auto; }
   }
 
-  /* ════════ CAPABILITIES ════════ */
+  /* ════════ SERVICES BOARD ════════ */
   .hp-svc {
     background: #fff;
-    padding: 64px var(--strip-edge-gutter, 1.5rem);
+    padding: 56px var(--strip-edge-gutter, 1.5rem) 64px;
   }
 
   .hp-svc__panel {
-    background: #fff;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 72px clamp(24px, 4vw, 72px);
   }
 
   .hp-svc__intro {
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 56px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    gap: 14px;
+    max-width: 620px;
+    margin: 0 0 32px;
   }
 
   .hp-svc__title {
-    font-size: clamp(28px, 3.5vw, 48px);
+    font-size: clamp(28px, 3.5vw, 44px);
     margin: 0;
     line-height: 1.15;
-  }
-
-  .hp-svc__lead {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #555;
-    margin: 0;
-    max-width: 620px;
-  }
-
-  .hp-svc__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 10px 10px 24px;
-    background: var(--navy);
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-radius: 999px;
-    transition: background 0.25s, gap 0.25s;
-    margin-top: 8px;
-  }
-  .hp-svc__cta:hover {
-    background: var(--navy-dark);
-    gap: 14px;
-  }
-  .hp-svc__cta-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: var(--amber);
     color: #111;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  .hp-svc__grid {
+  .hp-svc__board {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(260px, auto);
+    border: 1px solid #e6e4de;
+    border-radius: 22px;
+    background: #faf9f6;
+    overflow: hidden;
   }
 
-  .hp-svc-card {
-    background: var(--off-white);
-    padding: 32px 28px;
+  .hp-svc-cell {
+    position: relative;
+    padding: 32px 32px 36px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 14px;
-    min-height: 260px;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.25s, box-shadow 0.25s;
-  }
-  .hp-svc-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 36px rgba(8, 18, 40, 0.12);
+    border-right: 1px solid #e6e4de;
+    border-bottom: 1px solid #e6e4de;
+    overflow: hidden;
+    min-height: 320px;
   }
 
-  .hp-svc-card__icon {
+  .hp-svc-cell:nth-child(2n) {
+    border-right: none;
+  }
+  .hp-svc-cell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .hp-svc-cell__chip {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: var(--amber);
-    color: #111;
-    border-radius: 8px;
-    align-self: flex-start;
+    width: 40px;
+    height: 40px;
+    background: var(--turf-green, #0C7C59);
+    color: #F9F8F6;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .hp-svc-cell__chip svg {
+    width: 20px;
+    height: 20px;
   }
 
-  .hp-svc-card__title {
+  .hp-svc-cell__title {
     font-family: var(--font-secondary);
-    font-size: 18px;
+    font-size: clamp(24px, 2.4vw, 32px);
     font-weight: 600;
     color: #111;
     margin: 0;
-    margin-top: auto;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
-  .hp-svc-card__desc {
-    font-size: 14px;
+  .hp-svc-cell__desc {
+    font-size: 14.5px;
     line-height: 1.6;
-    color: #555;
+    color: #5a5a5a;
     margin: 0;
+    max-width: 320px;
   }
 
-  .hp-svc-card--photo {
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-    min-height: 260px;
+  .hp-svc-cell__btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 8px;
+    padding: 9px 22px;
+    border: 1px solid #c9c5bd;
+    border-radius: 999px;
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #222;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
   }
-  .hp-svc-card__img {
+  .hp-svc-cell__btn:hover {
+    background: #111;
+    border-color: #111;
+    color: #fff;
+  }
+
+  /* ── floating decorative media ── */
+  .hp-svc-cell__media {
     position: absolute;
-    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* two-photo stacked montage (top-right) */
+  .hp-svc-cell__media--stack {
+    top: 20px;
+    right: -30px;
+    width: 320px;
+    height: 180px;
+  }
+  .hp-svc-cell__photo {
+    position: absolute;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #e8e6df;
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.12);
+  }
+  .hp-svc-cell__photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    display: block;
   }
-  .hp-svc-card--photo:hover .hp-svc-card__img {
-    transform: scale(1.04);
+  .hp-svc-cell__photo--back {
+    top: 10px;
+    right: 120px;
+    width: 160px;
+    height: 150px;
+    transform: rotate(-6deg);
+    background: #1a1a1a;
+    color: #fff;
   }
-  .hp-svc-card__photo-overlay {
+  .hp-svc-cell__photo--front {
+    top: 30px;
+    right: 0;
+    width: 180px;
+    height: 160px;
+    transform: rotate(2deg);
+  }
+
+  /* stat-card montage (right column, upper-right) */
+  .hp-svc-cell__media--card {
+    right: -40px;
+    bottom: -10px;
+    width: 320px;
+    height: 220px;
+  }
+  .hp-svc-cell__media--stat {
+    right: -20px;
+    top: 40px;
+    width: 260px;
+  }
+
+  .hp-svc-cell__minicard {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(12, 24, 48, 0.65) 0%, rgba(12, 24, 48, 0) 55%);
+    border-radius: 12px;
+    padding: 14px 16px;
     display: flex;
-    align-items: flex-end;
-    padding: 20px;
-  }
-  .hp-svc-card__photo-tag {
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
     font-family: var(--font-secondary);
+  }
+  .hp-svc-cell__minicard--dark {
+    background: #111;
+    color: #fff;
+    width: 170px;
+    top: 0;
+    right: 120px;
+    transform: rotate(-6deg);
+  }
+  .hp-svc-cell__minicard--light {
+    background: #fff;
+    color: #111;
+    width: 210px;
+    top: 24px;
+    right: 0;
+    transform: rotate(2deg);
+  }
+  .hp-svc-cell__media--stat .hp-svc-cell__minicard--light {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: rotate(-3deg);
+    width: 100%;
+  }
+
+  .hp-svc-cell__minicard-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .hp-svc-cell__minicard-big {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 4px;
+  }
+  .hp-svc-cell__minicard-foot {
+    font-size: 10px;
+    opacity: 0.55;
+    margin-top: 2px;
+  }
+  .hp-svc-cell__minicard-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    padding: 2px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .hp-svc-cell__minicard-row:first-of-type {
+    border-top: none;
+  }
+  .hp-svc-cell__minicard-val {
+    font-weight: 600;
+  }
+  .hp-svc-cell__minicard-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 2px;
+  }
+  .hp-svc-cell__minicard-stat strong {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .hp-svc-cell__minicard-stat em {
+    font-style: normal;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 6px 12px;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(4px);
+    color: var(--turf-green, #0C7C59);
+    background: rgba(12, 124, 89, 0.12);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .hp-svc-cell__pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .hp-svc-cell__pills span {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border: 1px solid #dcd8d1;
+    border-radius: 999px;
+    color: #111;
+    background: #faf9f6;
+  }
+
+  /* keep card content above the decorative media */
+  .hp-svc-cell__chip,
+  .hp-svc-cell__title,
+  .hp-svc-cell__desc,
+  .hp-svc-cell__btn {
+    position: relative;
+    z-index: 1;
   }
 
   @media (max-width: 900px) {
-    .hp-svc__grid { grid-template-columns: repeat(2, 1fr); }
+    .hp-svc__board { grid-template-columns: 1fr; }
+    .hp-svc-cell {
+      border-right: none;
+      border-bottom: 1px solid #e6e4de;
+      min-height: 280px;
+    }
+    .hp-svc-cell:last-child { border-bottom: none; }
+    .hp-svc-cell__media--stack,
+    .hp-svc-cell__media--card {
+      width: 240px;
+      height: 160px;
+    }
+    .hp-svc-cell__photo--back { width: 120px; height: 110px; right: 100px; }
+    .hp-svc-cell__photo--front { width: 140px; height: 120px; }
+    .hp-svc-cell__minicard--dark { width: 130px; right: 100px; }
+    .hp-svc-cell__minicard--light { width: 170px; }
   }
-  @media (max-width: 520px) {
-    .hp-svc__grid { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    .hp-svc-cell { padding: 26px 24px 28px; }
+    .hp-svc-cell__media { display: none; }
   }
 
   /* ════════ FEATURE PAIR ════════ */
