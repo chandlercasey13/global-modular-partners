@@ -27,42 +27,27 @@ const resources = [
 ---
 
 <footer class="ftr">
-  <!-- ── Top bar: logo + go-to-top ── -->
-  <div class="ftr__brand-wrap">
-    <div class="ftr__container">
-      <div class="ftr__brand-row">
-        <a href="/" class="ftr__logo-link" aria-label="Home">
-          <img src="/images/logo/gmp-logo-final.png" alt="GMP" style="height:36px;width:auto;" />
-        </a>
-        <a href="#" class="ftr__gotop" id="ftr-gotop">
-          <div class="ftr__gotop-inner">
-            <span class="ftr__gotop-label">Go To Top</span>
-            <span class="ftr__gotop-icon">
-              <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-            </span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="ftr__line"></div>
-
-  <!-- ── Main menu area: newsletter CTA + 3 nav columns ── -->
-  <div class="ftr__menu-wrap">
-    <div class="ftr__container">
-      <div class="ftr__menu-row">
-        <!-- Newsletter CTA -->
+  <div class="ftr__outer">
+    <div class="ftr__card">
+      <!-- Top: newsletter CTA + nav columns -->
+      <div class="ftr__top">
         <div class="ftr__cta">
-          <h3 class="ftr__cta-title">Field-tested perspective.</h3>
-          <p class="ftr__cta-text">Occasional updates on modular delivery, regulated sectors, and how we partner with owners and agencies — written by the team that executes the work.</p>
-          <form class="ftr__cta-form" onsubmit="event.preventDefault();">
-            <input class="ftr__cta-field" type="email" placeholder="Enter Your Email" required />
-            <button class="ftr__cta-btn" type="submit">Subscribe</button>
+          <a href="/" class="ftr__logo-link" aria-label="Home">
+            <img src="/images/logo/gmp-globe-white.svg" alt="Global Modular Partners" class="ftr__logo" />
+            <span class="ftr__logo-word"><span>GLOBAL</span><span>MODULAR</span><span>PARTNERS</span></span>
+          </a>
+          <p class="ftr__lede">Field-tested perspective. Occasional updates on modular delivery, regulated sectors, and how we partner with owners and agencies — written by the team that executes the work.</p>
+          <form class="ftr__form" onsubmit="event.preventDefault();">
+            <input class="ftr__field" type="email" placeholder="Enter your email" required />
+            <button class="ftr__btn" type="submit" aria-label="Subscribe">
+              <span class="ftr__btn-text">Subscribe</span>
+              <span class="ftr__btn-icon" aria-hidden="true">
+                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+              </span>
+            </button>
           </form>
         </div>
 
-        <!-- Nav columns -->
         <div class="ftr__nav-grid">
           <div class="ftr__nav">
             <div class="ftr__nav-title">Quick View</div>
@@ -90,67 +75,39 @@ const resources = [
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="ftr__line"></div>
-
-  <!-- ── Contact info strip: 3 columns ── -->
-  <div class="ftr__info-wrap">
-    <div class="ftr__container">
-      <div class="ftr__info-row">
-        <a href="mailto:info@globalmodularpartners.com" class="ftr__info">
-          <div class="ftr__info-icon-wrap">
-            <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="ftr__info-text">
-            <span class="ftr__info-label">Email Address</span>
-            <span class="ftr__info-value">info@globalmodularpartners.com</span>
-          </div>
+      <!-- Contact strip -->
+      <div class="ftr__info">
+        <a href="mailto:info@globalmodularpartners.com" class="ftr__info-item">
+          <span class="ftr__info-label">Email</span>
+          <span class="ftr__info-value">info@globalmodularpartners.com</span>
         </a>
-        <a href="tel:+15105550199" class="ftr__info ftr__info--mid">
-          <div class="ftr__info-icon-wrap">
-            <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="ftr__info-text">
-            <span class="ftr__info-label">Phone Number</span>
-            <span class="ftr__info-value">(510) 555-0199</span>
-          </div>
+        <a href="tel:+15105550199" class="ftr__info-item">
+          <span class="ftr__info-label">Phone</span>
+          <span class="ftr__info-value">(510) 555-0199</span>
         </a>
-        <a href="/contact" class="ftr__info ftr__info--last">
-          <div class="ftr__info-icon-wrap">
-            <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="ftr__info-text">
-            <span class="ftr__info-label">Headquarters</span>
-            <span class="ftr__info-value">San Francisco Bay Area / Oakland, CA</span>
-          </div>
+        <a href="/contact" class="ftr__info-item">
+          <span class="ftr__info-label">Headquarters</span>
+          <span class="ftr__info-value">Oakland, California</span>
         </a>
       </div>
-    </div>
-  </div>
 
-  <div class="ftr__line"></div>
-
-  <!-- ── Copyright bar ── -->
-  <div class="ftr__copy-wrap">
-    <div class="ftr__container">
-      <div class="ftr__copy-row">
-        <span class="ftr__copy-text">&copy; {currentYear} Global Modular Partners, LLC</span>
-        <span class="ftr__copy-dot"></span>
-        <a href="#" class="ftr__copy-link">Privacy Policy</a>
-        <span class="ftr__copy-dot"></span>
-        <a href="#" class="ftr__copy-link">Terms of Service</a>
-        <span class="ftr__copy-dot"></span>
-        <a href="#" class="ftr__copy-link">Sitemap</a>
+      <!-- Base bar -->
+      <div class="ftr__base">
+        <div class="ftr__base-left">
+          <span class="ftr__base-text">&copy; {currentYear} Global Modular Partners, LLC</span>
+        </div>
+        <div class="ftr__base-links">
+          <a href="#" class="ftr__base-link">Privacy</a>
+          <a href="#" class="ftr__base-link">Terms</a>
+          <a href="#" class="ftr__base-link">Sitemap</a>
+        </div>
+        <a href="#" class="ftr__gotop" id="ftr-gotop" aria-label="Go to top">
+          <span>Back to top</span>
+          <span class="ftr__gotop-icon" aria-hidden="true">
+            <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -158,398 +115,269 @@ const resources = [
 
 <script>
   const goTop = document.getElementById('ftr-gotop');
-  if (goTop) {
-    goTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  goTop?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>
 
 <style>
   /* ════════════════════════════════════════════
-     MNC-faithful Footer — GMP color scheme
+     Aeline-style footer — rounded dark card
      ════════════════════════════════════════════ */
-
   .ftr {
     position: relative;
     z-index: 3;
-    background-color: #0b0d0f;
-    font-family: var(--font-primary, 'Barlow', sans-serif);
-    border-top: 3px solid var(--amber, #E0A135);
+    background-color: var(--paper, #fff);
+    font-family: var(--font-primary);
   }
 
-  .ftr__container {
-    max-width: 1440px;
+  .ftr__outer {
+    max-width: 88rem;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 2rem 1.5rem 2rem;
   }
 
-  .ftr__line {
-    height: 1px;
-    width: 100%;
-    background-color: rgba(255,255,255,.08);
-  }
-
-
-  /* ── Brand bar ── */
-  .ftr__brand-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 1px solid rgba(255,255,255,.08);
-    border-right: 1px solid rgba(255,255,255,.08);
-  }
-
-  .ftr__logo-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 24px;
-    border-right: 1px solid rgba(255,255,255,.08);
-    text-decoration: none;
-    transition: opacity 0.3s;
-  }
-
-  .ftr__logo-link:hover {
-    opacity: 0.8;
-  }
-
-  .ftr__gotop {
-    display: flex;
-    align-items: center;
-    padding: 20px 24px;
-    border-left: 1px solid rgba(255,255,255,.08);
-    text-decoration: none;
-    color: var(--white, #fff);
-    transition: opacity 0.3s;
-  }
-
-  .ftr__gotop:hover {
-    color: var(--amber, #E0A135);
-  }
-  .ftr__gotop:hover .ftr__gotop-label {
-    color: var(--amber, #E0A135);
-  }
-
-  .ftr__gotop-inner {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .ftr__gotop-label {
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--white, #fff);
-  }
-
-  .ftr__gotop-icon {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  .ftr__gotop-icon svg {
-    width: 100%;
-    height: 100%;
-  }
-
-
-  /* ── Menu area ── */
-  .ftr__menu-row {
-    display: flex;
-    gap: 48px;
-    padding: 64px 24px;
-    border-left: 1px solid rgba(255,255,255,.08);
-    border-right: 1px solid rgba(255,255,255,.08);
-    align-items: flex-start;
-  }
-
-  .ftr__cta {
-    flex: none;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .ftr__cta-title {
-    font-family: var(--font-secondary, 'Sora', sans-serif);
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--white, #fff);
-    line-height: 1.3;
-    margin-bottom: 12px;
-  }
-
-  .ftr__cta-text {
-    font-size: 14px;
-    color: rgba(255,255,255,.45);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-
-  .ftr__cta-form {
-    display: flex;
-    height: 48px;
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 4px;
-    overflow: hidden;
-    max-width: 340px;
-    transition: border-color 0.3s;
-  }
-  .ftr__cta-form:focus-within {
-    border-color: var(--amber, #E0A135);
-  }
-
-  .ftr__cta-field {
-    flex: 1;
-    padding: 0 16px;
-    border: none;
-    background: transparent;
-    font-family: var(--font-primary, 'Barlow', sans-serif);
-    font-size: 14px;
-    color: var(--white, #fff);
-    outline: none;
-  }
-
-  .ftr__cta-field::placeholder {
-    color: rgba(255,255,255,.4);
-  }
-
-  .ftr__cta-btn {
-    padding: 0 16px;
-    background-color: var(--amber, #E0A135);
-    border: none;
-    font-family: var(--font-primary, 'Barlow', sans-serif);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy-dark, #1a2a42);
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: background-color 0.25s;
-    white-space: nowrap;
-  }
-
-  .ftr__cta-btn:hover {
-    background-color: var(--amber-dark, #c48b25);
-  }
-
-
-  /* ── Nav columns ── */
-  .ftr__nav-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-    flex: 1;
-  }
-
-  .ftr__nav {
+  .ftr__card {
+    background-color: var(--ink, #1d1d1d);
+    color: var(--on-ink, #fff);
+    border-radius: var(--radius-2xl, 40px);
+    padding: clamp(2rem, 5vw, 4.5rem);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(2rem, 4vw, 3.5rem);
   }
 
-  .ftr__nav-title {
-    font-family: var(--font-secondary, 'Sora', sans-serif);
-    font-size: 16px;
+  /* Top grid: CTA + nav columns */
+  .ftr__top {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+  }
+
+  /* Left: logo + lede + form */
+  .ftr__logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 1.5rem;
+  }
+  .ftr__logo {
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.3));
+  }
+  .ftr__logo-word {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-display);
     font-weight: 600;
-    color: var(--white, #fff);
-    line-height: 1.4;
+    font-size: 11px;
+    letter-spacing: 2.4px;
+    line-height: 1.12;
+    color: var(--on-ink);
+  }
+  .ftr__logo-word > span:nth-child(2) { color: var(--accent); }
+
+  .ftr__lede {
+    color: var(--on-ink-muted, rgba(255,255,255,.62));
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 26rem;
+    margin-bottom: 1.75rem;
   }
 
+  .ftr__form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-pill, 999px);
+    padding: 0.35rem 0.35rem 0.35rem 1.25rem;
+    max-width: 26rem;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  }
+  .ftr__form:focus-within {
+    border-color: rgba(255,255,255,.3);
+    background-color: rgba(255,255,255,.09);
+  }
+  .ftr__field {
+    flex: 1;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: var(--on-ink);
+    outline: none;
+    min-width: 0;
+  }
+  .ftr__field::placeholder { color: rgba(255,255,255,.4); }
+
+  .ftr__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.85rem;
+    background-color: var(--on-ink, #fff);
+    color: var(--ink, #1d1d1d);
+    border: 0;
+    border-radius: var(--radius-pill, 999px);
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    flex: none;
+    transition: background-color var(--transition-base);
+  }
+  .ftr__btn:hover { background-color: #f3f3f0; }
+  .ftr__btn-text { padding-left: 0.1rem; }
+  .ftr__btn-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background-color: var(--ink);
+    color: var(--on-ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .ftr__btn-icon svg { width: 13px; height: 13px; }
+
+  /* Right: nav columns */
+  .ftr__nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .ftr__nav { display: flex; flex-direction: column; gap: 1rem; }
+  .ftr__nav-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    font-weight: 500;
+  }
   .ftr__nav-links {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 0.5rem;
   }
-
   .ftr__nav-link {
-    font-size: 14px;
+    font-size: 0.95rem;
     font-weight: 400;
-    color: rgba(255,255,255,.4);
+    color: var(--on-ink);
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.3s, opacity 0.3s;
-    opacity: 0.7;
+    letter-spacing: -0.01em;
+    transition: opacity var(--transition-fast);
+    opacity: 0.82;
   }
+  .ftr__nav-link:hover { opacity: 1; color: var(--accent); }
 
-  .ftr__nav-link:hover {
-    color: var(--amber, #E0A135);
-    opacity: 1;
-  }
-
-
-  /* ── Contact info strip ── */
-  .ftr__info-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-left: 1px solid rgba(255,255,255,.08);
-    border-right: 1px solid rgba(255,255,255,.08);
-  }
-
+  /* Contact strip — separated by hairline, 3 tiles */
   .ftr__info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .ftr__info-item {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 24px 32px;
-    border-right: 1px solid rgba(255,255,255,.08);
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.5rem 0;
+    padding-right: 1.5rem;
+    color: var(--on-ink);
     text-decoration: none;
-    transition: background-color 0.25s;
-  }
-
-  .ftr__info:hover {
-    background-color: rgba(255,255,255,.03);
-  }
-
-  .ftr__info--last {
-    border-right: none;
-  }
-
-  .ftr__info-icon-wrap {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
-    border-radius: 6px;
-    background-color: rgba(255,255,255,.06);
-    color: rgba(255,255,255,.5);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ftr__info-icon-wrap svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .ftr__info-label {
-    display: block;
-    font-size: 12px;
-    color: rgba(255,255,255,.35);
-    font-weight: 300;
-    letter-spacing: 0.3px;
-    margin-bottom: 2px;
-  }
-
-  .ftr__info-value {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white, #fff);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-
-  /* ── Copyright bar ── */
-  .ftr__copy-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px 24px 40px;
-    border-left: 1px solid rgba(255,255,255,.08);
     border-right: 1px solid rgba(255,255,255,.08);
-    font-size: 14px;
-    color: rgba(255,255,255,.4);
+    transition: opacity var(--transition-fast);
+  }
+  .ftr__info-item:last-child { border-right: none; padding-right: 0; }
+  .ftr__info-item + .ftr__info-item { padding-left: 1.5rem; }
+  .ftr__info-item:hover { opacity: .75; }
+  .ftr__info-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    font-weight: 500;
+  }
+  .ftr__info-value {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--on-ink);
   }
 
-  .ftr__copy-text {
-    display: inline;
+  /* Base bar */
+  .ftr__base {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,.45);
   }
-
-  .ftr__copy-dot {
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,.25);
-    margin: 0 10px;
-    vertical-align: middle;
+  .ftr__base-text { color: rgba(255,255,255,.55); }
+  .ftr__base-links { display: flex; gap: 1.5rem; }
+  .ftr__base-link {
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+    transition: color var(--transition-fast);
   }
+  .ftr__base-link:hover { color: var(--on-ink); }
 
-  .ftr__copy-link {
-    color: rgba(255,255,255,.4);
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 3px;
-    transition: color 0.3s, text-decoration-color 0.3s;
+  .ftr__gotop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--on-ink);
+    text-decoration: none;
+    padding: 0.4rem 0.4rem 0.4rem 0.85rem;
+    border-radius: var(--radius-pill);
+    background-color: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    transition: background-color var(--transition-fast);
   }
-
-  .ftr__copy-link:hover {
-    color: var(--white, #fff);
-    text-decoration-color: var(--white, #fff);
+  .ftr__gotop:hover { background-color: rgba(255,255,255,.12); }
+  .ftr__gotop-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background-color: var(--on-ink);
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
+  .ftr__gotop-icon svg { width: 12px; height: 12px; }
 
-
-  /* ── Responsive ── */
-  @media (max-width: 1024px) {
-    .ftr__menu-row {
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .ftr__cta {
-      max-width: 100%;
-    }
-
-    .ftr__cta-form {
-      max-width: 100%;
-    }
-
-    .ftr__nav-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+  /* Responsive */
+  @media (max-width: 960px) {
+    .ftr__top { grid-template-columns: 1fr; }
+    .ftr__nav-grid { grid-template-columns: repeat(3, 1fr); }
   }
-
-  @media (max-width: 768px) {
-    .ftr__nav-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .ftr__info-row {
-      grid-template-columns: 1fr;
-    }
-
-    .ftr__info {
+  @media (max-width: 720px) {
+    .ftr__outer { padding: 1rem 1rem 1.25rem; }
+    .ftr__card { border-radius: 28px; padding: 1.75rem; }
+    .ftr__nav-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .ftr__info { grid-template-columns: 1fr; }
+    .ftr__info-item {
       border-right: none;
       border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 1rem 0;
     }
-
-    .ftr__info--last {
-      border-bottom: none;
-    }
-
-    .ftr__copy-row {
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .ftr__copy-dot {
-      display: none;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .ftr__menu-row {
-      padding: 40px 16px;
-    }
-
-    .ftr__nav-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-
-    .ftr__brand-row {
-      border-left: none;
-      border-right: none;
-    }
+    .ftr__info-item + .ftr__info-item { padding-left: 0; }
+    .ftr__info-item:last-child { border-bottom: none; }
+    .ftr__base { flex-direction: column; align-items: flex-start; }
   }
 </style>

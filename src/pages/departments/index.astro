@@ -203,40 +203,41 @@ import Footer from '../../components/Footer.astro';
   .dp-tag {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--text-gray);
-    margin-bottom: 28px;
+    letter-spacing: var(--tracking-label);
+    color: var(--ink);
+    margin-bottom: 1.5rem;
   }
   .dp-tag::before {
     content: '';
-    width: 24px;
-    height: 2px;
-    background: var(--amber);
+    width: 8px;
+    height: 8px;
+    background: var(--ink);
     flex-shrink: 0;
   }
-  /* Same as homepage .section-title + .hp-about strip headings */
   .dp-sec__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 42px);
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.8vw, 48px);
     font-weight: 600;
-    line-height: 1.2;
-    color: var(--dark-text);
-    margin: 0 0 14px;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0 0 1rem;
   }
 
   .dp-sec__desc {
-    font-size: 16px;
-    line-height: 1.75;
-    color: #444;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
     margin: 0;
     max-width: none;
   }
   .dp-sec__desc + .dp-sec__desc {
-    margin-top: 1.125rem;
+    margin-top: 1rem;
   }
 
   /* ═══ HERO (white inset frame + rounded navy panel) ═══ */
@@ -298,8 +299,8 @@ import Footer from '../../components/Footer.astro';
   .dp-sec {
     padding: 0;
   }
-  .dp-sec--white { background: var(--section-blue); }
-  .dp-sec--off { background: var(--off-white); }
+  .dp-sec--white { background: var(--paper); }
+  .dp-sec--off { background: var(--paper-2); }
 
   /* ═══ 01. MODULAR (intro + cards, full-bleed gutters) ═══ */
   .dp-mod__wrap {
@@ -318,43 +319,46 @@ import Footer from '../../components/Footer.astro';
   }
 
   .dp-mod__card {
-    padding: 32px 28px;
-    border: 1px solid rgba(0,0,0,.08);
-    background: var(--off-white);
-    transition: box-shadow 0.3s ease;
-    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    border-radius: var(--radius-xl);
   }
 
   .dp-mod__card:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,.06);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: #d6d6d1;
   }
 
   .dp-mod__card--accent {
-    background: var(--amber);
-    border-color: var(--amber);
+    background: var(--ink);
+    border-color: var(--ink);
   }
 
   .dp-mod__card-title {
-    font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
   }
 
   .dp-mod__card--accent .dp-mod__card-title {
-    color: var(--navy);
+    color: var(--on-ink);
   }
 
   .dp-mod__card-desc {
-    font-size: 13px;
+    font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--text-gray);
+    color: var(--muted);
     margin: 0;
   }
 
   .dp-mod__card--accent .dp-mod__card-desc {
-    color: rgba(30,58,102,.7);
+    color: var(--on-ink-muted);
   }
 
   /* ═══ 02. PM — image left, text right (like .netmap / services default) ═══ */
@@ -382,7 +386,7 @@ import Footer from '../../components/Footer.astro';
     min-height: 0;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
   }
 
   .dp-split__text-col {
@@ -410,25 +414,25 @@ import Footer from '../../components/Footer.astro';
 
   .dp-bullets li {
     position: relative;
-    padding-left: 20px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--text-gray);
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--muted);
   }
 
   .dp-bullets li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--amber);
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 0;
+    background: var(--ink);
   }
 
   .dp-bullets--compact { margin: 12px 0 0; gap: 6px; }
-  .dp-bullets--compact li { font-size: 13px; }
+  .dp-bullets--compact li { font-size: 0.9rem; }
 
   /* ═══ 03. DOD — text left, image right (like .hp-about) ═══ */
   .dp-dod {
@@ -468,31 +472,32 @@ import Footer from '../../components/Footer.astro';
     min-height: 0;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
   }
 
   .dp-dod__accent-card {
-    margin-top: 28px;
-    padding: 20px 24px;
-    background: rgba(224,161,53,.08);
-    border-left: 3px solid var(--amber);
-    border-radius: 0 8px 8px 0;
+    margin-top: 1.75rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--ink);
+    color: var(--on-ink);
+    border-left: none;
+    border-radius: var(--radius-xl);
   }
 
   .dp-dod__accent-title {
-    font-family: var(--font-primary);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--amber);
-    margin-bottom: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--on-ink);
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: var(--tracking-label);
   }
 
   .dp-dod__accent-desc {
-    font-size: 13px;
+    font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--text-gray);
+    color: var(--on-ink-muted);
     margin: 0;
   }
 
@@ -531,7 +536,7 @@ import Footer from '../../components/Footer.astro';
     aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
   }
 
   .dp-hc__side-col {
@@ -547,30 +552,31 @@ import Footer from '../../components/Footer.astro';
   }
 
   .dp-hc__watermark {
-    font-family: var(--font-primary);
-    font-size: clamp(60px, 10vw, 120px);
-    font-weight: 900;
-    color: rgba(0,0,0,.04);
+    font-family: var(--font-mono);
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 400;
+    color: var(--line);
     line-height: 1;
-    margin-bottom: 24px;
-    letter-spacing: -2px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0;
   }
 
   .dp-hc__feature {
-    padding: 24px 0;
-    border-top: 1px solid rgba(0,0,0,.08);
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
   }
 
   .dp-hc__feature:last-child {
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    border-bottom: 1px solid var(--line);
   }
 
   .dp-hc__feature-title {
-    font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 4px;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
   }
 
   /* ═══ 05. CIVIL — images left, text right ═══ */
@@ -596,7 +602,7 @@ import Footer from '../../components/Footer.astro';
     width: 100%;
     display: block;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
   }
 
   .dp-civil__img:first-child {
@@ -623,28 +629,30 @@ import Footer from '../../components/Footer.astro';
 
   .dp-civil__stats {
     display: flex;
-    gap: 40px;
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(0,0,0,.08);
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
   }
 
   .dp-civil__stat-num {
-    font-family: var(--font-primary);
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--dark-text);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
     display: block;
     line-height: 1;
   }
 
   .dp-civil__stat-label {
-    font-size: 11px;
-    letter-spacing: 1.5px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
-    color: var(--text-gray);
+    color: var(--muted);
     display: block;
-    margin-top: 4px;
+    margin-top: 0.5rem;
   }
 
   @media (min-width: 901px) {

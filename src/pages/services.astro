@@ -179,82 +179,63 @@ const protocols = [
 <style>
   .mnc-container { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Match homepage: .reach__head (16px) + .section-tag (20px mb) → ~20px to title */
   .sv-sec-head {
-    margin-bottom: 16px;
-  }
-
-  .section-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--text-gray);
     margin-bottom: 20px;
-    padding: 0;
-    border: none;
-    border-radius: 0;
   }
 
-  .section-tag::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 2px;
-    background: var(--amber);
-    flex-shrink: 0;
-  }
+  /* section-tag styled globally (aeline mono-dot) */
 
-  /* ═══ OUR PROCESS ═══ */
+  /* ═══ OUR PROCESS (aeline) ═══ */
   .sv-advantage {
-    background-color: var(--section-blue);
-    padding: 48px 0;
+    background-color: var(--paper);
+    padding: clamp(3.5rem, 7vw, 6rem) 0;
   }
 
   .sv-advantage__top {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 28px;
+    gap: 48px;
     align-items: start;
-    margin-bottom: 40px;
+    margin-bottom: 56px;
   }
 
   .sv-advantage__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.2;
-    font-weight: 600;
-    color: var(--dark-text);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--ink);
     margin: 0;
   }
 
   .sv-advantage__span {
-    color: var(--amber);
+    color: var(--muted);
+    font-weight: 400;
   }
 
   .sv-advantage__desc {
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--text-gray);
+    font-size: var(--fs-lg);
+    line-height: 1.65;
+    color: var(--muted);
     margin: 0;
+    max-width: 34rem;
   }
 
   .sv-advantage__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 16px;
   }
 
   .sv-advantage__card {
     position: relative;
     overflow: hidden;
-    min-height: 360px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    border-radius: var(--radius-xl);
   }
 
   .sv-advantage__card-img {
@@ -263,48 +244,50 @@ const protocols = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .5s;
+    transition: transform .6s cubic-bezier(.2,.8,.2,1);
   }
   .sv-advantage__card:hover .sv-advantage__card-img {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 
   .sv-advantage__card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 50%, rgba(0,0,0,.05) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.2) 55%, rgba(0,0,0,0) 100%);
     z-index: 1;
   }
 
   .sv-advantage__card-body {
     position: relative;
     z-index: 2;
-    padding: 32px;
+    padding: 28px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .sv-advantage__card-num {
-    font-family: var(--font-secondary);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--amber);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,.7);
+    text-transform: uppercase;
   }
 
   .sv-advantage__card-title {
-    font-family: var(--font-secondary);
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.3;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--on-ink);
+    line-height: 1.25;
   }
 
   .sv-advantage__card-desc {
-    font-size: 14px;
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: rgba(255,255,255,.6);
+    color: rgba(255,255,255,.7);
     margin: 0;
   }
 
@@ -373,15 +356,15 @@ const protocols = [
     margin: 0;
   }
 
-  /* ═══ 2. COMPETENCY — match homepage .hp-about / .netmap strips ═══ */
+  /* ═══ 2. COMPETENCY (aeline) — alternating paper / soft bands ═══ */
   .sv-comp {
-    background-color: var(--section-blue);
+    background-color: var(--paper);
     --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
-    --strip-inner-gap: 36px;
+    --strip-inner-gap: 48px;
   }
 
   .sv-comp--band-muted {
-    background-color: var(--off-white);
+    background-color: var(--paper-2);
   }
 
   .sv-comp__grid {
@@ -445,7 +428,7 @@ const protocols = [
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
   }
 
   .sv-comp__tag-row {
@@ -459,59 +442,64 @@ const protocols = [
   .sv-comp__tag-row::before {
     content: '';
     display: inline-block;
-    width: 24px;
-    height: 2px;
-    background: var(--amber);
+    width: 6px;
+    height: 6px;
+    background: var(--ink);
     flex-shrink: 0;
   }
 
   .sv-comp__tag {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-gray);
+    color: var(--ink);
   }
 
   .sv-comp__tag-suffix {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-gray);
+    color: var(--muted);
   }
 
   .sv-comp__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 600;
-    line-height: 1.2;
-    color: #111;
-    margin: 0 0 14px;
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--ink);
+    margin: 0 0 18px;
   }
 
   .sv-comp__desc {
-    font-size: 16px;
-    line-height: 1.75;
-    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--muted);
     margin: 0 0 16px;
   }
 
   .sv-comp__pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     margin-top: 28px;
   }
 
   .sv-comp__pill {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border: 1px solid rgba(0,0,0,.12);
-    color: var(--dark-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    color: var(--ink);
+    background: var(--paper);
   }
 
   @media (min-width: 901px) {
@@ -554,12 +542,13 @@ const protocols = [
     }
   }
 
-  /* ═══ 3. PROTOCOL — full-bleed two-col, gutters match homepage strips ═══ */
+  /* ═══ 3. PROTOCOL (aeline dark rounded panel) ═══ */
   .sv-protocol {
-    background: var(--section-blue);
+    background: var(--ink);
+    color: var(--on-ink);
     padding: 0;
     --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
-    --strip-inner-gap: 36px;
+    --strip-inner-gap: 48px;
   }
 
   .sv-protocol__layout {
@@ -571,7 +560,11 @@ const protocols = [
   }
 
   .sv-protocol .section-tag {
+    color: var(--on-ink);
     margin-bottom: 28px;
+  }
+  .sv-protocol .section-tag::before {
+    background-color: var(--accent);
   }
 
   .sv-protocol__left {
@@ -588,19 +581,20 @@ const protocols = [
   }
 
   .sv-protocol__title {
-    font-family: var(--font-secondary);
-    font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 600;
-    line-height: 1.2;
-    color: #111;
-    margin: 0 0 14px;
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: var(--tracking-tighter);
+    color: var(--on-ink);
+    margin: 0 0 18px;
   }
 
   .sv-protocol__sub {
-    font-size: 16px;
-    line-height: 1.75;
-    color: #444;
-    margin: 0 0 28px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--on-ink-muted);
+    margin: 0 0 32px;
   }
 
   .sv-protocol__steps {
@@ -616,26 +610,29 @@ const protocols = [
   }
 
   .sv-protocol__num {
-    font-family: var(--font-secondary);
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--amber);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--accent);
     flex-shrink: 0;
-    line-height: 1.2;
+    line-height: 1.4;
+    padding-top: 2px;
   }
 
   .sv-protocol__step-title {
-    font-family: var(--font-secondary);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark-text);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--on-ink);
     margin-bottom: 4px;
   }
 
   .sv-protocol__step-desc {
-    font-size: 14px;
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text-gray);
+    color: var(--on-ink-muted);
     margin: 0;
   }
 
@@ -653,7 +650,7 @@ const protocols = [
     flex: 1;
     min-height: 280px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
   }
 
   .sv-protocol__img-wrap img {

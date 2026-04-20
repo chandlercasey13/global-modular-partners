@@ -1,0 +1,198 @@
+{
+  "site_id": "aeline.webflow.io",
+  "site_slug": "aeline",
+  "fonts": [
+    "sans-serif",
+    "monospace",
+    "webflow-icons",
+    "webflow-icons!important",
+    "Arial",
+    "unset",
+    "serif",
+    "Helvetica Neue"
+  ],
+  "palette": [
+    {
+      "hex": "#000000",
+      "count": 10664
+    },
+    {
+      "hex": "#ffffff",
+      "count": 6076
+    },
+    {
+      "hex": "#3898ec",
+      "count": 1116
+    },
+    {
+      "hex": "#222222",
+      "count": 868
+    },
+    {
+      "hex": "#2d40ea",
+      "count": 744
+    },
+    {
+      "hex": "#758696",
+      "count": 744
+    },
+    {
+      "hex": "#cccccc",
+      "count": 744
+    },
+    {
+      "hex": "#dddddd",
+      "count": 744
+    },
+    {
+      "hex": "#333333",
+      "count": 620
+    },
+    {
+      "hex": "#131313",
+      "count": 496
+    },
+    {
+      "hex": "#ececec",
+      "count": 416
+    },
+    {
+      "hex": "#666666",
+      "count": 372
+    }
+  ],
+  "class_prefixes": [
+    {
+      "prefix": "text",
+      "count": 356
+    },
+    {
+      "prefix": "button",
+      "count": 238
+    },
+    {
+      "prefix": "nav",
+      "count": 156
+    },
+    {
+      "prefix": "footer",
+      "count": 156
+    },
+    {
+      "prefix": "vcard",
+      "count": 102
+    },
+    {
+      "prefix": "spacer",
+      "count": 101
+    },
+    {
+      "prefix": "icon",
+      "count": 79
+    },
+    {
+      "prefix": "container",
+      "count": 63
+    },
+    {
+      "prefix": "navbar",
+      "count": 60
+    },
+    {
+      "prefix": "img",
+      "count": 45
+    },
+    {
+      "prefix": "padding",
+      "count": 39
+    },
+    {
+      "prefix": "tag",
+      "count": 38
+    },
+    {
+      "prefix": "max",
+      "count": 37
+    },
+    {
+      "prefix": "dot",
+      "count": 37
+    },
+    {
+      "prefix": "pcard",
+      "count": 36
+    },
+    {
+      "prefix": "gcard",
+      "count": 32
+    },
+    {
+      "prefix": "hide",
+      "count": 30
+    },
+    {
+      "prefix": "form",
+      "count": 30
+    },
+    {
+      "prefix": "scroll",
+      "count": 29
+    },
+    {
+      "prefix": "hero",
+      "count": 28
+    }
+  ],
+  "page_count": 11,
+  "section_count": 124,
+  "section_roles": [
+    "A",
+    "About",
+    "Blog",
+    "Building the future with AI and strategy",
+    "Call to action",
+    "Comprehensive consulting and intelligent innovat…",
+    "Empowering Businesses Through Intelligent Transf…",
+    "Empowering businesses through strategy and AI",
+    "FAQ",
+    "Figma file included",
+    "Flexible Plans Built for Every Stage of Growth",
+    "Footer",
+    "Frequently asked questions",
+    "Header",
+    "Headers and Footers",
+    "Hero",
+    "Latest insights and trends",
+    "Logo cloud",
+    "Looking for more Webflow templates?",
+    "Meet our teams",
+    "Navigation",
+    "Need to customize this template?",
+    "Our journey toward intelligent transformation",
+    "Pricing",
+    "Reach out today",
+    "Recent published",
+    "Section 10",
+    "Section 11",
+    "Section 12",
+    "Section 13",
+    "Section 14",
+    "Section 15",
+    "Section 17",
+    "Section 19",
+    "Section 3",
+    "Section 5",
+    "Section 6",
+    "Section 7",
+    "Section 8",
+    "Section 9",
+    "Services",
+    "Stats",
+    "Team",
+    "Testimonials",
+    "We build solutions that create real, measurable …",
+    "What is included Aeline",
+    "What they say about us?",
+    "Where human insight meets intelligent technology"
+  ]
+}
