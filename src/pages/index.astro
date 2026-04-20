@@ -560,12 +560,15 @@ const partners = [
       <div class="netmap__img-col slide-in-left">
         <div class="netmap__map-wrap">
           <div id="network-map" class="netmap__map"></div>
+          <div class="netmap__build" id="netmap-build" aria-hidden="true"></div>
+          <div class="netmap__overlay">
+            <span class="section-tag netmap__overlay-tag fade-up">Project Footprint</span>
+            <h2 class="section-title netmap__title netmap__overlay-title fade-up">Modular Delivery,<br/>Across Three Continents.</h2>
+          </div>
         </div>
       </div>
       <div class="netmap__text-col slide-in-right">
         <div class="netmap__text-inner">
-          <span class="section-tag">Project Footprint</span>
-          <h2 class="section-title netmap__title">Modular Delivery,<br/>Across Three Continents.</h2>
 
         <div class="netmap__hubs">
           <div class="netmap__hub">
@@ -601,6 +604,7 @@ const partners = [
   </section>
 
   <script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
   <script is:inline>
     (function initMap() {
       var mapEl = document.getElementById('network-map');
@@ -616,24 +620,146 @@ const partners = [
         zoomControl: true,
         scrollWheelZoom: false,
         attributionControl: false,
-        minZoom: 2,
+        minZoom: 1,
         maxZoom: 6,
         worldCopyJump: true,
+        preferCanvas: false,
       });
 
-      // ESRI Dark Gray Canvas — English-only labels, served unlocalized.
-      // Split into base (land/water) + reference (labels) so we can tint the
-      // base blue without darkening the label readability.
-      L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-        { maxZoom: 16, className: 'netmap-basetile' }
-      ).addTo(map);
-      L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
-        { maxZoom: 16, className: 'netmap-labeltile' }
-      ).addTo(map);
+      // Ocean/land base colors are driven entirely by CSS so the map can
+      // fade from white → navy together with the rest of the section as it
+      // scrolls into view (see `.netmap.in-view` rules).
 
-      setTimeout(function () { map.invalidateSize(); }, 300);
+      function ensurePatternDefs() {
+        var svg = mapEl.querySelector('.leaflet-overlay-pane svg');
+        if (!svg) return null;
+        if (!svg.querySelector('#gmp-blocks-defs')) {
+          var ns = 'http://www.w3.org/2000/svg';
+          var defs = document.createElementNS(ns, 'defs');
+          defs.setAttribute('id', 'gmp-blocks-defs');
+          defs.innerHTML =
+            '<pattern id="gmp-blocks" x="0" y="0" width="14" height="11" patternUnits="userSpaceOnUse">' +
+              '<rect x="1" y="1" width="12" height="9" fill="#f0c645" rx="1.75"/>' +
+            '</pattern>';
+          svg.insertBefore(defs, svg.firstChild);
+        }
+        return svg;
+      }
+
+      function applyPatternFill() {
+        var svg = ensurePatternDefs();
+        if (!svg) return;
+        var paths = svg.querySelectorAll('path.netmap-land');
+        for (var i = 0; i < paths.length; i++) {
+          paths[i].setAttribute('fill', 'url(#gmp-blocks)');
+          paths[i].setAttribute('fill-opacity', '1');
+        }
+      }
+
+      // Coordinate the "squares pop in" animation: it should only play once
+      // both the geoJSON land layer is rendered AND the section has scrolled
+      // into view (so users actually see it happen).
+      var _landReady = false;
+      var _scrollFired = false;
+      function maybePopBlocks() {
+        if (_landReady && _scrollFired) {
+          mapEl.classList.add('blocks-in');
+        }
+      }
+
+      // Fade the entire netmap section background from white into the map's
+      // navy ocean as the user scrolls the section into view.
+      var sectionEl = mapEl.closest('.netmap');
+      if (sectionEl && 'IntersectionObserver' in window) {
+        var sectionIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              sectionEl.classList.add('in-view');
+            } else {
+              sectionEl.classList.remove('in-view');
+            }
+          });
+        }, { threshold: 0.18 });
+        sectionIO.observe(sectionEl);
+      } else if (sectionEl) {
+        sectionEl.classList.add('in-view');
+      }
+
+      // Fix polygons that wrap across the antimeridian (Russia, Fiji, etc.)
+      // by shifting any negative longitudes into positive space when a ring
+      // straddles ±180° — this prevents Leaflet from drawing a long horizontal
+      // "seam" across the landmass.
+      function fixRing(ring) {
+        var hasFarEast = false, hasFarWest = false;
+        for (var i = 0; i < ring.length; i++) {
+          if (ring[i][0] > 90) hasFarEast = true;
+          if (ring[i][0] < -90) hasFarWest = true;
+        }
+        if (hasFarEast && hasFarWest) {
+          var out = new Array(ring.length);
+          for (var j = 0; j < ring.length; j++) {
+            var c = ring[j];
+            out[j] = c[0] < 0 ? [c[0] + 360, c[1]] : [c[0], c[1]];
+          }
+          return out;
+        }
+        return ring;
+      }
+      function fixFeature(feat) {
+        var g = feat && feat.geometry;
+        if (!g) return feat;
+        if (g.type === 'Polygon') {
+          g.coordinates = g.coordinates.map(fixRing);
+        } else if (g.type === 'MultiPolygon') {
+          g.coordinates = g.coordinates.map(function (poly) {
+            return poly.map(fixRing);
+          });
+        }
+        return feat;
+      }
+
+      // Build the country layer from a 110m world topojson (~60KB).
+      fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+        .then(function (r) { return r.json(); })
+        .then(function (topo) {
+          if (typeof topojson === 'undefined' || !topo || !topo.objects) return;
+          var geo = topojson.feature(topo, topo.objects.countries);
+          if (geo && geo.features) geo.features = geo.features.map(fixFeature);
+          L.geoJSON(geo, {
+            interactive: false,
+            // Larger SVG padding prevents wide polygons (Russia, Antarctica)
+            // from being clipped near the edges of the overlay pane.
+            renderer: L.svg({ padding: 2 }),
+            style: function () {
+              return {
+                fillColor: '#f0c645',
+                color: 'rgba(13, 28, 51, 0.85)',
+                weight: 0.6,
+                opacity: 1,
+                fillOpacity: 1,
+                lineJoin: 'round',
+                lineCap: 'round',
+                className: 'netmap-land',
+              };
+            },
+          }).addTo(map);
+          applyPatternFill();
+          map.on('zoomend moveend viewreset layeradd', applyPatternFill);
+          _landReady = true;
+          maybePopBlocks();
+        })
+        .catch(function () { /* silent — ocean still looks fine if offline */ });
+
+      var refresh = function () { map.invalidateSize(); };
+      setTimeout(refresh, 100);
+      setTimeout(refresh, 400);
+      setTimeout(refresh, 1000);
+      window.addEventListener('resize', refresh);
+      window.addEventListener('load', refresh);
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(refresh);
+        ro.observe(mapEl);
+      }
 
       // type: 'office' (GMP), 'project' (active project site), 'partner' (partner facility)
       var locations = [
@@ -658,7 +784,7 @@ const partners = [
         { name: 'South Sudan Deployments', loc: [4.8594, 31.5713], city: 'Juba, South Sudan', type: 'project' },
       ];
 
-      var pinColor = '#F0C645';
+      var pinColor = '#38bdf8';
       var pinSize = 12;
       var pinIcon = L.divIcon({
         className: 'netmap-marker',
@@ -675,6 +801,65 @@ const partners = [
           .addTo(map)
           .bindPopup('<strong>' + c.name + '</strong><br/>' + c.city);
       });
+
+      // ── Modular "build" reveal animation ──
+      var buildEl = document.getElementById('netmap-build');
+      if (buildEl) {
+        var cols = 18;
+        var rows = 9;
+        var wrapW = mapEl.clientWidth || 1200;
+        if (wrapW < 700) { cols = 12; rows = 7; }
+        buildEl.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+        buildEl.style.gridTemplateRows = 'repeat(' + rows + ', 1fr)';
+
+        var total = cols * rows;
+        var frag = document.createDocumentFragment();
+        // Order cells by diagonal sweep + light randomness so it feels like
+        // modules being dismantled from the top-left corner outward.
+        for (var i = 0; i < total; i++) {
+          var r = Math.floor(i / cols);
+          var c = i % cols;
+          var diag = (r + c) / (rows + cols);
+          var jitter = Math.random() * 0.25;
+          var delay = (diag * 1.4 + jitter).toFixed(2);
+          var cell = document.createElement('span');
+          cell.className = 'netmap__build__cell';
+          cell.style.setProperty('--cell-delay', delay + 's');
+          frag.appendChild(cell);
+        }
+        buildEl.appendChild(frag);
+
+        var triggered = false;
+        var trigger = function () {
+          if (triggered) return;
+          triggered = true;
+          // Ensure Leaflet has laid out tiles before the reveal starts
+          map.invalidateSize();
+          setTimeout(function () {
+            buildEl.classList.add('built');
+            // Kick off the square pop-in at the same time the modules
+            // dismantle, so the yellow blocks appear to rebuild the world.
+            _scrollFired = true;
+            maybePopBlocks();
+            // Remove overlay from DOM once animation finishes so it doesn't
+            // intercept any layout reflows on resize.
+            setTimeout(function () {
+              buildEl.style.display = 'none';
+            }, 2800);
+          }, 150);
+        };
+
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { trigger(); io.disconnect(); }
+            });
+          }, { threshold: 0.25 });
+          io.observe(mapEl);
+        } else {
+          trigger();
+        }
+      }
     })();
   </script>
 
@@ -1809,45 +1994,11 @@ const partners = [
 
   @media (min-width: 901px) {
     .netmap__panel {
-      height: 620px;
-      min-height: 620px;
-      max-height: 620px;
-      overflow: hidden;
-    }
-
-    .netmap__text-col {
-      min-height: 0;
-      overflow: hidden;
-      align-items: stretch;
-    }
-
-    .netmap__text-inner {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      min-height: 0;
-      padding-top: 48px;
-      padding-bottom: 48px;
-    }
-
-    .netmap__hubs {
-      flex: 0;
+      height: auto;
     }
 
     .netmap__link {
-      margin-top: auto;
-    }
-
-    .netmap__img-col {
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    .netmap__map-wrap {
-      flex: 1;
-      min-height: 0;
-      height: auto;
+      margin-top: 32px;
     }
   }
 
@@ -2018,52 +2169,213 @@ const partners = [
     background: #fff;
     padding: 64px var(--strip-edge-gutter);
     margin: 0;
+    transition: background-color 0.9s ease;
   }
 
   .netmap__panel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     border-radius: 0;
     overflow: hidden;
+    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    transition: background-color 0.9s ease;
   }
+
+  /* Scroll-triggered: section background blends into the map's navy ocean. */
+  .netmap.in-view,
+  .netmap.in-view .netmap__panel {
+    background-color: #0d1c33;
+  }
+  .netmap .netmap__hub-title,
+  .netmap .netmap__hub-desc {
+    transition: color 0.9s ease;
+  }
+  .netmap.in-view .netmap__hub-title { color: #fff; }
+  .netmap.in-view .netmap__hub-desc  { color: rgba(255, 255, 255, 0.72); }
+  .netmap.in-view .netmap__hub-line  { background: var(--amber); }
 
   .netmap__img-col {
     position: relative;
     overflow: hidden;
+    width: 100%;
   }
 
   .netmap__map-wrap {
     position: relative;
     width: 100%;
-    height: 100%;
-    min-height: 320px;
+    height: clamp(420px, 55vh, 640px);
     overflow: hidden;
+    background: #fff;
+    transition: background-color 0.9s ease;
+  }
+  .netmap.in-view .netmap__map-wrap {
     background: #0d1c33;
+  }
+
+  /* ── "Build" reveal: grid of modular blocks that dismantle to expose the map ── */
+  .netmap__build {
+    position: absolute;
+    inset: 0;
+    z-index: 450;
+    display: grid;
+    pointer-events: none;
+    background: transparent;
+  }
+  .netmap__build__cell {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    opacity: 1;
+    transform: translateY(-6px) scale(1);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.9s ease,
+      border-color 0.9s ease;
+    transition-delay: var(--cell-delay, 0s);
+    will-change: opacity, transform;
+  }
+  .netmap.in-view .netmap__build__cell {
+    background: #0d1c33;
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+  .netmap__build.built .netmap__build__cell {
+    opacity: 0;
+    transform: translateY(-24px) scale(0.96);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .netmap__build__cell {
+      transition-duration: 0.2s !important;
+      transition-delay: 0s !important;
+      transform: none !important;
+    }
+  }
+
+  .netmap__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    padding: clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px);
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(13, 28, 51, 0.92) 0%, rgba(13, 28, 51, 0.55) 75%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: min(560px, 55%);
+  }
+
+  /* Slow, staggered entrance for the overlay copy */
+  .netmap__overlay .fade-up {
+    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .netmap__overlay .netmap__overlay-tag.fade-up { transition-delay: 0.15s; }
+  .netmap__overlay .netmap__overlay-title.fade-up { transition-delay: 0.35s; }
+  .netmap__overlay .netmap__overlay-tag,
+  .netmap__overlay .section-tag.netmap__overlay-tag {
+    color: #fff !important;
+    margin: 0;
+  }
+  .netmap__overlay .netmap__overlay-tag::before {
+    background: #fff !important;
+  }
+  .netmap__overlay .netmap__overlay-title,
+  .netmap__overlay .section-title.netmap__overlay-title {
+    margin: 0;
+    color: #fff !important;
+    font-size: clamp(28px, 3.5vw, 44px);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  @media (max-width: 900px) {
+    .netmap__overlay {
+      padding: 20px 18px;
+      max-width: 90%;
+    }
+    .netmap__overlay-title {
+      font-size: clamp(22px, 6vw, 32px);
+    }
   }
   .netmap__map-wrap :global(.leaflet-container) {
+    background: transparent;
+    transition: background-color 0.9s ease;
+  }
+  .netmap.in-view .netmap__map-wrap :global(.leaflet-container) {
     background: #0d1c33;
   }
-  /* Base land/water: tint navy blue, lifted brightness so land reads lighter. */
-  .netmap__map-wrap :global(.netmap-basetile) {
-    filter: sepia(1) saturate(3.8) hue-rotate(198deg) brightness(1.15) contrast(0.85);
+  /* Subtle ocean grid so the water doesn't read as dead space. */
+  .netmap__map-wrap :global(.leaflet-container)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 28px 28px, 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.9s ease 0.2s;
   }
-  /* Label overlay: tint toward the same blue but keep labels bright/legible. */
-  .netmap__map-wrap :global(.netmap-labeltile) {
-    filter: sepia(1) saturate(1.2) hue-rotate(198deg) brightness(1.3) contrast(1.05);
+  .netmap.in-view .netmap__map-wrap :global(.leaflet-container)::before {
+    opacity: 1;
+  }
+  /* Country land layer drop-shadow for a lifted, blocky feel. */
+  .netmap__map-wrap :global(.netmap-land) {
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35));
+  }
+  /* Markers float above the blocky land. */
+  .netmap__map-wrap :global(.leaflet-marker-pane) { z-index: 610; }
+  .netmap__map-wrap :global(.leaflet-popup-pane) { z-index: 700; }
+
+  /* Blocks pop-in: the tiled yellow squares scale from 0 → 1 with a
+     springy overshoot, so the world appears to be "built" out of modules. */
+  .netmap__map :global(#gmp-blocks rect) {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+  }
+  .netmap__map.blocks-in :global(#gmp-blocks rect) {
+    animation: gmp-block-pop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s forwards;
+  }
+  @keyframes gmp-block-pop {
+    0%   { transform: scale(0);    opacity: 0; }
+    60%  { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1);    opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .netmap__map :global(#gmp-blocks rect),
+    .netmap__map.blocks-in :global(#gmp-blocks rect) {
+      transform: none;
+      opacity: 1;
+      animation: none;
+    }
   }
 
   .netmap__text-col {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
     background: transparent;
+    width: 100%;
   }
 
   .netmap__text-inner {
-    padding: 56px 48px;
-    max-width: 680px;
+    padding: 56px 0 0;
+    max-width: 1440px;
+    width: 100%;
+  }
+
+  .netmap__hubs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    flex-direction: unset;
   }
 
   .netmap__title {
@@ -2131,7 +2443,6 @@ const partners = [
 
   @media (max-width: 900px) {
     .netmap {
-      grid-template-columns: 1fr;
       min-height: auto;
       height: auto;
       max-height: none;
@@ -2141,27 +2452,28 @@ const partners = [
     .netmap__img-col {
       display: block;
       min-height: 0;
-      padding: 28px 1.5rem;
     }
 
     .netmap__map-wrap {
       flex: none;
-      min-height: 300px;
-      height: auto;
+      height: clamp(320px, 50vh, 480px);
     }
 
     .netmap__text-col {
       overflow-y: visible;
-      padding-right: 1.5rem;
     }
 
     .netmap__text-inner {
       display: block;
       height: auto;
-      padding: 40px 0 40px 1.5rem;
+      padding: 40px 0 0;
       max-width: none;
     }
 
+    .netmap__hubs {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
   }
 
   /* ════════ 4. REACH ════════ */
@@ -2983,5 +3295,18 @@ const partners = [
     .reach__grid {
       grid-template-columns: 1fr;
     }
+  }
+</style>
+
+<style is:global>
+  /* ═══════════════════════════════════════
+     HOMEPAGE DARK MODE — hero gradient only
+     Active only when body.dark is set by the header toggle.
+     ═══════════════════════════════════════ */
+  body.dark .banner__pad {
+    background:
+      radial-gradient(ellipse at 75% 15%, rgba(70, 110, 170, 0.28) 0%, transparent 55%),
+      radial-gradient(ellipse at 15% 90%, rgba(8, 16, 30, 0.65) 0%, transparent 60%),
+      linear-gradient(160deg, #15294a 0%, #0d1c33 45%, #060d1a 100%);
   }
 </style>

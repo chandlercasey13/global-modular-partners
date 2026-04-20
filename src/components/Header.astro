@@ -1,5 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
 
 const navItems = [
   { href: '/about', label: 'About Us' },
@@ -79,6 +80,23 @@ function isActive(href?: string) {
 
       <!-- CTA outside menu (desktop, visible at certain breakpoints) -->
       <div class="hdr-button-block">
+        {isHome && (
+          <button
+            class="hdr-theme-toggle"
+            id="hdr-theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+          >
+            <svg class="hdr-theme-icon hdr-theme-icon--sun" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <svg class="hdr-theme-icon hdr-theme-icon--moon" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        )}
         <a class="hdr-btn" href="/projects">
           <div class="hdr-btn-wrap">
             <span class="hdr-btn-text">View Our Work</span>
@@ -120,6 +138,18 @@ function isActive(href?: string) {
         </div>
       ))}
       <a href="/projects" class="hdr-mobile-cta">View Our Work</a>
+      {isHome && (
+        <button
+          class="hdr-mobile-theme"
+          id="hdr-mobile-theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+          aria-pressed="false"
+        >
+          <span class="hdr-mobile-theme__label">Dark mode</span>
+          <span class="hdr-mobile-theme__switch" aria-hidden="true"><span class="hdr-mobile-theme__dot"></span></span>
+        </button>
+      )}
     </nav>
   </div>
 </header>
@@ -167,6 +197,12 @@ function isActive(href?: string) {
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Dark mode — match hero navy gradient (same as map background) */
+  :global(body.dark) .hdr-section.scrolled .hdr-block {
+    background: rgba(13, 28, 51, 0.92);
+    border-color: rgba(255, 255, 255, 0.06);
   }
 
   /* ── Brand ── */
@@ -357,12 +393,91 @@ function isActive(href?: string) {
     flex: none;
     display: none;
     margin-left: 24px;
+    align-items: center;
+    gap: 12px;
   }
   @media (min-width: 992px) {
     .hdr-button-block {
-      display: block;
+      display: flex;
     }
   }
+
+  /* ── Theme toggle (homepage only) ── */
+  .hdr-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+  .hdr-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+  .hdr-theme-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+  .hdr-theme-icon--moon { display: none; }
+  body.dark .hdr-theme-icon--sun { display: none; }
+  body.dark .hdr-theme-icon--moon { display: block; }
+
+  body.dark .hdr-theme-toggle {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+  }
+
+  /* Mobile toggle row */
+  .hdr-mobile-theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--light-gray, #e5e5e5);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--navy);
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  .hdr-mobile-theme__switch {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    border-radius: 999px;
+    background: var(--light-gray, #e5e5e5);
+    transition: background 0.25s ease;
+    flex: none;
+  }
+  .hdr-mobile-theme__dot {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  body.dark .hdr-mobile-theme__switch { background: var(--amber, #e0a135); }
+  body.dark .hdr-mobile-theme__dot { transform: translateX(16px); }
 
   .hdr-btn {
     display: inline-flex;
@@ -531,4 +646,32 @@ function isActive(href?: string) {
   }
   updateScrollState();
   window.addEventListener('scroll', updateScrollState, { passive: true });
+
+  // Dark mode toggle — homepage only
+  const isHomePath = window.location.pathname === '/' || window.location.pathname === '/index.html';
+  if (isHomePath) {
+    const THEME_KEY = 'gmp-home-theme';
+    const body = document.body;
+    const applyTheme = (theme: string) => {
+      if (theme === 'dark') body.classList.add('dark');
+      else body.classList.remove('dark');
+      const pressed = theme === 'dark' ? 'true' : 'false';
+      document.getElementById('hdr-theme-toggle')?.setAttribute('aria-pressed', pressed);
+      document.getElementById('hdr-mobile-theme-toggle')?.setAttribute('aria-pressed', pressed);
+    };
+    const saved = localStorage.getItem(THEME_KEY) || 'light';
+    applyTheme(saved);
+
+    const handleToggle = () => {
+      const next = body.classList.contains('dark') ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    };
+
+    document.getElementById('hdr-theme-toggle')?.addEventListener('click', handleToggle);
+    document.getElementById('hdr-mobile-theme-toggle')?.addEventListener('click', handleToggle);
+  } else {
+    // Ensure non-home pages are never in dark state
+    document.body.classList.remove('dark');
+  }
 </script>

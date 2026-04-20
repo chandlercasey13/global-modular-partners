@@ -133,16 +133,16 @@ const resources = [
   }
 
   .ftr__outer {
-    max-width: 88rem;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 2rem;
+    max-width: none;
+    margin: 0;
+    padding: 0;
   }
 
   .ftr__card {
     background-color: var(--ink, #1d1d1d);
     color: var(--on-ink, #fff);
-    border-radius: var(--radius-2xl, 40px);
-    padding: clamp(2rem, 5vw, 4.5rem);
+    border-radius: 0;
+    padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4rem);
     display: flex;
     flex-direction: column;
     gap: clamp(2rem, 4vw, 3.5rem);
@@ -367,8 +367,8 @@ const resources = [
     .ftr__nav-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 720px) {
-    .ftr__outer { padding: 1rem 1rem 1.25rem; }
-    .ftr__card { border-radius: 28px; padding: 1.75rem; }
+    .ftr__outer { padding: 0; }
+    .ftr__card { border-radius: 0; padding: 2rem 1.25rem; }
     .ftr__nav-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .ftr__info { grid-template-columns: 1fr; }
     .ftr__info-item {
