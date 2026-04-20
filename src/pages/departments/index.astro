@@ -12,9 +12,11 @@ import Footer from '../../components/Footer.astro';
 
   <!-- ════════ HERO ════════ -->
   <section class="dp-hero">
-    <div class="dp-hero__content">
-      <h1 class="dp-hero__h1">Operational<br/>Departments</h1>
-      <p class="dp-hero__sub">Five core divisions driving modular excellence — from construction and project management to defense, healthcare, and civil infrastructure.</p>
+    <div class="dp-hero__panel">
+      <div class="dp-hero__content">
+        <h1 class="dp-hero__h1">Operational<br/>Departments</h1>
+        <p class="dp-hero__sub">Five core divisions driving modular excellence — from construction and project management to defense, healthcare, and civil infrastructure.</p>
+      </div>
     </div>
   </section>
 
@@ -237,15 +239,22 @@ import Footer from '../../components/Footer.astro';
     margin-top: 1.125rem;
   }
 
-  /* ═══ HERO (navy gradient — matches About / original departments hero) ═══ */
+  /* ═══ HERO (white inset frame + rounded navy panel) ═══ */
   .dp-hero {
+    position: relative;
+    background: #fff;
+    padding: clamp(6px, 0.6vw, 10px);
+  }
+
+  .dp-hero__panel {
     position: relative;
     height: 480px;
     overflow: hidden;
+    border-radius: clamp(14px, 1.6vw, 22px);
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
-  .dp-hero::before {
+  .dp-hero__panel::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -272,7 +281,7 @@ import Footer from '../../components/Footer.astro';
     font-weight: 800;
     line-height: 1.1;
     color: var(--white);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: -2px;
     margin: 0 0 20px;
   }
@@ -289,7 +298,7 @@ import Footer from '../../components/Footer.astro';
   .dp-sec {
     padding: 0;
   }
-  .dp-sec--white { background: var(--white); }
+  .dp-sec--white { background: var(--section-blue); }
   .dp-sec--off { background: var(--off-white); }
 
   /* ═══ 01. MODULAR (intro + cards, full-bleed gutters) ═══ */
@@ -755,7 +764,7 @@ import Footer from '../../components/Footer.astro';
   }
 
   @media (max-width: 768px) {
-    .dp-hero { height: 380px; }
+    .dp-hero__panel { height: 380px; }
 
     .dp-mod__wrap {
       padding: 64px var(--strip-edge-gutter);

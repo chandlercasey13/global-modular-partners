@@ -147,7 +147,7 @@ function isActive(href?: string) {
 
   /* ── Block (nav chrome — no glass; glass is hero partner strip only) ── */
   .hdr-block {
-    padding: 12px max(1.5rem, calc((100% - 1440px) / 2 + 1.5rem));
+    padding: 28px max(1.5rem, calc((100% - 1440px) / 2 + 1.5rem)) 12px;
     border: 1px solid transparent;
     border-radius: 0;
     background: transparent;
@@ -177,32 +177,52 @@ function isActive(href?: string) {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 8px;
+    gap: 4px;
     transition: gap 0.4s ease;
   }
   .hdr-logo-svg {
-    width: 80px;
-    height: 80px;
+    width: 68px;
+    height: 68px;
     transition: width 0.4s ease, height 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
   }
   .hdr-brand-name {
-    font-family: var(--font-primary);
-    font-weight: 800;
-    font-size: 11px;
-    color: white;
-    letter-spacing: 2.5px;
-    line-height: 1.3;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 2.6px;
+    line-height: 1.12;
     display: flex;
     flex-direction: column;
-    transition: font-size 0.4s ease, color 0.4s ease;
+    transition: font-size 0.4s ease, color 0.4s ease, letter-spacing 0.4s ease;
+  }
+  .hdr-brand-name > span:nth-child(2) {
+    color: var(--amber);
   }
 
+  .hdr-section.scrolled .hdr-brand {
+    gap: 2px;
+  }
   .hdr-section.scrolled .hdr-logo-svg {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
   }
   .hdr-section.scrolled .hdr-brand-name {
     font-size: 9px;
+    letter-spacing: 2.1px;
+  }
+
+  @media (max-width: 900px) {
+    .hdr-logo-svg {
+      width: 46px;
+      height: 46px;
+    }
+    .hdr-brand-name {
+      font-size: 10px;
+      letter-spacing: 2.2px;
+    }
   }
 
   /* ── Nav menu ── */

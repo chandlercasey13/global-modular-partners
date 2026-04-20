@@ -40,12 +40,6 @@ const protocols = [
   { num: '03', title: 'Modular ESG Analog', desc: 'Measurement of full material sustainability with corrections applied before production begins.' },
 ];
 
-const standards = [
-  { icon: `<svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`, title: 'ISO 9001:2015' },
-  { icon: `<svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 12c0 4.97 3.038 9.227 7.354 11.016.34.141.652.213.966.236.033.002.065.003.098.004L12 23.25l.582.006c.033-.001.065-.002.098-.004.314-.023.626-.095.966-.236C17.962 21.227 21 16.97 21 12c0-1.047-.134-2.063-.382-3.016z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`, title: 'AISC Certified' },
-  { icon: `<svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`, title: 'IBC Compliant' },
-  { icon: `<svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14m6-14v14m6-14v14m6-14v14M4 7h16l-8-4L4 7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`, title: 'OSHA Aligned' },
-];
 ---
 
 <Layout
@@ -56,10 +50,12 @@ const standards = [
 
   <!-- ════════ 1. HERO ════════ -->
   <section class="sv-hero">
-    <div class="mnc-container sv-hero__inner">
-      <div class="sv-hero__content">
-        <h1 class="sv-hero__h1">Engineering the<br/>Future of Construction.</h1>
-        <p class="sv-hero__sub">Multipurpose modular construction services — from consulting and design-build to procurement, installation, and emergency deployment.</p>
+    <div class="sv-hero__panel">
+      <div class="mnc-container sv-hero__inner">
+        <div class="sv-hero__content">
+          <h1 class="sv-hero__h1">Engineering the<br/>Future of Construction.</h1>
+          <p class="sv-hero__sub">Multipurpose modular construction services — from consulting and design-build to procurement, installation, and emergency deployment.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -214,7 +210,7 @@ const standards = [
 
   /* ═══ OUR PROCESS ═══ */
   .sv-advantage {
-    background-color: var(--white);
+    background-color: var(--section-blue);
     padding: 48px 0;
   }
 
@@ -325,12 +321,19 @@ const standards = [
   /* ═══ 1. HERO ═══ */
   .sv-hero {
     position: relative;
+    background: #fff;
+    padding: clamp(6px, 0.6vw, 10px);
+  }
+
+  .sv-hero__panel {
+    position: relative;
     height: 480px;
     overflow: hidden;
+    border-radius: clamp(14px, 1.6vw, 22px);
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
-  .sv-hero::before {
+  .sv-hero__panel::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -357,7 +360,7 @@ const standards = [
     font-weight: 800;
     line-height: 1.1;
     color: var(--white);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: -2px;
     margin-bottom: 20px;
   }
@@ -372,7 +375,7 @@ const standards = [
 
   /* ═══ 2. COMPETENCY — match homepage .hp-about / .netmap strips ═══ */
   .sv-comp {
-    background-color: var(--white);
+    background-color: var(--section-blue);
     --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
     --strip-inner-gap: 36px;
   }
@@ -553,7 +556,7 @@ const standards = [
 
   /* ═══ 3. PROTOCOL — full-bleed two-col, gutters match homepage strips ═══ */
   .sv-protocol {
-    background: var(--white);
+    background: var(--section-blue);
     padding: 0;
     --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
     --strip-inner-gap: 36px;
@@ -738,7 +741,7 @@ const standards = [
   }
 
   @media (max-width: 768px) {
-    .sv-hero { height: 380px; }
+    .sv-hero__panel { height: 380px; }
 
     .sv-comp__grid {
       grid-template-columns: 1fr;

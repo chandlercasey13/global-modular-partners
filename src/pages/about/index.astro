@@ -30,11 +30,13 @@ const timeline = [
   <!-- ════════ 1. HERO + MILESTONES ════════ -->
   <section class="ab-hero" aria-labelledby="ab-hero-heading">
     <div class="ab-hero__intro">
-      <div class="ab-hero__intro-content fade-up">
-        <h1 id="ab-hero-heading" class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
-        <p class="ab-hero__sub">
-          Redefining the built environment of global infrastructure through precision modular assembly and partnership-driven engineering innovation.
-        </p>
+      <div class="ab-hero__intro-panel">
+        <div class="ab-hero__intro-content fade-up">
+          <h1 id="ab-hero-heading" class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
+          <p class="ab-hero__sub">
+            Redefining the built environment of global infrastructure through precision modular assembly and partnership-driven engineering innovation.
+          </p>
+        </div>
       </div>
     </div>
     <div class="ab-hero__top">
@@ -168,15 +170,22 @@ const timeline = [
     overflow: hidden;
   }
 
-  /* Match services.astro .sv-hero / .sv-hero__content */
+  /* Match homepage hero: white outer frame + rounded inner panel (no animation) */
   .ab-hero__intro {
+    position: relative;
+    background: #fff;
+    padding: clamp(6px, 0.6vw, 10px);
+  }
+
+  .ab-hero__intro-panel {
     position: relative;
     height: 480px;
     overflow: hidden;
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
+    border-radius: clamp(14px, 1.6vw, 22px);
   }
 
-  .ab-hero__intro::before {
+  .ab-hero__intro-panel::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -202,7 +211,7 @@ const timeline = [
     font-weight: 800;
     line-height: 1.1;
     color: var(--white);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: -2px;
     margin-bottom: 20px;
   }
@@ -218,7 +227,7 @@ const timeline = [
   .ab-hero__top {
     position: relative;
     z-index: 2;
-    background: var(--white);
+    background: var(--section-blue);
     padding: 48px 0 0;
   }
 

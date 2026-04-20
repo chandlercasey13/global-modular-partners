@@ -10,29 +10,6 @@ const partners = [
   { name: 'EnTech Engineering', logo: '/images/partners/entech.svg' },
   { name: 'Agbayani Construction', logo: '/images/partners/agbayani-real.png' },
   { name: 'STREAM Logistics', logo: '/images/partners/stream-dark.png' },
-  { name: 'ATCCO Construction', logo: '/images/partners/atcco-big.png' },
-  { name: 'Petra Engineering', logo: '/images/partners/petra-eng.png' },
-];
-
-const isoCerts = [
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'ISO 9001',
-    subtitle: 'Quality Management',
-    desc: 'The cornerstone of our structural integrity, ensuring every component meets rigorous manufacturing governance and construction product standards.',
-  },
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5"/></svg>`,
-    title: 'ISO 14001',
-    subtitle: 'Environmental Standards',
-    desc: 'Zero-impact modular engineering through sustainable manufacturing, waste reduction, and pollution prevention — supported by a fully audited environmental framework.',
-  },
-  {
-    icon: `<svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 12c0 4.97 3.038 9.227 7.354 11.016.34.141.652.213.966.236L12 23.25l.582.006c.314-.023.626-.095.966-.236C17.962 21.227 21 16.97 21 12c0-1.047-.134-2.063-.382-3.016z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-    title: 'ISO 45001',
-    subtitle: 'Occupational Health & Safety',
-    desc: 'A zero-harm operational culture supported by continuous training, real-time monitoring, and proactive risk assessment practices across all project environments.',
-  },
 ];
 
 const caseStudies = [
@@ -193,29 +170,6 @@ const contacts = [
     </div>
   </section>
 
-  <!-- ════════ 4. ISO CERTIFICATIONS ════════ -->
-  <section class="pt-iso">
-    <div class="mnc-container">
-      <div class="pt-iso__head fade-up">
-        <span class="pt-tag">Quality Standards</span>
-        <h2 class="pt-iso__title">ISO Certifications</h2>
-        <p class="pt-iso__sub">
-          Our operational governance is guided by globally recognized quality, environmental, and safety management systems — ensuring industrial precision and compliance across every project we support.
-        </p>
-      </div>
-      <div class="pt-iso__grid">
-        {isoCerts.map((cert) => (
-          <div class="pt-iso__card fade-up">
-            <div class="pt-iso__card-icon" set:html={cert.icon} />
-            <h3 class="pt-iso__card-title">{cert.title}</h3>
-            <span class="pt-iso__card-sub">{cert.subtitle}</span>
-            <p class="pt-iso__card-desc">{cert.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <Footer slot="footer" />
 </Layout>
 
@@ -242,10 +196,17 @@ const contacts = [
   }
 
   /* ═══ 1. HERO ═══ */
+  .pt-hero {
+    position: relative;
+    background: #fff;
+    padding: clamp(6px, 0.6vw, 10px);
+  }
+
   .pt-hero__inner {
     position: relative;
     height: 480px;
     overflow: hidden;
+    border-radius: clamp(14px, 1.6vw, 22px);
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
@@ -317,7 +278,7 @@ const contacts = [
     line-height: 1.1;
     color: var(--white);
     letter-spacing: -2px;
-    text-transform: uppercase;
+    text-transform: none;
     margin-bottom: 20px;
   }
 
@@ -331,7 +292,7 @@ const contacts = [
 
   /* ═══ 2. ALLIANCES ═══ */
   .pt-alliances {
-    background: var(--white);
+    background: var(--section-blue);
     padding: 56px 0;
   }
 
@@ -417,7 +378,7 @@ const contacts = [
   }
 
   .pt-case {
-    background: var(--white);
+    background: var(--section-blue);
     border-radius: 0;
     overflow: hidden;
   }
@@ -491,7 +452,7 @@ const contacts = [
 
   /* ═══ 2. AFFILIATED ENTITIES ═══ */
   .pt-entities {
-    background: var(--white);
+    background: var(--section-blue);
     padding: 56px 0;
   }
 

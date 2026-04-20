@@ -42,11 +42,13 @@ const projects = [
 
   <!-- ════════ 1. HERO ════════ -->
   <section class="pj-hero">
-    <div class="pj-hero__content">
-      <h1 class="pj-hero__h1">Global Scale.<br/>Precision Delivery.</h1>
-      <p class="pj-hero__sub">
-        A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance.
-      </p>
+    <div class="pj-hero__panel">
+      <div class="pj-hero__content">
+        <h1 class="pj-hero__h1">Global Scale.<br/>Precision Delivery.</h1>
+        <p class="pj-hero__sub">
+          A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -145,12 +147,19 @@ const projects = [
   /* ═══ 1. HERO ═══ */
   .pj-hero {
     position: relative;
+    background: #fff;
+    padding: clamp(6px, 0.6vw, 10px);
+  }
+
+  .pj-hero__panel {
+    position: relative;
     height: 480px;
     overflow: hidden;
+    border-radius: clamp(14px, 1.6vw, 22px);
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
   }
 
-  .pj-hero::before {
+  .pj-hero__panel::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -226,7 +235,7 @@ const projects = [
     font-weight: 800;
     line-height: 1.1;
     color: var(--white);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: -2px;
     margin-bottom: 20px;
   }
@@ -241,7 +250,7 @@ const projects = [
 
   /* ═══ 2. CASE STUDY ═══ */
   .pj-case {
-    background: var(--white);
+    background: var(--section-blue);
     padding: 80px 0;
   }
 
@@ -411,7 +420,7 @@ const projects = [
   }
 
   @media (max-width: 768px) {
-    .pj-hero { height: 380px; }
+    .pj-hero__panel { height: 380px; }
     .pj-case { padding: 64px 0; }
     .pj-grid { grid-template-columns: 1fr; }
     .pj-featured-img__card { display: none; }
