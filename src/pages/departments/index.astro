@@ -106,10 +106,6 @@ import PageCTA from '../../components/PageCTA.astro';
           <p class="dp-sec__desc">
             We plan for constrained sites, expeditionary logistics, and layered security from day one—coordinating with government technical monitors, fire protection engineers, and communications specialists so modules arrive ready for utilities, access control, and operational use. Lessons learned from each deployment feed back into our standard details and training programs for the next mobilization.
           </p>
-          <div class="dp-dod__accent-card">
-            <h4 class="dp-dod__accent-title">Security & Compliance</h4>
-            <p class="dp-dod__accent-desc">Full SCIF/SAP clearance capability. Unified Facilities Criteria compliance embedded from concept through construction and commissioning.</p>
-          </div>
         </div>
       </div>
       <div class="dp-dod__img-col">
@@ -427,8 +423,7 @@ import PageCTA from '../../components/PageCTA.astro';
   html { scroll-behavior: smooth; }
 
   /* Match homepage: hero / UI chrome = Barlow; section h2s = secondary (same as .section-title) */
-  .dp-hc__feature-title,
-  .dp-dod__accent-title {
+  .dp-hc__feature-title {
     font-family: var(--font-primary);
   }
 
@@ -801,32 +796,6 @@ import PageCTA from '../../components/PageCTA.astro';
     min-height: 0;
   }
 
-  .dp-dod__accent-card {
-    margin-top: 1.75rem;
-    padding: 1.5rem 1.75rem;
-    background: var(--ink);
-    color: var(--on-ink);
-    border-left: none;
-    border-radius: var(--radius-xl);
-  }
-
-  .dp-dod__accent-title {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--on-ink);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-label);
-  }
-
-  .dp-dod__accent-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--on-ink-muted);
-    margin: 0;
-  }
-
   /* ═══ 04. HEALTHCARE ═══ */
   .dp-hc {
     display: grid;
@@ -1001,10 +970,6 @@ import PageCTA from '../../components/PageCTA.astro';
     .dp-split__text-inner .dp-bullets {
       margin-top: auto;
       padding-top: 20px;
-    }
-
-    .dp-dod__text-inner .dp-dod__accent-card {
-      margin-top: auto;
     }
 
     .dp-civil__text-inner .dp-civil__stats {
