@@ -67,6 +67,42 @@ const timeline = [
         </div>
       </div>
     </div>
+
+    <!-- ════════ BY THE NUMBERS (above timeline) ════════ -->
+    <section class="hp-stats">
+      <div class="hp-stats__panel">
+        <div class="hp-stats__grid">
+          <article class="hp-stat hp-stat--photo fade-up">
+            <img src="/images/showcase/ri-factory-production.jpg" alt="" class="hp-stat__bg" loading="lazy" aria-hidden="true" />
+            <div class="hp-stat__tint"></div>
+            <span class="hp-stat__brand">GMP</span>
+            <div class="hp-stat__body">
+              <span class="hp-stat__num">40+</span>
+              <p class="hp-stat__caption">Modular projects delivered across three continents with partner-led execution.</p>
+            </div>
+          </article>
+
+          <article class="hp-stat hp-stat--light fade-up">
+            <span class="hp-stat__eyebrow">Modules produced</span>
+            <span class="hp-stat__num hp-stat__num--dark">2,400+</span>
+            <p class="hp-stat__caption hp-stat__caption--dark">Volumetric units manufactured through GMP's coordinated partner network.</p>
+          </article>
+
+          <article class="hp-stat hp-stat--amber fade-up">
+            <span class="hp-stat__eyebrow hp-stat__eyebrow--dark">Continents served</span>
+            <span class="hp-stat__num hp-stat__num--dark">3</span>
+            <p class="hp-stat__caption hp-stat__caption--dark">North America, Europe &amp; the Mediterranean, and the Middle East &amp; Africa.</p>
+          </article>
+
+          <article class="hp-stat hp-stat--dark fade-up">
+            <span class="hp-stat__eyebrow">Years coordinating</span>
+            <span class="hp-stat__num">5 yrs</span>
+            <p class="hp-stat__caption">Unifying engineering, production, logistics, and deployment under one framework.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <div class="ab-hero__timeline">
       <div class="mnc-container">
         <div class="ab-hero__timeline-scroll">
@@ -138,45 +174,6 @@ const timeline = [
             </div>
           ))}
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ BY THE NUMBERS ════════ -->
-  <section class="hp-stats">
-    <div class="hp-stats__panel">
-      <div class="hp-stats__head">
-        <span class="ab-tag">By the Numbers</span>
-        <h2 class="hp-stats__title">Global delivery, measured in outcomes.</h2>
-      </div>
-      <div class="hp-stats__grid">
-        <article class="hp-stat hp-stat--photo fade-up">
-          <img src="/images/showcase/ri-factory-production.jpg" alt="" class="hp-stat__bg" loading="lazy" aria-hidden="true" />
-          <div class="hp-stat__tint"></div>
-          <span class="hp-stat__brand">GMP</span>
-          <div class="hp-stat__body">
-            <span class="hp-stat__num">40+</span>
-            <p class="hp-stat__caption">Modular projects delivered across three continents with partner-led execution.</p>
-          </div>
-        </article>
-
-        <article class="hp-stat hp-stat--light fade-up">
-          <span class="hp-stat__eyebrow">Modules produced</span>
-          <span class="hp-stat__num hp-stat__num--dark">2,400+</span>
-          <p class="hp-stat__caption hp-stat__caption--dark">Volumetric units manufactured through GMP's coordinated partner network.</p>
-        </article>
-
-        <article class="hp-stat hp-stat--amber fade-up">
-          <span class="hp-stat__eyebrow hp-stat__eyebrow--dark">Continents served</span>
-          <span class="hp-stat__num hp-stat__num--dark">3</span>
-          <p class="hp-stat__caption hp-stat__caption--dark">North America, Europe &amp; the Mediterranean, and the Middle East &amp; Africa.</p>
-        </article>
-
-        <article class="hp-stat hp-stat--dark fade-up">
-          <span class="hp-stat__eyebrow">Years coordinating</span>
-          <span class="hp-stat__num">5 yrs</span>
-          <p class="hp-stat__caption">Unifying engineering, production, logistics, and deployment under one framework.</p>
-        </article>
       </div>
     </div>
   </section>
@@ -428,11 +425,10 @@ const timeline = [
     overflow: hidden;
   }
 
-  /* Match homepage hero: white outer frame + rounded inner panel (no animation) */
   .ab-hero__intro {
     position: relative;
     background: #fff;
-    padding: clamp(6px, 0.6vw, 10px);
+    padding: 0;
   }
 
   .ab-hero__intro-panel {
@@ -440,7 +436,7 @@ const timeline = [
     height: 480px;
     overflow: hidden;
     background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
-    border-radius: clamp(14px, 1.6vw, 22px);
+    border-radius: 0;
   }
 
   .ab-hero__intro-panel::before {
@@ -608,7 +604,6 @@ const timeline = [
     position: relative;
     z-index: 1;
     background: var(--paper);
-    border-top: 1px solid var(--line);
     padding: clamp(80px, 11vw, 132px) 0 64px;
   }
 
@@ -873,7 +868,7 @@ const timeline = [
     margin: 0;
   }
 
-  /* ════════ BY THE NUMBERS (moved from homepage) ════════ */
+  /* ════════ BY THE NUMBERS (below hero split, above timeline) ════════ */
   .hp-stats {
     background: var(--paper);
     padding: clamp(48px, 7vw, 80px) 1.5rem;
@@ -884,23 +879,6 @@ const timeline = [
     max-width: 1440px;
     margin: 0 auto;
     padding: 0;
-  }
-
-  .hp-stats__head {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 40px;
-    max-width: 720px;
-  }
-
-  .hp-stats__title {
-    font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 40px);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin: 0;
   }
 
   .hp-stats__grid {

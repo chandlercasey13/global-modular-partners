@@ -1786,7 +1786,7 @@ const partners = [
   /* ════════ ABOUT MOSAIC ════════ */
   .hp-about {
     background: #fff;
-    padding: 96px var(--strip-edge-gutter);
+    padding: clamp(40px, 4.5vw, 64px) var(--strip-edge-gutter) 96px;
   }
 
   /* Two-column layout: left text column, right image. */
@@ -1916,11 +1916,11 @@ const partners = [
   }
 
   @media (max-width: 1024px) {
-    .hp-about { padding: 72px var(--strip-edge-gutter); }
+    .hp-about { padding: 44px var(--strip-edge-gutter) 72px; }
   }
 
   @media (max-width: 640px) {
-    .hp-about { padding: 56px 1rem; }
+    .hp-about { padding: 36px 1rem 56px; }
   }
 
   /* ════════ ABOUT MOSAIC ════════ */
