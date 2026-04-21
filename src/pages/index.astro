@@ -914,9 +914,8 @@ const partners = [
         preferCanvas: false,
       });
 
-      // Ocean/land base colors are driven entirely by CSS so the map can
-      // fade from white → navy together with the rest of the section as it
-      // scrolls into view (see `.netmap.in-view` rules).
+      // Ocean/land base colors: `--ink` ocean (CSS on `.leaflet-container`) and
+      // white modular grid tiles on land (pattern + GeoJSON fallbacks).
 
       function ensurePatternDefs() {
         var svg = mapEl.querySelector('.leaflet-overlay-pane svg');
@@ -927,7 +926,7 @@ const partners = [
           defs.setAttribute('id', 'gmp-blocks-defs');
           defs.innerHTML =
             '<pattern id="gmp-blocks" x="0" y="0" width="22" height="18" patternUnits="userSpaceOnUse">' +
-              '<rect x="1" y="1" width="19" height="15" fill="#F0C645" rx="2.5"/>' +
+              '<rect x="1" y="1" width="19" height="15" fill="#ffffff" rx="2.5"/>' +
             '</pattern>';
           svg.insertBefore(defs, svg.firstChild);
         }
@@ -1035,8 +1034,8 @@ const partners = [
             renderer: L.svg({ padding: 2 }),
             style: function () {
               return {
-                fillColor: '#F0C645',
-                color: 'rgba(140, 100, 28, 0.85)',
+                fillColor: '#ffffff',
+                color: 'rgba(255, 255, 255, 0.22)',
                 weight: 0.6,
                 opacity: 1,
                 fillOpacity: 1,
@@ -1085,12 +1084,12 @@ const partners = [
         { name: 'South Sudan Deployments', loc: [4.8594, 31.5713], city: 'Juba, South Sudan', type: 'project' },
       ];
 
-      // Render each location as an amber cell that SNAPS to the same
+      // Render each location as a white cell that SNAPS to the same
       // 22×18 user-space grid the country pattern uses (rect at (1,1)
       // with 19×15 size, rx 2.5). The nearest grid cell to each lat/lng
-      // gets filled in bright amber on top of the country grid, so
+      // gets filled in on top of the country grid, so
       // locations read as modules plugged into the continental grid.
-      var LOC_COLOR = '#F0C645';
+      var LOC_COLOR = '#ffffff';
       var GRID_W = 22, GRID_H = 18;
       var CELL_W = 19, CELL_H = 15;
       var CELL_OFF_X = 1, CELL_OFF_Y = 1;
@@ -1135,6 +1134,8 @@ const partners = [
           halo.setAttribute('height', String(CELL_H));
           halo.setAttribute('rx', '2.5');
           halo.setAttribute('fill', LOC_COLOR);
+          halo.setAttribute('stroke', 'rgba(0,0,0,0.35)');
+          halo.setAttribute('stroke-width', '0.6');
           halo.style.animationDelay = (k * 0.18).toFixed(2) + 's';
           g.appendChild(halo);
 
@@ -1146,6 +1147,8 @@ const partners = [
           rect.setAttribute('height', String(CELL_H));
           rect.setAttribute('rx', '2.5');
           rect.setAttribute('fill', LOC_COLOR);
+          rect.setAttribute('stroke', 'rgba(0,0,0,0.45)');
+          rect.setAttribute('stroke-width', '0.65');
           rect.style.animationDelay = (k * 0.18).toFixed(2) + 's';
           g.appendChild(rect);
         }
@@ -2557,8 +2560,8 @@ const partners = [
 
 
   /* ════════ 3. GLOBAL NETWORK MAP ════════ */
-  /* The section sits on the map's navy ocean color by default; the scroll
-     stop only drives staged content reveals (country blocks, pins, text). */
+  /* Map ocean uses `--ink` (same as footer dark card); scroll reveal drives
+     staged content (country blocks, pins, text). */
   :root {
     --rv-blocks: 0;   /* block-country opacity/scale */
     --rv-pins:   0;   /* marker dots opacity */
@@ -2569,7 +2572,7 @@ const partners = [
     background-color: transparent;
   }
   .netmap {
-    background-color: #fff;
+    background-color: var(--ink);
   }
 
   .netmap {
@@ -2595,7 +2598,7 @@ const partners = [
     width: 100%;
     height: min(84vh, 820px);
     overflow: hidden;
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
+    background: var(--ink);
   }
 
   .netmap__overlay {
@@ -2611,8 +2614,8 @@ const partners = [
     pointer-events: none;
     background: linear-gradient(
       155deg,
-      rgba(13, 28, 51, 0.32) 0%,
-      rgba(13, 28, 51, 0.08) 48%,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.12) 48%,
       transparent 78%
     );
     display: flex;
@@ -2667,8 +2670,8 @@ const partners = [
     background: transparent;
   }
   .netmap__build__cell {
-    background-color: var(--navy-dark);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     opacity: 1;
     transform: translateY(-6px) scale(1);
     transition:
@@ -2691,12 +2694,12 @@ const partners = [
   }
 
   .netmap__map-wrap :global(.leaflet-container) {
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
+    background: var(--ink);
     border-radius: 0;
   }
   /* Country land layer drop-shadow for a lifted, blocky feel. */
   .netmap__map-wrap :global(.netmap-land) {
-    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55));
   }
   /* Markers float above the blocky land. */
   .netmap__map-wrap :global(.leaflet-marker-pane) { z-index: 610; }

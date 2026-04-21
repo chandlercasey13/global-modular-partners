@@ -137,37 +137,18 @@ import PageCTA from '../../components/PageCTA.astro';
           <p class="dp-sec__desc">
             We coordinate with clinical staff on adjacencies, mechanical redundancy, and life-safety pathways before fabrication begins, then sequence delivery to minimize disruption to active departments. Acoustic isolation, resilient flooring options, and modular headwalls allow facilities to expand capacity or reconfigure wings as census and service lines evolve.
           </p>
-          <div class="dp-bento dp-bento--hc fade-up" aria-label="Healthcare modular facilities">
-            <div class="dp-bento__cell">
-              <img src="/images/showcase/hwb-clinic-interior.jpeg" alt="Healthcare clinic interior" loading="lazy" />
-            </div>
-            <div class="dp-bento__cell">
-              <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="Pediatric modular facility" loading="lazy" />
-            </div>
-            <div class="dp-bento__cell">
-              <img src="/images/showcase/ri-medical-lab.jpg" alt="Medical laboratory module" loading="lazy" />
-            </div>
-          </div>
         </div>
       </div>
-      <div class="dp-hc__side-col fade-up">
-        <div class="dp-hc__side-inner">
-          <div class="dp-hc__watermark" aria-hidden="true">HC-74</div>
-          <div class="dp-hc__feature">
-            <h4 class="dp-hc__feature-title">Medical-Grade Engineering</h4>
-            <ul class="dp-bullets dp-bullets--compact">
-              <li>HEPA filtration systems</li>
-              <li>Clinical adjacency coordination</li>
-              <li>Infection control compliance</li>
-            </ul>
+      <div class="dp-hc__bento-col fade-up">
+        <div class="dp-bento dp-bento--hc" aria-label="Healthcare modular facilities">
+          <div class="dp-bento__cell">
+            <img src="/images/showcase/hwb-clinic-interior.jpeg" alt="Healthcare clinic interior" loading="lazy" />
           </div>
-          <div class="dp-hc__feature">
-            <h4 class="dp-hc__feature-title">Load-Jetting & Handling</h4>
-            <ul class="dp-bullets dp-bullets--compact">
-              <li>Oversized module transport logistics</li>
-              <li>Crane coordination & staging</li>
-              <li>Site integration protocols</li>
-            </ul>
+          <div class="dp-bento__cell">
+            <img src="/images/showcase/hwb-modular-pediatric.jpeg" alt="Pediatric modular facility" loading="lazy" />
+          </div>
+          <div class="dp-bento__cell">
+            <img src="/images/showcase/ri-medical-lab.jpg" alt="Medical laboratory module" loading="lazy" />
           </div>
         </div>
       </div>
@@ -423,10 +404,6 @@ import PageCTA from '../../components/PageCTA.astro';
   html { scroll-behavior: smooth; }
 
   /* Match homepage: hero / UI chrome = Barlow; section h2s = secondary (same as .section-title) */
-  .dp-hc__feature-title {
-    font-family: var(--font-primary);
-  }
-
   /* Match homepage / services strips */
   .dp-strip {
     --strip-edge-gutter: max(1.5rem, calc((100vw - 1440px) / 2 + 1.5rem));
@@ -665,14 +642,15 @@ import PageCTA from '../../components/PageCTA.astro';
     grid-row: 2;
   }
 
-  /* Healthcare — tall left + stacked right */
+  /* Healthcare bento — tall left + stacked right (sits in .dp-hc__bento-col) */
   .dp-bento--hc {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: clamp(10px, 1.4vw, 16px);
-    margin-top: 28px;
-    min-height: 240px;
+    width: 100%;
+    min-height: 280px;
+    margin-top: 0;
   }
 
   .dp-bento--hc .dp-bento__cell:first-child {
@@ -819,59 +797,19 @@ import PageCTA from '../../components/PageCTA.astro';
     width: 100%;
   }
 
-  .dp-hc__images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 28px;
-  }
-
-  .dp-hc__images img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    border-radius: var(--radius-xl);
-  }
-
-  .dp-hc__side-col {
+  .dp-hc__bento-col {
     display: flex;
-    align-items: flex-start;
-    padding: 48px var(--strip-edge-gutter) 48px 0;
+    align-items: center;
+    justify-content: center;
+    padding: 48px var(--strip-edge-gutter) 48px var(--strip-inner-gap);
     min-width: 0;
   }
 
-  .dp-hc__side-inner {
-    width: 100%;
-    max-width: 420px;
-  }
-
-  .dp-hc__watermark {
-    font-family: var(--font-mono);
-    font-size: clamp(48px, 8vw, 96px);
-    font-weight: 400;
-    color: var(--line);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0;
-  }
-
-  .dp-hc__feature {
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .dp-hc__feature:last-child {
-    border-bottom: 1px solid var(--line);
-  }
-
-  .dp-hc__feature-title {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-bottom: 0.25rem;
+  .dp-hc__bento-col .dp-bento--hc {
+    flex: 1;
+    max-width: min(100%, 560px);
+    align-self: stretch;
+    min-height: min(400px, 52vh);
   }
 
   /* ═══ 05. CIVIL — images left, text right ═══ */
@@ -1026,7 +964,7 @@ import PageCTA from '../../components/PageCTA.astro';
     .dp-split__text-col,
     .dp-dod__text-col,
     .dp-hc__text-col,
-    .dp-hc__side-col,
+    .dp-hc__bento-col,
     .dp-civil__text-col {
       padding-left: 0;
       padding-right: 0;
@@ -1044,13 +982,13 @@ import PageCTA from '../../components/PageCTA.astro';
       max-width: none;
     }
 
-    .dp-hc__side-col {
-      padding: 0 0 48px;
+    .dp-hc__bento-col {
+      padding: 0 1.5rem 40px;
     }
 
-    .dp-hc__side-inner {
-      max-width: none;
-      padding: 0 32px 40px;
+    .dp-hc__bento-col .dp-bento--hc {
+      max-width: 100%;
+      min-height: 260px;
     }
 
     .dp-dod__img-col {
