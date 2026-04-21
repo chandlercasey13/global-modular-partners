@@ -739,3 +739,18 @@ label {
   background-image: radial-gradient(circle, rgba(29,29,29,.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* ══════════════════════════════════════════════════════════
+   Dark mode — hero sections only (+ nav, styled in Header.astro).
+   Every page's hero container is flipped to near-black ink.
+   ══════════════════════════════════════════════════════════ */
+body.dark .banner__pad,
+body.dark .pt-hero__inner,
+body.dark .sv-hero__panel,
+body.dark .pj-hero__panel,
+body.dark .dp-hero__panel,
+body.dark .ab-hero__intro-panel,
+body.dark .hero-inner,
+body.dark .hero-panel {
+  background: var(--ink, #1d1d1d);
+}

@@ -5,12 +5,12 @@ import Footer from '../components/Footer.astro';
 import PageCTA from '../components/PageCTA.astro';
 
 const partners = [
-  { name: 'West Modular', logo: '/images/partners/west-og.png' },
-  { name: 'PROSET Construction', logo: '/images/partners/proset-footer.png' },
-  { name: 'TRUE NORTH Compliance', logo: '/images/partners/true-north.svg' },
-  { name: 'EnTech Engineering', logo: '/images/partners/entech.svg' },
-  { name: 'Agbayani Construction', logo: '/images/partners/agbayani-real.png' },
-  { name: 'STREAM Logistics', logo: '/images/partners/stream-dark.png' },
+  { name: 'West Modular', logo: '/images/partners/west-og.png', url: 'https://www.westmodular.com' },
+  { name: 'PROSET Construction', logo: '/images/partners/proset-footer.png', url: 'https://www.prosetconstruction.com' },
+  { name: 'TRUE NORTH Compliance', logo: '/images/partners/true-north.svg', url: 'https://truenorthcompliance.com' },
+  { name: 'EnTech Engineering', logo: '/images/partners/entech.svg', url: 'https://entechengineers.com' },
+  { name: 'Agbayani Construction', logo: '/images/partners/agbayani-real.png', url: 'https://agbayaniconstruction.com' },
+  { name: 'STREAM Logistics', logo: '/images/partners/stream-dark.png', url: 'https://streamlogistics.com' },
 ];
 
 const caseStudies = [
@@ -38,28 +38,28 @@ const affiliatedEntities = [
     logo: '/images/partners/ri-group.png',
     focus: 'Manufacturing & International Supply Chain',
     desc: 'International modular construction and manufacturing. Parent company based in Lecce, Italy with global project delivery capability across Europe, the Middle East, and North America.',
-    link: '/partners',
+    url: 'https://www.rigroup.it',
   },
   {
     name: 'Hospitals Without Borders',
     logo: '/images/partners/hwb.svg',
     focus: 'Deployable Medical Infrastructure',
     desc: 'Deployable modular medical infrastructure for humanitarian and emergency response settings. Headquartered in Oakland, CA with active operations in Rome, Italy and Amman, Jordan.',
-    link: '/partners',
+    url: 'https://hospitalswithoutborders.org',
   },
   {
     name: 'Agbayani Construction',
     logo: '/images/partners/agbayani-real.png',
     focus: 'Civil & Modular General Contracting',
     desc: 'Civil and modular general contracting services, headquartered in Daly City, CA with active operations across the Bay Area and Western United States.',
-    link: '/partners',
+    url: 'https://agbayaniconstruction.com',
   },
   {
     name: 'EDIS USA',
     logo: '/images/partners/edis.png',
     focus: 'Emergency Management & Preparedness',
     desc: 'Early warning systems and disaster preparedness technology for emergency management agencies. Supporting resilience infrastructure across government and civilian sectors.',
-    link: '/partners',
+    url: 'https://www.edisgroup.com',
   },
 ];
 
@@ -86,8 +86,6 @@ const contacts = [
   <!-- ════════ 1. HERO ════════ -->
   <section class="pt-hero">
     <div class="pt-hero__inner">
-      <canvas id="partners-hero-3d" class="pt-hero__canvas" aria-hidden="true"></canvas>
-      <span class="pt-hero__canvas-tag" aria-hidden="true">The Alliance Network</span>
       <div class="pt-hero__content">
         <h1 class="pt-hero__h1">A Network<br/>Built on Trust</h1>
         <p class="pt-hero__sub">
@@ -109,16 +107,27 @@ const contacts = [
       </div>
       <div class="pt-entities__grid">
         {affiliatedEntities.map((e) => (
-          <div class="pt-entity fade-up">
+          <a
+            class="pt-entity fade-up"
+            href={e.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${e.name}`}
+          >
             <div class="pt-entity__logo-wrap">
               <img src={e.logo} alt={e.name} class="pt-entity__logo" loading="lazy" />
             </div>
             <div class="pt-entity__body">
-              <h3 class="pt-entity__name">{e.name}</h3>
+              <h3 class="pt-entity__name">
+                {e.name}
+                <span class="pt-entity__arrow" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>
+                </span>
+              </h3>
               <span class="pt-entity__focus">{e.focus}</span>
               <p class="pt-entity__desc">{e.desc}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -136,9 +145,16 @@ const contacts = [
 
       <div class="pt-alliances__grid fade-up">
         {partners.map((p) => (
-          <div class="pt-alliances__logo-card">
-            <img src={p.logo} alt={p.name} title={p.name} loading="lazy" />
-          </div>
+          <a
+            class="pt-alliances__logo-card"
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${p.name}`}
+            title={p.name}
+          >
+            <img src={p.logo} alt={p.name} loading="lazy" />
+          </a>
         ))}
       </div>
     </div>
@@ -182,230 +198,6 @@ const contacts = [
       { label: 'Our Services', href: '/services' },
     ]}
   />
-
-  <script>
-    // ───────────────────────────────────────────────────────────────
-    // PARTNERS — hero 3D: "The Alliance Network"
-    // A lattice of small modular "node" units connected by glowing
-    // edges. A traveling pulse runs along each edge on a loop, reading
-    // as an active network where trust/information flows between
-    // trusted partners.
-    // ───────────────────────────────────────────────────────────────
-    import * as THREE from 'three';
-
-    const canvas = document.getElementById('partners-hero-3d') as HTMLCanvasElement | null;
-    if (canvas) {
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
-      camera.position.set(7.8, 4.6, 10.0);
-      camera.lookAt(0, 0, 0);
-
-      // Shared wireframe materials (homepage style)
-      const occluderMat = new THREE.MeshBasicMaterial({
-        colorWrite: false,
-        depthWrite: true,
-        depthTest: true,
-        side: THREE.DoubleSide,
-        polygonOffset: true,
-        polygonOffsetFactor: 1,
-        polygonOffsetUnits: 1,
-      });
-      const lineMat = new THREE.LineBasicMaterial({
-        color: 0xffffff,
-        transparent: true,
-        opacity: 0.92,
-        depthTest: true,
-        depthWrite: false,
-        polygonOffset: true,
-        polygonOffsetFactor: -1,
-        polygonOffsetUnits: -1,
-      });
-      function wire(geometry: THREE.BufferGeometry): THREE.Group {
-        const g = new THREE.Group();
-        const shell = new THREE.Mesh(geometry, occluderMat);
-        shell.renderOrder = 0;
-        const edges = new THREE.LineSegments(
-          new THREE.EdgesGeometry(geometry, 1),
-          lineMat,
-        );
-        edges.renderOrder = 1;
-        g.add(shell);
-        g.add(edges);
-        return g;
-      }
-
-      function makeNode(isHub: boolean) {
-        const g = new THREE.Group();
-        const scale = isHub ? 1.0 : 0.72;
-        const w = 0.95 * scale, h = 0.55 * scale, d = 0.7 * scale;
-        const body = wire(new THREE.BoxGeometry(w, h, d));
-        g.add(body);
-        const cap = wire(new THREE.BoxGeometry(w + 0.03, 0.05, d + 0.03));
-        cap.position.y = h / 2 + 0.02;
-        g.add(cap);
-        const stripe = wire(new THREE.BoxGeometry(w + 0.05, 0.025, d + 0.05));
-        stripe.position.y = h / 2 + 0.055;
-        g.add(stripe);
-        // Vertical seams
-        for (let side = -1; side <= 1; side += 2) {
-          for (let i = 1; i <= 2; i++) {
-            const t = i / 3;
-            const rib = wire(new THREE.BoxGeometry(0.016, h * 0.78, 0.02));
-            rib.position.set(-w / 2 + t * w, 0, side * (d / 2 + 0.0005));
-            g.add(rib);
-          }
-        }
-        if (isHub) {
-          // Small wireframe marker cube on top of the hub
-          const marker = wire(new THREE.BoxGeometry(0.18, 0.18, 0.18));
-          marker.position.y = h / 2 + 0.2;
-          g.add(marker);
-        }
-        return g;
-      }
-
-      // ── Network layout (hub + 6 satellites at varying heights)
-      type NodeInfo = { group: THREE.Group; pos: THREE.Vector3; isHub: boolean };
-      const nodes: NodeInfo[] = [];
-
-      const hubPos = new THREE.Vector3(0, 0, 0);
-      const hub = makeNode(true);
-      hub.position.copy(hubPos);
-      scene.add(hub);
-      nodes.push({ group: hub, pos: hubPos.clone(), isHub: true });
-
-      const satellitePositions = [
-        new THREE.Vector3( 2.9,  0.8,  1.1),
-        new THREE.Vector3(-2.6,  0.6,  1.8),
-        new THREE.Vector3( 2.2, -0.9, -1.5),
-        new THREE.Vector3(-2.8, -0.7, -1.2),
-        new THREE.Vector3( 0.3,  1.8, -2.4),
-        new THREE.Vector3( 0.1, -1.4,  2.6),
-      ];
-      satellitePositions.forEach((p) => {
-        const n = makeNode(false);
-        n.position.copy(p);
-        scene.add(n);
-        nodes.push({ group: n, pos: p.clone(), isHub: false });
-      });
-
-      // ── Edges: hub ↔ each satellite, plus a few perimeter connections
-      type EdgePair = [number, number];
-      const edgePairs: EdgePair[] = [
-        [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6],
-        [1, 2], [3, 4], [5, 6], [1, 5], [4, 6], [2, 3],
-      ];
-
-      type EdgeVisual = {
-        a: THREE.Vector3;
-        b: THREE.Vector3;
-        line: THREE.LineSegments;
-        pulse: THREE.Mesh;
-        pulseMat: THREE.MeshBasicMaterial;
-        offset: number;
-      };
-      const edges: EdgeVisual[] = [];
-      const pulseGeo = new THREE.SphereGeometry(0.08, 10, 10);
-      const edgeGeom = new THREE.CylinderGeometry(0.022, 0.022, 1, 6);
-      const edgeEdgesGeom = new THREE.EdgesGeometry(edgeGeom, 1);
-
-      function orientBetween(obj: THREE.Object3D, a: THREE.Vector3, b: THREE.Vector3) {
-        const mid = a.clone().add(b).multiplyScalar(0.5);
-        const dir = b.clone().sub(a);
-        const len = dir.length();
-        obj.position.copy(mid);
-        obj.scale.set(1, len, 1);
-        const quat = new THREE.Quaternion().setFromUnitVectors(
-          new THREE.Vector3(0, 1, 0),
-          dir.clone().normalize(),
-        );
-        obj.quaternion.copy(quat);
-      }
-
-      edgePairs.forEach(([i, j], idx) => {
-        const a = nodes[i].pos;
-        const b = nodes[j].pos;
-        const line = new THREE.LineSegments(edgeEdgesGeom, lineMat);
-        orientBetween(line, a, b);
-        scene.add(line);
-        // Each pulse gets its own material so opacity can be animated independently
-        const pMat = new THREE.MeshBasicMaterial({
-          color: 0xffffff,
-          transparent: true,
-          opacity: 1,
-          depthTest: true,
-          depthWrite: false,
-        });
-        const pulse = new THREE.Mesh(pulseGeo, pMat);
-        pulse.renderOrder = 2;
-        scene.add(pulse);
-        edges.push({ a, b, line, pulse, pulseMat: pMat, offset: idx * 0.13 });
-      });
-
-      function resize() {
-        if (!canvas) return;
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        if (w === 0 || h === 0) return;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-      }
-      resize();
-      const ro = new ResizeObserver(resize);
-      ro.observe(canvas);
-      window.addEventListener('resize', resize);
-
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let paused = false;
-      const io = new IntersectionObserver((entries) => {
-        paused = !entries[0].isIntersecting;
-      }, { threshold: 0.01 });
-      io.observe(canvas);
-
-      const world = new THREE.Group();
-      // Wrap all scene children we want to rotate — easier to move into a group.
-      // (We leave lights/shadow on the scene root.)
-      const rotateables: THREE.Object3D[] = [];
-      nodes.forEach((n) => rotateables.push(n.group));
-      edges.forEach((e) => { rotateables.push(e.line); rotateables.push(e.pulse); });
-      rotateables.forEach((o) => {
-        scene.remove(o);
-        world.add(o);
-      });
-      scene.add(world);
-
-      const tmp = new THREE.Vector3();
-      let t0 = performance.now();
-      function tick(now: number) {
-        const dt = (now - t0) / 1000;
-        t0 = now;
-        if (!paused) {
-          if (!reduced) {
-            world.rotation.y += dt * 0.12;
-            world.rotation.x = Math.sin(now * 0.0003) * 0.08;
-          }
-          const cycle = 2.2;
-          const base = (now * 0.001) / cycle;
-          edges.forEach((e) => {
-            const p = ((base + e.offset) % 1 + 1) % 1; // 0..1 loop
-            tmp.copy(e.a).lerp(e.b, p);
-            e.pulse.position.copy(tmp);
-            // Fade pulse at ends for a nicer loop feel
-            const fade = 1 - Math.abs(p - 0.5) * 1.5;
-            e.pulseMat.opacity = 0.25 + Math.max(0, fade) * 0.75;
-            e.pulse.scale.setScalar(0.6 + Math.max(0, fade) * 0.8);
-          });
-          renderer.render(scene, camera);
-        }
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-  </script>
 
   <Footer slot="footer" />
 </Layout>
@@ -529,46 +321,6 @@ const contacts = [
     margin: 0;
   }
 
-  /* 3D hero accent — node-and-edge lattice */
-  .pt-hero__canvas {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: clamp(360px, 58%, 780px);
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-    display: block;
-    touch-action: none;
-    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
-  }
-  .pt-hero__canvas-tag {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    z-index: 4;
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: rgba(255, 255, 255, 0.55);
-    padding: 8px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    background: rgba(8, 16, 30, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-
-  @media (max-width: 768px) {
-    .pt-hero__canvas,
-    .pt-hero__canvas-tag {
-      display: none;
-    }
-  }
-
   /* ═══ 2. ALLIANCES (aeline) ═══ */
   .pt-alliances {
     background: var(--paper);
@@ -615,6 +367,9 @@ const contacts = [
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     background: var(--paper);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
 
@@ -622,6 +377,11 @@ const contacts = [
     background: var(--paper-2);
     border-color: #d6d6d1;
     transform: translateY(-2px);
+  }
+
+  .pt-alliances__logo-card:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
   }
 
   .pt-alliances__logo-card img {
@@ -789,6 +549,10 @@ const contacts = [
     border: 1px solid var(--line);
     border-radius: var(--radius-xl);
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   }
 
@@ -796,6 +560,11 @@ const contacts = [
     box-shadow: var(--shadow-md);
     transform: translateY(-3px);
     border-color: #d6d6d1;
+  }
+
+  .pt-entity:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
   }
 
   .pt-entity__logo-wrap {
@@ -825,6 +594,25 @@ const contacts = [
     letter-spacing: -0.02em;
     color: var(--ink);
     margin-bottom: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pt-entity__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: transform 0.25s ease, opacity 0.25s ease, color 0.25s ease;
+  }
+  .pt-entity:hover .pt-entity__arrow,
+  .pt-entity:focus-visible .pt-entity__arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+    color: var(--ink);
   }
 
   .pt-entity__focus {

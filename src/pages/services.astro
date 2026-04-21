@@ -6,32 +6,44 @@ import PageCTA from '../components/PageCTA.astro';
 
 const competencies = [
   {
-    tag: 'architecture',
-    tagSuffix: 'Structural + Civil',
-    title: 'Structural Engineering',
-    desc: 'Multi-system structural analysis from seismic performance to lateral load factors — advancing safety, efficiency, and regulatory compliance.',
-    desc2: 'Projects under review across government and commercial sectors supporting Federal and international infrastructure.',
-    pills: ['Service/Verticals', 'AISC Steel', 'Reinforced Concrete'],
+    tag: 'Consulting',
+    tagSuffix: 'Strategy + Feasibility',
+    title: 'Consulting',
+    desc: 'Advisory work at the earliest stages of a project — feasibility analysis, regulatory and code review, site assessment, and total-cost-of-ownership modeling. We help owners, agencies, and developers decide whether modular is the right delivery method before a single drawing is issued.',
+    desc2: 'Our consultants bring practitioner experience across federal, healthcare, and civil sectors, translating ambiguous program requirements into defensible scopes, schedules, and budgets that downstream teams can execute against.',
+    pills: ['Feasibility Studies', 'Code & Compliance', 'TCO Modeling', 'Delivery Planning'],
+    img: '/images/showcase/west-blvd-render.jpg',
+    layout: 'text-left',
+  },
+  {
+    tag: 'Project Management',
+    tagSuffix: 'Integrated Delivery',
+    title: 'Project Management',
+    desc: 'End-to-end coordination across design, manufacturing, logistics, and installation under a single point of accountability. Every milestone, submittal, and budget line is tracked against a unified critical path — replacing the fragmented handoffs of traditional construction.',
+    desc2: 'We orchestrate multi-partner delivery across continents, aligning factories, freight forwarders, and site crews so modules arrive sequenced, inspected, and ready to install.',
+    pills: ['Single Point of Contact', 'Critical Path Scheduling', 'Multi-Partner Coordination', 'Owner Reporting'],
+    img: '/images/showcase/ri-civil-compound-aerial.png',
+    layout: 'text-right',
+  },
+  {
+    tag: 'Development',
+    tagSuffix: 'Design + Build',
+    title: 'Development',
+    desc: 'Design-build execution delivered as a single integrated package — architecture, structural engineering, MEP, BIM coordination, and custom module fabrication handled in-house and through our vetted manufacturing partners.',
+    desc2: 'From purpose-built healthcare suites to secure DoD compounds, we translate program requirements into manufactured modules engineered to snap into their foundations on the first lift.',
+    pills: ['Design-Build', 'BIM Coordination', 'Factory Fabrication', 'On-Site Assembly'],
     img: '/images/showcase/ri-factory-panorama.jpg',
     layout: 'text-left',
   },
   {
-    tag: 'Supply Chain Operations',
-    tagSuffix: 'Import + Logistics',
-    title: 'Supply Chain Integration',
-    desc: 'End-to-end integration from international procurement to last mile delivery. Our proprietary coordination system manages logistics for streamlining cost efficiency.',
-    pills: ['Multi-Vendor OFFSEC', '<=45% Cycle Time'],
-    img: '/images/showcase/ri-un-ship-logistics.png',
+    tag: 'Support & Maintenance',
+    tagSuffix: 'Lifecycle Service',
+    title: 'Support & Maintenance',
+    desc: 'Post-occupancy support that protects uptime across the full lifecycle. Scheduled inspections, warranty service, retrofit upgrades, and rapid-response on-site repair keep modules performing for decades after initial deployment.',
+    desc2: 'For mission-critical facilities — military, medical, civic — we maintain documented service records and staged spare-parts logistics, deployable anywhere in our operating footprint.',
+    pills: ['Preventive Maintenance', 'Warranty Service', 'Retrofits & Upgrades', 'Rapid Response'],
+    img: '/images/showcase/ri-un-modules-crane.png',
     layout: 'text-right',
-  },
-  {
-    tag: 'Fabrication',
-    tagSuffix: 'Custom + Scalable',
-    title: 'Custom Module Synthesis',
-    desc: 'Purpose-built for each brief — we configure custom and standardized modules spanning commercial, healthcare, defense, and institutional applications with factory-level precision and consistency.',
-    pills: ['Custom Build-Out', 'Lab Assemblies'],
-    img: '/images/showcase/ri-commercial-building.png',
-    layout: 'text-left',
   },
 ];
 
@@ -52,8 +64,6 @@ const protocols = [
   <!-- ════════ 1. HERO ════════ -->
   <section class="sv-hero">
     <div class="sv-hero__panel">
-      <canvas id="services-hero-3d" class="sv-hero__canvas" aria-hidden="true"></canvas>
-      <span class="sv-hero__canvas-tag" aria-hidden="true">Module Assembly</span>
       <div class="mnc-container sv-hero__inner">
         <div class="sv-hero__content">
           <h1 class="sv-hero__h1">Engineering the<br/>Future of Construction.</h1>
@@ -185,196 +195,6 @@ const protocols = [
       { label: 'Meet the Partners', href: '/partners' },
     ]}
   />
-
-  <script>
-    // ───────────────────────────────────────────────────────────────
-    // SERVICES — hero 3D: "Module Assembly"
-    // An exploded view of a modular unit — floor slab, wall panels,
-    // ceiling — that gently breathes in and out (compresses into a
-    // whole module, then pulls apart) while rotating. Reads as
-    // "engineered and built."
-    // ───────────────────────────────────────────────────────────────
-    import * as THREE from 'three';
-
-    const canvas = document.getElementById('services-hero-3d') as HTMLCanvasElement | null;
-    if (canvas) {
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-      camera.position.set(7.6, 4.8, 9.6);
-      camera.lookAt(0, 0.5, 0);
-
-      // Shared wireframe materials (homepage style)
-      const occluderMat = new THREE.MeshBasicMaterial({
-        colorWrite: false,
-        depthWrite: true,
-        depthTest: true,
-        side: THREE.DoubleSide,
-        polygonOffset: true,
-        polygonOffsetFactor: 1,
-        polygonOffsetUnits: 1,
-      });
-      const lineMat = new THREE.LineBasicMaterial({
-        color: 0xffffff,
-        transparent: true,
-        opacity: 0.92,
-        depthTest: true,
-        depthWrite: false,
-        polygonOffset: true,
-        polygonOffsetFactor: -1,
-        polygonOffsetUnits: -1,
-      });
-      function wire(geometry: THREE.BufferGeometry): THREE.Group {
-        const g = new THREE.Group();
-        const shell = new THREE.Mesh(geometry, occluderMat);
-        shell.renderOrder = 0;
-        const edges = new THREE.LineSegments(
-          new THREE.EdgesGeometry(geometry, 1),
-          lineMat,
-        );
-        edges.renderOrder = 1;
-        g.add(shell);
-        g.add(edges);
-        return g;
-      }
-
-      const unit = new THREE.Group();
-      scene.add(unit);
-
-      const W = 4.4, D = 2.6;
-
-      // ── Floor slab (bottom layer)
-      const floorG = new THREE.Group();
-      const floorSlab = wire(new THREE.BoxGeometry(W, 0.22, D));
-      floorG.add(floorSlab);
-      // I-beam under-frame (two runners)
-      const beamA = wire(new THREE.BoxGeometry(W + 0.08, 0.12, 0.14));
-      beamA.position.set(0, -0.17, D * 0.32);
-      floorG.add(beamA);
-      const beamB = wire(new THREE.BoxGeometry(W + 0.08, 0.12, 0.14));
-      beamB.position.set(0, -0.17, -D * 0.32);
-      floorG.add(beamB);
-      const floorEdge = wire(new THREE.BoxGeometry(W + 0.04, 0.03, D + 0.04));
-      floorEdge.position.y = 0.125;
-      floorG.add(floorEdge);
-      unit.add(floorG);
-
-      // ── Wall panels — four sides, each a plate with ribs
-      function makeWall(w: number, h: number, ribCount: number) {
-        const g = new THREE.Group();
-        const plate = wire(new THREE.BoxGeometry(w, h, 0.08));
-        g.add(plate);
-        for (let i = 1; i <= ribCount; i++) {
-          const t = i / (ribCount + 1);
-          const rib = wire(new THREE.BoxGeometry(0.02, h * 0.86, 0.02));
-          rib.position.set(-w / 2 + t * w, 0, 0.045);
-          g.add(rib);
-          const ribBack = wire(new THREE.BoxGeometry(0.02, h * 0.86, 0.02));
-          ribBack.position.set(-w / 2 + t * w, 0, -0.045);
-          g.add(ribBack);
-        }
-        // Top and bottom rails
-        const topRail = wire(new THREE.BoxGeometry(w + 0.02, 0.06, 0.1));
-        topRail.position.y = h / 2 - 0.03;
-        g.add(topRail);
-        const botRail = wire(new THREE.BoxGeometry(w + 0.02, 0.06, 0.1));
-        botRail.position.y = -h / 2 + 0.03;
-        g.add(botRail);
-        return g;
-      }
-
-      const H = 1.9;
-      const wallFront = makeWall(W, H, 5);
-      wallFront.position.set(0, H / 2 + 0.18, D / 2 - 0.04);
-      unit.add(wallFront);
-
-      const wallBack = makeWall(W, H, 5);
-      wallBack.position.set(0, H / 2 + 0.18, -D / 2 + 0.04);
-      unit.add(wallBack);
-
-      const wallLeft = makeWall(D, H, 3);
-      wallLeft.rotation.y = Math.PI / 2;
-      wallLeft.position.set(-W / 2 + 0.04, H / 2 + 0.18, 0);
-      unit.add(wallLeft);
-
-      const wallRight = makeWall(D, H, 3);
-      wallRight.rotation.y = Math.PI / 2;
-      wallRight.position.set(W / 2 - 0.04, H / 2 + 0.18, 0);
-      unit.add(wallRight);
-
-      // ── Ceiling
-      const ceilingG = new THREE.Group();
-      const ceilingSlab = wire(new THREE.BoxGeometry(W, 0.16, D));
-      ceilingG.add(ceilingSlab);
-      const ceilingEdge = wire(new THREE.BoxGeometry(W + 0.08, 0.04, D + 0.08));
-      ceilingEdge.position.y = -0.09;
-      ceilingG.add(ceilingEdge);
-      ceilingG.position.y = H + 0.3;
-      unit.add(ceilingG);
-
-      // Store base positions for the "explode" animation
-      const base = {
-        floor: floorG.position.y,
-        ceiling: ceilingG.position.y,
-        wallFrontZ: wallFront.position.z,
-        wallBackZ:  wallBack.position.z,
-        wallLeftX:  wallLeft.position.x,
-        wallRightX: wallRight.position.x,
-      };
-
-      function resize() {
-        if (!canvas) return;
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        if (w === 0 || h === 0) return;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-      }
-      resize();
-      const ro = new ResizeObserver(resize);
-      ro.observe(canvas);
-      window.addEventListener('resize', resize);
-
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let paused = false;
-      const io = new IntersectionObserver((entries) => {
-        paused = !entries[0].isIntersecting;
-      }, { threshold: 0.01 });
-      io.observe(canvas);
-
-      function easeInOut(x: number) {
-        return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-      }
-
-      let t0 = performance.now();
-      function tick(now: number) {
-        const dt = (now - t0) / 1000;
-        t0 = now;
-        if (!paused) {
-          if (!reduced) {
-            unit.rotation.y += dt * 0.16;
-            // Breathe: 0 (assembled) → 1 (exploded) → 0 (assembled), 7s cycle
-            const cycle = 7;
-            const phase = ((now * 0.001) % cycle) / cycle;
-            const wave = easeInOut(0.5 - 0.5 * Math.cos(phase * Math.PI * 2));
-            const spread = 0.55 * wave;
-            ceilingG.position.y  = base.ceiling + spread * 0.9;
-            floorG.position.y    = base.floor   - spread * 0.25;
-            wallFront.position.z = base.wallFrontZ + spread;
-            wallBack.position.z  = base.wallBackZ  - spread;
-            wallLeft.position.x  = base.wallLeftX  - spread;
-            wallRight.position.x = base.wallRightX + spread;
-          }
-          renderer.render(scene, camera);
-        }
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-  </script>
 
   <Footer slot="footer" />
 </Layout>
@@ -539,46 +359,6 @@ const protocols = [
     flex-direction: column;
     justify-content: flex-end;
     z-index: 2;
-  }
-
-  /* 3D hero accent — exploded module assembly */
-  .sv-hero__canvas {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: clamp(360px, 58%, 780px);
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    display: block;
-    touch-action: none;
-    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
-  }
-  .sv-hero__canvas-tag {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    z-index: 3;
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: rgba(255, 255, 255, 0.55);
-    padding: 8px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    background: rgba(8, 16, 30, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-
-  @media (max-width: 768px) {
-    .sv-hero__canvas,
-    .sv-hero__canvas-tag {
-      display: none;
-    }
   }
 
   .sv-hero__h1 {

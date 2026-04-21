@@ -80,23 +80,21 @@ function isActive(href?: string) {
 
       <!-- CTA outside menu (desktop, visible at certain breakpoints) -->
       <div class="hdr-button-block">
-        {isHome && (
-          <button
-            class="hdr-theme-toggle"
-            id="hdr-theme-toggle"
-            type="button"
-            aria-label="Toggle dark mode"
-            aria-pressed="false"
-          >
-            <svg class="hdr-theme-icon hdr-theme-icon--sun" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <svg class="hdr-theme-icon hdr-theme-icon--moon" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        )}
+        <button
+          class="hdr-theme-toggle"
+          id="hdr-theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+          aria-pressed="false"
+        >
+          <svg class="hdr-theme-icon hdr-theme-icon--sun" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg class="hdr-theme-icon hdr-theme-icon--moon" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
         <a class="hdr-btn" href="/projects">
           <div class="hdr-btn-wrap">
             <span class="hdr-btn-text">View Our Work</span>
@@ -138,18 +136,16 @@ function isActive(href?: string) {
         </div>
       ))}
       <a href="/projects" class="hdr-mobile-cta">View Our Work</a>
-      {isHome && (
-        <button
-          class="hdr-mobile-theme"
-          id="hdr-mobile-theme-toggle"
-          type="button"
-          aria-label="Toggle dark mode"
-          aria-pressed="false"
-        >
-          <span class="hdr-mobile-theme__label">Dark mode</span>
-          <span class="hdr-mobile-theme__switch" aria-hidden="true"><span class="hdr-mobile-theme__dot"></span></span>
-        </button>
-      )}
+      <button
+        class="hdr-mobile-theme"
+        id="hdr-mobile-theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false"
+      >
+        <span class="hdr-mobile-theme__label">Dark mode</span>
+        <span class="hdr-mobile-theme__switch" aria-hidden="true"><span class="hdr-mobile-theme__dot"></span></span>
+      </button>
     </nav>
   </div>
 </header>
@@ -199,9 +195,9 @@ function isActive(href?: string) {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   }
 
-  /* Dark mode — match hero navy gradient (same as map background) */
+  /* Dark mode — match hero ink background */
   :global(body.dark) .hdr-section.scrolled .hdr-block {
-    background: rgba(13, 28, 51, 0.92);
+    background: rgba(29, 29, 29, 0.92);
     border-color: rgba(255, 255, 255, 0.06);
   }
 
@@ -647,10 +643,9 @@ function isActive(href?: string) {
   updateScrollState();
   window.addEventListener('scroll', updateScrollState, { passive: true });
 
-  // Dark mode toggle — homepage only
-  const isHomePath = window.location.pathname === '/' || window.location.pathname === '/index.html';
-  if (isHomePath) {
-    const THEME_KEY = 'gmp-home-theme';
+  // Dark mode toggle — site-wide, persisted in localStorage
+  {
+    const THEME_KEY = 'gmp-theme';
     const body = document.body;
     const applyTheme = (theme: string) => {
       if (theme === 'dark') body.classList.add('dark');
@@ -659,7 +654,7 @@ function isActive(href?: string) {
       document.getElementById('hdr-theme-toggle')?.setAttribute('aria-pressed', pressed);
       document.getElementById('hdr-mobile-theme-toggle')?.setAttribute('aria-pressed', pressed);
     };
-    const saved = localStorage.getItem(THEME_KEY) || 'light';
+    const saved = localStorage.getItem(THEME_KEY) || 'dark';
     applyTheme(saved);
 
     const handleToggle = () => {
@@ -670,8 +665,5 @@ function isActive(href?: string) {
 
     document.getElementById('hdr-theme-toggle')?.addEventListener('click', handleToggle);
     document.getElementById('hdr-mobile-theme-toggle')?.addEventListener('click', handleToggle);
-  } else {
-    // Ensure non-home pages are never in dark state
-    document.body.classList.remove('dark');
   }
 </script>

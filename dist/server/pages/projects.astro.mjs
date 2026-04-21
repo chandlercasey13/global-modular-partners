@@ -1,7 +1,7 @@
-import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, l as renderScript } from '../chunks/astro/server_DDZiRHkW.mjs';
+import { f as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_sztvYgAO.mjs';
 import 'piccolore';
-import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_jXZ2JPpt.mjs';
-import { $ as $$PageCTA } from '../chunks/PageCTA_CgFyJN7i.mjs';
+import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_BJycQi3l.mjs';
+import { $ as $$PageCTA } from '../chunks/PageCTA_1uutvlln.mjs';
 /* empty css                                    */
 export { renderers } from '../renderers.mjs';
 
@@ -88,7 +88,7 @@ const $$Projects = createComponent(($$result, $$props, $$slots) => {
       img: "/images/showcase/ri-permanent-building-wide.png"
     }
   ];
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Projects", "description": "A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance.", "data-astro-cid-aid3sr62": true }, { "default": ($$result2) => renderTemplate`   ${maybeRenderHead()}<section class="pj-hero" data-astro-cid-aid3sr62> <div class="pj-hero__panel" data-astro-cid-aid3sr62> <canvas id="projects-hero-3d" class="pj-hero__canvas" aria-hidden="true" data-astro-cid-aid3sr62></canvas> <span class="pj-hero__canvas-tag" aria-hidden="true" data-astro-cid-aid3sr62>Module in Transit</span> <div class="pj-hero__content" data-astro-cid-aid3sr62> <h1 class="pj-hero__h1" data-astro-cid-aid3sr62>Global Scale.<br data-astro-cid-aid3sr62>Precision Delivery.</h1> <p class="pj-hero__sub" data-astro-cid-aid3sr62>
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Projects", "description": "A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance.", "data-astro-cid-aid3sr62": true }, { "default": ($$result2) => renderTemplate`   ${maybeRenderHead()}<section class="pj-hero" data-astro-cid-aid3sr62> <div class="pj-hero__panel" data-astro-cid-aid3sr62> <div class="pj-hero__content" data-astro-cid-aid3sr62> <h1 class="pj-hero__h1" data-astro-cid-aid3sr62>Global Scale.<br data-astro-cid-aid3sr62>Precision Delivery.</h1> <p class="pj-hero__sub" data-astro-cid-aid3sr62>
 A comprehensive archive of modular delivery systems across international territories, emphasizing technical compliance and structural performance.
 </p> </div> </div> </section>  <section class="pt-cases" data-astro-cid-aid3sr62> <div class="mnc-container" data-astro-cid-aid3sr62> <div class="pt-cases__head fade-up" data-astro-cid-aid3sr62> <span class="pt-tag" data-astro-cid-aid3sr62>Portfolio</span> <h2 class="pt-cases__title" data-astro-cid-aid3sr62>Project delivery through the GMP alliance</h2> <p class="pt-cases__sub" data-astro-cid-aid3sr62>
 Selected projects delivered through Global Modular Partners' affiliated entities —
@@ -97,7 +97,7 @@ Selected projects delivered through Global Modular Partners' affiliated entities
 </p> </div> <div class="pt-cases__grid" data-astro-cid-aid3sr62> ${caseStudies.map((cs) => renderTemplate`<article class="pt-case fade-up" data-astro-cid-aid3sr62> <div class="pt-case__img-wrap" data-astro-cid-aid3sr62> <img${addAttribute(cs.img, "src")}${addAttribute(cs.title, "alt")} class="pt-case__img" loading="lazy" data-astro-cid-aid3sr62> <span class="pt-case__img-tag" data-astro-cid-aid3sr62>${cs.tag}</span> </div> <h3 class="pt-case__title" data-astro-cid-aid3sr62>${cs.title}</h3> <p class="pt-case__desc" data-astro-cid-aid3sr62>${cs.desc}</p> ${(cs.value || cs.location) && renderTemplate`<div class="pt-case__meta" data-astro-cid-aid3sr62> ${cs.value && renderTemplate`<span class="pt-case__meta-item" data-astro-cid-aid3sr62><strong data-astro-cid-aid3sr62>Project Value:</strong> ${cs.value}</span>`} ${cs.location && renderTemplate`<span class="pt-case__meta-item" data-astro-cid-aid3sr62><strong data-astro-cid-aid3sr62>Location:</strong> ${cs.location}</span>`} </div>`} </article>`)} </div> </div> </section> ${renderComponent($$result2, "PageCTA", $$PageCTA, { "eyebrow": "How it gets made", "title": "Curious how these projects<br/>actually come together?", "image": "/images/showcase/ri-factory-production.jpg", "links": [
     { label: "Our Services", href: "/services" },
     { label: "About GMP", href: "/about" }
-  ], "data-astro-cid-aid3sr62": true })} ${renderScript($$result2, "/Users/chandlercasey/SWE/global-modular-partners/src/pages/projects.astro?astro&type=script&index=0&lang.ts")}  `, "footer": ($$result2) => renderTemplate`${renderComponent($$result2, "Footer", $$Footer, { "slot": "footer", "data-astro-cid-aid3sr62": true })}`, "header": ($$result2) => renderTemplate`${renderComponent($$result2, "Header", $$Header, { "slot": "header", "data-astro-cid-aid3sr62": true })}` })} `;
+  ], "data-astro-cid-aid3sr62": true })}  `, "footer": ($$result2) => renderTemplate`${renderComponent($$result2, "Footer", $$Footer, { "slot": "footer", "data-astro-cid-aid3sr62": true })}`, "header": ($$result2) => renderTemplate`${renderComponent($$result2, "Header", $$Header, { "slot": "header", "data-astro-cid-aid3sr62": true })}` })} `;
 }, "/Users/chandlercasey/SWE/global-modular-partners/src/pages/projects.astro", void 0);
 
 const $$file = "/Users/chandlercasey/SWE/global-modular-partners/src/pages/projects.astro";

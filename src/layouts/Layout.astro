@@ -21,8 +21,26 @@ const { title, description = 'Global Modular Partners — Innovative Modular Con
 
   <link rel="icon" type="image/png" href="/images/logo/gmp-logo-final.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" />
+
+  <script is:inline>
+    (function () {
+      try {
+        var saved = localStorage.getItem('gmp-theme');
+        if (saved !== 'light') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
 <body>
+  <script is:inline>
+    if (document.documentElement.classList.contains('dark')) {
+      document.body.classList.add('dark');
+    }
+  </script>
   <slot name="header" />
   <main>
     <slot />
