@@ -433,8 +433,10 @@ li { margin-bottom: 0.35rem; }
   content: '';
   width: 6px;
   height: 6px;
+  border-radius: 50%;
   background-color: var(--ink);
   display: inline-block;
+  flex-shrink: 0;
 }
 /* dark backgrounds */
 .section--navy .section-tag,

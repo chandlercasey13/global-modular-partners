@@ -1,6 +1,6 @@
 import { f as createComponent, k as renderComponent, r as renderTemplate, l as renderScript, h as addAttribute, m as maybeRenderHead } from '../chunks/astro/server_DDZiRHkW.mjs';
 import 'piccolore';
-import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_Yxr6MPmr.mjs';
+import { $ as $$Layout, a as $$Header, b as $$Footer } from '../chunks/Footer_jXZ2JPpt.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
@@ -186,7 +186,7 @@ Built for <span class="hp-mosaic__title-chip hp-mosaic__title-chip--blue" aria-h
         preferCanvas: false,
       });
 
-      // Ocean/land base colors: black ocean (CSS on \`.leaflet-container\`) and
+      // Ocean/land base colors: \`--ink\` ocean (CSS on \`.leaflet-container\`) and
       // white modular grid tiles on land (pattern + GeoJSON fallbacks).
 
       function ensurePatternDefs() {
@@ -356,12 +356,12 @@ Built for <span class="hp-mosaic__title-chip hp-mosaic__title-chip--blue" aria-h
         { name: 'South Sudan Deployments', loc: [4.8594, 31.5713], city: 'Juba, South Sudan', type: 'project' },
       ];
 
-      // Render each location as a white cell that SNAPS to the same
+      // Render each location as an amber cell that SNAPS to the same
       // 22\xD718 user-space grid the country pattern uses (rect at (1,1)
       // with 19\xD715 size, rx 2.5). The nearest grid cell to each lat/lng
       // gets filled in on top of the country grid, so
       // locations read as modules plugged into the continental grid.
-      var LOC_COLOR = '#ffffff';
+      var LOC_COLOR = '#F0C645';
       var GRID_W = 22, GRID_H = 18;
       var CELL_W = 19, CELL_H = 15;
       var CELL_OFF_X = 1, CELL_OFF_Y = 1;
@@ -642,7 +642,7 @@ Built for <span class="hp-mosaic__title-chip hp-mosaic__title-chip--blue" aria-h
         preferCanvas: false,
       });
 
-      // Ocean/land base colors: black ocean (CSS on \\\`.leaflet-container\\\`) and
+      // Ocean/land base colors: \\\`--ink\\\` ocean (CSS on \\\`.leaflet-container\\\`) and
       // white modular grid tiles on land (pattern + GeoJSON fallbacks).
 
       function ensurePatternDefs() {
@@ -812,12 +812,12 @@ Built for <span class="hp-mosaic__title-chip hp-mosaic__title-chip--blue" aria-h
         { name: 'South Sudan Deployments', loc: [4.8594, 31.5713], city: 'Juba, South Sudan', type: 'project' },
       ];
 
-      // Render each location as a white cell that SNAPS to the same
+      // Render each location as an amber cell that SNAPS to the same
       // 22\xD718 user-space grid the country pattern uses (rect at (1,1)
       // with 19\xD715 size, rx 2.5). The nearest grid cell to each lat/lng
       // gets filled in on top of the country grid, so
       // locations read as modules plugged into the continental grid.
-      var LOC_COLOR = '#ffffff';
+      var LOC_COLOR = '#F0C645';
       var GRID_W = 22, GRID_H = 18;
       var CELL_W = 19, CELL_H = 15;
       var CELL_OFF_X = 1, CELL_OFF_Y = 1;

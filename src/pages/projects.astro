@@ -4,32 +4,91 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageCTA from '../components/PageCTA.astro';
 
-const featured = {
-  tag: 'Case Study 01',
-  title: 'The Meridian Heights Assembly',
-  location: 'Odessa, TX',
-  duration: '18 Weeks',
-  desc: 'A 120-unit residential modular tower utilizing our proprietary partnership framework — collaborating with 4 independent specialized contractors. Precision logistics integration reduced on-site waste by 45%. Achieving a 33% reduction in carbon footprint compared to traditional RC casting.',
-};
-
-const projects = [
+/**
+ * Project spotlights delivered through Global Modular Partners' affiliated
+ * entities — Hospitals Without Borders (hospitalswithoutborders.org) and
+ * RI Group (rigroup.it). Card pattern mirrors the partners page (`pt-case`).
+ */
+const caseStudies = [
   {
-    tag: 'Project / Residential',
-    title: 'West Modular Blvd Complex',
-    desc: 'Modular-type scalable data center facility optimized for natural thermal regulation.',
-    img: '/images/showcase/west-blvd-render.jpg',
+    tag: 'HWB · Emergency Healthcare',
+    title: 'Gaza Clinic — Type I',
+    desc: 'Scalable modular field hospital delivering immediate clinical capacity where permanent infrastructure has been damaged or destroyed. The Type I configuration starts at 10 beds with a compact footprint that can be rapidly expanded, with integrated clinical and support spaces for emergency, inpatient, and outpatient care.',
+    value: '10+ beds',
+    location: 'Gaza, Palestine',
+    img: '/images/showcase/hwb-field-hospital.webp',
   },
   {
-    tag: 'Project / Defense',
-    title: 'Forward Operations Compound',
-    desc: 'Rapid deployment of 200,000 sf of facilities across demanding operational conditions.',
+    tag: 'HWB · Pediatric Infrastructure',
+    title: "Sant'Anna Fuheis Children's Hospital",
+    desc: 'Purpose-built pediatric medical center in the Al-Balqa governorate, designed as a permanent children\'s hospital with multi-level clinical wings, naturally lit double-height atriums, dedicated play and rehabilitation areas, and landscaped courtyards — creating a child-friendly healing environment for pediatric populations across the region.',
+    value: 'Pediatric Permanent',
+    location: 'Fuheis, Jordan',
+    img: '/images/showcase/hwb-modular-pediatric.jpeg',
+  },
+  {
+    tag: 'HWB · Genetics Research',
+    title: "Genetics Laboratory · Bambino Gesù Di Cairo",
+    desc: "Egypt's first specialized center for maternal and child genetic research and diagnosis, developed in partnership with Bambino Gesù Pediatric Hospital. Houses next-generation sequencing, a four-bed bone marrow transplant unit, and training programs — addressing high incidence of thalassemia, chromosomal syndromes, and hereditary metabolic disorders.",
+    value: 'Sponsor: Fraternity For Humanity',
+    location: 'Cairo, Egypt',
+    img: '/images/showcase/hwb-pediatric-egypt.jpeg',
+  },
+  {
+    tag: 'HWB · Tribal Healthcare',
+    title: 'Project SAGE — Mobile Clinics for Tribal Communities',
+    desc: 'A multi-site national initiative (Sovereignty, Access, Growth, Equity) strengthening healthcare delivery across Tribal-serving communities. Deploys mobile clinical units alongside primary care, chronic disease management, and behavioral health services — integrating Tribal-controlled data sovereignty, workforce pipelines, and secure digital infrastructure.',
+    value: '6 initial sites',
+    location: 'United States (Multi-Site)',
+    img: '/images/showcase/hwb-teledoc.jpeg',
+  },
+  {
+    tag: 'RI Group · Defence Medical',
+    title: 'Field Hospital MTF ROLE 2B',
+    desc: 'Patented field hospital designed for use in areas of ongoing military operations, proven highly effective for emergency interventions and national disaster relief. Delivered to the Italian Ministry of Defence as a rapidly deployable ISO-standard system with full surgical and triage capacity.',
+    value: 'Italian Ministry of Defence',
+    location: 'Italy',
+    img: '/images/showcase/ri-medical-shelter.jpg',
+  },
+  {
+    tag: 'RI Group · Biocontainment',
+    title: 'Biocontainment Unit — Italian Ministry of Defence',
+    desc: 'Patented, state-of-the-art container unit deployable as a stand-alone system or combined with other modular healthcare facilities to treat infectious diseases under full safety and containment protocols. Eight ISO 20-ft modules delivered with a three-day assembly envelope.',
+    value: '8 × ISO 20′ · 3-day assembly',
+    location: 'Italy',
+    img: '/images/showcase/hwb-surgery-cutaway.png',
+  },
+  {
+    tag: 'RI Group · Defence Compound',
+    title: 'Forward Military Compound',
+    desc: 'Full-scale modular military compound combining accommodation, offices, canteen, kitchen, laundry, ablution, armory, gate control, and technical plants. Integrates telescopic armored towers, Hesco bastion works, and surbunker shelters — engineered for rapid deployment in demanding operational environments.',
+    value: 'Turn-key deployment',
+    location: 'International Operations',
     img: '/images/showcase/ri-defense-base.png',
   },
   {
-    tag: 'Project / Healthcare',
-    title: 'St. Jude Medical Wing',
-    desc: 'Integrated surgical-grade modular modules delivered within a live hospital operational environment.',
-    img: '/images/showcase/hwb-clinic-interior.jpeg',
+    tag: 'RI Group · Civil Infrastructure',
+    title: 'Carabinieri Station & Police Infrastructure',
+    desc: 'Permanent modular police stations and civil government facilities delivered across Italian and international sites. Buildings meet full seismic and permanent-use structural standards while compressing project timelines through factory-controlled production and pre-fitted MEP systems.',
+    value: 'Permanent Structure',
+    location: 'Italy',
+    img: '/images/showcase/ri-carabinieri-station.png',
+  },
+  {
+    tag: 'RI Group · Civil Compound',
+    title: 'Civil Compound — Commercial & Government',
+    desc: 'Multi-building modular compound delivering government administrative space, commercial floors, and support infrastructure within a single coordinated site. Steel-frame modular construction delivers permanent-grade aesthetics while cutting on-site construction time against conventional build.',
+    value: 'Multi-block delivery',
+    location: 'Mediterranean Basin',
+    img: '/images/showcase/ri-civil-compound-aerial.png',
+  },
+  {
+    tag: 'RI Group · Residential',
+    title: 'Permanent Modular Residential Development',
+    desc: 'Permanent residential buildings delivered through RI Group\'s modular building system — structurally engineered for long service life with full thermal, acoustic, and finish performance equivalent to conventional construction. Planned, fabricated, and delivered through a single coordinated program.',
+    value: 'Permanent Residential',
+    location: 'Italy',
+    img: '/images/showcase/ri-permanent-building-wide.png',
   },
 ];
 
@@ -55,60 +114,34 @@ const projects = [
     </div>
   </section>
 
-  <!-- ════════ 2. CASE STUDY ════════ -->
-  <section class="pj-case">
-    <div class="mnc">
-      <div class="pj-case__layout fade-up">
-        <div class="pj-case__left">
-          <span class="pj-tag">{featured.tag}</span>
-          <h2 class="pj-case__title">{featured.title} · <span class="pj-case__location">{featured.location}</span></h2>
-          <span class="pj-case__duration">{featured.duration}</span>
-          <p class="pj-case__desc">{featured.desc}</p>
-        </div>
+  <!-- ════════ 2. PROJECT SPOTLIGHTS (same card system as partners — pt-case) ════════ -->
+  <section class="pt-cases">
+    <div class="mnc-container">
+      <div class="pt-cases__head fade-up">
+        <span class="pt-tag">Portfolio</span>
+        <h2 class="pt-cases__title">Project delivery through the GMP alliance</h2>
+        <p class="pt-cases__sub">
+          Selected projects delivered through Global Modular Partners' affiliated entities —
+          Hospitals Without Borders and RI Group — spanning deployable healthcare,
+          defence infrastructure, and permanent civil and residential construction.
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- ════════ 3. FEATURED IMAGE ════════ -->
-  <section class="pj-featured-img">
-    <div class="mnc">
-      <div class="pj-featured-img__wrap fade-up">
-        <img src="/images/showcase/ri-civil-compound-aerial.png" alt="Modular civil compound" loading="lazy" />
-        <div class="pj-featured-img__card">
-          <h4 class="pj-featured-img__card-title">■ Digital Archive</h4>
-          <div class="pj-featured-img__card-rows">
-            <div class="pj-featured-img__card-row">
-              <span>Total Active Files</span>
-              <span class="pj-featured-img__card-val">408</span>
+      <div class="pt-cases__grid">
+        {caseStudies.map((cs) => (
+          <article class="pt-case fade-up">
+            <div class="pt-case__img-wrap">
+              <img src={cs.img} alt={cs.title} class="pt-case__img" loading="lazy" />
+              <span class="pt-case__img-tag">{cs.tag}</span>
             </div>
-            <div class="pj-featured-img__card-row">
-              <span>Compliance Level</span>
-              <span class="pj-featured-img__card-val pj-featured-img__card-val--green">7,038 ↓</span>
-            </div>
-            <div class="pj-featured-img__card-row">
-              <span>Energy Efficiency</span>
-              <span class="pj-featured-img__card-val pj-featured-img__card-val--green">A+++</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ 4. PROJECT GRID ════════ -->
-  <section class="pj-grid-section">
-    <div class="mnc">
-      <div class="pj-grid">
-        {projects.map((p) => (
-          <article class="pj-card fade-up">
-            <div class="pj-card__img-wrap">
-              <img src={p.img} alt={p.title} loading="lazy" />
-            </div>
-            <div class="pj-card__body">
-              <span class="pj-card__tag">{p.tag}</span>
-              <h3 class="pj-card__title">{p.title}</h3>
-              <p class="pj-card__desc">{p.desc}</p>
-            </div>
+            <h3 class="pt-case__title">{cs.title}</h3>
+            <p class="pt-case__desc">{cs.desc}</p>
+            {(cs.value || cs.location) && (
+              <div class="pt-case__meta">
+                {cs.value && <span class="pt-case__meta-item"><strong>Project Value:</strong> {cs.value}</span>}
+                {cs.location && <span class="pt-case__meta-item"><strong>Location:</strong> {cs.location}</span>}
+              </div>
+            )}
           </article>
         ))}
       </div>
@@ -351,14 +384,14 @@ const projects = [
 </Layout>
 
 <style>
-  .mnc { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
+  .mnc-container { max-width: 1440px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* Headings use Barlow only on this page (no Sora) */
   h1, h2, h3, h4 {
     font-family: var(--font-primary);
   }
 
-  .pj-tag {
+  .pt-tag {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -370,15 +403,14 @@ const projects = [
     color: var(--ink);
     margin-bottom: 20px;
   }
-  .pj-tag::before {
+  .pt-tag::before {
     content: '';
     width: 6px;
     height: 6px;
+    border-radius: 50%;
     background: var(--ink);
     flex-shrink: 0;
   }
-  .pj-tag--hero { color: rgba(255,255,255,.5); }
-  .pj-tag--hero::before { background: var(--amber); }
 
   /* ═══ 1. HERO ═══ */
   .pj-hero {
@@ -524,152 +556,63 @@ const projects = [
     }
   }
 
-  /* ═══ 2. CASE STUDY (aeline) ═══ */
-  .pj-case {
-    background: var(--paper);
+  /* ═══ 2. CASE STUDY CARDS — matches partners page (`.pt-case`) ═══ */
+  .pt-cases {
+    background: var(--paper-2);
     padding: clamp(3.5rem, 7vw, 6rem) 0;
   }
 
-  .pj-case__layout {
-    max-width: 52rem;
+  .pt-cases__head {
+    margin-bottom: 48px;
+    max-width: 60rem;
   }
 
-  .pj-case__title {
+  .pt-cases__title {
     font-family: var(--font-display);
     font-size: var(--fs-3xl);
     font-weight: 500;
     letter-spacing: var(--tracking-tighter);
     color: var(--ink);
-    margin-bottom: 16px;
     line-height: 1.05;
+    margin: 0 0 18px;
   }
 
-  .pj-case__location {
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  .pj-case__duration {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ink);
-    border: 1px solid var(--line);
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    margin-bottom: 20px;
-  }
-
-  .pj-case__desc {
+  .pt-cases__sub {
     font-size: 1.05rem;
     line-height: 1.65;
     color: var(--muted);
     margin: 0;
+    max-width: 48rem;
   }
 
-  /* ═══ 3. FEATURED IMAGE (aeline) ═══ */
-  .pj-featured-img {
-    background: var(--paper);
-    padding: 0 0 clamp(3.5rem, 7vw, 6rem);
-  }
-
-  .pj-featured-img__wrap {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-2xl);
-  }
-
-  .pj-featured-img__wrap img {
-    width: 100%;
-    display: block;
-    aspect-ratio: 16 / 7;
-    object-fit: cover;
-    filter: brightness(0.5);
-  }
-
-  .pj-featured-img__card {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    background: var(--paper);
-    padding: 24px;
-    width: 260px;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--line);
-  }
-
-  .pj-featured-img__card-title {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 16px;
-  }
-
-  .pj-featured-img__card-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .pj-featured-img__card-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-
-  .pj-featured-img__card-val {
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .pj-featured-img__card-val--green {
-    color: #2d9e5a;
-  }
-
-  /* ═══ 4. PROJECT GRID (aeline) ═══ */
-  .pj-grid-section {
-    background: var(--paper);
-    padding: 0 0 clamp(3.5rem, 7vw, 6rem);
-  }
-
-  .pj-grid {
+  .pt-cases__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
-  .pj-card {
+  .pt-case {
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: var(--radius-xl);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
-  .pj-card:hover {
-    transform: translateY(-3px);
+  .pt-case:hover {
+    transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     border-color: #d6d6d1;
   }
 
-  .pj-card__img-wrap {
-    aspect-ratio: 4 / 3;
+  .pt-case__img-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
     margin: 12px 12px 0;
     border-radius: var(--radius-lg);
   }
 
-  .pj-card__img-wrap img {
+  .pt-case__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -677,50 +620,74 @@ const projects = [
     transition: transform 0.5s ease;
   }
 
-  .pj-card:hover .pj-card__img-wrap img {
-    transform: scale(1.04);
-  }
+  .pt-case:hover .pt-case__img { transform: scale(1.04); }
 
-  .pj-card__body {
-    padding: 24px;
-  }
-
-  .pj-card__tag {
-    display: block;
+  .pt-case__img-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    letter-spacing: var(--tracking-label);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
+    color: var(--ink);
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
   }
 
-  .pj-card__title {
+  .pt-case__title {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--ink);
-    margin-bottom: 10px;
+    margin: 0;
+    padding: 24px 24px 8px;
   }
 
-  .pj-card__desc {
-    font-size: 0.92rem;
-    line-height: 1.6;
+  .pt-case__desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
     color: var(--muted);
-    margin: 0;
+    padding: 0 24px;
+    margin: 0 0 20px;
+  }
+
+  .pt-case__meta {
+    display: flex;
+    gap: 24px;
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .pt-case__meta-item strong {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    font-size: 0.68rem;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 2px;
   }
 
   /* ═══ RESPONSIVE ═══ */
-  @media (max-width: 1024px) {
-    .pj-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 900px) {
+    .pt-cases__grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 768px) {
     .pj-hero__panel { height: 380px; }
-    .pj-case { padding: 64px 0; }
-    .pj-grid { grid-template-columns: 1fr; }
-    .pj-featured-img__card { display: none; }
+    .pt-cases {
+      padding: 40px 0;
+    }
   }
 </style>

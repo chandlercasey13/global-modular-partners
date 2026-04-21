@@ -1084,12 +1084,12 @@ const partners = [
         { name: 'South Sudan Deployments', loc: [4.8594, 31.5713], city: 'Juba, South Sudan', type: 'project' },
       ];
 
-      // Render each location as a white cell that SNAPS to the same
+      // Render each location as an amber cell that SNAPS to the same
       // 22×18 user-space grid the country pattern uses (rect at (1,1)
       // with 19×15 size, rx 2.5). The nearest grid cell to each lat/lng
       // gets filled in on top of the country grid, so
       // locations read as modules plugged into the continental grid.
-      var LOC_COLOR = '#ffffff';
+      var LOC_COLOR = '#F0C645';
       var GRID_W = 22, GRID_H = 18;
       var CELL_W = 19, CELL_H = 15;
       var CELL_OFF_X = 1, CELL_OFF_Y = 1;
@@ -1246,29 +1246,16 @@ const partners = [
     padding: 64px 0;
   }
 
-  /* ── Section Tag (bullet eyebrow) ── */
+  /* Section-tag base styling lives in global.css (circle dot eyebrow). */
   .section-tag {
-    display: inline-flex;
-    align-items: baseline;
-    font-family: var(--font-secondary);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    color: #111;
     margin-bottom: 20px;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-  }
-  .section-tag::before {
-    content: '•';
-    margin-right: 0.45em;
-    line-height: 1;
   }
 
   .section-tag--dark {
     color: rgba(255,255,255,0.85);
+  }
+  .section-tag--dark::before {
+    background-color: rgba(255,255,255,0.85);
   }
 
   /* ── Section Title ── */
@@ -1789,7 +1776,7 @@ const partners = [
   /* ════════ ABOUT MOSAIC ════════ */
   .hp-about {
     background: #fff;
-    padding: clamp(40px, 4.5vw, 64px) var(--strip-edge-gutter) 96px;
+    padding: clamp(16px, 2vw, 32px) var(--strip-edge-gutter) 96px;
   }
 
   /* Two-column layout: left text column, right image. */
