@@ -22,7 +22,7 @@ const partners = [
       <div class="banner__inner">
         <div class="banner__split">
           <div class="banner__content">
-            <h1 class="banner__h1 fade-up">Building the future of <span class="banner__h1-accent">modular construction.</span></h1>
+            <h1 class="banner__h1 fade-up">Building the future<br/><span class="banner__h1-sub">of modular construction.</span></h1>
             <p class="banner__blurb-text fade-up">
               A singular alliance providing end-to-end modular solutions — engineering, fabrication, logistics, and deployment delivered as one coordinated program.
             </p>
@@ -1424,15 +1424,16 @@ const partners = [
   .banner__h1 {
     font-family: var(--font-secondary);
     font-size: clamp(32px, 4.4vw, 62px);
-    font-weight: 500;
+    font-weight: 800;
     line-height: 1.08;
     color: var(--white);
     letter-spacing: -1.4px;
     text-transform: none;
     margin: 0;
   }
-  .banner__h1-accent {
-    color: var(--amber);
+  .banner__h1-sub {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
   }
 
   .banner__blurb-text {

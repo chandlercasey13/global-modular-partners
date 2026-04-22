@@ -35,7 +35,7 @@ const timeline = [
         <canvas id="about-hero-3d" class="ab-hero__canvas" aria-hidden="true"></canvas>
         <span class="ab-hero__canvas-tag" aria-hidden="true">The Module</span>
         <div class="ab-hero__intro-content fade-up">
-          <h1 id="ab-hero-heading" class="ab-hero__h1">The Authority in<br/>Modular Engineering</h1>
+          <h1 id="ab-hero-heading" class="ab-hero__h1">The Authority in<br/><span class="ab-hero__h1-sub">Modular Engineering</span></h1>
           <p class="ab-hero__sub">
             Redefining the built environment of global infrastructure through precision modular assembly and partnership-driven engineering innovation.
           </p>
@@ -468,6 +468,11 @@ const timeline = [
     text-transform: none;
     letter-spacing: -2px;
     margin-bottom: 20px;
+  }
+
+  .ab-hero__h1-sub {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
   }
 
   .ab-hero__sub {

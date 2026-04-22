@@ -71,7 +71,7 @@ const articles = [
           <span class="breadcrumb__sep">/</span>
           <span>News & Insights</span>
         </nav>
-        <h1 class="hero-title fade-up">Latest News &amp;<br />Industry Insights</h1>
+        <h1 class="hero-title fade-up">Latest News &amp;<br /><span class="hero-title-sub">Industry Insights</span></h1>
         <p class="hero-sub fade-up">Stay informed with company updates, project milestones, and trends shaping the future of modular construction.</p>
         <div class="hero-actions fade-up">
           <a href="#articles" class="mnc-btn mnc-btn--dark">
@@ -199,11 +199,16 @@ const articles = [
   .hero-title {
     font-family: var(--font-secondary);
     font-size: clamp(36px, 5vw, 56px);
-    font-weight: 600;
+    font-weight: 800;
     line-height: 1.15;
     color: var(--white);
     max-width: 700px;
     margin-bottom: 16px;
+  }
+
+  .hero-title-sub {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
   }
   .hero-sub {
     color: rgba(255,255,255,.65);

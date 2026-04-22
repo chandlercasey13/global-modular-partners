@@ -15,7 +15,7 @@ import PageCTA from '../../components/PageCTA.astro';
   <section class="dp-hero">
     <div class="dp-hero__panel">
       <div class="dp-hero__content">
-        <h1 class="dp-hero__h1">Operational<br/>Departments</h1>
+        <h1 class="dp-hero__h1">Operational<br/><span class="dp-hero__h1-sub">Departments</span></h1>
         <p class="dp-hero__sub">Five core divisions driving modular excellence — from construction and project management to defense, healthcare, and civil infrastructure.</p>
       </div>
     </div>
@@ -312,6 +312,11 @@ import PageCTA from '../../components/PageCTA.astro';
     text-transform: none;
     letter-spacing: -2px;
     margin: 0 0 20px;
+  }
+
+  .dp-hero__h1-sub {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
   }
 
   .dp-hero__sub {
