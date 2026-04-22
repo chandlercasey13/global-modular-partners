@@ -24,10 +24,6 @@ const topics = [
     <div class="hero-panel">
       <div class="hero-inner">
         <div class="hero-content">
-          <span class="hero-eyebrow">
-            <span class="hero-eyebrow__dot" aria-hidden="true"></span>
-            Get in touch
-          </span>
           <h1>Contact<br/><span class="hero-h1-accent">Information</span></h1>
           <p class="hero-subtitle">
             For inquiries, partnerships, and RFP submissions.
@@ -113,7 +109,7 @@ const topics = [
             </address>
           </div>
 
-          <div class="info-card info-card--navy">
+          <div class="info-card info-card--ink">
             <div class="info-card__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <path d="M4 4h16v16H4z" stroke-linecap="round" stroke-linejoin="round" />
@@ -214,7 +210,7 @@ const topics = [
 
   .mnc-btn--dark {
     background: var(--amber);
-    color: var(--navy);
+    color: var(--ink);
     border-color: var(--amber);
     font-weight: 700;
   }
@@ -249,7 +245,7 @@ const topics = [
     height: 480px;
     overflow: hidden;
     border-radius: 0;
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-dark) 50%, var(--navy-light) 100%);
+    background: linear-gradient(165deg, var(--ink) 0%, #0b0b0b 50%, #222 100%);
   }
 
   .hero-panel::before {
@@ -376,11 +372,11 @@ const topics = [
   }
 
   .form-card__eyebrow {
-    color: var(--navy) !important;
+    color: var(--ink) !important;
     margin-bottom: 14px;
   }
   .form-card__eyebrow::before {
-    background-color: var(--navy) !important;
+    background-color: var(--amber) !important;
   }
 
   .form-card__title {
@@ -455,8 +451,8 @@ const topics = [
   .contact-form__field input:focus,
   .contact-form__field textarea:focus,
   .contact-form__field select:focus {
-    border-color: var(--navy);
-    box-shadow: 0 0 0 3px rgba(43, 75, 126, 0.12);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(29, 29, 29, 0.12);
     outline: none;
   }
 
@@ -492,15 +488,15 @@ const topics = [
   .contact-form__submit {
     align-self: flex-start;
     margin-top: 8px;
-    background: var(--navy);
+    background: var(--ink);
     color: #fff;
   }
   .contact-form__submit:hover {
-    background: var(--navy-dark);
+    background: #000;
   }
   .contact-form__submit .al-btn-arrow__icon {
     background: var(--amber);
-    color: var(--navy);
+    color: var(--ink);
   }
 
   /* ── Info Aside (aeline rounded cards) ── */
@@ -531,7 +527,7 @@ const topics = [
     background: var(--ink);
   }
   .info-card--amber::before { background: var(--amber); }
-  .info-card--navy::before { background: var(--navy); }
+  .info-card--ink::before { background: var(--ink); }
 
   .info-card:hover {
     transform: translateY(-3px);
@@ -552,10 +548,10 @@ const topics = [
   }
   .info-card--amber .info-card__icon {
     background: var(--amber);
-    color: var(--navy);
+    color: var(--ink);
   }
-  .info-card--navy .info-card__icon {
-    background: var(--navy);
+  .info-card--ink .info-card__icon {
+    background: var(--ink);
     color: #fff;
   }
 
@@ -578,7 +574,7 @@ const topics = [
   .info-card__body p { margin: 0 0 2px; }
 
   .info-card__body a {
-    color: var(--navy);
+    color: var(--ink);
     font-weight: 600;
     word-break: break-word;
     border-bottom: 1px solid var(--line);
@@ -619,11 +615,11 @@ const topics = [
     transition: background 0.2s ease;
   }
   .info-card__links a:hover {
-    color: var(--navy);
+    color: var(--ink);
     border-bottom-color: var(--amber);
   }
   .info-card__links a:hover::before {
-    background: var(--navy);
+    background: var(--ink);
   }
 
   /* ── Offices Section (off-white bg) ── */

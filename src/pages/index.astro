@@ -58,6 +58,9 @@ const partners = [
   <script>
     import * as THREE from 'three';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
+    import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
+    import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 
     const canvas = document.getElementById('hero-3d');
     if (canvas) {
@@ -65,7 +68,7 @@ const partners = [
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 280);
+      const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 280);
       camera.position.set(-0.87505, 4.00014, 10.71888);
 
       const controls = new OrbitControls(camera, canvas);
@@ -117,6 +120,7 @@ const partners = [
       });
 
       const modules = [];
+      const lineMaterials = [];
       const dropHeight = 11;
 
       const towerX = -0.92;
@@ -385,8 +389,12 @@ const partners = [
         shellMesh.renderOrder = 0;
         group.add(shellMesh);
 
-        const edgeMat = new THREE.LineBasicMaterial({
-          color: 0xffffff,
+        const fatGeo = new LineSegmentsGeometry();
+        fatGeo.setPositions(local);
+        const edgeMat = new LineMaterial({
+          color: 0x9a9a9a,
+          linewidth: 2.25,
+          worldUnits: false,
           transparent: true,
           opacity: 0,
           depthTest: true,
@@ -395,9 +403,12 @@ const partners = [
           polygonOffsetFactor: -1,
           polygonOffsetUnits: -1,
         });
-        const lines = new THREE.LineSegments(localGeo, edgeMat);
+        lineMaterials.push(edgeMat);
+        const lines = new LineSegments2(fatGeo, edgeMat);
+        lines.computeLineDistances();
         lines.renderOrder = 1;
         group.add(lines);
+        localGeo.dispose();
         scene.add(group);
         modules.push({
           group,
@@ -429,6 +440,9 @@ const partners = [
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
+        for (const mat of lineMaterials) {
+          mat.resolution.set(w, h);
+        }
       }
 
       resize();
@@ -453,7 +467,7 @@ const partners = [
           m.group.position.y = m.targetY + dropHeight * (1 - ease);
           m.group.children.forEach(child => {
             if (child.userData.depthOccluder) return;
-            if (child.material) child.material.opacity = 0.6 * ease;
+            if (child.material) child.material.opacity = 0.9 * ease;
           });
           if (clamped >= 1) m.done = true;
         }
@@ -1188,7 +1202,6 @@ const partners = [
       />
       <div class="hp-cta__overlay"></div>
       <div class="hp-cta__inner">
-        <span class="section-tag section-tag--dark">Build with GMP</span>
         <h2 class="hp-cta__title">
           Engineering the next generation<br/>of modular infrastructure.
         </h2>
@@ -1232,7 +1245,7 @@ const partners = [
   .hp-about .section-tag::before { background-color: var(--amber); }
   .hp-mosaic .section-tag::before { background-color: var(--navy); }
   .hp-caps .section-tag::before { background-color: var(--amber); }
-  .hp-work .section-tag::before { background-color: var(--navy); }
+  .hp-work .section-tag::before { background-color: var(--amber); }
 
   .section-tag--dark {
     color: rgba(255,255,255,0.85);
@@ -1454,7 +1467,7 @@ const partners = [
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    border-radius: 999px;
+    border-radius: clamp(4px, 0.6vw, 8px);
     transition: background 0.25s, gap 0.25s, color 0.25s, border-color 0.25s;
   }
   .banner__cta--primary {
@@ -1500,8 +1513,15 @@ const partners = [
       right: clamp(16px, 3vw, 60px);
       transform: translateY(-50%);
       width: calc(100% * 1 / 2.4 - 16px);
-      height: clamp(420px, 78vh, 760px);
-      max-height: calc(100vh - 240px);
+      height: clamp(520px, 92vh, 960px);
+      max-height: calc(100vh - 140px);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .banner__visual {
+      height: clamp(620px, 96vh, 1080px);
+      max-height: calc(100vh - 120px);
     }
   }
   .banner__visual-img {
@@ -2288,7 +2308,7 @@ const partners = [
   .hp-work-card:hover { transform: translateY(-4px); }
 
   .hp-work-card--featured {
-    background: var(--navy);
+    background: var(--ink);
   }
   .hp-work-card--featured .hp-work-card__title,
   .hp-work-card--featured .hp-work-card__role { color: #fff; }
