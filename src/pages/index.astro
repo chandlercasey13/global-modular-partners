@@ -42,29 +42,6 @@ const partners = [
           </div>
         </div>
 
-        <div class="banner__tiles">
-          <div class="banner__tile banner__tile--stat slide-in-up" style="--delay: 0.15s">
-            <span class="banner__tile-big">2,400+</span>
-            <span class="banner__tile-lbl">Modules produced</span>
-            <svg class="banner__tile-chart" viewBox="0 0 80 28" aria-hidden="true">
-              <polyline points="0,22 12,18 24,20 36,12 48,14 60,6 72,9 80,3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="banner__tile banner__tile--photo slide-in-up" style="--delay: 0.25s">
-            <img src="/images/showcase/ri-factory-production.jpg" alt="Factory module production" />
-            <span class="banner__tile-tag">Fabrication</span>
-          </div>
-          <div class="banner__tile banner__tile--photo slide-in-up" style="--delay: 0.35s">
-            <img src="/images/showcase/west-crane.jpg" alt="On-site deployment and setting" />
-            <span class="banner__tile-tag">Deployment</span>
-          </div>
-          <div class="banner__tile banner__tile--stat slide-in-up" style="--delay: 0.45s">
-            <span class="banner__tile-big">3</span>
-            <span class="banner__tile-lbl">Continents served</span>
-            <span class="banner__tile-sub">North America · Europe · Middle East</span>
-          </div>
-        </div>
-
         <div class="banner__bottom">
           <div class="banner__partners">
             {partners.map((p) => (
@@ -965,8 +942,8 @@ const partners = [
           window.startBuildDismantle();
         }
         setTimeout(function () { root.setProperty('--rv-blocks', '1'); },  250);
+        setTimeout(function () { root.setProperty('--rv-text',   '1'); },  600);
         setTimeout(function () { root.setProperty('--rv-pins',   '1'); }, 1400);
-        setTimeout(function () { root.setProperty('--rv-text',   '1'); }, 2000);
       }
 
       if (sectionEl) {
@@ -2597,60 +2574,56 @@ const partners = [
 
   .netmap__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: clamp(28px, 3vw, 48px);
+    left: var(--strip-edge-gutter, 1.5rem);
     z-index: 500;
-    padding:
-      clamp(56px, 6vw, 96px)
-      clamp(24px, 3vw, 40px)
-      clamp(10px, 1.2vw, 18px)
-      var(--strip-edge-gutter, 1.5rem);
+    padding: clamp(20px, 2vw, 28px) clamp(22px, 2.4vw, 32px);
     pointer-events: none;
-    background: linear-gradient(
-      155deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.12) 48%,
-      transparent 78%
-    );
-    display: flex;
+    background: var(--ink);
+    border-radius: var(--radius-xl, 18px);
+    display: inline-flex;
     flex-direction: column;
-    gap: 16px;
-    max-width: none;
+    gap: 12px;
+    width: max-content;
+    max-width: calc(100% - (var(--strip-edge-gutter, 1.5rem) * 2));
   }
 
   .netmap__overlay > * {
     opacity: var(--rv-text, 0);
-    transform: translateY(calc((1 - var(--rv-text, 0)) * 18px));
+    transform: translateY(calc((1 - var(--rv-text, 0)) * 10px));
     transition:
-      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .netmap__overlay .netmap__overlay-tag,
   .netmap__overlay .section-tag.netmap__overlay-tag {
     margin: 0;
     color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 20px rgba(0, 0, 0, 0.25);
   }
   .netmap__overlay .netmap__overlay-title,
   .netmap__overlay .section-title.netmap__overlay-title {
     font-family: var(--font-secondary);
-    font-size: clamp(30px, 3.6vw, 48px);
+    font-size: clamp(26px, 3.2vw, 42px);
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.01em;
     color: #fff !important;
     white-space: nowrap;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 8px 28px rgba(0, 0, 0, 0.35);
   }
 
   @media (max-width: 900px) {
     .netmap__overlay {
-      padding: 20px 18px;
-      max-width: 90%;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      padding: 16px 18px;
+      max-width: calc(100% - 32px);
+      width: auto;
     }
     .netmap__overlay-title {
       font-size: clamp(22px, 6vw, 32px);
+      white-space: normal;
     }
   }
 
@@ -3035,7 +3008,7 @@ const partners = [
     gap: 4px;
     padding: 6px;
     border: 1px solid #e6e4de;
-    border-radius: 999px;
+    border-radius: 6px;
     background: #f3f1ec;
   }
 
@@ -3044,7 +3017,7 @@ const partners = [
     border: 0;
     background: transparent;
     padding: 14px 22px;
-    border-radius: 999px;
+    border-radius: 4px;
     font-family: var(--font-mono, var(--font-secondary));
     font-size: 11px;
     font-weight: 600;
@@ -3200,7 +3173,7 @@ const partners = [
   @media (max-width: 1100px) {
     .hp-caps__tabs {
       grid-template-columns: repeat(2, 1fr);
-      border-radius: 20px;
+      border-radius: 6px;
     }
     .hp-caps__card {
       min-height: 0;

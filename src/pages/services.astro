@@ -8,7 +8,8 @@ const competencies = [
   {
     tag: 'Consulting',
     tagSuffix: 'Strategy + Feasibility',
-    title: 'Consulting',
+    title: 'Consulting.',
+    titleSub: 'Strategy before scope.',
     desc: 'Advisory work at the earliest stages of a project — feasibility analysis, regulatory and code review, site assessment, and total-cost-of-ownership modeling. We help owners, agencies, and developers decide whether modular is the right delivery method before a single drawing is issued.',
     desc2: 'Our consultants bring practitioner experience across federal, healthcare, and civil sectors, translating ambiguous program requirements into defensible scopes, schedules, and budgets that downstream teams can execute against.',
     pills: ['Feasibility Studies', 'Code & Compliance', 'TCO Modeling', 'Delivery Planning'],
@@ -18,7 +19,8 @@ const competencies = [
   {
     tag: 'Project Management',
     tagSuffix: 'Integrated Delivery',
-    title: 'Project Management',
+    title: 'Project Management.',
+    titleSub: 'One schedule, one source.',
     desc: 'End-to-end coordination across design, manufacturing, logistics, and installation under a single point of accountability. Every milestone, submittal, and budget line is tracked against a unified critical path — replacing the fragmented handoffs of traditional construction.',
     desc2: 'We orchestrate multi-partner delivery across continents, aligning factories, freight forwarders, and site crews so modules arrive sequenced, inspected, and ready to install.',
     pills: ['Single Point of Contact', 'Critical Path Scheduling', 'Multi-Partner Coordination', 'Owner Reporting'],
@@ -28,7 +30,8 @@ const competencies = [
   {
     tag: 'Development',
     tagSuffix: 'Design + Build',
-    title: 'Development',
+    title: 'Development.',
+    titleSub: 'Designed and built as one package.',
     desc: 'Design-build execution delivered as a single integrated package — architecture, structural engineering, MEP, BIM coordination, and custom module fabrication handled in-house and through our vetted manufacturing partners.',
     desc2: 'From purpose-built healthcare suites to secure DoD compounds, we translate program requirements into manufactured modules engineered to snap into their foundations on the first lift.',
     pills: ['Design-Build', 'BIM Coordination', 'Factory Fabrication', 'On-Site Assembly'],
@@ -38,7 +41,8 @@ const competencies = [
   {
     tag: 'Support & Maintenance',
     tagSuffix: 'Lifecycle Service',
-    title: 'Support & Maintenance',
+    title: 'Support & Maintenance.',
+    titleSub: 'Uptime across the lifecycle.',
     desc: 'Post-occupancy support that protects uptime across the full lifecycle. Scheduled inspections, warranty service, retrofit upgrades, and rapid-response on-site repair keep modules performing for decades after initial deployment.',
     desc2: 'For mission-critical facilities — military, medical, civic — we maintain documented service records and staged spare-parts logistics, deployable anywhere in our operating footprint.',
     pills: ['Preventive Maintenance', 'Warranty Service', 'Retrofits & Upgrades', 'Rapid Response'],
@@ -66,54 +70,66 @@ const protocols = [
     <div class="sv-hero__panel">
       <div class="mnc-container sv-hero__inner">
         <div class="sv-hero__content">
-          <h1 class="sv-hero__h1">Engineering the<br/>Future of Construction.</h1>
+          <h1 class="sv-hero__h1">Engineering the Future<br/><span class="sv-hero__h1-sub">of Construction.</span></h1>
           <p class="sv-hero__sub">Multipurpose modular construction services — from consulting and design-build to procurement, installation, and emergency deployment.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════ OUR PROCESS ════════ -->
-  <section class="sv-advantage" id="our-process">
+  <!-- ════════ OUR APPROACH ════════ -->
+  <section class="sv-advantage" id="our-approach">
     <div class="mnc-container">
       <div class="sv-sec-head fade-up">
-        <span class="section-tag">Our Process</span>
+        <span class="section-tag">Our Approach</span>
       </div>
       <div class="sv-advantage__top fade-up">
         <h2 class="sv-advantage__title">
-          Design. Fabricate. Deploy. <span class="sv-advantage__span">Repeat.</span>
+          Four services.<br/><span class="sv-advantage__span">One coordinated delivery model.</span>
         </h2>
         <p class="sv-advantage__desc">
-          Modular construction replaces the chaos of traditional job sites with factory-precision manufacturing. Complete building sections are engineered and assembled in controlled environments — then delivered to site ready to install.
+          Consulting, project management, development, and lifecycle support all run through a single integrated framework — one team, one schedule, and one point of accountability from the first feasibility call through long-term service.
         </p>
       </div>
 
       <div class="sv-advantage__cards">
         <div class="sv-advantage__card">
-          <img src="/images/showcase/west-blvd-render.jpg" alt="Precision engineering" class="sv-advantage__card-img" loading="lazy" />
-          <div class="sv-advantage__card-overlay"></div>
-          <div class="sv-advantage__card-body">
+          <div class="sv-advantage__card-media">
             <span class="sv-advantage__card-num">01</span>
-            <h3 class="sv-advantage__card-title">Precision Engineering</h3>
-            <p class="sv-advantage__card-desc">Advanced BIM coordination and structural analysis — designed for factory fabrication and rapid on-site assembly.</p>
+            <img src="/images/showcase/ri-civil-compound.jpg" alt="Integrated modular compound" class="sv-advantage__card-img" loading="lazy" />
+          </div>
+          <div class="sv-advantage__card-body">
+            <h3 class="sv-advantage__card-title">
+              Single point of accountability.
+              <span class="sv-advantage__card-title-sub">One team across every phase.</span>
+            </h3>
+            <p class="sv-advantage__card-desc">One team carries every decision across consulting, design, fabrication, and installation — no dropped context between firms, no scope gaps between contracts.</p>
           </div>
         </div>
         <div class="sv-advantage__card">
-          <img src="/images/showcase/ri-legacy-about.jpg" alt="Modular fabrication" class="sv-advantage__card-img" loading="lazy" />
-          <div class="sv-advantage__card-overlay"></div>
-          <div class="sv-advantage__card-body">
+          <div class="sv-advantage__card-media">
             <span class="sv-advantage__card-num">02</span>
-            <h3 class="sv-advantage__card-title">Modular Fabrication</h3>
-            <p class="sv-advantage__card-desc">Modules built in controlled factories — up to 60% faster with tighter tolerances and dramatically less waste.</p>
+            <img src="/images/showcase/ri-factory-production.jpg" alt="Factory-grade modular production" class="sv-advantage__card-img" loading="lazy" />
+          </div>
+          <div class="sv-advantage__card-body">
+            <h3 class="sv-advantage__card-title">
+              Factory-grade precision.
+              <span class="sv-advantage__card-title-sub">Tolerances you can measure.</span>
+            </h3>
+            <p class="sv-advantage__card-desc">Every module is engineered for controlled assembly — tighter tolerances, measurable QA, and documented chain-of-custody from factory floor through installation and service.</p>
           </div>
         </div>
         <div class="sv-advantage__card">
-          <img src="/images/showcase/ri-steel-frame-hills.png" alt="Modular structural engineering" class="sv-advantage__card-img" loading="lazy" />
-          <div class="sv-advantage__card-overlay"></div>
-          <div class="sv-advantage__card-body">
+          <div class="sv-advantage__card-media">
             <span class="sv-advantage__card-num">03</span>
-            <h3 class="sv-advantage__card-title">Integrated Logistics</h3>
-            <p class="sv-advantage__card-desc">Finished modules transported and installed on schedule via our global supply chain, anywhere in the world.</p>
+            <img src="/images/showcase/ri-un-ship-logistics.png" alt="Global modular logistics" class="sv-advantage__card-img" loading="lazy" />
+          </div>
+          <div class="sv-advantage__card-body">
+            <h3 class="sv-advantage__card-title">
+              Global delivery network.
+              <span class="sv-advantage__card-title-sub">Three continents, one standard.</span>
+            </h3>
+            <p class="sv-advantage__card-desc">A vetted base of 40+ manufacturing and engineering partners across three continents stages work close to demand — without loosening the standards set upstream.</p>
           </div>
         </div>
       </div>
@@ -139,7 +155,9 @@ const protocols = [
                 <span class="sv-comp__tag">{comp.tag}</span>
                 <span class="sv-comp__tag-suffix">{comp.tagSuffix}</span>
               </div>
-              <h2 class="sv-comp__title">{comp.title}</h2>
+              <h2 class="sv-comp__title">
+                {comp.title}<br/><span class="sv-comp__title-sub">{comp.titleSub}</span>
+              </h2>
               <p class="sv-comp__desc">{comp.desc}</p>
               {comp.desc2 && <p class="sv-comp__desc">{comp.desc2}</p>}
               <div class="sv-comp__pills">
@@ -159,7 +177,7 @@ const protocols = [
       <div class="sv-protocol__left">
         <div class="sv-protocol__text-inner">
           <span class="section-tag">Protocol</span>
-          <h2 class="sv-protocol__title">A Rigid Protocol<br/>for Perfection</h2>
+          <h2 class="sv-protocol__title">A Rigid Protocol.<br/><span class="sv-protocol__title-sub">For Perfection.</span></h2>
           <p class="sv-protocol__sub">
             Every build is held to a 3-phase pre-fabrication audit and strict final QA process.
           </p>
@@ -223,12 +241,12 @@ const protocols = [
   }
 
   .sv-advantage__title {
-    font-family: var(--font-display);
-    font-size: var(--fs-3xl);
-    line-height: 1.1;
-    font-weight: 500;
-    letter-spacing: var(--tracking-tighter);
-    color: var(--ink);
+    font-family: var(--font-secondary);
+    font-size: clamp(30px, 3.6vw, 48px);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #0d1c33;
     margin: 0;
   }
 
@@ -248,17 +266,34 @@ const protocols = [
   .sv-advantage__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 20px;
   }
 
   .sv-advantage__card {
     position: relative;
     overflow: hidden;
-    min-height: 420px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    background: #fff;
+    border: 1px solid var(--line);
     border-radius: var(--radius-xl);
+    transition:
+      transform 0.4s cubic-bezier(.2, .8, .2, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .sv-advantage__card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.12);
+  }
+
+  .sv-advantage__card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--paper-2, #f3f1ec);
   }
 
   .sv-advantage__card-img {
@@ -269,48 +304,57 @@ const protocols = [
     object-fit: cover;
     transition: transform .6s cubic-bezier(.2,.8,.2,1);
   }
+
   .sv-advantage__card:hover .sv-advantage__card-img {
     transform: scale(1.04);
   }
 
-  .sv-advantage__card-overlay {
+  .sv-advantage__card-num {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.2) 55%, rgba(0,0,0,0) 100%);
-    z-index: 1;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.92);
+    padding: 6px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
   }
 
   .sv-advantage__card-body {
-    position: relative;
-    z-index: 2;
-    padding: 28px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .sv-advantage__card-num {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    color: rgba(255,255,255,.7);
-    text-transform: uppercase;
+    padding: 24px 26px 28px;
+    flex: 1;
   }
 
   .sv-advantage__card-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-family: var(--font-secondary);
+    font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--on-ink);
-    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: #0d1c33;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .sv-advantage__card-title-sub {
+    display: block;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
   }
 
   .sv-advantage__card-desc {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: rgba(255,255,255,.7);
+    color: var(--muted);
     margin: 0;
   }
 
@@ -370,6 +414,11 @@ const protocols = [
     text-transform: none;
     letter-spacing: -2px;
     margin-bottom: 20px;
+  }
+
+  .sv-hero__h1-sub {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
   }
 
   .sv-hero__sub {
@@ -491,13 +540,18 @@ const protocols = [
   }
 
   .sv-comp__title {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: var(--tracking-tighter);
-    color: var(--ink);
+    font-family: var(--font-secondary);
+    font-size: clamp(30px, 3.6vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #0d1c33;
     margin: 0 0 18px;
+  }
+
+  .sv-comp__title-sub {
+    color: var(--muted);
+    font-weight: 400;
   }
 
   .sv-comp__desc {
@@ -605,13 +659,18 @@ const protocols = [
   }
 
   .sv-protocol__title {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: var(--tracking-tighter);
+    font-family: var(--font-secondary);
+    font-size: clamp(30px, 3.6vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     color: var(--on-ink);
     margin: 0 0 18px;
+  }
+
+  .sv-protocol__title-sub {
+    color: var(--on-ink-muted);
+    font-weight: 400;
   }
 
   .sv-protocol__sub {
